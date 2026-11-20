@@ -6,9 +6,9 @@
   "type": "module",
   "description": "Beautiful, verifiable drawings for process engineers: P&ID symbols, treatment structures and drafts in the Plotter style.",
   "scripts": {
-    "build": "python3 examples/drawings.py && node scripts/build-legends.mjs && node examples/inlet-works-pid.mjs",
+    "build": "python3 examples/drawings.py && node scripts/build-legends.mjs && node examples/inlet-works-pid.mjs && node scripts/build-family-01.mjs",
     "review": "node scripts/build-review.mjs",
-    "check": "sh scripts/check.sh",
+    "check": "sh scripts/check.sh && node --test tests/family-01.test.mjs",
     "all": "npm run build && npm run check && npm run review"
   }
 }

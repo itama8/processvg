@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" data-plotter="" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 560 440" width="560" height="440" role="img" aria-labelledby="legend-instruments-title" aria-describedby="legend-instruments-desc" style="font-family:Cal Sans, sans-serif;font-optical-sizing:auto;font-synthesis:none;font-variation-settings:'GEOM' 25;font-weight:400">
 <title id="legend-instruments-title">Instruments symbols</title>
-<desc id="legend-instruments-desc">P&amp;ID symbols: Field instrument, Instrument on main panel or HMI, Instrument on local panel, SCADA function (shared display), PLC function, Interlock, Transmitter, locally mounted (IS form).</desc>
+<desc id="legend-instruments-desc">P&amp;ID symbols: Field instrument, MCP, LCP, SCADA function (shared display), PLC function, Interlock, Transmitter, locally mounted (IS form).</desc>
 <style>svg[data-plotter]{color:#171717}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:#ededed}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
 <g data-plotter-role="primary" opacity="1" stroke-dasharray="none">
 <circle cx="104" cy="58" r="21" />
@@ -21,9 +21,9 @@
 <text x="104" y="56.5" text-anchor="middle">FIT</text>
 <text x="104" y="104" text-anchor="middle">Field instrument</text>
 <text x="280" y="52" text-anchor="middle">LIC</text>
-<text x="280" y="104" text-anchor="middle">Instrument on main panel or HMI</text>
+<text x="280" y="104" text-anchor="middle">MCP</text>
 <text x="456" y="63.4" text-anchor="middle">PI</text>
-<text x="456" y="104" text-anchor="middle">Instrument on local panel</text>
+<text x="456" y="104" text-anchor="middle">LCP</text>
 <text x="104" y="152" text-anchor="middle">FI</text>
 <text x="104" y="204" text-anchor="middle">SCADA function (shared display)</text>
 <text x="280" y="163.4" text-anchor="middle">LSH</text>

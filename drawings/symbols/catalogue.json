@@ -31,6 +31,16 @@
      0
     ]
    ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
    "shapes": [
     {
      "d": "M-20 0 L20 0"
@@ -55,6 +65,16 @@
     [
      20,
      0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
     ]
    ],
    "shapes": [
@@ -90,6 +110,16 @@
      0
     ]
    ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
    "shapes": [
     {
      "d": "M-20 0 L20 0",
@@ -119,6 +149,16 @@
     [
      20,
      0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
     ]
    ],
    "shapes": [
@@ -164,6 +204,16 @@
      0
     ]
    ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
    "shapes": [
     {
      "d": "M-20 0 L20 0",
@@ -199,6 +249,18 @@
      10
     ]
    ],
+   "portNames": [
+    "left",
+    "right",
+    "bottom"
+   ],
+   "connectivity": [
+    [
+     0,
+     1,
+     2
+    ]
+   ],
    "shapes": [
     {
      "d": "M-12 0 L12 0 M0 0 L0 10"
@@ -215,13 +277,13 @@
    ]
   },
   {
-   "id": "crossover",
-   "name": "Lines crossing, not connected",
+   "id": "junction-cross",
+   "name": "Four-way junction",
    "category": "Lines",
    "sources": [
     {
-     "std": "IS 3232",
-     "ref": "0304"
+     "std": "Proposed",
+     "ref": "to agree"
     }
    ],
    "ports": [
@@ -242,9 +304,89 @@
      12
     ]
    ],
+   "portNames": [
+    "left",
+    "right",
+    "top",
+    "bottom"
+   ],
+   "connectivity": [
+    [
+     0,
+     1,
+     2,
+     3
+    ]
+   ],
+   "verification": "Proposed",
    "shapes": [
     {
-     "d": "M-12 0 L-4 0 M-4 0 A4 4 0 0 1 4 0 M4 0 L12 0 M0 -12 L0 12"
+     "d": "M-12 0 L12 0 M0 -12 L0 12"
+    },
+    {
+     "c": [
+      0,
+      0,
+      2
+     ],
+     "fill": "solid",
+     "role": "dot"
+    }
+   ]
+  },
+  {
+   "id": "crossover",
+   "name": "Lines crossing, not connected",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0304"
+    },
+    {
+     "std": "Proposed",
+     "ref": "to agree"
+    }
+   ],
+   "ports": [
+    [
+     -12,
+     0
+    ],
+    [
+     12,
+     0
+    ],
+    [
+     0,
+     -12
+    ],
+    [
+     0,
+     12
+    ]
+   ],
+   "portNames": [
+    "left",
+    "right",
+    "top",
+    "bottom"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "verification": "Proposed",
+   "shapes": [
+    {
+     "d": "M-12 0 L-4 0 A4 4 0 0 1 4 0 L12 0 M0 -12 L0 -5.5 M0 -2.5 L0 12",
+     "cap": "butt"
     }
    ]
   },
@@ -268,6 +410,10 @@
      0
     ]
    ],
+   "portNames": [
+    "out"
+   ],
+   "connectivity": [],
    "shapes": [
     {
      "d": "M-18 -5 L-6 -5 L-6 -9 L4 0 L-6 9 L-6 5 L-18 5 Z"
@@ -297,6 +443,10 @@
      0
     ]
    ],
+   "portNames": [
+    "in"
+   ],
+   "connectivity": [],
    "shapes": [
     {
      "d": "M-18 0 L-6 0"
@@ -326,6 +476,10 @@
      0
     ]
    ],
+   "portNames": [
+    "in"
+   ],
+   "connectivity": [],
    "shapes": [
     {
      "d": "M-12 0 L6 0"
@@ -350,6 +504,8 @@
     }
    ],
    "ports": [],
+   "portNames": [],
+   "connectivity": [],
    "shapes": [
     {
      "d": "M-5 -8 L5 -8 L0 -1 Z",
@@ -362,6 +518,230 @@
     {
      "d": "M-6 3 L6 3 M-3 6 L3 6",
      "role": "secondary"
+    }
+   ]
+  },
+  {
+   "id": "fitting-reducer-concentric",
+   "name": "Concentric reducer",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "Proposed",
+     "ref": "to agree"
+    }
+   ],
+   "ports": [
+    [
+     -20,
+     0
+    ],
+    [
+     20,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Proposed",
+   "shapes": [
+    {
+     "d": "M-20 0 L-12 0 M-12 -6 L12 -3 L12 3 L-12 6 Z M12 0 L20 0"
+    }
+   ]
+  },
+  {
+   "id": "fitting-reducer-eccentric",
+   "name": "Eccentric reducer (flat top)",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "Proposed",
+     "ref": "to agree"
+    }
+   ],
+   "ports": [
+    [
+     -20,
+     0
+    ],
+    [
+     20,
+     -3
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Proposed",
+   "flatSide": "top",
+   "shapes": [
+    {
+     "d": "M-20 0 L-12 0 M-12 -6 L12 -6 L12 0 L-12 6 Z M12 -3 L20 -3"
+    }
+   ]
+  },
+  {
+   "id": "fitting-reducer-eccentric-flat-bottom",
+   "name": "Eccentric reducer (flat bottom)",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "Proposed",
+     "ref": "to agree"
+    }
+   ],
+   "ports": [
+    [
+     -20,
+     0
+    ],
+    [
+     20,
+     3
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Proposed",
+   "flatSide": "bottom",
+   "shapes": [
+    {
+     "d": "M-20 0 L-12 0 M-12 -6 L12 0 L12 6 L-12 6 Z M12 3 L20 3"
+    }
+   ]
+  },
+  {
+   "id": "fitting-flanged-joint",
+   "name": "Flanged joint",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "Proposed",
+     "ref": "to agree"
+    }
+   ],
+   "ports": [
+    [
+     -12,
+     0
+    ],
+    [
+     12,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Proposed",
+   "shapes": [
+    {
+     "d": "M-12 0 L12 0 M-2 -6 L-2 6 M2 -6 L2 6"
+    }
+   ]
+  },
+  {
+   "id": "fitting-flexible-coupling",
+   "name": "Flexible coupling",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "Proposed",
+     "ref": "to agree"
+    }
+   ],
+   "ports": [
+    [
+     -16,
+     0
+    ],
+    [
+     16,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Proposed",
+   "shapes": [
+    {
+     "d": "M-16 0 L-8 0 M8 0 L16 0 M-8 -5 L8 -5 L8 5 L-8 5 Z M-4 -5 L-4 5 M4 -5 L4 5"
+    }
+   ]
+  },
+  {
+   "id": "line-break",
+   "name": "Pipe break",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "Proposed",
+     "ref": "to agree"
+    }
+   ],
+   "ports": [
+    [
+     -20,
+     0
+    ],
+    [
+     20,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Proposed",
+   "shapes": [
+    {
+     "d": "M-20 0 L-4 0 M4 0 L20 0 M-7 5 L-3 -5 M3 5 L7 -5"
     }
    ]
   },
@@ -1321,7 +1701,7 @@
   },
   {
    "id": "inst-panel",
-   "name": "Instrument on main panel or HMI",
+   "name": "MCP",
    "category": "Instruments",
    "sources": [
     {
@@ -1374,7 +1754,7 @@
   },
   {
    "id": "inst-local",
-   "name": "Instrument on local panel",
+   "name": "LCP",
    "category": "Instruments",
    "sources": [
     {

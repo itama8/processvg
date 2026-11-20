@@ -14,6 +14,7 @@ const svgs = (f) => f.endsWith(".svg");
 const groups = [
   ["Drawings", path.join(ROOT, "drawings"), svgs],
   ["Symbol library", path.join(ROOT, "drawings/symbols"), (f) => f.startsWith("legend-") && svgs(f)],
+  ["Family 01 regression gallery", path.join(OUT, "family-01"), svgs],
   // Client-derived drawings live in private/, which git ignores; they appear here when present.
   ["Private, not committed", path.join(ROOT, "private"), svgs],
 ].filter(([, dir]) => existsSync(dir) && readdirSync(dir).some(svgs));
@@ -29,7 +30,7 @@ function inline(svg, prefix) {
     const re = new RegExp(`(id="|url\\(#|aria-labelledby="|aria-describedby="|href="#)${id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?=["\\)])`, "g");
     out = out.replace(re, `$1${prefix}-${id}`);
   }
-  return out.replace("<svg ", '<svg data-host-ink="" ');
+  return /<svg [^>]*\bdata-host-ink=/.test(out) ? out : out.replace("<svg ", '<svg data-host-ink="" ');
 }
 
 let n = 0;

@@ -3,14 +3,15 @@
 Beautiful drawings for process engineers. P&IDs, process flow diagrams, sections and
 layouts of water and wastewater treatment plants, drawn as clean, editable SVG in the
 [Plotter](https://github.com/pasqualevitiello/plotter) style: one ink, one-unit strokes,
-opacity for hierarchy, and every symbol traceable to a standard.
+opacity for hierarchy, and per-symbol source and review status.
 
 ## What is here
 
 | Path | What |
 |---|---|
 | `src/library.mjs` | The symbol library: lines, valves (open and closed), actuators, channel gates, instruments, primary elements, pumps and blowers, screening and grit. Each symbol has ports, states and its sources. |
-| `src/render.mjs` | Shapes to SVG in Plotter roles, with theme-aware ink. |
+| `src/render.mjs` | Shapes to SVG in Plotter roles, with screen and print profiles. |
+| `docs/family-01.md` | Family 01 ports, routed line patterns, off-sheet connectors, elevation annotations, and the review gallery. |
 | `docs/structures.md` | What each treatment structure symbol must show (SBR, MBBR, tube settler, clarifier, grit chambers, …): the test drafts are judged against. |
 | `docs/sources.md` | IS 3232, ISA-5.1, the Brown and Caldwell reference set, CPHEEO, Metcalf & Eddy, and utility standards. |
 | `examples/` | Drafts built from the library: an inlet-works P&ID and an SBR basin section. |
@@ -26,16 +27,16 @@ opacity for hierarchy, and every symbol traceable to a standard.
   function.
 - Treatment structures are drawn as open-top sections: walls and floor at full ink, water
   level and internals faint, ports on the outline.
-- **Every drawing follows the reader's theme**: dark ink on light, light ink on dark, through
+- **Screen drawings follow the reader's theme by default**: dark ink on light, light ink on dark, through
   `prefers-color-scheme`. A host page can set the ink itself with `data-host-ink` on the svg.
-  Strokes stay one pixel at any display size.
+  Strokes stay one pixel at any display size. The SVG print profile uses black ink on white paper.
 
 ## Use
 
 ```sh
 npm run build    # regenerate drawings/ from src/ and examples/
-npm run check    # Plotter's checker on every drawing
-npm run review   # review/index.html: every drawing at native size, white or parchment
+npm run check    # Plotter checks and Family 01 geometry/semantics
+npm run review   # review/index.html: drawings and the Family 01 gallery
 ```
 
 Needs Node 20+ and Python 3. Rendering PNGs uses `python3 vendor/plotter/scripts/render.py`

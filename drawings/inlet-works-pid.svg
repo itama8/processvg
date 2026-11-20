@@ -56,15 +56,15 @@
 </g>
 <g data-plotter-role="secondary" opacity="0.32" stroke-dasharray="none">
 <circle cx="254.59" cy="144.51" r="0.74" />
-<path d="M166 220 L183.5 220" />
+<path d="M166 220 L183.5 220" stroke-dasharray="3 2" />
 <path d="M183.5 210 L188.5 210 L188.5 230 L183.5 230 Z" fill="currentColor" />
-<path d="M188.5 220 L200 220" />
+<path d="M188.5 220 L200 220" stroke-dasharray="3 2" />
 <path d="M200 211 L340 211 L340 229 L200 229 Z" />
 <path d="M245.54 227.07 L253.22 213.74 M248.26 228.62 L255.95 215.29 M253.22 213.74 A1.57 1.57 0 0 1 255.95 215.29 M248.26 228.62 A1.57 1.57 0 0 1 245.54 227.07" />
 <circle cx="254.59" cy="214.51" r="0.74" />
-<path d="M340 220 L354.5 220" />
+<path d="M340 220 L354.5 220" stroke-dasharray="3 2" />
 <path d="M354.5 210 L359.5 210 L359.5 230 L354.5 230 Z" fill="currentColor" />
-<path d="M359.5 220 L370 220" />
+<path d="M359.5 220 L370 220" stroke-dasharray="3 2" />
 <circle cx="254.59" cy="284.51" r="0.74" />
 <path d="M219 130 A7 7 0 0 0 229 130 M217 134 A10 10 0 0 0 231 134" />
 <path d="M271 130 A7 7 0 0 0 281 130 M269 134 A10 10 0 0 0 283 134" />
@@ -115,6 +115,6 @@
 <text x="224" y="364" text-anchor="middle">3</text>
 <text x="276" y="364" text-anchor="middle">4</text>
 <text x="332" y="366" text-anchor="middle">2</text>
-<text x="280" y="418" text-anchor="middle">Filled gates are closed · DLT is computed from the two LITs</text>
+<text x="280" y="418" text-anchor="middle">Dashed process line = standby · DLT is computed from the two LITs</text>
 </g>
 </svg>

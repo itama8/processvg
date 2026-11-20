@@ -12,6 +12,10 @@ const OUT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "../dr
 const shapes = [];
 const put = (id, at, opts = {}) => shapes.push(...place(byId[id].draw(opts), at));
 const ln = (role, ...p) => shapes.push({ d: "M" + p.map(([x, y]) => `${x} ${y}`).join(" L"), role });
+const channelLine = (duty, from, to) => {
+  ln(duty ? "primary" : "secondary", from, to);
+  if (!duty) shapes.at(-1).dash = "3 2";
+};
 const label = (x, y, s, value = false) => shapes.push({ t: [x, y, s], value });
 
 const rows = { m1: 150, man: 220, m2: 290 };
@@ -35,14 +39,14 @@ shapes.push({ c: [busIn, 220, 2], fill: "solid", role: "dot" });
 for (const [key, y] of Object.entries(rows)) {
   const duty = key !== "man";
   const role = duty ? "primary" : "secondary";
-  ln(role, [busIn, y], [183.5, y]);
+  channelLine(duty, [busIn, y], [183.5, y]);
   shapes.push(...place(byId["gate-slide"].draw({ closed: !duty }), { x: 186, y }).map((s) => ({ ...s, role })));
-  ln(role, [188.5, y], [chX0, y]);
+  channelLine(duty, [188.5, y], [chX0, y]);
   shapes.push({ d: `M${chX0} ${y - 9} L${chX1} ${y - 9} L${chX1} ${y + 9} L${chX0} ${y + 9} Z`, role });
   shapes.push(...place(byId["screen-bar"].draw({}), { x: screenX, y, s: 0.62 }).map((s) => ({ ...s, role: s.role ?? role })));
-  ln(role, [chX1, y], [354.5, y]);
+  channelLine(duty, [chX1, y], [354.5, y]);
   shapes.push(...place(byId["gate-slide"].draw({ closed: !duty }), { x: 357, y }).map((s) => ({ ...s, role })));
-  ln(role, [359.5, y], [busOut, y]);
+  channelLine(duty, [359.5, y], [busOut, y]);
 }
 
 // Each duty screen: a level transmitter each side (LIT), and the difference computed in
@@ -79,7 +83,7 @@ shapes.push({ c: [busGrit, 220, 2], fill: "solid", role: "dot" });
 put("outflow", { x: busGrit + 18, y: 220 });
 label(busGrit + 18, 244, "To SBR");
 label(34, 244, "Raw sewage");
-label(280, 418, "Filled gates are closed · DLT is computed from the two LITs", true);
+label(280, 418, "Dashed process line = standby · DLT is computed from the two LITs", true);
 
 writeFileSync(path.join(OUT, "inlet-works-pid.svg"), svgDoc(
   "inlet-works-pid", "Fine screening, duty and standby",

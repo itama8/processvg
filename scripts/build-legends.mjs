@@ -50,6 +50,10 @@ const catalogue = {
   symbols: SYMBOLS.map((s) => ({
     id: s.id, name: s.name, category: s.cat, sources: s.src, states: s.states ? ["open", "closed"] : undefined, tagged: s.tag || undefined,
     ports: s.ports,
+    portNames: s.portNames,
+    connectivity: s.connectivity,
+    verification: s.verification,
+    flatSide: s.flatSide,
     shapes: s.states ? { open: s.draw({ closed: false }), closed: s.draw({ closed: true }) } : s.draw({}),
   })),
   serviceCodes: SERVICE_CODES,

@@ -23,3 +23,10 @@ Utility P&ID standards read for conventions (tagging, legends, line codes):
 - Water Corporation (WA), DS 81 *Process Engineering Design Standard*.
 
 The symbols are redrawn in the Plotter style from these conventions; no drawing files are copied.
+
+## Family 01 project references
+
+- City of Sandpoint lift station replacements, Keller Associates, sheet EI-002 (PDF page 132). The project legend distinguishes connected and non-connecting lines, flange and blind flange, and flat-side-up and flat-side-down eccentric unions. Its piping specification break has a different meaning from the Family 01 omitted-length pipe break. [Drawing set](https://mccmeetingspublic.blob.core.usgovcloudapi.net/sndpointid-meet-b83a1ad7256d4daa98746a21ca1bfefd/ITEM-Attachment-001-95004caaaae84417a6e6ba9084a40bb7.pdf#page=132)
+- Johannesburg Water Northern WWTW, JW14060R-CI-002, Legend Sheet 2 (PDF page 48). The project legend shows concentric and eccentric reducers and distinguishes a short sleeve for flexible coupling from expansion joint and flexible hose. [Drawing set](https://scm.johannesburgwater.co.za/wp-content/uploads/2026/06/03-DRAWING-SET-JW14060RRR-NORTHERN-WASTEWATER-TREATMENT-WORKS-DEWATERING-BUILDING-BELT-PRESS-REPLACEMENT_.pdf#page=48)
+
+These project legends informed the visual review. The Family 01 candidates retain the `Proposed` status pending engineering review and acceptance against the governing project legend. The catalogue retains the existing IS 3232, ISA-5.1 and Pahala citations as originally declared.

@@ -43,35 +43,69 @@ const actuators = {
   diaphragm: () => [S(line([0, 0], [0, -10])), S(arc(-7, -10, 7, 7, -10, 0, 1) + " Z")],
 };
 
+const THROUGH = [[0, 1]];
+const ENDS = ["in", "out"];
+const CROSS_PORTS = [[-12, 0], [12, 0], [0, -12], [0, 12]];
+const CROSS_NAMES = ["left", "right", "top", "bottom"];
+
+export function crossover({ radius = 4, clearance = 1.5 } = {}) {
+  if (!Number.isFinite(radius) || !Number.isFinite(clearance) ||
+      radius <= 0 || clearance <= 0 || radius + clearance >= 12) {
+    throw new RangeError("Crossover requires positive radius and clearance with a sum below 12");
+  }
+  return [S(`M-12 0 L${-radius} 0 A${radius} ${radius} 0 0 1 ${radius} 0 L12 0 M0 -12 L0 ${-radius - clearance} M0 ${-radius + clearance} L0 12`,
+    { cap: "butt" })];
+}
+
+function fitting(id, name, d, ports, flatSide) {
+  return { id, name, cat: "Lines", src: [PROPOSED], draw: () => [S(d)], ports,
+    portNames: ENDS, connectivity: THROUGH, verification: "Proposed", flatSide };
+}
+
 export const SYMBOLS = [
   // Lines and connectors -----------------------------------------------------------------
   { id: "line-process", name: "Process line", cat: "Lines", src: [IS("0314"), BC("P-002")], w: 40,
-    draw: () => [S(line([-20, 0], [20, 0]))], ports: [[-20, 0], [20, 0]] },
+    draw: () => [S(line([-20, 0], [20, 0]))], ports: [[-20, 0], [20, 0]], portNames: ENDS, connectivity: THROUGH },
   { id: "line-flow", name: "Flow direction", cat: "Lines", src: [IS("0305")], w: 40,
-    draw: () => [S(line([-20, 0], [20, 0])), S(line([14, -4], [20, 0], [14, 4]))], ports: [[-20, 0], [20, 0]] },
+    draw: () => [S(line([-20, 0], [20, 0])), S(line([14, -4], [20, 0], [14, 4]))], ports: [[-20, 0], [20, 0]], portNames: ENDS, connectivity: THROUGH },
   { id: "line-electric", name: "Electric signal", cat: "Lines", src: [IS("0602"), ISA("")], w: 40,
-    draw: () => [S(line([-20, 0], [20, 0]), { role: "signal" })], ports: [[-20, 0], [20, 0]] },
+    draw: () => [S(line([-20, 0], [20, 0]), { role: "signal" })], ports: [[-20, 0], [20, 0]], portNames: ENDS, connectivity: THROUGH },
   { id: "line-data", name: "Data link (SCADA)", cat: "Lines", src: [IS("0606"), ISA("")], w: 40,
     draw: () => [S(line([-20, 0], [-10, 0]) + " " + line([-6, 0], [6, 0]) + " " + line([10, 0], [20, 0]), { role: "secondary" }),
-      C(-8, 0, 2, { role: "secondary" }), C(8, 0, 2, { role: "secondary" })], ports: [[-20, 0], [20, 0]] },
+      C(-8, 0, 2, { role: "secondary" }), C(8, 0, 2, { role: "secondary" })], ports: [[-20, 0], [20, 0]], portNames: ENDS, connectivity: THROUGH },
   { id: "line-pneumatic", name: "Instrument air signal", cat: "Lines", src: [IS("0601")], w: 40,
     draw: () => [S(line([-20, 0], [20, 0]), { role: "secondary" }),
       S(line([-9, 4], [-5, -4]) + " " + line([-5, 4], [-1, -4]) + " " + line([5, 4], [9, -4]) + " " + line([9, 4], [13, -4]), { role: "secondary" })],
-    ports: [[-20, 0], [20, 0]] },
+    ports: [[-20, 0], [20, 0]], portNames: ENDS, connectivity: THROUGH },
   { id: "junction", name: "Connected junction", cat: "Lines", src: [IS("0303")], w: 24,
-    draw: () => [S(line([-12, 0], [12, 0]) + " " + line([0, 0], [0, 10])), C(0, 0, 2, { fill: "solid", role: "dot" })], ports: [[-12, 0], [12, 0], [0, 10]] },
-  { id: "crossover", name: "Lines crossing, not connected", cat: "Lines", src: [IS("0304")], w: 24,
-    draw: () => [S(line([-12, 0], [-4, 0]) + " " + arc(-4, 0, 4, 4, 0, 0, 1) + " " + line([4, 0], [12, 0]) + " " + line([0, -12], [0, 12]))],
-    ports: [[-12, 0], [12, 0], [0, -12], [0, 12]] },
+    draw: () => [S(line([-12, 0], [12, 0]) + " " + line([0, 0], [0, 10])), C(0, 0, 2, { fill: "solid", role: "dot" })], ports: [[-12, 0], [12, 0], [0, 10]], portNames: ["left", "right", "bottom"], connectivity: [[0, 1, 2]] },
+  { id: "junction-cross", name: "Four-way junction", cat: "Lines", src: [PROPOSED], w: 24,
+    draw: () => [S("M-12 0 L12 0 M0 -12 L0 12"), C(0, 0, 2, { fill: "solid", role: "dot" })],
+    ports: CROSS_PORTS, portNames: CROSS_NAMES, connectivity: [[0, 1, 2, 3]], verification: "Proposed" },
+  { id: "crossover", name: "Lines crossing, not connected", cat: "Lines", src: [IS("0304"), PROPOSED], w: 24,
+    draw: crossover, ports: CROSS_PORTS, portNames: CROSS_NAMES, connectivity: [[0, 1], [2, 3]], verification: "Proposed" },
   { id: "inflow", name: "Inflow from another sheet", cat: "Lines", src: [IS("0301"), BC("P-101")], w: 36,
-    draw: () => [S(poly([-18, -5], [-6, -5], [-6, -9], [4, 0], [-6, 9], [-6, 5], [-18, 5])), S(line([4, 0], [18, 0]))], ports: [[18, 0]] },
+    draw: () => [S(poly([-18, -5], [-6, -5], [-6, -9], [4, 0], [-6, 9], [-6, 5], [-18, 5])), S(line([4, 0], [18, 0]))], ports: [[18, 0]], portNames: ["out"], connectivity: [] },
   { id: "outflow", name: "Outflow to another sheet", cat: "Lines", src: [IS("0302"), BC("P-101")], w: 36,
-    draw: () => [S(line([-18, 0], [-6, 0])), S(poly([-6, -5], [6, -5], [6, -9], [16, 0], [6, 9], [6, 5], [-6, 5]))], ports: [[-18, 0]] },
+    draw: () => [S(line([-18, 0], [-6, 0])), S(poly([-6, -5], [6, -5], [6, -9], [16, 0], [6, 9], [6, 5], [-6, 5]))], ports: [[-18, 0]], portNames: ["in"], connectivity: [] },
   { id: "dead-end", name: "Dead end, blind flange", cat: "Lines", src: [IS("0307"), BC("P-003")], w: 24,
-    draw: () => [S(line([-12, 0], [6, 0])), S(line([6, -6], [6, 6]) + " " + line([9, -6], [9, 6]))], ports: [[-12, 0]] },
+    draw: () => [S(line([-12, 0], [6, 0])), S(line([6, -6], [6, 6]) + " " + line([9, -6], [9, 6]))], ports: [[-12, 0]], portNames: ["in"], connectivity: [] },
   { id: "water-level", name: "Water level", cat: "Lines", src: [BC("C-001"), BC("P-101")], w: 24,
     draw: () => [S(poly([-5, -8], [5, -8], [0, -1]), { role: "secondary" }), S(line([-10, 0], [10, 0]), { role: "secondary" }),
-      S(line([-6, 3], [6, 3]) + " " + line([-3, 6], [3, 6]), { role: "secondary" })], ports: [] },
+      S(line([-6, 3], [6, 3]) + " " + line([-3, 6], [3, 6]), { role: "secondary" })], ports: [], portNames: [], connectivity: [] },
+
+  fitting("fitting-reducer-concentric", "Concentric reducer",
+    "M-20 0 L-12 0 M-12 -6 L12 -3 L12 3 L-12 6 Z M12 0 L20 0", [[-20, 0], [20, 0]]),
+  fitting("fitting-reducer-eccentric", "Eccentric reducer (flat top)",
+    "M-20 0 L-12 0 M-12 -6 L12 -6 L12 0 L-12 6 Z M12 -3 L20 -3", [[-20, 0], [20, -3]], "top"),
+  fitting("fitting-reducer-eccentric-flat-bottom", "Eccentric reducer (flat bottom)",
+    "M-20 0 L-12 0 M-12 -6 L12 0 L12 6 L-12 6 Z M12 3 L20 3", [[-20, 0], [20, 3]], "bottom"),
+  fitting("fitting-flanged-joint", "Flanged joint",
+    "M-12 0 L12 0 M-2 -6 L-2 6 M2 -6 L2 6", [[-12, 0], [12, 0]]),
+  fitting("fitting-flexible-coupling", "Flexible coupling",
+    "M-16 0 L-8 0 M8 0 L16 0 M-8 -5 L8 -5 L8 5 L-8 5 Z M-4 -5 L-4 5 M4 -5 L4 5", [[-16, 0], [16, 0]]),
+  fitting("line-break", "Pipe break",
+    "M-20 0 L-4 0 M4 0 L20 0 M-7 5 L-3 -5 M3 5 L7 -5", [[-20, 0], [20, 0]]),
 
   // Valves ---------------------------------------------------------------------------------
   { id: "valve-gate", name: "Gate valve", cat: "Valves", src: [IS("0401"), BC("P-002")], states: true,
@@ -132,9 +166,9 @@ export const SYMBOLS = [
   // Instruments ------------------------------------------------------------------------------
   { id: "inst-field", name: "Field instrument", cat: "Instruments", src: [IS("0607"), ISA("")], tag: true,
     draw: ({ tag = ["FIT", "101"] }) => [C(0, 0, 14), T(0, -1, tag[0]), T(0, 10, tag[1], { value: true })], ports: [[0, 14], [0, -14]] },
-  { id: "inst-panel", name: "Instrument on main panel or HMI", cat: "Instruments", src: [IS("0608"), ISA("")], tag: true,
+  { id: "inst-panel", name: "MCP", cat: "Instruments", src: [IS("0608"), ISA("")], tag: true,
     draw: ({ tag = ["LIC", "102"] }) => [C(0, 0, 16), S(line([-16, 0], [16, 0])), T(0, -4, tag[0]), T(0, 12, tag[1], { value: true })], ports: [[0, 16], [0, -16]] },
-  { id: "inst-local", name: "Instrument on local panel", cat: "Instruments", src: [IS("0609"), ISA("")], tag: true,
+  { id: "inst-local", name: "LCP", cat: "Instruments", src: [IS("0609"), ISA("")], tag: true,
     draw: ({ tag = ["PI", "103"] }) => [C(0, 0, 14), S(line([-13.2, -4.5], [13.2, -4.5]) + " " + line([-13.2, 4.5], [13.2, 4.5])), T(0, 3.6, tag[0])],
     ports: [[0, 14], [0, -14]] },
   { id: "inst-scada", name: "SCADA function (shared display)", cat: "Instruments", src: [IS("0614"), ISA(""), BC("P-002")], tag: true,
@@ -218,19 +252,28 @@ export const SERVICE_CODES = {
 };
 
 // Geometry transform: place a symbol's shapes at (x, y), scale s, quarter turns q (clockwise).
+export function placePoint([px, py], { x = 0, y = 0, s = 1, q = 0 } = {}) {
+  let [u, v] = [px * s, py * s];
+  for (let i = 0; i < ((q % 4) + 4) % 4; i++) [u, v] = [-v, u];
+  return [x + u, y + v];
+}
+
+const round = (value) => Math.round(value * 100) / 100;
+
 export function place(shapes, { x = 0, y = 0, s = 1, q = 0 } = {}) {
-  const turn = ([px, py]) => {
-    let [u, v] = [px * s, py * s];
-    for (let i = 0; i < ((q % 4) + 4) % 4; i++) [u, v] = [-v, u];
-    return [x + u, y + v];
-  };
-  const fmt = (v) => (Math.round(v * 100) / 100).toString();
+  const turn = (point) => placePoint(point, { x, y, s, q });
+  const fmt = (value) => String(round(value));
+  const number = String.raw`(-?(?:\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?)`;
+  const endpoints = new RegExp(`([ML])\\s*${number}\\s+${number}`, "gi");
+  const arcs = new RegExp(`A${number} ${number} 0 ([01]) ([01]) ${number} ${number}`, "gi");
   const mapPath = (d) =>
-    d.replace(/([ML])\s*(-?[\d.]+)\s+(-?[\d.]+)/g, (_, c, a, b) => { const [u, v] = turn([+a, +b]); return `${c}${fmt(u)} ${fmt(v)}`; })
-      .replace(/A(-?[\d.]+) (-?[\d.]+) 0 ([01]) ([01]) (-?[\d.]+) (-?[\d.]+)/g, (_, rx, ry, l, sw, a, b) => {
-        const [u, v] = turn([+a, +b]);
-        return `A${fmt(rx * s)} ${fmt(ry * s)} 0 ${l} ${sw} ${fmt(u)} ${fmt(v)}`;
-      });
+    d.replace(endpoints, (_, c, a, b) => {
+      const [u, v] = turn([+a, +b]);
+      return `${c}${fmt(u)} ${fmt(v)}`;
+    }).replace(arcs, (_, rx, ry, l, sw, a, b) => {
+      const [u, v] = turn([+a, +b]);
+      return `A${fmt(rx * s)} ${fmt(ry * s)} 0 ${l} ${sw} ${fmt(u)} ${fmt(v)}`;
+    });
   return shapes.map((sh) => {
     if (sh.d) return { ...sh, d: mapPath(sh.d) };
     if (sh.c) { const [u, v] = turn([sh.c[0], sh.c[1]]); return { ...sh, c: [u, v, sh.c[2] * s] }; }
@@ -240,3 +283,32 @@ export function place(shapes, { x = 0, y = 0, s = 1, q = 0 } = {}) {
 }
 
 export const byId = Object.fromEntries(SYMBOLS.map((s) => [s.id, s]));
+
+/** Place a library symbol and its ports in the same drawing coordinate system. */
+export function placeSymbol(id, at = {}, options = {}) {
+  const symbol = byId[id];
+  if (!Object.hasOwn(byId, id)) throw new RangeError(`Unknown symbol: ${id}`);
+  const q = ((at.q ?? 0) % 4 + 4) % 4;
+  let drawOptions = options;
+  if (id === "crossover") {
+    const projectedScale = (at.s ?? 1) * (options.renderScale ?? 1);
+    if (!Number.isFinite(projectedScale) || projectedScale <= 0) throw new RangeError("Invalid crossover render scale");
+    if (projectedScale < 1) {
+      // Leave 1.5 CSS pixels beside a half-pixel bridge stroke on compact placements.
+      drawOptions = { ...options, clearance: Math.max(options.clearance ?? 1.5, 2 / projectedScale) };
+    }
+  }
+  return {
+    shapes: place(symbol.draw(drawOptions), at),
+    ports: symbol.ports.map((point) => placePoint(point, at).map(round)),
+    portNames: symbol.portNames,
+    connectivity: symbol.connectivity,
+    metadata: {
+      ...options, id, orientation: q * 90, verification: symbol.verification,
+      ...(symbol.flatSide && {
+        flatSide: symbol.flatSide,
+        drawingFlatSide: ["top", "right", "bottom", "left"][(q + (symbol.flatSide === "top" ? 0 : 2)) % 4],
+      }),
+    },
+  };
+}
