@@ -15,6 +15,9 @@
 
 import { place, placePoint, round } from "./geometry.mjs";
 import { assembleValve, VALVES } from "./valves.mjs";
+import { OPERATORS, drawPresetHead, placeOperator } from "./actuators.mjs";
+
+export { composeActuator, placeOperator } from "./actuators.mjs";
 
 export { place, placePoint };
 
@@ -40,13 +43,13 @@ const T = (x, y, text, extra = {}) => ({ t: [x, y, text], ...extra });
 const bowtie = (closed) => S(poly([-8, -5], [8, 5], [8, -5], [-8, 5]), closed ? { fill: "solid" } : {});
 const VALVE_PORTS = [[-8, 0], [8, 0]];
 
-// Actuators sit on a stem rising from the valve centre to y = -10.
-const actuators = {
-  hand: () => [S(line([0, 0], [0, -10])), S(line([-5, -10], [5, -10]))],
-  motor: () => [S(line([0, 0], [0, -9])), C(0, -16, 7), T(0, -12.4, "M")],
-  solenoid: () => [S(line([0, 0], [0, -8])), S(rect(-6, -20, 12, 12)), T(0, -10.4, "S")],
-  diaphragm: () => [S(line([0, 0], [0, -10])), S(arc(-7, -10, 7, 7, -10, 0, 1) + " Z")],
-};
+function legacyActuator(id, name, src, type, extras = {}) {
+  return { id, name, cat: "Actuators", src, ports: VALVE_PORTS,
+    verification: "Exact geometry not standards-verified",
+    assemblyPreset: { bodyId: "valve-gate", actuator: { type }, ...extras },
+    draw: () => [bowtie(false), ...drawPresetHead(type)],
+  };
+}
 
 const THROUGH = [[0, 1]];
 const ENDS = ["in", "out"];
@@ -113,18 +116,13 @@ export const SYMBOLS = [
     "M-20 0 L-4 0 M4 0 L20 0 M-7 5 L-3 -5 M3 5 L7 -5", [[-20, 0], [20, 0]]),
 
   ...VALVES,
-  { id: "valve-control", name: "Control valve, modulating", cat: "Actuators", src: [IS("0414"), BC("P-002")],
-    draw: () => [bowtie(false), ...actuators.diaphragm()], ports: VALVE_PORTS },
-
-  // Actuators --------------------------------------------------------------------------------
-  { id: "act-hand", name: "Manual operator", cat: "Actuators", src: [BC("P-002")],
-    draw: () => [bowtie(false), ...actuators.hand()], ports: VALVE_PORTS },
-  { id: "act-motor", name: "Motor-operated valve (MOV)", cat: "Actuators", src: [IS("§06 legend"), BC("P-002")],
-    draw: () => [bowtie(false), ...actuators.motor()], ports: VALVE_PORTS },
-  { id: "act-solenoid", name: "Solenoid-operated valve (SOV)", cat: "Actuators", src: [IS("0408"), BC("P-002")],
-    draw: () => [bowtie(false), ...actuators.solenoid()], ports: VALVE_PORTS },
-  { id: "act-diaphragm", name: "Diaphragm actuator", cat: "Actuators", src: [IS("0414"), BC("P-002")],
-    draw: () => [bowtie(false), ...actuators.diaphragm()], ports: VALVE_PORTS },
+  legacyActuator("valve-control", "Control valve, modulating", [IS("0414"), BC("P-002")], "diaphragm",
+    { valveFunction: "modulating" }),
+  legacyActuator("act-hand", "Manual operator", [BC("P-002")], "hand"),
+  legacyActuator("act-motor", "Motor-operated valve (MOV)", [IS("§06 legend"), BC("P-002")], "motor"),
+  legacyActuator("act-solenoid", "Solenoid-operated valve (SOV)", [IS("0408"), BC("P-002")], "solenoid"),
+  legacyActuator("act-diaphragm", "Diaphragm actuator", [IS("0414"), BC("P-002")], "diaphragm"),
+  ...OPERATORS,
 
   // Channel gates (penstocks) ----------------------------------------------------------------
   { id: "gate-slide", name: "Slide gate (penstock)", cat: "Gates", src: [BC("P-002, P-003")], states: true,
@@ -232,7 +230,7 @@ export const byId = Object.fromEntries(SYMBOLS.map((s) => [s.id, s]));
 
 /** Compose a valve body, optional operator, pipe ends and state annotations. */
 export function composeValve(config, at = {}, display = {}) {
-  return assembleValve(byId, actuators, config, at, display);
+  return assembleValve(byId, config, at, display);
 }
 
 /** Live state rendering shares the same placement, with an independent ink profile in render(). */
@@ -244,10 +242,11 @@ export function placeOperatingValve(config, at = {}, display = {}) {
 export function placeSymbol(id, at = {}, options = {}) {
   const symbol = byId[id];
   if (!Object.hasOwn(byId, id)) throw new RangeError(`Unknown symbol: ${id}`);
-  if (symbol.valve) {
-    const { renderScale, closed, ...config } = options;
-    return assembleValve(byId, actuators, { ...config, bodyId: id }, at,
-      { renderScale, legacyClosed: closed, quietUnspecified: !Object.hasOwn(config, "normalPosition") });
+  if (symbol.operator || symbol.modifier) return placeOperator(id, at, options);
+  if (symbol.valve || symbol.assemblyPreset) {
+    const { renderScale, measureText, closed, ...config } = options;
+    return assembleValve(byId, { ...config, bodyId: id }, at,
+      { renderScale, measureText, legacyClosed: closed, quietUnspecified: !Object.hasOwn(config, "normalPosition") });
   }
   const q = ((at.q ?? 0) % 4 + 4) % 4;
   let drawOptions = options;

@@ -800,7 +800,8 @@
      "normal": [
       0,
       -1
-     ]
+     ],
+     "clearance": 5
     },
     "terminals": [
      {
@@ -899,7 +900,8 @@
      "normal": [
       0,
       -1
-     ]
+     ],
+     "clearance": 1.5
     },
     "minFillScale": 1.25,
     "terminals": [
@@ -1035,7 +1037,8 @@
      "normal": [
       0,
       -1
-     ]
+     ],
+     "clearance": 0.4
     },
     "minFillScale": 1.25,
     "terminals": [
@@ -1285,7 +1288,8 @@
      "normal": [
       0,
       -1
-     ]
+     ],
+     "clearance": 4.7
     },
     "ports": [
      [
@@ -1719,7 +1723,8 @@
      "normal": [
       0,
       -1
-     ]
+     ],
+     "clearance": 5
     },
     "terminals": [
      {
@@ -1810,7 +1815,8 @@
      "normal": [
       0,
       -1
-     ]
+     ],
+     "clearance": 5
     },
     "terminals": [
      {
@@ -2685,7 +2691,7 @@
     "preset": {
      "bodyId": "valve-gate",
      "actuator": {
-      "type": "float"
+      "headId": "operator-float"
      }
     },
     "bounds": [
@@ -2702,7 +2708,8 @@
      "normal": [
       0,
       -1
-     ]
+     ],
+     "clearance": 5
     },
     "terminals": [
      {
@@ -2797,6 +2804,14 @@
      0
     ]
    ],
+   "verification": "Exact geometry not standards-verified",
+   "assemblyPreset": {
+    "bodyId": "valve-gate",
+    "actuator": {
+     "type": "diaphragm"
+    },
+    "valveFunction": "modulating"
+   },
    "shapes": [
     {
      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
@@ -2829,6 +2844,13 @@
      0
     ]
    ],
+   "verification": "Exact geometry not standards-verified",
+   "assemblyPreset": {
+    "bodyId": "valve-gate",
+    "actuator": {
+     "type": "hand"
+    }
+   },
    "shapes": [
     {
      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
@@ -2865,6 +2887,13 @@
      0
     ]
    ],
+   "verification": "Exact geometry not standards-verified",
+   "assemblyPreset": {
+    "bodyId": "valve-gate",
+    "actuator": {
+     "type": "motor"
+    }
+   },
    "shapes": [
     {
      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
@@ -2912,6 +2941,13 @@
      0
     ]
    ],
+   "verification": "Exact geometry not standards-verified",
+   "assemblyPreset": {
+    "bodyId": "valve-gate",
+    "actuator": {
+     "type": "solenoid"
+    }
+   },
    "shapes": [
     {
      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
@@ -2955,6 +2991,13 @@
      0
     ]
    ],
+   "verification": "Exact geometry not standards-verified",
+   "assemblyPreset": {
+    "bodyId": "valve-gate",
+    "actuator": {
+     "type": "diaphragm"
+    }
+   },
    "shapes": [
     {
      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
@@ -2964,6 +3007,513 @@
     },
     {
      "d": "M-7 -10 A7 7 0 0 1 7 -10 Z"
+    }
+   ]
+  },
+  {
+   "id": "operator-hand-t",
+   "name": "Manual T operator",
+   "category": "Operator heads",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [],
+   "verification": "Exact geometry not standards-verified",
+   "operator": {
+    "type": "hand",
+    "mechanism": "manual",
+    "defaultStem": 10,
+    "extent": [
+     -5,
+     0,
+     5,
+     0
+    ],
+    "anchor": {
+     "point": [
+      0,
+      0
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-5 0 L5 0"
+    }
+   ]
+  },
+  {
+   "id": "operator-handwheel",
+   "name": "Manual handwheel",
+   "category": "Operator heads",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 03"
+    }
+   ],
+   "ports": [],
+   "verification": "Exact geometry not standards-verified",
+   "designApproval": "User-approved Family 03 design",
+   "operator": {
+    "type": "handwheel",
+    "mechanism": "manual",
+    "defaultStem": 10,
+    "extent": [
+     -8,
+     -3,
+     8,
+     3
+    ],
+    "anchor": {
+     "point": [
+      0,
+      0
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-8 0 A8 3 0 0 1 8 0 A8 3 0 0 1 -8 0 Z"
+    }
+   ]
+  },
+  {
+   "id": "operator-lever",
+   "name": "Manual lever",
+   "category": "Operator heads",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 03"
+    }
+   ],
+   "ports": [],
+   "verification": "Exact geometry not standards-verified",
+   "designApproval": "User-approved Family 03 design",
+   "operator": {
+    "type": "lever",
+    "mechanism": "manual",
+    "defaultStem": 8,
+    "extent": [
+     0,
+     -10,
+     14,
+     0
+    ],
+    "anchor": {
+     "point": [
+      0,
+      0
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M0 0 L12 -9 M10 -10 L14 -7"
+    }
+   ]
+  },
+  {
+   "id": "operator-gearbox",
+   "name": "Gearbox operator",
+   "category": "Operator heads",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 03"
+    }
+   ],
+   "ports": [],
+   "verification": "Exact geometry not standards-verified",
+   "designApproval": "User-approved Family 03 design",
+   "operator": {
+    "type": "gearbox",
+    "mechanism": "gearbox",
+    "defaultStem": 10,
+    "extent": [
+     -12,
+     -11,
+     6,
+     1
+    ],
+    "anchor": {
+     "point": [
+      0,
+      0
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-6 -10 L6 -10 L6 0 L-6 0 Z M-6 -5 L-12 -5 M-12 -11 L-12 1"
+    },
+    {
+     "t": [
+      0,
+      -5,
+      "G"
+     ],
+     "rotateAnchor": true,
+     "fontFamily": "sans-serif",
+     "dy": 4
+    }
+   ]
+  },
+  {
+   "id": "operator-motor",
+   "name": "Motor",
+   "category": "Operator heads",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "§06 legend"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [],
+   "verification": "Exact geometry not standards-verified",
+   "operator": {
+    "type": "motor",
+    "mechanism": "motor",
+    "defaultStem": 9,
+    "extent": [
+     -7,
+     -14,
+     7,
+     0
+    ],
+    "anchor": {
+     "point": [
+      0,
+      0
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "c": [
+      0,
+      -7,
+      7
+     ]
+    },
+    {
+     "t": [
+      0,
+      -7,
+      "M"
+     ],
+     "rotateAnchor": true,
+     "fontFamily": "sans-serif",
+     "dy": 4
+    }
+   ]
+  },
+  {
+   "id": "operator-solenoid",
+   "name": "Solenoid",
+   "category": "Operator heads",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0408"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [],
+   "verification": "Exact geometry not standards-verified",
+   "operator": {
+    "type": "solenoid",
+    "mechanism": "solenoid",
+    "defaultStem": 8,
+    "extent": [
+     -6,
+     -12,
+     6,
+     0
+    ],
+    "anchor": {
+     "point": [
+      0,
+      0
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-6 -12 L6 -12 L6 0 L-6 0 Z"
+    },
+    {
+     "t": [
+      0,
+      -6,
+      "S"
+     ],
+     "rotateAnchor": true,
+     "fontFamily": "sans-serif",
+     "dy": 4
+    }
+   ]
+  },
+  {
+   "id": "operator-diaphragm",
+   "name": "Diaphragm",
+   "category": "Operator heads",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0414"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [],
+   "verification": "Exact geometry not standards-verified",
+   "operator": {
+    "type": "diaphragm",
+    "mechanism": "diaphragm",
+    "defaultStem": 10,
+    "extent": [
+     -7,
+     -7,
+     7,
+     0
+    ],
+    "anchor": {
+     "point": [
+      0,
+      0
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-7 0 A7 7 0 0 1 7 0 Z"
+    }
+   ]
+  },
+  {
+   "id": "operator-pneumatic-cylinder",
+   "name": "Pneumatic cylinder",
+   "category": "Operator heads",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 03"
+    }
+   ],
+   "ports": [],
+   "verification": "Exact geometry not standards-verified",
+   "designApproval": "User-approved Family 03 design",
+   "operator": {
+    "type": "pneumatic-cylinder",
+    "mechanism": "cylinder",
+    "defaultStem": 8,
+    "extent": [
+     -7,
+     -14,
+     7,
+     0
+    ],
+    "anchor": {
+     "point": [
+      0,
+      0
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-7 -14 L7 -14 L7 0 L-7 0 Z M-7 -5 L7 -5 M0 -5 L0 0"
+    },
+    {
+     "t": [
+      0,
+      -9.5,
+      "P"
+     ],
+     "rotateAnchor": true,
+     "fontFamily": "sans-serif",
+     "dy": 4
+    }
+   ]
+  },
+  {
+   "id": "operator-hydraulic-cylinder",
+   "name": "Hydraulic cylinder",
+   "category": "Operator heads",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 03"
+    }
+   ],
+   "ports": [],
+   "verification": "Exact geometry not standards-verified",
+   "designApproval": "User-approved Family 03 design",
+   "operator": {
+    "type": "hydraulic-cylinder",
+    "mechanism": "cylinder",
+    "defaultStem": 8,
+    "extent": [
+     -7,
+     -14,
+     7,
+     0
+    ],
+    "anchor": {
+     "point": [
+      0,
+      0
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-7 -14 L7 -14 L7 0 L-7 0 Z M-7 -5 L7 -5 M0 -5 L0 0"
+    },
+    {
+     "t": [
+      0,
+      -9.5,
+      "H"
+     ],
+     "rotateAnchor": true,
+     "fontFamily": "sans-serif",
+     "dy": 4
+    }
+   ]
+  },
+  {
+   "id": "operator-float",
+   "name": "Float operator",
+   "category": "Operator heads",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 02 float"
+    }
+   ],
+   "ports": [],
+   "verification": "Exact geometry not standards-verified",
+   "designApproval": "User-approved Family 03 design",
+   "operator": {
+    "type": "float",
+    "mechanism": "float",
+    "defaultStem": 9,
+    "extent": [
+     0,
+     -10,
+     22,
+     0
+    ],
+    "anchor": {
+     "point": [
+      0,
+      0
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M0 0 L14 -6"
+    },
+    {
+     "c": [
+      18,
+      -6,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "id": "modifier-spring-return",
+   "name": "Spring return",
+   "category": "Operator modifiers",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 03"
+    }
+   ],
+   "ports": [],
+   "verification": "Exact geometry not standards-verified",
+   "designApproval": "User-approved Family 03 design",
+   "modifier": {
+    "extent": [
+     0,
+     -3,
+     19,
+     3
+    ],
+    "attachments": [
+     [
+      0,
+      0
+     ],
+     [
+      19,
+      0
+     ]
+    ]
+   },
+   "shapes": [
+    {
+     "d": "M0 0 L3 0 L5 -3 L8 3 L11 -3 L14 3 L16 0 L19 0",
+     "role": "secondary"
     }
    ]
   },

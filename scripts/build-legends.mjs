@@ -14,9 +14,10 @@ const srcLine = (sym) => sym.designApproval ? "Approved · verify standard" : sy
 const COLS = 3, ROWS = 4, CW = 176, CH = 100, X0 = 16, Y0 = 20, SCALE = 1.5;
 mkdirSync(OUT, { recursive: true });
 const sheets = [];
-const cats = [...new Set(SYMBOLS.map((s) => s.cat))];
+const legendCategory = (s) => s.operator || s.modifier ? "Operator heads and modifiers" : s.cat;
+const cats = [...new Set(SYMBOLS.map(legendCategory))];
 for (const cat of cats) {
-  const list = SYMBOLS.filter((s) => s.cat === cat);
+  const list = SYMBOLS.filter((s) => legendCategory(s) === cat);
   for (let page = 0; page * COLS * ROWS < list.length; page++) {
     const chunk = list.slice(page * COLS * ROWS, (page + 1) * COLS * ROWS);
     const shapes = [];
@@ -27,6 +28,8 @@ for (const cat of cats) {
         shapes.push(...place(sym.draw({ closed: false }), { x: cx - 26, y: cy, s: SCALE }));
         shapes.push(...place(sym.draw({ closed: true }), { x: cx + 26, y: cy, s: SCALE }));
         shapes.push({ t: [cx - 26, cy + 30, "Open"], value: true }, { t: [cx + 26, cy + 30, "Closed"], value: true });
+      } else if (sym.operator || sym.modifier || sym.assemblyPreset) {
+        shapes.push(...placeSymbol(sym.id, { x: cx, y: cy, s: SCALE }).shapes);
       } else {
         shapes.push(...place(sym.draw({}), { x: cx, y: cy, s: SCALE }));
       }
@@ -58,6 +61,9 @@ const catalogue = {
     designApproval: s.designApproval,
     historicalSources: s.historicalSources,
     valve: s.valve,
+    operator: s.operator,
+    modifier: s.modifier,
+    assemblyPreset: s.assemblyPreset,
     representations: s.valve?.representations && Object.fromEntries(s.valve.representations.map((representation) => {
       const { shapes, processPorts, sensing } = placeSymbol(s.id, {}, { representation });
       return [representation, { shapes, processPorts, sensing }];

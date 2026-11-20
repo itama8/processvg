@@ -22,9 +22,9 @@
 <g fill="currentColor" stroke="none" font-size="10" opacity="0.72">
 <text x="104" y="104" text-anchor="middle">Control valve, modulating</text>
 <text x="280" y="104" text-anchor="middle">Manual operator</text>
-<text x="456" y="39.4" text-anchor="middle">M</text>
+<text x="456" y="34" text-anchor="middle" font-family="sans-serif" dy="4">M</text>
 <text x="456" y="104" text-anchor="middle">Motor-operated valve (MOV)</text>
-<text x="104" y="142.4" text-anchor="middle">S</text>
+<text x="104" y="137" text-anchor="middle" font-family="sans-serif" dy="4">S</text>
 <text x="104" y="204" text-anchor="middle">Solenoid-operated valve (SOV)</text>
 <text x="280" y="204" text-anchor="middle">Diaphragm actuator</text>
 </g>

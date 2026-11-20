@@ -19,7 +19,8 @@ export function render(shapes, { profile = "screen" } = {}) {
     if (sh.t) {
       const font = sh.fontFamily ? ` font-family="${esc(sh.fontFamily)}"` : "";
       const baseline = sh.verticalCenter ? ' dominant-baseline="central"' : "";
-      (sh.value ? values : names).push(`<text x="${fmt(sh.t[0])}" y="${fmt(sh.t[1])}" text-anchor="${esc(sh.align ?? "middle")}"${font}${baseline}>${esc(sh.t[2])}</text>`);
+      const shift = ["dx", "dy"].map((axis) => sh[axis] ? ` ${axis}="${fmt(sh[axis])}"` : "").join("");
+      (sh.value ? values : names).push(`<text x="${fmt(sh.t[0])}" y="${fmt(sh.t[1])}" text-anchor="${esc(sh.align ?? "middle")}"${font}${baseline}${shift}>${esc(sh.t[2])}</text>`);
       continue;
     }
     const fill = sh.fill === "solid" ? ' fill="currentColor"' : "";

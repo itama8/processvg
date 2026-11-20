@@ -168,14 +168,15 @@ test("mount and process normals rotate together while identification stays uprig
   for (const q of [0, 1, 2, 3]) {
     const at = { q, x: 100, y: 95, s: 1.5 };
     const result = composeValve(config, at, {
-      measureText: () => ({ left: 12, right: 12, ascent: 8, descent: 2 }),
+      measureText: (text) => text === "M" ? { left: 4, right: 4, ascent: 7, descent: 0 }
+        : { left: 12, right: 12, ascent: 8, descent: 2 },
     });
     assert.deepEqual(result.ports, [[-13, 0], [4, 0]].map((point) => placePoint(point, at)));
     assert.deepEqual(result.anchors.mount, { point: placePoint([0, -11], at), normal: placePoint([0, -1], { q }) });
     assert.deepEqual(result.anchors.head.point, placePoint([0, -19], at));
     const operator = result.shapes.find(({ t }) => t?.[2] === "M");
     assert.deepEqual(operator.t.slice(0, 2), placePoint([0, -26], at));
-    assert.match(render(result.shapes), /dominant-baseline="central"/);
+    assert.match(render(result.shapes), /dy="3.5"/);
     assert.doesNotMatch(render(result.shapes), /rotate\(/);
     const box = result.labelBounds[0];
     assert.ok(box.top > result.bounds.bottom || box.left > result.bounds.right - 6);
