@@ -2,6 +2,7 @@
   "name": "processvg",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "description": "Beautiful, verifiable drawings for process engineers: P&ID symbols, treatment structures and drafts in the Plotter style.",
   "scripts": {

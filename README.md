@@ -49,4 +49,6 @@ checkout and record the commit in `vendor/plotter/UPSTREAM`.
 
 ## Licence
 
-Not chosen yet. The vendored Plotter package keeps its own MIT licence and the Cal Sans OFL.
+processvg is licensed under the [MIT License](LICENSE). Vendored Plotter is
+covered by its [MIT license](vendor/plotter/LICENSE), and the Cal Sans font is
+covered by the [SIL Open Font License 1.1](vendor/plotter/assets/fonts/OFL.txt).
