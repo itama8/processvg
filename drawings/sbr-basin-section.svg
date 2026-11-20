@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-plotter="" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 560 440" width="560" height="440" role="img" aria-labelledby="sbr-basin-section-title" aria-describedby="sbr-basin-section-desc" style="font-family:Cal Sans, sans-serif;font-optical-sizing:auto;font-synthesis:none;font-variation-settings:'GEOM' 25;font-weight:400">
+<title id="sbr-basin-section-title">One SBR basin, decanting</title>
+<desc id="sbr-basin-section-desc">Section through a 25.4 m SBR basin with 5.6 m side water depth. The decanter travels from top water level down to bottom water level and draws off the band between them. Wall, slab, freeboard and BWL are illustrative, not from the drawing.</desc>
+<style>svg[data-plotter]{color:#171717}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:#ededed}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
+<rect x="76.8" y="182.4" width="406.4" height="25.6" fill="currentColor" stroke="none" fill-opacity="0.055" data-plotter-fill="highlight" />
+<g data-plotter-role="hatch" opacity="0.18" stroke-dasharray="none">
+<path d="M70.4 186.4L76.8 180 M70.4 198.4L76.8 192 M70.4 210.4L76.8 204 M70.4 222.4L76.8 216 M70.4 234.4L76.8 228 M70.4 246.4L76.8 240 M70.4 258.4L76.8 252 M70.4 270.4L76.8 264" stroke-linecap="butt" />
+<path d="M483.2 186.4L489.6 180 M483.2 198.4L489.6 192 M483.2 210.4L489.6 204 M483.2 222.4L489.6 216 M483.2 234.4L489.6 228 M483.2 246.4L489.6 240 M483.2 258.4L489.6 252 M483.2 270.4L489.6 264" stroke-linecap="butt" />
+<path d="M74.4 280L82.4 272 M86.4 280L94.4 272 M98.4 280L106.4 272 M110.4 280L118.4 272 M122.4 280L130.4 272 M134.4 280L142.4 272 M146.4 280L154.4 272 M158.4 280L166.4 272 M170.4 280L178.4 272 M182.4 280L190.4 272 M194.4 280L202.4 272 M206.4 280L214.4 272 M218.4 280L226.4 272 M230.4 280L238.4 272 M242.4 280L250.4 272 M254.4 280L262.4 272 M266.4 280L274.4 272 M278.4 280L286.4 272 M290.4 280L298.4 272 M302.4 280L310.4 272 M314.4 280L322.4 272 M326.4 280L334.4 272 M338.4 280L346.4 272 M350.4 280L358.4 272 M362.4 280L370.4 272 M374.4 280L382.4 272 M386.4 280L394.4 272 M398.4 280L406.4 272 M410.4 280L418.4 272 M422.4 280L430.4 272 M434.4 280L442.4 272 M446.4 280L454.4 272 M458.4 280L466.4 272 M470.4 280L478.4 272 M482.4 280L489.6 272.8" stroke-linecap="butt" />
+</g>
+<g data-plotter-role="secondary" opacity="0.32" stroke-dasharray="none">
+<path d="M76.8 182.4 L483.2 182.4" />
+<path d="M120.8 175.4 L128.8 175.4 L124.8 181.4 Z" />
+<path d="M120.8 201 L128.8 201 L124.8 207 Z" />
+<path d="M446.4 186 L473.6 256" />
+<circle cx="473.6" cy="256" r="3" />
+<path d="M446.4 168.4 L446.4 175.8" />
+<path d="M96 156.4 L96 267.2 L457.6 267.2" />
+<circle cx="121.6" cy="264.2" r="2.5" />
+<circle cx="147.2" cy="264.2" r="2.5" />
+<circle cx="172.8" cy="264.2" r="2.5" />
+<circle cx="198.4" cy="264.2" r="2.5" />
+<circle cx="224" cy="264.2" r="2.5" />
+<circle cx="249.6" cy="264.2" r="2.5" />
+<circle cx="275.2" cy="264.2" r="2.5" />
+<circle cx="300.8" cy="264.2" r="2.5" />
+<circle cx="326.4" cy="264.2" r="2.5" />
+<circle cx="352" cy="264.2" r="2.5" />
+<circle cx="377.6" cy="264.2" r="2.5" />
+<circle cx="403.2" cy="264.2" r="2.5" />
+<circle cx="428.8" cy="264.2" r="2.5" />
+<path d="M76.8 280 L76.8 314" />
+<path d="M72.8 310 L80.8 302" />
+<path d="M483.2 280 L483.2 314" />
+<path d="M479.2 310 L487.2 302" />
+<path d="M76.8 306 L262 306" />
+<path d="M298 306 L483.2 306" />
+<path d="M497.6 182.4 L519.6 182.4" />
+<path d="M507.6 186.4 L515.6 178.4" />
+<path d="M497.6 272 L519.6 272" />
+<path d="M507.6 276 L515.6 268" />
+<path d="M511.6 182.4 L511.6 201.2" />
+<path d="M511.6 253.2 L511.6 272" />
+</g>
+<g data-plotter-role="hidden" opacity="0.32" stroke-dasharray="3 5" stroke-linecap="butt">
+<path d="M76.8 208 L483.2 208" />
+<rect x="432" y="204.4" width="28.8" height="7.2" />
+</g>
+<g data-plotter-role="transfer" opacity="0.32" stroke-dasharray="4 6" stroke-linecap="butt">
+<path d="M422 202.4 L422 188" />
+<path d="M426.24 198.16 L422 202.4 L417.76 198.16" stroke-dasharray="none" />
+<path d="M68.4 201.6 L36.4 201.6" />
+<path d="M64.16 197.36 L68.4 201.6 L64.16 205.84" stroke-dasharray="none" />
+</g>
+<g data-plotter-role="primary" opacity="1" stroke-dasharray="none">
+<path d="M70.4 174.4 L70.4 280 L489.6 280 L489.6 174.4 L483.2 174.4 L483.2 272 L76.8 272 L76.8 174.4 Z" />
+<rect x="432" y="178.8" width="28.8" height="7.2" />
+</g>
+<g fill="currentColor" stroke="none" font-size="10" opacity="0.72">
+<text x="132.8" y="179.4" text-anchor="start">TWL</text>
+<text x="132.8" y="205" text-anchor="start">BWL</text>
+<text x="240" y="198.8" text-anchor="middle">Decanted volume</text>
+<text x="446.4" y="164.4" text-anchor="middle">Decanter</text>
+<text x="102" y="162.4" text-anchor="start">Air</text>
+<text x="176" y="258.2" text-anchor="start">Diffuser grid</text>
+<text x="36.4" y="194.6" text-anchor="start">Fill</text>
+</g>
+<g fill="currentColor" stroke="none" font-size="10" opacity="0.5">
+<text x="280" y="309.6" text-anchor="middle">25.4 m</text>
+<text x="515.2" y="227.2" text-anchor="middle" transform="rotate(-90 515.2 227.2)">5.6 m SWD</text>
+</g>
+</svg>

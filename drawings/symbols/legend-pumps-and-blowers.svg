@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-plotter="" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 560 440" width="560" height="440" role="img" aria-labelledby="legend-pumps-and-blowers-title" aria-describedby="legend-pumps-and-blowers-desc" style="font-family:Cal Sans, sans-serif;font-optical-sizing:auto;font-synthesis:none;font-variation-settings:'GEOM' 25;font-weight:400">
+<title id="legend-pumps-and-blowers-title">Pumps and blowers symbols</title>
+<desc id="legend-pumps-and-blowers-desc">P&amp;ID symbols: Centrifugal pump, Submersible pump, Progressing cavity pump, Dosing (metering) pump, Blower, rotary lobe, Blower, centrifugal (turbo).</desc>
+<style>svg[data-plotter]{color:#171717}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:#ededed}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
+<g data-plotter-role="primary" opacity="1" stroke-dasharray="none">
+<circle cx="104" cy="58" r="13.5" />
+<path d="M104 44.5 L125 44.5" />
+<path d="M269.5 52 L290.5 52 L290.5 73 L269.5 73 Z" />
+<path d="M274 43 L286 43 L286 52 L274 52 Z" />
+<path d="M286 47.5 L298 47.5 L298 34" />
+<path d="M435 50.5 L477 50.5 L477 65.5 L435 65.5 Z" />
+<path d="M86 158 L95 158 M113 158 L122 158" />
+<path d="M95 150.5 L113 150.5 L113 165.5 L95 165.5 Z" />
+<path d="M104 165.5 L104 171.5" />
+<path d="M95 171.5 L113 171.5 L113 189.5 L95 189.5 Z" />
+<circle cx="280" cy="158" r="15" />
+<circle cx="280" cy="152" r="5.25" />
+<circle cx="280" cy="164" r="5.25" />
+<path d="M295 158 L304 158 M256 158 L265 158" />
+<circle cx="456" cy="158" r="13.5" />
+<circle cx="456" cy="158" r="5.25" />
+<path d="M456 144.5 L477 144.5" />
+</g>
+<g data-plotter-role="secondary" opacity="0.32" stroke-dasharray="none">
+<path d="M441 58 L445.5 53.5 L454.5 62.5 L463.5 53.5 L471 58" />
+</g>
+<g fill="currentColor" stroke="none" font-size="10" opacity="0.72">
+<text x="104" y="104" text-anchor="middle">Centrifugal pump</text>
+<text x="280" y="104" text-anchor="middle">Submersible pump</text>
+<text x="456" y="104" text-anchor="middle">Progressing cavity pump</text>
+<text x="104" y="185.9" text-anchor="middle">M</text>
+<text x="104" y="204" text-anchor="middle">Dosing (metering) pump</text>
+<text x="280" y="204" text-anchor="middle">Blower, rotary lobe</text>
+<text x="456" y="204" text-anchor="middle">Blower, centrifugal (turbo)</text>
+</g>
+<g fill="currentColor" stroke="none" font-size="10" opacity="0.5">
+<text x="104" y="117" text-anchor="middle">IS 3232 0701 · B&amp;C P-003</text>
+<text x="280" y="117" text-anchor="middle">B&amp;C P-003</text>
+<text x="456" y="117" text-anchor="middle">B&amp;C P-003</text>
+<text x="104" y="217" text-anchor="middle">IS 3232 0703 · B&amp;C P-003</text>
+<text x="280" y="217" text-anchor="middle">IS 3232 0701 (gear form) · B&amp;C P-003</text>
+<text x="456" y="217" text-anchor="middle">B&amp;C P-003</text>
+</g>
+</svg>

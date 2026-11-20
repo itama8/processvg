@@ -1,0 +1,2374 @@
+{
+ "about": "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol centred on (0, 0), flow left to right. A filled valve or gate is normally closed.",
+ "sources": {
+  "IS 3232": "IS 3232:1999 Recommendations on graphical symbols for process flow diagrams, piping and instrumentation diagrams (BIS), by symbol number",
+  "ISA-5.1": "ANSI/ISA-5.1-2009 Instrumentation symbols and identification",
+  "B&C": "Brown and Caldwell, Pahala WWTP design-build documents, sheets C-001, P-002, P-003, P-101 (County of Hawaii, 2021; published by US EPA)",
+  "Proposed": "Drafted here; agree with the firm before use"
+ },
+ "symbols": [
+  {
+   "id": "line-process",
+   "name": "Process line",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0314"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     -20,
+     0
+    ],
+    [
+     20,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-20 0 L20 0"
+    }
+   ]
+  },
+  {
+   "id": "line-flow",
+   "name": "Flow direction",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0305"
+    }
+   ],
+   "ports": [
+    [
+     -20,
+     0
+    ],
+    [
+     20,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-20 0 L20 0"
+    },
+    {
+     "d": "M14 -4 L20 0 L14 4"
+    }
+   ]
+  },
+  {
+   "id": "line-electric",
+   "name": "Electric signal",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0602"
+    },
+    {
+     "std": "ISA-5.1",
+     "ref": ""
+    }
+   ],
+   "ports": [
+    [
+     -20,
+     0
+    ],
+    [
+     20,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-20 0 L20 0",
+     "role": "signal"
+    }
+   ]
+  },
+  {
+   "id": "line-data",
+   "name": "Data link (SCADA)",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0606"
+    },
+    {
+     "std": "ISA-5.1",
+     "ref": ""
+    }
+   ],
+   "ports": [
+    [
+     -20,
+     0
+    ],
+    [
+     20,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-20 0 L-10 0 M-6 0 L6 0 M10 0 L20 0",
+     "role": "secondary"
+    },
+    {
+     "c": [
+      -8,
+      0,
+      2
+     ],
+     "role": "secondary"
+    },
+    {
+     "c": [
+      8,
+      0,
+      2
+     ],
+     "role": "secondary"
+    }
+   ]
+  },
+  {
+   "id": "line-pneumatic",
+   "name": "Instrument air signal",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0601"
+    }
+   ],
+   "ports": [
+    [
+     -20,
+     0
+    ],
+    [
+     20,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-20 0 L20 0",
+     "role": "secondary"
+    },
+    {
+     "d": "M-9 4 L-5 -4 M-5 4 L-1 -4 M5 4 L9 -4 M9 4 L13 -4",
+     "role": "secondary"
+    }
+   ]
+  },
+  {
+   "id": "junction",
+   "name": "Connected junction",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0303"
+    }
+   ],
+   "ports": [
+    [
+     -12,
+     0
+    ],
+    [
+     12,
+     0
+    ],
+    [
+     0,
+     10
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-12 0 L12 0 M0 0 L0 10"
+    },
+    {
+     "c": [
+      0,
+      0,
+      2
+     ],
+     "fill": "solid",
+     "role": "dot"
+    }
+   ]
+  },
+  {
+   "id": "crossover",
+   "name": "Lines crossing, not connected",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0304"
+    }
+   ],
+   "ports": [
+    [
+     -12,
+     0
+    ],
+    [
+     12,
+     0
+    ],
+    [
+     0,
+     -12
+    ],
+    [
+     0,
+     12
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-12 0 L-4 0 M-4 0 A4 4 0 0 1 4 0 M4 0 L12 0 M0 -12 L0 12"
+    }
+   ]
+  },
+  {
+   "id": "inflow",
+   "name": "Inflow from another sheet",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0301"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-101"
+    }
+   ],
+   "ports": [
+    [
+     18,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-18 -5 L-6 -5 L-6 -9 L4 0 L-6 9 L-6 5 L-18 5 Z"
+    },
+    {
+     "d": "M4 0 L18 0"
+    }
+   ]
+  },
+  {
+   "id": "outflow",
+   "name": "Outflow to another sheet",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0302"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-101"
+    }
+   ],
+   "ports": [
+    [
+     -18,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-18 0 L-6 0"
+    },
+    {
+     "d": "M-6 -5 L6 -5 L6 -9 L16 0 L6 9 L6 5 L-6 5 Z"
+    }
+   ]
+  },
+  {
+   "id": "dead-end",
+   "name": "Dead end, blind flange",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0307"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-003"
+    }
+   ],
+   "ports": [
+    [
+     -12,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-12 0 L6 0"
+    },
+    {
+     "d": "M6 -6 L6 6 M9 -6 L9 6"
+    }
+   ]
+  },
+  {
+   "id": "water-level",
+   "name": "Water level",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "C-001"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-101"
+    }
+   ],
+   "ports": [],
+   "shapes": [
+    {
+     "d": "M-5 -8 L5 -8 L0 -1 Z",
+     "role": "secondary"
+    },
+    {
+     "d": "M-10 0 L10 0",
+     "role": "secondary"
+    },
+    {
+     "d": "M-6 3 L6 3 M-3 6 L3 6",
+     "role": "secondary"
+    }
+   ]
+  },
+  {
+   "id": "valve-gate",
+   "name": "Gate valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0401"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "states": [
+    "open",
+    "closed"
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "shapes": {
+    "open": [
+     {
+      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z",
+      "fill": "solid"
+     }
+    ]
+   }
+  },
+  {
+   "id": "valve-globe",
+   "name": "Globe valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0402"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "states": [
+    "open",
+    "closed"
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "shapes": {
+    "open": [
+     {
+      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+     },
+     {
+      "c": [
+       0,
+       0,
+       2.5
+      ],
+      "fill": "solid",
+      "role": "dot"
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z",
+      "fill": "solid"
+     },
+     {
+      "c": [
+       0,
+       0,
+       2.5
+      ],
+      "fill": "solid",
+      "role": "dot"
+     }
+    ]
+   }
+  },
+  {
+   "id": "valve-ball",
+   "name": "Ball valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0407"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "states": [
+    "open",
+    "closed"
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "shapes": {
+    "open": [
+     {
+      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+     },
+     {
+      "c": [
+       0,
+       0,
+       3.5
+      ]
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z",
+      "fill": "solid"
+     },
+     {
+      "c": [
+       0,
+       0,
+       3.5
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "valve-plug",
+   "name": "Plug valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0413"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "states": [
+    "open",
+    "closed"
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "shapes": {
+    "open": [
+     {
+      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+     },
+     {
+      "d": "M-2 -4 L2 -4 L2 4 L-2 4 Z",
+      "fill": "solid"
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z",
+      "fill": "solid"
+     },
+     {
+      "d": "M-2 -4 L2 -4 L2 4 L-2 4 Z",
+      "fill": "solid"
+     }
+    ]
+   }
+  },
+  {
+   "id": "valve-butterfly",
+   "name": "Butterfly valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0410"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "states": [
+    "open",
+    "closed"
+   ],
+   "ports": [
+    [
+     -5,
+     0
+    ],
+    [
+     5,
+     0
+    ]
+   ],
+   "shapes": {
+    "open": [
+     {
+      "d": "M-5 -7 L-5 7 M5 -7 L5 7"
+     },
+     {
+      "d": "M-3 6 L3 -6"
+     },
+     {
+      "c": [
+       0,
+       0,
+       2
+      ]
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-5 -7 L-5 7 M5 -7 L5 7"
+     },
+     {
+      "d": "M-3 6 L3 -6"
+     },
+     {
+      "c": [
+       0,
+       0,
+       2
+      ],
+      "fill": "solid"
+     }
+    ]
+   }
+  },
+  {
+   "id": "valve-knife",
+   "name": "Knife gate valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "states": [
+    "open",
+    "closed"
+   ],
+   "ports": [
+    [
+     -4,
+     0
+    ],
+    [
+     4,
+     0
+    ]
+   ],
+   "shapes": {
+    "open": [
+     {
+      "d": "M-4 -7 L-4 7 M4 -7 L4 7"
+     },
+     {
+      "d": "M-1.5 -11 L1.5 -11 L1.5 7 L-1.5 7 Z"
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-4 -7 L-4 7 M4 -7 L4 7"
+     },
+     {
+      "d": "M-1.5 -11 L1.5 -11 L1.5 7 L-1.5 7 Z",
+      "fill": "solid"
+     }
+    ]
+   }
+  },
+  {
+   "id": "valve-check",
+   "name": "Check (non-return) valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0403"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     6,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-8 -5 L6 5 M6 -6 L6 6"
+    }
+   ]
+  },
+  {
+   "id": "valve-diaphragm",
+   "name": "Diaphragm valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0405"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "states": [
+    "open",
+    "closed"
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "shapes": {
+    "open": [
+     {
+      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+     },
+     {
+      "d": "M-6 -6 A7 7 0 0 1 6 -6"
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z",
+      "fill": "solid"
+     },
+     {
+      "d": "M-6 -6 A7 7 0 0 1 6 -6"
+     }
+    ]
+   }
+  },
+  {
+   "id": "valve-angle",
+   "name": "Angle valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0404"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     0,
+     8
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-8 -5 L0 0 L-8 5 Z"
+    },
+    {
+     "d": "M-5 8 L0 0 L5 8 Z"
+    }
+   ]
+  },
+  {
+   "id": "valve-3way",
+   "name": "Three-way valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     0,
+     8
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+    },
+    {
+     "d": "M-5 8 L0 0 L5 8 Z"
+    }
+   ]
+  },
+  {
+   "id": "valve-relief",
+   "name": "Pressure relief valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0406"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     0,
+     8
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-8 -5 L0 0 L-8 5 Z"
+    },
+    {
+     "d": "M-5 8 L0 0 L5 8 Z"
+    },
+    {
+     "d": "M0 0 L0 -6 L-4 -8 L4 -11 L-4 -14 L4 -17 L0 -19"
+    }
+   ]
+  },
+  {
+   "id": "valve-air",
+   "name": "Air release valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-003 (vent)"
+    },
+    {
+     "std": "Proposed",
+     "ref": "to agree"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     8
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M0 8 L0 2"
+    },
+    {
+     "d": "M-5 2 L5 2 L0 -6 Z"
+    },
+    {
+     "d": "M-4 -10 L4 -10"
+    }
+   ]
+  },
+  {
+   "id": "valve-control",
+   "name": "Control valve, modulating",
+   "category": "Actuators",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0414"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+    },
+    {
+     "d": "M0 0 L0 -10"
+    },
+    {
+     "d": "M-7 -10 A7 7 0 0 1 7 -10 Z"
+    }
+   ]
+  },
+  {
+   "id": "act-hand",
+   "name": "Manual operator",
+   "category": "Actuators",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+    },
+    {
+     "d": "M0 0 L0 -10"
+    },
+    {
+     "d": "M-5 -10 L5 -10"
+    }
+   ]
+  },
+  {
+   "id": "act-motor",
+   "name": "Motor-operated valve (MOV)",
+   "category": "Actuators",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "§06 legend"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+    },
+    {
+     "d": "M0 0 L0 -9"
+    },
+    {
+     "c": [
+      0,
+      -16,
+      7
+     ]
+    },
+    {
+     "t": [
+      0,
+      -12.4,
+      "M"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "act-solenoid",
+   "name": "Solenoid-operated valve (SOV)",
+   "category": "Actuators",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0408"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+    },
+    {
+     "d": "M0 0 L0 -8"
+    },
+    {
+     "d": "M-6 -20 L6 -20 L6 -8 L-6 -8 Z"
+    },
+    {
+     "t": [
+      0,
+      -10.4,
+      "S"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "act-diaphragm",
+   "name": "Diaphragm actuator",
+   "category": "Actuators",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0414"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+    },
+    {
+     "d": "M0 0 L0 -10"
+    },
+    {
+     "d": "M-7 -10 A7 7 0 0 1 7 -10 Z"
+    }
+   ]
+  },
+  {
+   "id": "gate-slide",
+   "name": "Slide gate (penstock)",
+   "category": "Gates",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002, P-003"
+    }
+   ],
+   "states": [
+    "open",
+    "closed"
+   ],
+   "ports": [
+    [
+     -2.5,
+     0
+    ],
+    [
+     2.5,
+     0
+    ]
+   ],
+   "shapes": {
+    "open": [
+     {
+      "d": "M-2.5 -10 L2.5 -10 L2.5 10 L-2.5 10 Z"
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-2.5 -10 L2.5 -10 L2.5 10 L-2.5 10 Z",
+      "fill": "solid"
+     }
+    ]
+   }
+  },
+  {
+   "id": "gate-sluice",
+   "name": "Sluice gate",
+   "category": "Gates",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002, P-003"
+    }
+   ],
+   "states": [
+    "open",
+    "closed"
+   ],
+   "ports": [
+    [
+     -2.5,
+     0
+    ],
+    [
+     2.5,
+     0
+    ]
+   ],
+   "shapes": {
+    "open": [
+     {
+      "d": "M-2.5 -10 L2.5 -10 L2.5 10 L-2.5 10 Z"
+     },
+     {
+      "d": "M-2.5 10 L2.5 -10"
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-2.5 -10 L2.5 -10 L2.5 10 L-2.5 10 Z"
+     },
+     {
+      "d": "M2.5 -10 L2.5 10 L-2.5 10 Z",
+      "fill": "solid"
+     }
+    ]
+   }
+  },
+  {
+   "id": "gate-stop",
+   "name": "Stop logs",
+   "category": "Gates",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002 (stop gate)"
+    }
+   ],
+   "states": [
+    "open",
+    "closed"
+   ],
+   "ports": [
+    [
+     -2.5,
+     0
+    ],
+    [
+     2.5,
+     0
+    ]
+   ],
+   "shapes": {
+    "open": [
+     {
+      "d": "M-2.5 -6 L2.5 -6 L2.5 10 L-2.5 10 Z"
+     },
+     {
+      "d": "M-2.5 -10 L2.5 -10"
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-2.5 -6 L2.5 -6 L2.5 10 L-2.5 10 Z",
+      "fill": "solid"
+     },
+     {
+      "d": "M-2.5 -10 L2.5 -10"
+     }
+    ]
+   }
+  },
+  {
+   "id": "gate-flap",
+   "name": "Flap gate",
+   "category": "Gates",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002, P-003"
+    }
+   ],
+   "ports": [
+    [
+     -2,
+     0
+    ],
+    [
+     4,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-2 -10 L-2 10 M-2 -10 L6 4"
+    }
+   ]
+  },
+  {
+   "id": "weir",
+   "name": "Weir, V-notch",
+   "category": "Gates",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002 (weir)"
+    }
+   ],
+   "ports": [
+    [
+     -12,
+     0
+    ],
+    [
+     12,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-12 0 L-6 0 M6 0 L12 0"
+    },
+    {
+     "d": "M-6 -6 L0 2 L6 -6"
+    },
+    {
+     "d": "M-6 -6 L-6 6 L6 6 L6 -6"
+    }
+   ]
+  },
+  {
+   "id": "inst-field",
+   "name": "Field instrument",
+   "category": "Instruments",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0607"
+    },
+    {
+     "std": "ISA-5.1",
+     "ref": ""
+    }
+   ],
+   "tagged": true,
+   "ports": [
+    [
+     0,
+     14
+    ],
+    [
+     0,
+     -14
+    ]
+   ],
+   "shapes": [
+    {
+     "c": [
+      0,
+      0,
+      14
+     ]
+    },
+    {
+     "t": [
+      0,
+      -1,
+      "FIT"
+     ]
+    },
+    {
+     "t": [
+      0,
+      10,
+      "101"
+     ],
+     "value": true
+    }
+   ]
+  },
+  {
+   "id": "inst-panel",
+   "name": "Instrument on main panel or HMI",
+   "category": "Instruments",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0608"
+    },
+    {
+     "std": "ISA-5.1",
+     "ref": ""
+    }
+   ],
+   "tagged": true,
+   "ports": [
+    [
+     0,
+     16
+    ],
+    [
+     0,
+     -16
+    ]
+   ],
+   "shapes": [
+    {
+     "c": [
+      0,
+      0,
+      16
+     ]
+    },
+    {
+     "d": "M-16 0 L16 0"
+    },
+    {
+     "t": [
+      0,
+      -4,
+      "LIC"
+     ]
+    },
+    {
+     "t": [
+      0,
+      12,
+      "102"
+     ],
+     "value": true
+    }
+   ]
+  },
+  {
+   "id": "inst-local",
+   "name": "Instrument on local panel",
+   "category": "Instruments",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0609"
+    },
+    {
+     "std": "ISA-5.1",
+     "ref": ""
+    }
+   ],
+   "tagged": true,
+   "ports": [
+    [
+     0,
+     14
+    ],
+    [
+     0,
+     -14
+    ]
+   ],
+   "shapes": [
+    {
+     "c": [
+      0,
+      0,
+      14
+     ]
+    },
+    {
+     "d": "M-13.2 -4.5 L13.2 -4.5 M-13.2 4.5 L13.2 4.5"
+    },
+    {
+     "t": [
+      0,
+      3.6,
+      "PI"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "inst-scada",
+   "name": "SCADA function (shared display)",
+   "category": "Instruments",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0614"
+    },
+    {
+     "std": "ISA-5.1",
+     "ref": ""
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "tagged": true,
+   "ports": [
+    [
+     0,
+     16
+    ],
+    [
+     0,
+     -16
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-16 -16 L16 -16 L16 16 L-16 16 Z"
+    },
+    {
+     "c": [
+      0,
+      0,
+      16
+     ]
+    },
+    {
+     "d": "M-16 0 L16 0"
+    },
+    {
+     "t": [
+      0,
+      -4,
+      "FI"
+     ]
+    },
+    {
+     "t": [
+      0,
+      12,
+      "101"
+     ],
+     "value": true
+    }
+   ]
+  },
+  {
+   "id": "inst-plc",
+   "name": "PLC function",
+   "category": "Instruments",
+   "sources": [
+    {
+     "std": "ISA-5.1",
+     "ref": ""
+    }
+   ],
+   "tagged": true,
+   "ports": [
+    [
+     0,
+     14
+    ],
+    [
+     0,
+     -14
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-14 -14 L14 -14 L14 14 L-14 14 Z"
+    },
+    {
+     "d": "M0 -14 L14 0 L0 14 L-14 0 Z"
+    },
+    {
+     "t": [
+      0,
+      3.6,
+      "LSH"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "inst-interlock",
+   "name": "Interlock",
+   "category": "Instruments",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    },
+    {
+     "std": "ISA-5.1",
+     "ref": ""
+    }
+   ],
+   "ports": [
+    [
+     -10,
+     0
+    ],
+    [
+     10,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M0 -10 L10 0 L0 10 L-10 0 Z"
+    },
+    {
+     "t": [
+      0,
+      3.6,
+      "I"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "inst-transmitter-is",
+   "name": "Transmitter, locally mounted (IS form)",
+   "category": "Instruments",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0610"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     10
+    ]
+   ],
+   "shapes": [
+    {
+     "c": [
+      0,
+      0,
+      10
+     ]
+    },
+    {
+     "d": "M-7.07 -7.07 L7.07 7.07 M-7.07 7.07 L7.07 -7.07"
+    }
+   ]
+  },
+  {
+   "id": "fe-mag",
+   "name": "Magnetic flowmeter",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     -14,
+     0
+    ],
+    [
+     14,
+     0
+    ],
+    [
+     0,
+     -7
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-14 0 L-7 0 M7 0 L14 0"
+    },
+    {
+     "d": "M-7 -7 L7 -7 L7 7 L-7 7 Z"
+    },
+    {
+     "t": [
+      0,
+      3.6,
+      "M"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fe-ultrasonic",
+   "name": "Ultrasonic or radar level element",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -8
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-4 -8 L4 -8 L4 2 L-4 2 Z"
+    },
+    {
+     "d": "M-5 6 A7 7 0 0 0 5 6 M-7 10 A10 10 0 0 0 7 10",
+     "role": "secondary"
+    }
+   ]
+  },
+  {
+   "id": "fe-float",
+   "name": "Float level switch",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -10
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M0 -10 L0 4"
+    },
+    {
+     "d": "M-3 4 A3 3 0 1 0 3 4 L0 -1 Z"
+    }
+   ]
+  },
+  {
+   "id": "fe-hydrostatic",
+   "name": "Submersible level transmitter",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -12
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M0 -12 L0 -6"
+    },
+    {
+     "d": "M-4 -6 L4 -6 L4 8 L-4 8 Z"
+    }
+   ]
+  },
+  {
+   "id": "fe-flume",
+   "name": "Parshall flume",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     -14,
+     0
+    ],
+    [
+     14,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-14 -8 L-4 -3 L4 -3 L14 -8 M-14 8 L-4 3 L4 3 L14 8"
+    }
+   ]
+  },
+  {
+   "id": "fe-orifice",
+   "name": "Orifice plate",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-002"
+    }
+   ],
+   "ports": [
+    [
+     -12,
+     0
+    ],
+    [
+     12,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-12 0 L-2 0 M2 0 L12 0"
+    },
+    {
+     "d": "M-2 -7 L-2 7 M2 -7 L2 7"
+    }
+   ]
+  },
+  {
+   "id": "pump-centrifugal",
+   "name": "Centrifugal pump",
+   "category": "Pumps and blowers",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0701"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-003"
+    }
+   ],
+   "ports": [
+    [
+     -9,
+     0
+    ],
+    [
+     14,
+     -9
+    ]
+   ],
+   "shapes": [
+    {
+     "c": [
+      0,
+      0,
+      9
+     ]
+    },
+    {
+     "d": "M0 -9 L14 -9"
+    }
+   ]
+  },
+  {
+   "id": "pump-submersible",
+   "name": "Submersible pump",
+   "category": "Pumps and blowers",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-003"
+    }
+   ],
+   "ports": [
+    [
+     12,
+     -16
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-7 -4 L7 -4 L7 10 L-7 10 Z"
+    },
+    {
+     "d": "M-4 -10 L4 -10 L4 -4 L-4 -4 Z"
+    },
+    {
+     "d": "M4 -7 L12 -7 L12 -16"
+    }
+   ]
+  },
+  {
+   "id": "pump-pc",
+   "name": "Progressing cavity pump",
+   "category": "Pumps and blowers",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-003"
+    }
+   ],
+   "ports": [
+    [
+     -14,
+     0
+    ],
+    [
+     14,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-14 -5 L14 -5 L14 5 L-14 5 Z"
+    },
+    {
+     "d": "M-10 0 L-7 -3 L-1 3 L5 -3 L10 0",
+     "role": "secondary"
+    }
+   ]
+  },
+  {
+   "id": "pump-dosing",
+   "name": "Dosing (metering) pump",
+   "category": "Pumps and blowers",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0703"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-003"
+    }
+   ],
+   "ports": [
+    [
+     -12,
+     0
+    ],
+    [
+     12,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-12 0 L-6 0 M6 0 L12 0"
+    },
+    {
+     "d": "M-6 -5 L6 -5 L6 5 L-6 5 Z"
+    },
+    {
+     "d": "M0 5 L0 9"
+    },
+    {
+     "d": "M-6 9 L6 9 L6 21 L-6 21 Z"
+    },
+    {
+     "t": [
+      0,
+      18.6,
+      "M"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "blower-lobe",
+   "name": "Blower, rotary lobe",
+   "category": "Pumps and blowers",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "0701 (gear form)"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-003"
+    }
+   ],
+   "ports": [
+    [
+     -16,
+     0
+    ],
+    [
+     16,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "c": [
+      0,
+      0,
+      10
+     ]
+    },
+    {
+     "c": [
+      0,
+      -4,
+      3.5
+     ]
+    },
+    {
+     "c": [
+      0,
+      4,
+      3.5
+     ]
+    },
+    {
+     "d": "M10 0 L16 0 M-16 0 L-10 0"
+    }
+   ]
+  },
+  {
+   "id": "blower-centrifugal",
+   "name": "Blower, centrifugal (turbo)",
+   "category": "Pumps and blowers",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-003"
+    }
+   ],
+   "ports": [
+    [
+     -9,
+     0
+    ],
+    [
+     14,
+     -9
+    ]
+   ],
+   "shapes": [
+    {
+     "c": [
+      0,
+      0,
+      9
+     ]
+    },
+    {
+     "c": [
+      0,
+      0,
+      3.5
+     ]
+    },
+    {
+     "d": "M0 -9 L14 -9"
+    }
+   ]
+  },
+  {
+   "id": "screen-bar",
+   "name": "Bar screen, mechanical",
+   "category": "Screening and grit",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "1505"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-003"
+    }
+   ],
+   "ports": [],
+   "shapes": [
+    {
+     "d": "M-7.2 11.4 L5.2 -10.1 M-2.8 13.9 L9.6 -7.6 M5.2 -10.1 A2.54 2.54 0 0 1 9.6 -7.6 M-2.8 13.9 A2.54 2.54 0 0 1 -7.2 11.4"
+    },
+    {
+     "c": [
+      7.4,
+      -8.85,
+      1.2
+     ],
+     "role": "secondary"
+    }
+   ]
+  },
+  {
+   "id": "screen-fine",
+   "name": "Fine screen, drum",
+   "category": "Screening and grit",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-003"
+    }
+   ],
+   "ports": [
+    [
+     -12,
+     0
+    ],
+    [
+     12,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-12 -7 L2 -7 L2 7 L-12 7 Z"
+    },
+    {
+     "d": "M-9 7 L-5 -7 M-5 7 L-1 -7",
+     "role": "secondary"
+    },
+    {
+     "d": "M2 -2 L12 -2 L12 2 L2 2 Z"
+    }
+   ]
+  },
+  {
+   "id": "conveyor-screw",
+   "name": "Screw conveyor",
+   "category": "Screening and grit",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "2101 (conveyor)"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-003"
+    }
+   ],
+   "ports": [
+    [
+     -15,
+     8
+    ],
+    [
+     15,
+     -8
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-16 6 L14 -10 L16 -6.3 L-14 9.7 Z"
+    },
+    {
+     "d": "M-10 3.4 L-6 8.4 M-4 0.2 L0 5.2 M2 -3 L6 2 M8 -6.2 L12 -1.2",
+     "role": "secondary"
+    }
+   ]
+  },
+  {
+   "id": "grit-classifier",
+   "name": "Grit classifier",
+   "category": "Screening and grit",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-003"
+    }
+   ],
+   "ports": [
+    [
+     -12,
+     -2
+    ],
+    [
+     15,
+     -8
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-16 6 L14 -10 L16 -6.3 L-14 9.7 Z"
+    },
+    {
+     "d": "M-16 6 L-16 -2 L-8 -2 L-8 1.7"
+    }
+   ]
+  },
+  {
+   "id": "grit-separator",
+   "name": "Grit separator (cyclone)",
+   "category": "Screening and grit",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-003"
+    }
+   ],
+   "ports": [
+    [
+     -14,
+     -8
+    ],
+    [
+     0,
+     12
+    ],
+    [
+     0,
+     -12
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-8 -12 L8 -12 L8 0 L2 12 L-2 12 L-8 0 L-8 -12"
+    },
+    {
+     "d": "M-14 -8 L-8 -8"
+    }
+   ]
+  },
+  {
+   "id": "container",
+   "name": "Screenings bin or skip",
+   "category": "Screening and grit",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-101"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -6
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-12 -6 L12 -6 L9 6 L-9 6 Z"
+    }
+   ]
+  },
+  {
+   "id": "mixer",
+   "name": "Mixer, top-entry",
+   "category": "Screening and grit",
+   "sources": [
+    {
+     "std": "IS 3232",
+     "ref": "1907"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-003"
+    }
+   ],
+   "ports": [],
+   "shapes": [
+    {
+     "d": "M-5 -18 L5 -18 L5 -8 L-5 -8 Z"
+    },
+    {
+     "d": "M0 -8 L0 10"
+    },
+    {
+     "d": "M-8 10 L8 10"
+    },
+    {
+     "c": [
+      -5,
+      10,
+      2.5
+     ]
+    },
+    {
+     "c": [
+      5,
+      10,
+      2.5
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mixer-static",
+   "name": "Static mixer, in-line",
+   "category": "Screening and grit",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-003"
+    }
+   ],
+   "ports": [
+    [
+     -16,
+     0
+    ],
+    [
+     16,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-16 0 L-12 0 M12 0 L16 0"
+    },
+    {
+     "d": "M-12 -5 L12 -5 L12 5 L-12 5 Z"
+    },
+    {
+     "d": "M-12 -5 L-4 5 M-12 5 L-4 -5 M-4 -5 L4 5 M-4 5 L4 -5 M4 -5 L12 5 M4 5 L12 -5",
+     "role": "secondary"
+    }
+   ]
+  },
+  {
+   "id": "tank-open",
+   "name": "Open tank or channel, section",
+   "category": "Structures (proposed)",
+   "sources": [
+    {
+     "std": "B&C",
+     "ref": "P-101"
+    },
+    {
+     "std": "Proposed",
+     "ref": "to agree"
+    }
+   ],
+   "ports": [
+    [
+     -16,
+     -6
+    ],
+    [
+     16,
+     -6
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-16 -10 L-16 10 L16 10 L16 -10"
+    },
+    {
+     "d": "M-16 -4 L16 -4",
+     "role": "secondary"
+    },
+    {
+     "d": "M4 -11 L12 -11 L8 -5 Z",
+     "role": "secondary"
+    }
+   ]
+  },
+  {
+   "id": "diffuser-grid",
+   "name": "Fine-bubble diffuser grid",
+   "category": "Structures (proposed)",
+   "sources": [
+    {
+     "std": "Proposed",
+     "ref": "to agree"
+    }
+   ],
+   "ports": [
+    [
+     -16,
+     -12
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-16 -12 L-16 6 L16 6"
+    },
+    {
+     "c": [
+      -8,
+      3,
+      2
+     ]
+    },
+    {
+     "c": [
+      0,
+      3,
+      2
+     ]
+    },
+    {
+     "c": [
+      8,
+      3,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "decanter",
+   "name": "Decanter, SBR",
+   "category": "Structures (proposed)",
+   "sources": [
+    {
+     "std": "Proposed",
+     "ref": "to agree"
+    }
+   ],
+   "ports": [
+    [
+     10,
+     10
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-10 -8 L2 -8 L2 -3 L-10 -3 Z"
+    },
+    {
+     "d": "M-4 -3 L10 10"
+    },
+    {
+     "c": [
+      10,
+      10,
+      2
+     ]
+    }
+   ]
+  }
+ ],
+ "serviceCodes": {
+  "RS": "Raw sewage",
+  "SCR": "Screenings",
+  "GT": "Grit",
+  "PE": "Primary effluent",
+  "ML": "Mixed liquor",
+  "RAS": "Return activated sludge",
+  "WAS": "Waste activated sludge",
+  "A": "Aeration air",
+  "SE": "Secondary effluent",
+  "FSE": "Filtered secondary effluent",
+  "PL": "Plant effluent",
+  "HOCL": "Sodium hypochlorite",
+  "POL": "Polymer",
+  "SN": "Supernatant",
+  "CEN": "Centrate",
+  "D": "Drain",
+  "OF": "Overflow",
+  "SW": "Service water"
+ }
+}

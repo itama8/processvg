@@ -1,0 +1,6 @@
+# Client and project drawings, and anything derived from them, stay local.
+private/
+# Generated review page (it inlines private drawings when present).
+review/
+node_modules/
+*.png
