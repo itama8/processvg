@@ -4,11 +4,11 @@
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { SYMBOLS, SERVICE_CODES, place } from "../src/library.mjs";
+import { SYMBOLS, SERVICE_CODES, place, placeSymbol } from "../src/library.mjs";
 import { esc, render, svgDoc } from "../src/render.mjs";
 
 const OUT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "../drawings/symbols");
-const srcLine = (sym) => sym.src.map((s) => (s.std === "Proposed" ? "proposed" : s.ref ? `${s.std} ${s.ref}` : s.std)).join(" · ");
+const srcLine = (sym) => sym.designApproval ? "Approved · verify standard" : sym.src.map((s) => (s.std === "Proposed" ? "proposed" : s.ref ? `${s.std} ${s.ref}` : s.std)).join(" · ");
 
 // Legend sheets: 3 × 4 cells, one category per run of sheets.
 const COLS = 3, ROWS = 4, CW = 176, CH = 100, X0 = 16, Y0 = 20, SCALE = 1.5;
@@ -40,12 +40,13 @@ for (const cat of cats) {
 
 // Catalogue: geometry at scale 1, for other tools to place and connect.
 const catalogue = {
-  about: "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol centred on (0, 0), flow left to right. A filled valve or gate is normally closed.",
+  about: "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for fill and label rules.",
   sources: {
     "IS 3232": "IS 3232:1999 Recommendations on graphical symbols for process flow diagrams, piping and instrumentation diagrams (BIS), by symbol number",
     "ISA-5.1": "ANSI/ISA-5.1-2009 Instrumentation symbols and identification",
     "B&C": "Brown and Caldwell, Pahala WWTP design-build documents, sheets C-001, P-002, P-003, P-101 (County of Hawaii, 2021; published by US EPA)",
     Proposed: "Drafted here; agree with the firm before use",
+    "Processvg design": "User-approved library geometry; exact standards verification pending",
   },
   symbols: SYMBOLS.map((s) => ({
     id: s.id, name: s.name, category: s.cat, sources: s.src, states: s.states ? ["open", "closed"] : undefined, tagged: s.tag || undefined,
@@ -54,6 +55,13 @@ const catalogue = {
     connectivity: s.connectivity,
     verification: s.verification,
     flatSide: s.flatSide,
+    designApproval: s.designApproval,
+    historicalSources: s.historicalSources,
+    valve: s.valve,
+    representations: s.valve?.representations && Object.fromEntries(s.valve.representations.map((representation) => {
+      const { shapes, processPorts, sensing } = placeSymbol(s.id, {}, { representation });
+      return [representation, { shapes, processPorts, sensing }];
+    })),
     shapes: s.states ? { open: s.draw({ closed: false }), closed: s.draw({ closed: true }) } : s.draw({}),
   })),
   serviceCodes: SERVICE_CODES,

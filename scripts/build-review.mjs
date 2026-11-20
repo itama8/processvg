@@ -15,6 +15,7 @@ const groups = [
   ["Drawings", path.join(ROOT, "drawings"), svgs],
   ["Symbol library", path.join(ROOT, "drawings/symbols"), (f) => f.startsWith("legend-") && svgs(f)],
   ["Family 01 regression gallery", path.join(OUT, "family-01"), svgs],
+  ["Family 02 valve review", path.join(OUT, "family-02"), svgs],
   // Client-derived drawings live in private/, which git ignores; they appear here when present.
   ["Private, not committed", path.join(ROOT, "private"), svgs],
 ].filter(([, dir]) => existsSync(dir) && readdirSync(dir).some(svgs));

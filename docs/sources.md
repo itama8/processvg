@@ -1,6 +1,6 @@
 # Sources
 
-Every symbol in `src/library.mjs` cites where its form comes from. The short names:
+The symbol library records its declared references and review status. The short names:
 
 | Short name | Source |
 |---|---|
@@ -30,3 +30,5 @@ The symbols are redrawn in the Plotter style from these conventions; no drawing 
 - Johannesburg Water Northern WWTW, JW14060R-CI-002, Legend Sheet 2 (PDF page 48). The project legend shows concentric and eccentric reducers and distinguishes a short sleeve for flexible coupling from expansion joint and flexible hose. [Drawing set](https://scm.johannesburgwater.co.za/wp-content/uploads/2026/06/03-DRAWING-SET-JW14060RRR-NORTHERN-WASTEWATER-TREATMENT-WORKS-DEWATERING-BUILDING-BELT-PRESS-REPLACEMENT_.pdf#page=48)
 
 These project legends informed the visual review. The Family 01 candidates retain the `Proposed` status pending engineering review and acceptance against the governing project legend. The catalogue retains the existing IS 3232, ISA-5.1 and Pahala citations as originally declared.
+
+See [Family 02 verification and provenance](family-02.md#verification-and-provenance) for the audit of valve references and the BIS bulletin on the 2024 edition.

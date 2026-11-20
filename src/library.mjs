@@ -1,6 +1,6 @@
 // P&ID symbol library for water and wastewater treatment drafts.
 //
-// Each symbol is drawn in local units around (0, 0), flow left to right, sized for a
+// Each symbol is drawn in local units around (0, 0), typically inline left to right, sized for a
 // 560 × 440 Plotter canvas (a valve body is 16 × 10). Geometry uses absolute M, L, A, Z
 // path commands only, so it can be moved, scaled and turned in quarter turns exactly.
 //
@@ -12,6 +12,11 @@
 //   Proposed      Not in those sources; drafted here, to agree with the firm before use
 //
 // Conventions agreed with the user: a valve or gate drawn filled is normally closed.
+
+import { place, placePoint, round } from "./geometry.mjs";
+import { assembleValve, VALVES } from "./valves.mjs";
+
+export { place, placePoint };
 
 const IS = (no) => ({ std: "IS 3232", ref: no });
 const ISA = (ref) => ({ std: "ISA-5.1", ref });
@@ -107,35 +112,7 @@ export const SYMBOLS = [
   fitting("line-break", "Pipe break",
     "M-20 0 L-4 0 M4 0 L20 0 M-7 5 L-3 -5 M3 5 L7 -5", [[-20, 0], [20, 0]]),
 
-  // Valves ---------------------------------------------------------------------------------
-  { id: "valve-gate", name: "Gate valve", cat: "Valves", src: [IS("0401"), BC("P-002")], states: true,
-    draw: ({ closed }) => [bowtie(closed)], ports: VALVE_PORTS },
-  { id: "valve-globe", name: "Globe valve", cat: "Valves", src: [IS("0402"), BC("P-002")], states: true,
-    draw: ({ closed }) => [bowtie(closed), C(0, 0, 2.5, { fill: "solid", role: "dot" })], ports: VALVE_PORTS },
-  { id: "valve-ball", name: "Ball valve", cat: "Valves", src: [IS("0407"), BC("P-002")], states: true,
-    draw: ({ closed }) => [bowtie(closed), C(0, 0, 3.5)], ports: VALVE_PORTS },
-  { id: "valve-plug", name: "Plug valve", cat: "Valves", src: [IS("0413"), BC("P-002")], states: true,
-    draw: ({ closed }) => [bowtie(closed), S(rect(-2, -4, 4, 8), { fill: "solid" })], ports: VALVE_PORTS },
-  { id: "valve-butterfly", name: "Butterfly valve", cat: "Valves", src: [IS("0410"), BC("P-002")], states: true,
-    draw: ({ closed }) => [S(line([-5, -7], [-5, 7]) + " " + line([5, -7], [5, 7])),
-      S(line([-3, 6], [3, -6])), C(0, 0, 2, { fill: closed ? "solid" : undefined })],
-    ports: [[-5, 0], [5, 0]] },
-  { id: "valve-knife", name: "Knife gate valve", cat: "Valves", src: [BC("P-002")], states: true,
-    draw: ({ closed }) => [S(line([-4, -7], [-4, 7]) + " " + line([4, -7], [4, 7])),
-      S(rect(-1.5, -11, 3, 18), closed ? { fill: "solid" } : {})], ports: [[-4, 0], [4, 0]] },
-  { id: "valve-check", name: "Check (non-return) valve", cat: "Valves", src: [IS("0403"), BC("P-002")],
-    draw: () => [S(line([-8, -5], [6, 5]) + " " + line([6, -6], [6, 6]))], ports: [[-8, 0], [6, 0]] },
-  { id: "valve-diaphragm", name: "Diaphragm valve", cat: "Valves", src: [IS("0405"), BC("P-002")], states: true,
-    draw: ({ closed }) => [bowtie(closed), S(arc(-6, -6, 7, 6, -6, 0, 1))], ports: VALVE_PORTS },
-  { id: "valve-angle", name: "Angle valve", cat: "Valves", src: [IS("0404"), BC("P-002")],
-    draw: () => [S(poly([-8, -5], [0, 0], [-8, 5])), S(poly([-5, 8], [0, 0], [5, 8]))], ports: [[-8, 0], [0, 8]] },
-  { id: "valve-3way", name: "Three-way valve", cat: "Valves", src: [BC("P-002")],
-    draw: () => [bowtie(false), S(poly([-5, 8], [0, 0], [5, 8]))], ports: [[-8, 0], [8, 0], [0, 8]] },
-  { id: "valve-relief", name: "Pressure relief valve", cat: "Valves", src: [IS("0406"), BC("P-002")],
-    draw: () => [S(poly([-8, -5], [0, 0], [-8, 5])), S(poly([-5, 8], [0, 0], [5, 8])),
-      S(line([0, 0], [0, -6], [-4, -8], [4, -11], [-4, -14], [4, -17], [0, -19]))], ports: [[-8, 0], [0, 8]] },
-  { id: "valve-air", name: "Air release valve", cat: "Valves", src: [BC("P-003 (vent)"), PROPOSED],
-    draw: () => [S(line([0, 8], [0, 2])), S(poly([-5, 2], [5, 2], [0, -6])), S(line([-4, -10], [4, -10]))], ports: [[0, 8]] },
+  ...VALVES,
   { id: "valve-control", name: "Control valve, modulating", cat: "Actuators", src: [IS("0414"), BC("P-002")],
     draw: () => [bowtie(false), ...actuators.diaphragm()], ports: VALVE_PORTS },
 
@@ -251,43 +228,27 @@ export const SERVICE_CODES = {
   SN: "Supernatant", CEN: "Centrate", D: "Drain", OF: "Overflow", SW: "Service water",
 };
 
-// Geometry transform: place a symbol's shapes at (x, y), scale s, quarter turns q (clockwise).
-export function placePoint([px, py], { x = 0, y = 0, s = 1, q = 0 } = {}) {
-  let [u, v] = [px * s, py * s];
-  for (let i = 0; i < ((q % 4) + 4) % 4; i++) [u, v] = [-v, u];
-  return [x + u, y + v];
-}
-
-const round = (value) => Math.round(value * 100) / 100;
-
-export function place(shapes, { x = 0, y = 0, s = 1, q = 0 } = {}) {
-  const turn = (point) => placePoint(point, { x, y, s, q });
-  const fmt = (value) => String(round(value));
-  const number = String.raw`(-?(?:\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?)`;
-  const endpoints = new RegExp(`([ML])\\s*${number}\\s+${number}`, "gi");
-  const arcs = new RegExp(`A${number} ${number} 0 ([01]) ([01]) ${number} ${number}`, "gi");
-  const mapPath = (d) =>
-    d.replace(endpoints, (_, c, a, b) => {
-      const [u, v] = turn([+a, +b]);
-      return `${c}${fmt(u)} ${fmt(v)}`;
-    }).replace(arcs, (_, rx, ry, l, sw, a, b) => {
-      const [u, v] = turn([+a, +b]);
-      return `A${fmt(rx * s)} ${fmt(ry * s)} 0 ${l} ${sw} ${fmt(u)} ${fmt(v)}`;
-    });
-  return shapes.map((sh) => {
-    if (sh.d) return { ...sh, d: mapPath(sh.d) };
-    if (sh.c) { const [u, v] = turn([sh.c[0], sh.c[1]]); return { ...sh, c: [u, v, sh.c[2] * s] }; }
-    if (sh.t) { const [u, v] = [x + sh.t[0] * s, y + sh.t[1] * s]; return { ...sh, t: [u, v, sh.t[2]] }; } // text stays upright
-    return sh;
-  });
-}
-
 export const byId = Object.fromEntries(SYMBOLS.map((s) => [s.id, s]));
+
+/** Compose a valve body, optional operator, pipe ends and state annotations. */
+export function composeValve(config, at = {}, display = {}) {
+  return assembleValve(byId, actuators, config, at, display);
+}
+
+/** Live state rendering shares the same placement, with an independent ink profile in render(). */
+export function placeOperatingValve(config, at = {}, display = {}) {
+  return composeValve(config, at, { ...display, view: "operating" });
+}
 
 /** Place a library symbol and its ports in the same drawing coordinate system. */
 export function placeSymbol(id, at = {}, options = {}) {
   const symbol = byId[id];
   if (!Object.hasOwn(byId, id)) throw new RangeError(`Unknown symbol: ${id}`);
+  if (symbol.valve) {
+    const { renderScale, closed, ...config } = options;
+    return assembleValve(byId, actuators, { ...config, bodyId: id }, at,
+      { renderScale, legacyClosed: closed, quietUnspecified: !Object.hasOwn(config, "normalPosition") });
+  }
   const q = ((at.q ?? 0) % 4 + 4) % 4;
   let drawOptions = options;
   if (id === "crossover") {

@@ -6,6 +6,7 @@ const DARK_STYLE = "<style>svg[data-plotter][data-theme=dark]{color:#ededed}</st
 const PRINT_STYLE = '<style>svg[data-plotter][data-profile=print]{color:#000!important}</style>';
 const ROLE = { primary: [1, null], secondary: [0.32, null], signal: [0.32, "6 4"] };
 export const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+let knockoutSerial = 0;
 const fmt = (v) => (Math.round(v * 100) / 100).toString();
 
 /** Shapes -> grouped SVG markup in Plotter roles. */
@@ -13,22 +14,34 @@ export function render(shapes, { profile = "screen" } = {}) {
   if (!["screen", "print"].includes(profile)) throw new RangeError(`Unknown render profile: ${profile}`);
   const print = profile === "print";
   const groups = { primary: [], secondary: [], signal: [] };
-  const dots = [], names = [], values = [];
+  const defs = [], dots = [], names = [], values = [];
   for (const sh of shapes) {
     if (sh.t) {
       const font = sh.fontFamily ? ` font-family="${esc(sh.fontFamily)}"` : "";
-      (sh.value ? values : names).push(`<text x="${fmt(sh.t[0])}" y="${fmt(sh.t[1])}" text-anchor="${esc(sh.align ?? "middle")}"${font}>${esc(sh.t[2])}</text>`);
+      const baseline = sh.verticalCenter ? ' dominant-baseline="central"' : "";
+      (sh.value ? values : names).push(`<text x="${fmt(sh.t[0])}" y="${fmt(sh.t[1])}" text-anchor="${esc(sh.align ?? "middle")}"${font}${baseline}>${esc(sh.t[2])}</text>`);
       continue;
     }
     const fill = sh.fill === "solid" ? ' fill="currentColor"' : "";
     const dash = sh.dash ? ` stroke-dasharray="${esc(sh.dash)}"` : "";
     const cap = sh.cap ? ` stroke-linecap="${esc(sh.cap)}"` : "";
-    const el = sh.d ? `<path d="${esc(sh.d)}"${fill}${dash}${cap} />`
+    let mask = "";
+    if (sh.knockout) {
+      const id = `processvg-knockout-${++knockoutSerial}`;
+      const cuts = sh.knockout.map((cut) => cut.d
+        ? `<path d="${esc(cut.d)}" ${cut.cutWidth
+          ? `fill="none" stroke="#000" stroke-width="${fmt(cut.cutWidth)}" stroke-linecap="round" stroke-linejoin="round" style="vector-effect:none"`
+          : 'fill="#000" stroke="none"'} />`
+        : `<circle cx="${fmt(cut.c[0])}" cy="${fmt(cut.c[1])}" r="${fmt(cut.c[2])}" fill="#000" stroke="none" />`);
+      defs.push(`<mask id="${id}" maskUnits="objectBoundingBox" maskContentUnits="userSpaceOnUse" mask-type="luminance"><path d="${esc(sh.d)}" fill="#fff" stroke="#fff" />${cuts.join("")}</mask>`);
+      mask = ` mask="url(#${id})"`;
+    }
+    const el = sh.d ? `<path d="${esc(sh.d)}"${fill}${dash}${cap}${mask} />`
       : `<circle cx="${fmt(sh.c[0])}" cy="${fmt(sh.c[1])}" r="${fmt(sh.c[2])}"${fill} />`;
     if (sh.role === "dot") dots.push(el.replace(" />", ` stroke="none" />`));
     else groups[sh.role ?? "primary"].push(el);
   }
-  const out = [];
+  const out = defs.length ? [`<defs>${defs.join("")}</defs>`] : [];
   for (const [role, items] of Object.entries(groups)) {
     if (!items.length) continue;
     const [op, dash] = ROLE[role];

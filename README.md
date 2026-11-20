@@ -12,6 +12,7 @@ opacity for hierarchy, and per-symbol source and review status.
 | `src/library.mjs` | The symbol library: lines, valves (open and closed), actuators, channel gates, instruments, primary elements, pumps and blowers, screening and grit. Each symbol has ports, states and its sources. |
 | `src/render.mjs` | Shapes to SVG in Plotter roles, with screen and print profiles. |
 | `docs/family-01.md` | Family 01 ports, routed line patterns, off-sheet connectors, elevation annotations, and the review gallery. |
+| `docs/family-02.md` | Valve body composition, normal and operating states, typed interfaces and review fixtures. |
 | `docs/structures.md` | What each treatment structure symbol must show (SBR, MBBR, tube settler, clarifier, grit chambers, …): the test drafts are judged against. |
 | `docs/sources.md` | IS 3232, ISA-5.1, the Brown and Caldwell reference set, CPHEEO, Metcalf & Eddy, and utility standards. |
 | `examples/` | Drafts built from the library: an inlet-works P&ID and an SBR basin section. |
@@ -21,7 +22,7 @@ opacity for hierarchy, and per-symbol source and review status.
 
 ## Conventions
 
-- A valve or gate drawn **filled is normally closed**; hollow is open.
+- In the design view, a filled isolation valve is normally closed. A hollow valve may carry an explicit position label, including NC at reduced scale. See [Family 02](docs/family-02.md) for passive valves and the separate operating view. Channel gates retain their existing conventions.
 - Instrument tags are kept simple: `FIT-1`, `LIT-1`, `LIT-2`. A differential level across a
   screen is computed from two LITs and tagged `DLT-1`, drawn as a computed (PLC/SCADA)
   function.
@@ -35,8 +36,8 @@ opacity for hierarchy, and per-symbol source and review status.
 
 ```sh
 npm run build    # regenerate drawings/ from src/ and examples/
-npm run check    # Plotter checks and Family 01 geometry/semantics
-npm run review   # review/index.html: drawings and the Family 01 gallery
+npm run check    # Plotter checks and Family 01/02 geometry and semantics
+npm run review   # review/index.html: drawings and the Family 01/02 galleries
 ```
 
 Needs Node 20+ and Python 3. Rendering PNGs uses `python3 vendor/plotter/scripts/render.py`

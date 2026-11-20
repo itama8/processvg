@@ -1,10 +1,11 @@
 {
- "about": "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol centred on (0, 0), flow left to right. A filled valve or gate is normally closed.",
+ "about": "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for fill and label rules.",
  "sources": {
   "IS 3232": "IS 3232:1999 Recommendations on graphical symbols for process flow diagrams, piping and instrumentation diagrams (BIS), by symbol number",
   "ISA-5.1": "ANSI/ISA-5.1-2009 Instrumentation symbols and identification",
   "B&C": "Brown and Caldwell, Pahala WWTP design-build documents, sheets C-001, P-002, P-003, P-101 (County of Hawaii, 2021; published by US EPA)",
-  "Proposed": "Drafted here; agree with the firm before use"
+  "Proposed": "Drafted here; agree with the firm before use",
+  "Processvg design": "User-approved library geometry; exact standards verification pending"
  },
  "symbols": [
   {
@@ -773,15 +774,72 @@
      0
     ]
    ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "valve": {
+    "mode": "isolation",
+    "bounds": [
+     -8,
+     -5,
+     8,
+     5
+    ],
+    "mount": {
+     "point": [
+      0,
+      0
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    },
+    "terminals": [
+     {
+      "id": "in",
+      "kind": "process",
+      "point": [
+       -8,
+       0
+      ],
+      "normal": [
+       -1,
+       0
+      ],
+      "role": "bidirectional"
+     },
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       8,
+       0
+      ],
+      "normal": [
+       1,
+       0
+      ],
+      "role": "bidirectional"
+     }
+    ]
+   },
    "shapes": {
     "open": [
      {
-      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+      "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z"
      }
     ],
     "closed": [
      {
-      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z",
+      "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z",
       "fill": "solid"
      }
     ]
@@ -815,10 +873,77 @@
      0
     ]
    ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "valve": {
+    "mode": "isolation",
+    "bounds": [
+     -8,
+     -5,
+     8,
+     5
+    ],
+    "mount": {
+     "point": [
+      0,
+      -3.5
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    },
+    "minFillScale": 1.25,
+    "terminals": [
+     {
+      "id": "in",
+      "kind": "process",
+      "point": [
+       -8,
+       0
+      ],
+      "normal": [
+       -1,
+       0
+      ],
+      "role": "bidirectional"
+     },
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       8,
+       0
+      ],
+      "normal": [
+       1,
+       0
+      ],
+      "role": "bidirectional"
+     }
+    ]
+   },
    "shapes": {
     "open": [
      {
-      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+      "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z",
+      "knockout": [
+       {
+        "c": [
+         0,
+         0,
+         3.5
+        ]
+       }
+      ]
      },
      {
       "c": [
@@ -832,8 +957,17 @@
     ],
     "closed": [
      {
-      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z",
-      "fill": "solid"
+      "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z",
+      "fill": "solid",
+      "knockout": [
+       {
+        "c": [
+         0,
+         0,
+         3.5
+        ]
+       }
+      ]
      },
      {
       "c": [
@@ -875,10 +1009,77 @@
      0
     ]
    ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "valve": {
+    "mode": "isolation",
+    "bounds": [
+     -8,
+     -5,
+     8,
+     5
+    ],
+    "mount": {
+     "point": [
+      0,
+      -4.6
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    },
+    "minFillScale": 1.25,
+    "terminals": [
+     {
+      "id": "in",
+      "kind": "process",
+      "point": [
+       -8,
+       0
+      ],
+      "normal": [
+       -1,
+       0
+      ],
+      "role": "bidirectional"
+     },
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       8,
+       0
+      ],
+      "normal": [
+       1,
+       0
+      ],
+      "role": "bidirectional"
+     }
+    ]
+   },
    "shapes": {
     "open": [
      {
-      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+      "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z",
+      "knockout": [
+       {
+        "c": [
+         0,
+         0,
+         4.6
+        ]
+       }
+      ]
      },
      {
       "c": [
@@ -890,8 +1091,17 @@
     ],
     "closed": [
      {
-      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z",
-      "fill": "solid"
+      "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z",
+      "fill": "solid",
+      "knockout": [
+       {
+        "c": [
+         0,
+         0,
+         4.6
+        ]
+       }
+      ]
      },
      {
       "c": [
@@ -931,10 +1141,73 @@
      0
     ]
    ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "valve": {
+    "mode": "isolation",
+    "bounds": [
+     -8,
+     -5,
+     8,
+     5
+    ],
+    "mount": {
+     "point": [
+      0,
+      -5
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    },
+    "minFillScale": 1.25,
+    "terminals": [
+     {
+      "id": "in",
+      "kind": "process",
+      "point": [
+       -8,
+       0
+      ],
+      "normal": [
+       -1,
+       0
+      ],
+      "role": "bidirectional"
+     },
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       8,
+       0
+      ],
+      "normal": [
+       1,
+       0
+      ],
+      "role": "bidirectional"
+     }
+    ]
+   },
    "shapes": {
     "open": [
      {
-      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+      "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z",
+      "knockout": [
+       {
+        "d": "M-3 -5 L3 -5 L3 5 L-3 5 Z"
+       }
+      ]
      },
      {
       "d": "M-2 -4 L2 -4 L2 4 L-2 4 Z",
@@ -943,8 +1216,13 @@
     ],
     "closed": [
      {
-      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z",
-      "fill": "solid"
+      "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z",
+      "fill": "solid",
+      "knockout": [
+       {
+        "d": "M-3 -5 L3 -5 L3 5 L-3 5 Z"
+       }
+      ]
      },
      {
       "d": "M-2 -4 L2 -4 L2 4 L-2 4 Z",
@@ -981,13 +1259,81 @@
      0
     ]
    ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "valve": {
+    "mode": "isolation",
+    "bounds": [
+     -5,
+     -7,
+     5,
+     7
+    ],
+    "mount": {
+     "point": [
+      0,
+      -2.3
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    },
+    "ports": [
+     [
+      -5,
+      0
+     ],
+     [
+      5,
+      0
+     ]
+    ],
+    "minFillScale": 1.5,
+    "terminals": [
+     {
+      "id": "in",
+      "kind": "process",
+      "point": [
+       -5,
+       0
+      ],
+      "normal": [
+       -1,
+       0
+      ],
+      "role": "bidirectional"
+     },
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       5,
+       0
+      ],
+      "normal": [
+       1,
+       0
+      ],
+      "role": "bidirectional"
+     }
+    ]
+   },
    "shapes": {
     "open": [
      {
       "d": "M-5 -7 L-5 7 M5 -7 L5 7"
      },
      {
-      "d": "M-3 6 L3 -6"
+      "d": "M-3 6 L-0.89 1.79 M0.89 -1.79 L3 -6"
      },
      {
       "c": [
@@ -1002,7 +1348,7 @@
       "d": "M-5 -7 L-5 7 M5 -7 L5 7"
      },
      {
-      "d": "M-3 6 L3 -6"
+      "d": "M-3 6 L-0.89 1.79 M0.89 -1.79 L3 -6"
      },
      {
       "c": [
@@ -1039,6 +1385,74 @@
      0
     ]
    ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "valve": {
+    "mode": "isolation",
+    "bounds": [
+     -4,
+     -11,
+     4,
+     7
+    ],
+    "mount": {
+     "point": [
+      0,
+      -11
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    },
+    "ports": [
+     [
+      -4,
+      0
+     ],
+     [
+      4,
+      0
+     ]
+    ],
+    "minFillScale": 1,
+    "terminals": [
+     {
+      "id": "in",
+      "kind": "process",
+      "point": [
+       -4,
+       0
+      ],
+      "normal": [
+       -1,
+       0
+      ],
+      "role": "bidirectional"
+     },
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       4,
+       0
+      ],
+      "normal": [
+       1,
+       0
+      ],
+      "role": "bidirectional"
+     }
+    ]
+   },
    "shapes": {
     "open": [
      {
@@ -1065,6 +1479,29 @@
    "category": "Valves",
    "sources": [
     {
+     "std": "Processvg design",
+     "ref": "Approved NRV"
+    }
+   ],
+   "ports": [
+    [
+     -7,
+     0
+    ],
+    [
+     7,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [],
+   "verification": "Exact geometry not standards-verified",
+   "designApproval": "User-approved Family 02 design",
+   "historicalSources": [
+    {
      "std": "IS 3232",
      "ref": "0403"
     },
@@ -1073,19 +1510,57 @@
      "ref": "P-002"
     }
    ],
-   "ports": [
-    [
-     -8,
-     0
+   "valve": {
+    "mode": "passive",
+    "roles": [
+     "inlet",
+     "outlet"
     ],
-    [
-     6,
-     0
+    "permittedFlow": {
+     "from": "in",
+     "to": "out"
+    },
+    "bounds": [
+     -7,
+     -6.2,
+     7,
+     6.2
+    ],
+    "terminals": [
+     {
+      "id": "in",
+      "kind": "process",
+      "point": [
+       -7,
+       0
+      ],
+      "normal": [
+       -1,
+       0
+      ],
+      "role": "inlet"
+     },
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       7,
+       0
+      ],
+      "normal": [
+       1,
+       0
+      ],
+      "role": "outlet"
+     }
     ]
-   ],
+   },
    "shapes": [
     {
-     "d": "M-8 -5 L6 5 M6 -6 L6 6"
+     "d": "M-7 -5 L7 0 L-7 5 Z"
+    },
+    {
+     "d": "M7 -6.2 L7 6.2"
     }
    ]
   },
@@ -1117,10 +1592,67 @@
      0
     ]
    ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "valve": {
+    "mode": "isolation",
+    "bounds": [
+     -8,
+     -9.4,
+     8,
+     5
+    ],
+    "mount": {
+     "point": [
+      0,
+      -9.4
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    },
+    "terminals": [
+     {
+      "id": "in",
+      "kind": "process",
+      "point": [
+       -8,
+       0
+      ],
+      "normal": [
+       -1,
+       0
+      ],
+      "role": "bidirectional"
+     },
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       8,
+       0
+      ],
+      "normal": [
+       1,
+       0
+      ],
+      "role": "bidirectional"
+     }
+    ]
+   },
    "shapes": {
     "open": [
      {
-      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
+      "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z"
      },
      {
       "d": "M-6 -6 A7 7 0 0 1 6 -6"
@@ -1128,7 +1660,7 @@
     ],
     "closed": [
      {
-      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z",
+      "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z",
       "fill": "solid"
      },
      {
@@ -1161,6 +1693,63 @@
      8
     ]
    ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "valve": {
+    "mode": "angle",
+    "bounds": [
+     -8,
+     -5,
+     5,
+     8
+    ],
+    "mount": {
+     "point": [
+      0,
+      0
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    },
+    "terminals": [
+     {
+      "id": "in",
+      "kind": "process",
+      "point": [
+       -8,
+       0
+      ],
+      "normal": [
+       -1,
+       0
+      ],
+      "role": "bidirectional"
+     },
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       0,
+       8
+      ],
+      "normal": [
+       0,
+       1
+      ],
+      "role": "bidirectional"
+     }
+    ]
+   },
    "shapes": [
     {
      "d": "M-8 -5 L0 0 L-8 5 Z"
@@ -1194,6 +1783,77 @@
      8
     ]
    ],
+   "portNames": [
+    "in",
+    "out",
+    "branch"
+   ],
+   "connectivity": [],
+   "valve": {
+    "mode": "diverter",
+    "portIds": [
+     "in",
+     "out",
+     "branch"
+    ],
+    "bounds": [
+     -8,
+     -5,
+     8,
+     8
+    ],
+    "mount": {
+     "point": [
+      0,
+      0
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    },
+    "terminals": [
+     {
+      "id": "in",
+      "kind": "process",
+      "point": [
+       -8,
+       0
+      ],
+      "normal": [
+       -1,
+       0
+      ],
+      "role": "bidirectional"
+     },
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       8,
+       0
+      ],
+      "normal": [
+       1,
+       0
+      ],
+      "role": "bidirectional"
+     },
+     {
+      "id": "branch",
+      "kind": "process",
+      "point": [
+       0,
+       8
+      ],
+      "normal": [
+       0,
+       1
+      ],
+      "role": "bidirectional"
+     }
+    ]
+   },
    "shapes": [
     {
      "d": "M-8 -5 L8 5 L8 -5 L-8 5 Z"
@@ -1227,6 +1887,52 @@
      8
     ]
    ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [],
+   "valve": {
+    "mode": "passive",
+    "roles": [
+     "inlet",
+     "outlet"
+    ],
+    "bounds": [
+     -8,
+     -19,
+     5,
+     8
+    ],
+    "terminals": [
+     {
+      "id": "in",
+      "kind": "process",
+      "point": [
+       -8,
+       0
+      ],
+      "normal": [
+       -1,
+       0
+      ],
+      "role": "inlet"
+     },
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       0,
+       8
+      ],
+      "normal": [
+       0,
+       1
+      ],
+      "role": "outlet"
+     }
+    ]
+   },
    "shapes": [
     {
      "d": "M-8 -5 L0 0 L-8 5 Z"
@@ -1250,7 +1956,7 @@
     },
     {
      "std": "Proposed",
-     "ref": "to agree"
+     "ref": "Family 02"
     }
    ],
    "ports": [
@@ -1259,6 +1965,52 @@
      8
     ]
    ],
+   "portNames": [
+    "process"
+   ],
+   "connectivity": [],
+   "valve": {
+    "mode": "passive",
+    "portIds": [
+     "process"
+    ],
+    "bounds": [
+     -5,
+     -10,
+     5,
+     8
+    ],
+    "interfaces": [
+     {
+      "id": "atmosphere",
+      "kind": "atmospheric-boundary",
+      "point": [
+       0,
+       -10
+      ],
+      "normal": [
+       0,
+       -1
+      ],
+      "role": "vent"
+     }
+    ],
+    "terminals": [
+     {
+      "id": "process",
+      "kind": "process",
+      "point": [
+       0,
+       8
+      ],
+      "normal": [
+       0,
+       1
+      ],
+      "role": "bidirectional"
+     }
+    ]
+   },
    "shapes": [
     {
      "d": "M0 8 L0 2"
@@ -1270,6 +2022,756 @@
      "d": "M-4 -10 L4 -10"
     }
    ]
+  },
+  {
+   "id": "valve-needle",
+   "name": "Needle valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "Proposed",
+     "ref": "Family 02"
+    }
+   ],
+   "states": [
+    "open",
+    "closed"
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Exact geometry not standards-verified",
+   "designApproval": "User-approved Family 02 design",
+   "valve": {
+    "mode": "isolation",
+    "bounds": [
+     -8,
+     -9,
+     8,
+     5
+    ],
+    "mount": {
+     "point": [
+      0,
+      -9
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    },
+    "minFillScale": 1.25,
+    "terminals": [
+     {
+      "id": "in",
+      "kind": "process",
+      "point": [
+       -8,
+       0
+      ],
+      "normal": [
+       -1,
+       0
+      ],
+      "role": "bidirectional"
+     },
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       8,
+       0
+      ],
+      "normal": [
+       1,
+       0
+      ],
+      "role": "bidirectional"
+     }
+    ]
+   },
+   "shapes": {
+    "open": [
+     {
+      "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z",
+      "knockout": [
+       {
+        "d": "M0 -9 L0 1 M-3 -5 L0 -1 L3 -5",
+        "cutWidth": 3.4
+       }
+      ]
+     },
+     {
+      "d": "M0 -9 L0 1 M-3 -5 L0 -1 L3 -5"
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z",
+      "fill": "solid",
+      "knockout": [
+       {
+        "d": "M0 -9 L0 1 M-3 -5 L0 -1 L3 -5",
+        "cutWidth": 3.4
+       }
+      ]
+     },
+     {
+      "d": "M0 -9 L0 1 M-3 -5 L0 -1 L3 -5"
+     }
+    ]
+   }
+  },
+  {
+   "id": "valve-pinch",
+   "name": "Pinch valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "Proposed",
+     "ref": "Family 02"
+    }
+   ],
+   "states": [
+    "open",
+    "closed"
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Exact geometry not standards-verified",
+   "designApproval": "User-approved Family 02 design",
+   "valve": {
+    "mode": "isolation",
+    "bounds": [
+     -8,
+     -12,
+     8,
+     12
+    ],
+    "mount": null,
+    "minFillScale": 1.25,
+    "terminals": [
+     {
+      "id": "in",
+      "kind": "process",
+      "point": [
+       -8,
+       0
+      ],
+      "normal": [
+       -1,
+       0
+      ],
+      "role": "bidirectional"
+     },
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       8,
+       0
+      ],
+      "normal": [
+       1,
+       0
+      ],
+      "role": "bidirectional"
+     }
+    ]
+   },
+   "shapes": {
+    "open": [
+     {
+      "d": "M-8 -6 L-2 -2 L2 -2 L8 -6 L8 6 L2 2 L-2 2 L-8 6 Z"
+     },
+     {
+      "d": "M0 -12 L0 -3 M0 3 L0 12"
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-8 -6 L-2 -2 L2 -2 L8 -6 L8 6 L2 2 L-2 2 L-8 6 Z",
+      "fill": "solid"
+     },
+     {
+      "d": "M0 -12 L0 -3 M0 3 L0 12"
+     }
+    ]
+   }
+  },
+  {
+   "id": "valve-foot",
+   "name": "Foot valve with strainer",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "Proposed",
+     "ref": "Family 02"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -16
+    ]
+   ],
+   "portNames": [
+    "out"
+   ],
+   "connectivity": [],
+   "verification": "Exact geometry not standards-verified",
+   "designApproval": "User-approved NRV derivative (Family 03 amendment to Family 02)",
+   "valve": {
+    "mode": "passive",
+    "portIds": [
+     "out"
+    ],
+    "roles": [
+     "outlet"
+    ],
+    "bounds": [
+     -8,
+     -16,
+     8,
+     19
+    ],
+    "interfaces": [
+     {
+      "id": "intake",
+      "kind": "screened-boundary",
+      "point": [
+       0,
+       19
+      ],
+      "normal": [
+       0,
+       1
+      ],
+      "role": "intake"
+     }
+    ],
+    "permittedFlow": {
+     "from": "intake",
+     "to": "out"
+    },
+    "terminals": [
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       0,
+       -16
+      ],
+      "normal": [
+       0,
+       -1
+      ],
+      "role": "outlet"
+     }
+    ]
+   },
+   "shapes": [
+    {
+     "d": "M-5 7 L0 -7 L5 7 Z"
+    },
+    {
+     "d": "M-6.2 -7 L6.2 -7"
+    },
+    {
+     "d": "M0 -16 L0 -7 M0 7 L0 10"
+    },
+    {
+     "d": "M-8 10 L8 10 L8 19 L-8 19 Z M-4 12 L-4 17 M0 12 L0 17 M4 12 L4 17"
+    }
+   ]
+  },
+  {
+   "id": "valve-pressure-reducing",
+   "name": "Pressure-reducing valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "Proposed",
+     "ref": "Family 02"
+    }
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Exact geometry not standards-verified",
+   "designApproval": "User-approved Family 02 design",
+   "valve": {
+    "mode": "regulating",
+    "roles": [
+     "inlet",
+     "outlet"
+    ],
+    "bounds": [
+     -8,
+     -15,
+     8,
+     5
+    ],
+    "representations": [
+     "compact",
+     "downstream-sensing"
+    ],
+    "terminals": [
+     {
+      "id": "in",
+      "kind": "process",
+      "point": [
+       -8,
+       0
+      ],
+      "normal": [
+       -1,
+       0
+      ],
+      "role": "inlet"
+     },
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       8,
+       0
+      ],
+      "normal": [
+       1,
+       0
+      ],
+      "role": "outlet"
+     }
+    ]
+   },
+   "representations": {
+    "compact": {
+     "shapes": [
+      {
+       "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z"
+      },
+      {
+       "d": "M0 0 L0 -9"
+      },
+      {
+       "d": "M-6 -9 A6 6 0 0 1 6 -9 Z"
+      },
+      {
+       "t": [
+        0,
+        21,
+        "Pressure reducing"
+       ],
+       "align": "middle",
+       "fontFamily": "sans-serif"
+      }
+     ],
+     "processPorts": [
+      {
+       "id": "in",
+       "kind": "process",
+       "point": [
+        -8,
+        0
+       ],
+       "normal": [
+        -1,
+        0
+       ],
+       "role": "inlet",
+       "bodyPoint": [
+        -8,
+        0
+       ],
+       "end": {
+        "type": "plain"
+       }
+      },
+      {
+       "id": "out",
+       "kind": "process",
+       "point": [
+        8,
+        0
+       ],
+       "normal": [
+        1,
+        0
+       ],
+       "role": "outlet",
+       "bodyPoint": [
+        8,
+        0
+       ],
+       "end": {
+        "type": "plain"
+       }
+      }
+     ]
+    },
+    "downstream-sensing": {
+     "shapes": [
+      {
+       "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z"
+      },
+      {
+       "d": "M0 0 L0 -9"
+      },
+      {
+       "d": "M-6 -9 A6 6 0 0 1 6 -9 Z"
+      },
+      {
+       "d": "M8 0 L18 0"
+      },
+      {
+       "d": "M18 0 L18 -18 L0 -18 L0 -15",
+       "role": "secondary",
+       "dash": "2 2"
+      },
+      {
+       "c": [
+        18,
+        0,
+        1.5
+       ],
+       "fill": "solid",
+       "role": "dot"
+      },
+      {
+       "t": [
+        0,
+        21,
+        "Pressure reducing"
+       ],
+       "align": "middle",
+       "fontFamily": "sans-serif"
+      }
+     ],
+     "processPorts": [
+      {
+       "id": "in",
+       "kind": "process",
+       "point": [
+        -8,
+        0
+       ],
+       "normal": [
+        -1,
+        0
+       ],
+       "role": "inlet",
+       "bodyPoint": [
+        -8,
+        0
+       ],
+       "end": {
+        "type": "plain"
+       }
+      },
+      {
+       "id": "out",
+       "kind": "process",
+       "point": [
+        18,
+        0
+       ],
+       "normal": [
+        1,
+        0
+       ],
+       "role": "outlet",
+       "bodyPoint": [
+        18,
+        0
+       ],
+       "end": {
+        "type": "plain"
+       }
+      }
+     ],
+     "sensing": {
+      "kind": "hydraulic-impulse",
+      "tap": [
+       18,
+       0
+      ],
+      "receiver": [
+       0,
+       -15
+      ]
+     }
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z"
+    },
+    {
+     "d": "M0 0 L0 -9"
+    },
+    {
+     "d": "M-6 -9 A6 6 0 0 1 6 -9 Z"
+    }
+   ]
+  },
+  {
+   "id": "valve-air-combination",
+   "name": "Combination air valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "Proposed",
+     "ref": "Family 02"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     16
+    ]
+   ],
+   "portNames": [
+    "process"
+   ],
+   "connectivity": [],
+   "verification": "Exact geometry not standards-verified",
+   "designApproval": "User-approved Family 02 design",
+   "valve": {
+    "mode": "passive",
+    "portIds": [
+     "process"
+    ],
+    "bounds": [
+     -10,
+     -16,
+     10,
+     16
+    ],
+    "interfaces": [
+     {
+      "id": "atmosphere",
+      "kind": "atmospheric-boundary",
+      "point": [
+       0,
+       -16
+      ],
+      "normal": [
+       0,
+       -1
+      ],
+      "role": "admit-and-vent-air"
+     }
+    ],
+    "functions": [
+     "large-orifice-air/vacuum",
+     "small-orifice-air-release-under-pressure"
+    ],
+    "terminals": [
+     {
+      "id": "process",
+      "kind": "process",
+      "point": [
+       0,
+       16
+      ],
+      "normal": [
+       0,
+       1
+      ],
+      "role": "bidirectional"
+     }
+    ]
+   },
+   "shapes": [
+    {
+     "d": "M0 16 L0 9 M-10 -9 L10 -9 L10 9 L-10 9 Z M0 -9 L0 -16"
+    },
+    {
+     "d": "M-5 5 L-5 -5 M-8 -2 L-5 -5 L-2 -2 M5 -5 L5 5 M2 2 L5 5 L8 2"
+    }
+   ]
+  },
+  {
+   "id": "valve-float-operated",
+   "name": "Float-operated valve",
+   "category": "Valves",
+   "sources": [
+    {
+     "std": "Proposed",
+     "ref": "Family 02"
+    }
+   ],
+   "states": [
+    "open",
+    "closed"
+   ],
+   "ports": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Exact geometry not standards-verified",
+   "designApproval": "User-approved Family 02 design",
+   "valve": {
+    "mode": "isolation",
+    "preset": {
+     "bodyId": "valve-gate",
+     "actuator": {
+      "type": "float"
+     }
+    },
+    "bounds": [
+     -8,
+     -19,
+     22,
+     5
+    ],
+    "mount": {
+     "point": [
+      0,
+      0
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    },
+    "terminals": [
+     {
+      "id": "in",
+      "kind": "process",
+      "point": [
+       -8,
+       0
+      ],
+      "normal": [
+       -1,
+       0
+      ],
+      "role": "bidirectional"
+     },
+     {
+      "id": "out",
+      "kind": "process",
+      "point": [
+       8,
+       0
+      ],
+      "normal": [
+       1,
+       0
+      ],
+      "role": "bidirectional"
+     }
+    ]
+   },
+   "shapes": {
+    "open": [
+     {
+      "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z"
+     },
+     {
+      "d": "M0 0 L0 -9"
+     },
+     {
+      "d": "M0 -9 L14 -15"
+     },
+     {
+      "c": [
+       18,
+       -15,
+       4
+      ]
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-8 -5 L0 0 L-8 5 Z M8 -5 L8 5 L0 0 Z",
+      "fill": "solid"
+     },
+     {
+      "d": "M0 0 L0 -9"
+     },
+     {
+      "d": "M0 -9 L14 -15"
+     },
+     {
+      "c": [
+       18,
+       -15,
+       4
+      ]
+     }
+    ]
+   }
   },
   {
    "id": "valve-control",
