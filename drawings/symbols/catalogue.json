@@ -1,11 +1,90 @@
 {
- "about": "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for fill and label rules.",
+ "about": "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for valves and docs/family-04.md for gates and weirs.",
  "sources": {
   "IS 3232": "IS 3232:1999 Recommendations on graphical symbols for process flow diagrams, piping and instrumentation diagrams (BIS), by symbol number",
   "ISA-5.1": "ANSI/ISA-5.1-2009 Instrumentation symbols and identification",
   "B&C": "Brown and Caldwell, Pahala WWTP design-build documents, sheets C-001, P-002, P-003, P-101 (County of Hawaii, 2021; published by US EPA)",
   "Proposed": "Drafted here; agree with the firm before use",
   "Processvg design": "User-approved library geometry; exact standards verification pending"
+ },
+ "aliases": {
+  "gate-sluice": "gate-slide",
+  "weir-v-notch": "weir"
+ },
+ "gateArchive": {
+  "gate-slide": {
+   "ports": [
+    [
+     -2.5,
+     0
+    ],
+    [
+     2.5,
+     0
+    ]
+   ],
+   "shapes": {
+    "open": [
+     {
+      "d": "M-2.5 -10 L2.5 -10 L2.5 10 L-2.5 10 Z"
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-2.5 -10 L2.5 -10 L2.5 10 L-2.5 10 Z",
+      "fill": "solid"
+     }
+    ]
+   }
+  },
+  "gate-sluice": {
+   "ports": [
+    [
+     -2.5,
+     0
+    ],
+    [
+     2.5,
+     0
+    ]
+   ],
+   "shapes": {
+    "open": [
+     {
+      "d": "M-2.5 -10 L2.5 -10 L2.5 10 L-2.5 10 Z"
+     },
+     {
+      "d": "M-2.5 10 L2.5 -10"
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-2.5 -10 L2.5 -10 L2.5 10 L-2.5 10 Z"
+     },
+     {
+      "d": "M2.5 -10 L2.5 10 L-2.5 10 Z",
+      "fill": "solid"
+     }
+    ]
+   }
+  },
+  "gate-flap": {
+   "ports": [
+    [
+     -2,
+     0
+    ],
+    [
+     4,
+     0
+    ]
+   ],
+   "shapes": [
+    {
+     "d": "M-2 -10 L-2 10 M-2 -10 L6 4"
+    }
+   ]
+  }
  },
  "symbols": [
   {
@@ -3519,12 +3598,12 @@
   },
   {
    "id": "gate-slide",
-   "name": "Slide gate (penstock)",
+   "name": "Slide / sluice gate",
    "category": "Gates",
    "sources": [
     {
-     "std": "B&C",
-     "ref": "P-002, P-003"
+     "std": "Processvg design",
+     "ref": "Family 04 revision 03"
     }
    ],
    "states": [
@@ -3541,44 +3620,44 @@
      0
     ]
    ],
-   "shapes": {
-    "open": [
-     {
-      "d": "M-2.5 -10 L2.5 -10 L2.5 10 L-2.5 10 Z"
-     }
-    ],
-    "closed": [
-     {
-      "d": "M-2.5 -10 L2.5 -10 L2.5 10 L-2.5 10 Z",
-      "fill": "solid"
-     }
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
     ]
-   }
-  },
-  {
-   "id": "gate-sluice",
-   "name": "Sluice gate",
-   "category": "Gates",
-   "sources": [
+   ],
+   "verification": "Exact glyph pending standards verification",
+   "designApproval": "Approved processvg schematic (Family 04)",
+   "historicalSources": [
     {
      "std": "B&C",
      "ref": "P-002, P-003"
     }
    ],
-   "states": [
-    "open",
-    "closed"
-   ],
-   "ports": [
-    [
+   "gate": {
+    "kind": "slide",
+    "bounds": [
      -2.5,
-     0
-    ],
-    [
+     -10,
      2.5,
-     0
-    ]
-   ],
+     10
+    ],
+    "mount": {
+     "point": [
+      0,
+      -10
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    },
+    "minFillScale": 1.25
+   },
    "shapes": {
     "open": [
      {
@@ -3590,11 +3669,18 @@
     ],
     "closed": [
      {
-      "d": "M-2.5 -10 L2.5 -10 L2.5 10 L-2.5 10 Z"
+      "d": "M-2.5 -10 L2.5 -10 L2.5 10 L-2.5 10 Z",
+      "fill": "solid",
+      "knockout": [
+       {
+        "d": "M-2.5 10 L2.5 -10",
+        "cutWidth": 1.2,
+        "cap": "butt"
+       }
+      ]
      },
      {
-      "d": "M2.5 -10 L2.5 10 L-2.5 10 Z",
-      "fill": "solid"
+      "d": "M-2.5 -10 L2.5 -10 L2.5 10 L-2.5 10 Z"
      }
     ]
    }
@@ -3623,6 +3709,30 @@
      0
     ]
    ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "gate": {
+    "kind": "stop",
+    "bounds": [
+     -2.5,
+     -10,
+     2.5,
+     10
+    ],
+    "mount": null
+   },
+   "stateLabels": [
+    "Removed",
+    "Installed"
+   ],
    "shapes": {
     "open": [
      {
@@ -3645,17 +3755,200 @@
   },
   {
    "id": "gate-flap",
-   "name": "Flap gate",
+   "name": "Flap gate (FG)",
    "category": "Gates",
    "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 04 revision 03"
+    }
+   ],
+   "ports": [
+    [
+     -7,
+     0
+    ],
+    [
+     7,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Exact glyph pending standards verification",
+   "designApproval": "Approved processvg schematic (Family 04)",
+   "historicalSources": [
     {
      "std": "B&C",
      "ref": "P-002, P-003"
     }
    ],
+   "gate": {
+    "kind": "flap",
+    "bounds": [
+     -7,
+     -6.2,
+     7,
+     6.2
+    ],
+    "mount": null
+   },
+   "glyphRef": "valve-check",
+   "shapes": [
+    {
+     "d": "M-7 -5 L7 0 L-7 5 Z"
+    },
+    {
+     "d": "M7 -6.2 L7 6.2"
+    }
+   ]
+  },
+  {
+   "id": "gate-weir-adjustable",
+   "name": "Adjustable crest gate",
+   "category": "Gates",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 04 revision 03"
+    }
+   ],
    "ports": [
     [
-     -2,
+     -5,
+     0
+    ],
+    [
+     5,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Exact glyph pending standards verification",
+   "designApproval": "Approved processvg schematic (Family 04)",
+   "gate": {
+    "kind": "adjustable",
+    "bounds": [
+     -5,
+     -10,
+     5,
+     10
+    ],
+    "mount": {
+     "point": [
+      0,
+      -10
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-5 -10 L5 -10 L5 10 L-5 10 Z M-5 -3 L5 -3 M-5 3 L5 3"
+    }
+   ]
+  },
+  {
+   "id": "gate-butterfly",
+   "name": "Butterfly gate",
+   "category": "Gates",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 04 revision 03"
+    }
+   ],
+   "ports": [
+    [
+     -10,
+     0
+    ],
+    [
+     10,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Exact glyph pending standards verification",
+   "designApproval": "Approved processvg schematic (Family 04)",
+   "gate": {
+    "kind": "butterfly",
+    "bounds": [
+     -10,
+     -10,
+     10,
+     10
+    ],
+    "mount": {
+     "point": [
+      0,
+      -10
+     ],
+     "normal": [
+      0,
+      -1
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "c": [
+      0,
+      0,
+      10
+     ]
+    },
+    {
+     "d": "M-6 7 L6 -7"
+    }
+   ]
+  },
+  {
+   "id": "gate-bulkhead",
+   "name": "Bulkhead / stop plate",
+   "category": "Gates",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 04 revision 03"
+    }
+   ],
+   "states": [
+    "open",
+    "closed"
+   ],
+   "ports": [
+    [
+     -4,
      0
     ],
     [
@@ -3663,11 +3956,65 @@
      0
     ]
    ],
-   "shapes": [
-    {
-     "d": "M-2 -10 L-2 10 M-2 -10 L6 4"
-    }
-   ]
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Exact glyph pending standards verification",
+   "designApproval": "Approved processvg schematic (Family 04)",
+   "gate": {
+    "kind": "bulkhead",
+    "bounds": [
+     -7,
+     -12,
+     7,
+     12
+    ],
+    "mount": null,
+    "minFillScale": 1
+   },
+   "stateLabels": [
+    "Removed",
+    "Installed"
+   ],
+   "shapes": {
+    "open": [
+     {
+      "d": "M-4 -12 L4 -12 L4 12 L-4 12 Z"
+     },
+     {
+      "d": "M-4 0 L4 0"
+     },
+     {
+      "d": "M-7 -12 L7 -12 M-7 12 L7 12"
+     }
+    ],
+    "closed": [
+     {
+      "d": "M-4 -12 L4 -12 L4 12 L-4 12 Z",
+      "fill": "solid",
+      "knockout": [
+       {
+        "d": "M-4 0 L4 0",
+        "cutWidth": 1.6,
+        "cap": "butt"
+       }
+      ]
+     },
+     {
+      "d": "M-4 -12 L4 -12 L4 12 L-4 12 Z"
+     },
+     {
+      "d": "M-7 -12 L7 -12 M-7 12 L7 12"
+     }
+    ]
+   }
   },
   {
    "id": "weir",
@@ -3689,6 +4036,26 @@
      0
     ]
    ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "gate": {
+    "kind": "v-notch",
+    "bounds": [
+     -12,
+     -6,
+     12,
+     6
+    ],
+    "mount": null
+   },
    "shapes": [
     {
      "d": "M-12 0 L-6 0 M6 0 L12 0"
@@ -3698,6 +4065,150 @@
     },
     {
      "d": "M-6 -6 L-6 6 L6 6 L6 -6"
+    }
+   ]
+  },
+  {
+   "id": "weir-rectangular",
+   "name": "Rectangular-notch weir",
+   "category": "Gates",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 04 revision 03"
+    }
+   ],
+   "ports": [
+    [
+     -12,
+     0
+    ],
+    [
+     12,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Exact glyph pending standards verification",
+   "designApproval": "Approved processvg schematic (Family 04)",
+   "gate": {
+    "kind": "rectangular",
+    "bounds": [
+     -12,
+     -9,
+     12,
+     10
+    ],
+    "mount": null
+   },
+   "shapes": [
+    {
+     "d": "M-12 -9 L-5 -9 L-5 2 L5 2 L5 -9 L12 -9 L12 10 L-12 10 Z"
+    }
+   ]
+  },
+  {
+   "id": "weir-trapezoidal",
+   "name": "Trapezoidal-notch weir",
+   "category": "Gates",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 04 revision 03"
+    }
+   ],
+   "ports": [
+    [
+     -12,
+     0
+    ],
+    [
+     12,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Exact glyph pending standards verification",
+   "designApproval": "Approved processvg schematic (Family 04)",
+   "gate": {
+    "kind": "trapezoidal",
+    "bounds": [
+     -12,
+     -9,
+     12,
+     10
+    ],
+    "mount": null
+   },
+   "shapes": [
+    {
+     "d": "M-12 -9 L-8 -9 L-4 2 L4 2 L8 -9 L12 -9 L12 10 L-12 10 Z"
+    }
+   ]
+  },
+  {
+   "id": "weir-serrated",
+   "name": "Serrated weir",
+   "category": "Gates",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 04 revision 03"
+    }
+   ],
+   "ports": [
+    [
+     -20,
+     0
+    ],
+    [
+     20,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Exact glyph pending standards verification",
+   "designApproval": "Approved processvg schematic (Family 04)",
+   "gate": {
+    "kind": "serrated",
+    "bounds": [
+     -20,
+     -6,
+     20,
+     10
+    ],
+    "mount": null
+   },
+   "shapes": [
+    {
+     "d": "M-20 -6 L-15 0 L-10 -6 L-5 0 L0 -6 L5 0 L10 -6 L15 0 L20 -6 L20 10 L-20 10 Z"
     }
    ]
   },

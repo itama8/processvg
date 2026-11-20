@@ -23,7 +23,7 @@ opacity for hierarchy, and per-symbol source and review status.
 
 ## Conventions
 
-- In the design view, a filled isolation valve is normally closed. A hollow valve may carry an explicit position label, including NC at reduced scale. See [Family 02](docs/family-02.md) for passive valves and the separate operating view. Channel gates retain their existing conventions.
+- In the design view, a filled isolation valve is normally closed. A hollow valve may carry an explicit position label, including NC at reduced scale. See [Family 02](docs/family-02.md) for passive valves and the separate operating view. See [Family 04](docs/family-04.md) for channel-gate states, archive placement and physical views.
 - Instrument tags are kept simple: `FIT-1`, `LIT-1`, `LIT-2`. A differential level across a
   screen is computed from two LITs and tagged `DLT-1`, drawn as a computed (PLC/SCADA)
   function.

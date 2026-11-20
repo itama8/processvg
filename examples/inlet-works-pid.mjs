@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 // Inlet works, fine screening: the earlier hand-drawn P&ID rebuilt from the symbol library.
 // Flow meter FIT-1 on the inflow; LIT-1…4 read the level each side of the two duty screens
-// and DLT-1, DLT-2 are their differences; the manual channel stands by behind closed slide gates (filled).
+// and DLT-1, DLT-2 are their differences; the manual channel stands by behind normally closed slide gates (NC).
 
 import { writeFileSync } from "node:fs";
 import path from "node:path";
-import { byId, place } from "../src/library.mjs";
+import { byId, place, placeSymbol } from "../src/library.mjs";
 import { render, svgDoc } from "../src/render.mjs";
 
 const OUT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "../drawings");
@@ -17,6 +17,11 @@ const channelLine = (duty, from, to) => {
   if (!duty) shapes.at(-1).dash = "3 2";
 };
 const label = (x, y, s, value = false) => shapes.push({ t: [x, y, s], value });
+
+const slideGate = (x, y, duty, role) => {
+  const gate = placeSymbol("gate-slide", { x, y }, { closed: !duty, labelAnchor: [x, y + 22] });
+  shapes.push(...gate.shapes.map((shape) => shape.t ? shape : { ...shape, role }));
+};
 
 const rows = { m1: 150, man: 220, m2: 290 };
 const busIn = 166, chX0 = 200, chX1 = 340, busOut = 370, gritX = 414, busGrit = 456, screenX = 250;
@@ -40,12 +45,12 @@ for (const [key, y] of Object.entries(rows)) {
   const duty = key !== "man";
   const role = duty ? "primary" : "secondary";
   channelLine(duty, [busIn, y], [183.5, y]);
-  shapes.push(...place(byId["gate-slide"].draw({ closed: !duty }), { x: 186, y }).map((s) => ({ ...s, role })));
+  slideGate(186, y, duty, role);
   channelLine(duty, [188.5, y], [chX0, y]);
   shapes.push({ d: `M${chX0} ${y - 9} L${chX1} ${y - 9} L${chX1} ${y + 9} L${chX0} ${y + 9} Z`, role });
   shapes.push(...place(byId["screen-bar"].draw({}), { x: screenX, y, s: 0.62 }).map((s) => ({ ...s, role: s.role ?? role })));
   channelLine(duty, [chX1, y], [354.5, y]);
-  shapes.push(...place(byId["gate-slide"].draw({ closed: !duty }), { x: 357, y }).map((s) => ({ ...s, role })));
+  slideGate(357, y, duty, role);
   channelLine(duty, [359.5, y], [busOut, y]);
 }
 

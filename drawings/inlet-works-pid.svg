@@ -15,19 +15,23 @@
 <path d="M166 150 L166 290" />
 <path d="M166 150 L183.5 150" />
 <path d="M183.5 140 L188.5 140 L188.5 160 L183.5 160 Z" />
+<path d="M183.5 160 L188.5 140" />
 <path d="M188.5 150 L200 150" />
 <path d="M200 141 L340 141 L340 159 L200 159 Z" />
 <path d="M245.54 157.07 L253.22 143.74 M248.26 158.62 L255.95 145.29 M253.22 143.74 A1.57 1.57 0 0 1 255.95 145.29 M248.26 158.62 A1.57 1.57 0 0 1 245.54 157.07" />
 <path d="M340 150 L354.5 150" />
 <path d="M354.5 140 L359.5 140 L359.5 160 L354.5 160 Z" />
+<path d="M354.5 160 L359.5 140" />
 <path d="M359.5 150 L370 150" />
 <path d="M166 290 L183.5 290" />
 <path d="M183.5 280 L188.5 280 L188.5 300 L183.5 300 Z" />
+<path d="M183.5 300 L188.5 280" />
 <path d="M188.5 290 L200 290" />
 <path d="M200 281 L340 281 L340 299 L200 299 Z" />
 <path d="M245.54 297.07 L253.22 283.74 M248.26 298.62 L255.95 285.29 M253.22 283.74 A1.57 1.57 0 0 1 255.95 285.29 M248.26 298.62 A1.57 1.57 0 0 1 245.54 297.07" />
 <path d="M340 290 L354.5 290" />
 <path d="M354.5 280 L359.5 280 L359.5 300 L354.5 300 Z" />
+<path d="M354.5 300 L359.5 280" />
 <path d="M359.5 290 L370 290" />
 <path d="M220 116 L228 116 L228 126 L220 126 Z" />
 <circle cx="224" cy="86" r="14" />
@@ -57,13 +61,15 @@
 <g data-plotter-role="secondary" opacity="0.32" stroke-dasharray="none">
 <circle cx="254.59" cy="144.51" r="0.74" />
 <path d="M166 220 L183.5 220" stroke-dasharray="3 2" />
-<path d="M183.5 210 L188.5 210 L188.5 230 L183.5 230 Z" fill="currentColor" />
+<path d="M183.5 210 L188.5 210 L188.5 230 L183.5 230 Z" />
+<path d="M183.5 230 L188.5 210" />
 <path d="M188.5 220 L200 220" stroke-dasharray="3 2" />
 <path d="M200 211 L340 211 L340 229 L200 229 Z" />
 <path d="M245.54 227.07 L253.22 213.74 M248.26 228.62 L255.95 215.29 M253.22 213.74 A1.57 1.57 0 0 1 255.95 215.29 M248.26 228.62 A1.57 1.57 0 0 1 245.54 227.07" />
 <circle cx="254.59" cy="214.51" r="0.74" />
 <path d="M340 220 L354.5 220" stroke-dasharray="3 2" />
-<path d="M354.5 210 L359.5 210 L359.5 230 L354.5 230 Z" fill="currentColor" />
+<path d="M354.5 210 L359.5 210 L359.5 230 L354.5 230 Z" />
+<path d="M354.5 230 L359.5 210" />
 <path d="M359.5 220 L370 220" stroke-dasharray="3 2" />
 <circle cx="254.59" cy="284.51" r="0.74" />
 <path d="M219 130 A7 7 0 0 0 229 130 M217 134 A10 10 0 0 0 231 134" />
@@ -93,6 +99,8 @@
 <text x="72" y="223.6" text-anchor="middle">M</text>
 <text x="72" y="167" text-anchor="middle">FIT</text>
 <text x="126" y="223.6" text-anchor="middle">Stilling</text>
+<text x="186" y="242" text-anchor="middle">NC</text>
+<text x="357" y="242" text-anchor="middle">NC</text>
 <text x="224" y="85" text-anchor="middle">LIT</text>
 <text x="276" y="85" text-anchor="middle">LIT</text>
 <text x="332" y="82" text-anchor="middle">DLT</text>

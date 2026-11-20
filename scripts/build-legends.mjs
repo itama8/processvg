@@ -4,7 +4,7 @@
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { SYMBOLS, SERVICE_CODES, place, placeSymbol } from "../src/library.mjs";
+import { SYMBOLS, SERVICE_CODES, GATE_ALIASES, gateArchive, place, placeSymbol } from "../src/library.mjs";
 import { esc, render, svgDoc } from "../src/render.mjs";
 
 const OUT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "../drawings/symbols");
@@ -27,7 +27,8 @@ for (const cat of cats) {
       if (sym.states) {
         shapes.push(...place(sym.draw({ closed: false }), { x: cx - 26, y: cy, s: SCALE }));
         shapes.push(...place(sym.draw({ closed: true }), { x: cx + 26, y: cy, s: SCALE }));
-        shapes.push({ t: [cx - 26, cy + 30, "Open"], value: true }, { t: [cx + 26, cy + 30, "Closed"], value: true });
+        const [open, closed] = sym.stateLabels ?? ["Open", "Closed"];
+        shapes.push({ t: [cx - 26, cy + 30, open], value: true }, { t: [cx + 26, cy + 30, closed], value: true });
       } else if (sym.operator || sym.modifier || sym.assemblyPreset) {
         shapes.push(...placeSymbol(sym.id, { x: cx, y: cy, s: SCALE }).shapes);
       } else {
@@ -43,7 +44,7 @@ for (const cat of cats) {
 
 // Catalogue: geometry at scale 1, for other tools to place and connect.
 const catalogue = {
-  about: "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for fill and label rules.",
+  about: "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for valves and docs/family-04.md for gates and weirs.",
   sources: {
     "IS 3232": "IS 3232:1999 Recommendations on graphical symbols for process flow diagrams, piping and instrumentation diagrams (BIS), by symbol number",
     "ISA-5.1": "ANSI/ISA-5.1-2009 Instrumentation symbols and identification",
@@ -51,6 +52,8 @@ const catalogue = {
     Proposed: "Drafted here; agree with the firm before use",
     "Processvg design": "User-approved library geometry; exact standards verification pending",
   },
+  aliases: GATE_ALIASES,
+  gateArchive,
   symbols: SYMBOLS.map((s) => ({
     id: s.id, name: s.name, category: s.cat, sources: s.src, states: s.states ? ["open", "closed"] : undefined, tagged: s.tag || undefined,
     ports: s.ports,
@@ -60,6 +63,9 @@ const catalogue = {
     flatSide: s.flatSide,
     designApproval: s.designApproval,
     historicalSources: s.historicalSources,
+    gate: s.gate,
+    glyphRef: s.glyphRef,
+    stateLabels: s.stateLabels,
     valve: s.valve,
     operator: s.operator,
     modifier: s.modifier,

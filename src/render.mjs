@@ -31,7 +31,7 @@ export function render(shapes, { profile = "screen" } = {}) {
       const id = `processvg-knockout-${++knockoutSerial}`;
       const cuts = sh.knockout.map((cut) => cut.d
         ? `<path d="${esc(cut.d)}" ${cut.cutWidth
-          ? `fill="none" stroke="#000" stroke-width="${fmt(cut.cutWidth)}" stroke-linecap="round" stroke-linejoin="round" style="vector-effect:none"`
+          ? `fill="none" stroke="#000" stroke-width="${Number(cut.cutWidth.toPrecision(15))}" stroke-linecap="${cut.cap === "butt" ? "butt" : "round"}" stroke-linejoin="round" style="vector-effect:none"`
           : 'fill="#000" stroke="none"'} />`
         : `<circle cx="${fmt(cut.c[0])}" cy="${fmt(cut.c[1])}" r="${fmt(cut.c[2])}" fill="#000" stroke="none" />`);
       defs.push(`<mask id="${id}" maskUnits="objectBoundingBox" maskContentUnits="userSpaceOnUse" mask-type="luminance"><path d="${esc(sh.d)}" fill="#fff" stroke="#fff" />${cuts.join("")}</mask>`);

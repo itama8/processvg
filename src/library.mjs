@@ -15,8 +15,10 @@
 
 import { place, placePoint, round } from "./geometry.mjs";
 import { assembleValve, VALVES } from "./valves.mjs";
+import { GATES, GATE_ALIASES, composeEquipment } from "./gates.mjs";
 import { OPERATORS, drawPresetHead, placeOperator } from "./actuators.mjs";
 
+export { GATE_ALIASES, composeEquipment, gateArchive } from "./gates.mjs";
 export { composeActuator, placeOperator } from "./actuators.mjs";
 
 export { place, placePoint };
@@ -124,19 +126,7 @@ export const SYMBOLS = [
   legacyActuator("act-diaphragm", "Diaphragm actuator", [IS("0414"), BC("P-002")], "diaphragm"),
   ...OPERATORS,
 
-  // Channel gates (penstocks) ----------------------------------------------------------------
-  { id: "gate-slide", name: "Slide gate (penstock)", cat: "Gates", src: [BC("P-002, P-003")], states: true,
-    draw: ({ closed }) => [S(rect(-2.5, -10, 5, 20), closed ? { fill: "solid" } : {})], ports: [[-2.5, 0], [2.5, 0]] },
-  { id: "gate-sluice", name: "Sluice gate", cat: "Gates", src: [BC("P-002, P-003")], states: true,
-    draw: ({ closed }) => [S(rect(-2.5, -10, 5, 20)), closed ? S(poly([2.5, -10], [2.5, 10], [-2.5, 10]), { fill: "solid" }) : S(line([-2.5, 10], [2.5, -10]))],
-    ports: [[-2.5, 0], [2.5, 0]] },
-  { id: "gate-stop", name: "Stop logs", cat: "Gates", src: [BC("P-002 (stop gate)")], states: true,
-    draw: ({ closed }) => [S(rect(-2.5, -6, 5, 16), closed ? { fill: "solid" } : {}), S(line([-2.5, -10], [2.5, -10]))], ports: [[-2.5, 0], [2.5, 0]] },
-  { id: "gate-flap", name: "Flap gate", cat: "Gates", src: [BC("P-002, P-003")],
-    draw: () => [S(line([-2, -10], [-2, 10]) + " " + line([-2, -10], [6, 4]))], ports: [[-2, 0], [4, 0]] },
-  { id: "weir", name: "Weir, V-notch", cat: "Gates", src: [BC("P-002 (weir)")],
-    draw: () => [S(line([-12, 0], [-6, 0]) + " " + line([6, 0], [12, 0])), S(line([-6, -6], [0, 2], [6, -6])), S(line([-6, -6], [-6, 6], [6, 6], [6, -6]))],
-    ports: [[-12, 0], [12, 0]] },
+  ...GATES,
 
   // Instruments ------------------------------------------------------------------------------
   { id: "inst-field", name: "Field instrument", cat: "Instruments", src: [IS("0607"), ISA("")], tag: true,
@@ -227,6 +217,9 @@ export const SERVICE_CODES = {
 };
 
 export const byId = Object.fromEntries(SYMBOLS.map((s) => [s.id, s]));
+for (const [alias, id] of Object.entries(GATE_ALIASES)) {
+  Object.defineProperty(byId, alias, { value: byId[id] });
+}
 
 /** Compose a valve body, optional operator, pipe ends and state annotations. */
 export function composeValve(config, at = {}, display = {}) {
@@ -242,6 +235,13 @@ export function placeOperatingValve(config, at = {}, display = {}) {
 export function placeSymbol(id, at = {}, options = {}) {
   const symbol = byId[id];
   if (!Object.hasOwn(byId, id)) throw new RangeError(`Unknown symbol: ${id}`);
+  if (symbol.gate) {
+    const { renderScale, closedStyle, closed, convention, stateBasis, measureText, labelAnchor, ...config } = options;
+    const placed = composeEquipment({ ...config, type: id }, at, {
+      renderScale, closedStyle, closed, convention, stateBasis, measureText, labelAnchor,
+    });
+    return { ...placed, metadata: { ...placed.metadata, id: config.id ?? id, ...(closed !== undefined && { closed }) } };
+  }
   if (symbol.operator || symbol.modifier) return placeOperator(id, at, options);
   if (symbol.valve || symbol.assemblyPreset) {
     const { renderScale, measureText, closed, ...config } = options;
