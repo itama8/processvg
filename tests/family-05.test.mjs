@@ -23,7 +23,7 @@ test("version 0 catalogue, default drawing, source citations and numeric port or
     .filter(({ id }) => Object.hasOwn(LEGACY_INSTRUMENT_ANCHORS, id))
     .map(({ instrument, ...symbol }) => symbol);
   assert.equal(sha(JSON.stringify(archive)), "c0347f90680f412a954dd05b69482b29d2cb47abcea76413474c0216e3d0a0e3");
-  assert.equal(sha(file("../drawings/symbols/legend-instruments.svg")), "e28c4b0eae67e68ca8c87dd2664197dfb0c387687b3098b5e84d3ffb79b1c181");
+  assert.equal(sha(file("../drawings/symbols/legend-instruments.svg")), "07deb0249b4df08d7233a4e81d238cee6a70c84853a33cdc2265179ca6826adf");
   for (const { id, shapes, ports } of archive) {
     assert.deepEqual(placeSymbol(id).shapes, shapes);
     assert.deepEqual(placeSymbol(id).ports, ports);

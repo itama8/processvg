@@ -5,7 +5,7 @@ import { VALVES } from "./valves.mjs";
 
 const bc = (ref) => ({ std: "B&C", ref });
 const historical = bc("P-002, P-003");
-const approved = [{ std: "Processvg design", ref: "Family 04 revision 03" }];
+const approved = [{ std: "processvg design", ref: "Family 04 revision 03" }];
 const verification = "Exact glyph pending standards verification";
 const nrv = VALVES.find(({ id }) => id === "valve-check");
 const mount = { point: [0, -10], normal: [0, -1] };

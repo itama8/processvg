@@ -144,3 +144,18 @@ test("levels use relative datum coordinates and keep displayed elevations explic
   assert.throws(() => levelAnnotation({ ...input, levelBounds: [100, 105] }), RangeError);
   assert.throws(() => levelAnnotation({ ...input, anchor: { ...input.anchor, scale: 0 } }), RangeError);
 });
+
+test("stylesheet lets hosts set ink, keeps signal dashes and print ink under Plotter roles.css", async () => {
+  const { THEME_CSS, THEME_STYLE } = await import("../src/render.mjs");
+  const { readFileSync } = await import("node:fs");
+  assert.match(THEME_CSS, /color:var\(--plotter-ink,#171717\)/);
+  assert.match(THEME_CSS, /:not\(\[data-host-ink\]\)\{color:var\(--plotter-ink,#ededed\)\}/);
+  // roles.css sets stroke-dasharray:none on every role group, so the dash must sit on the path.
+  assert.match(render([{ d: "M0 0 L9 0", role: "signal" }]), /<path d="M0 0 L9 0" stroke-dasharray="6 4" \/>/);
+  const doc = svgDoc("p", "t", "d", "", { profile: "print" });
+  assert.match(doc, /\[data-profile=print\] \[data-plotter-role\]\{opacity:1!important\}/);
+  assert.equal(doc.match(/<style>/g).length, 1);
+  assert.match(svgDoc("l", "t", "d", "", { theme: "light" }), /\[data-theme=light\]\{color:#171717\}/);
+  // The Python section generator duplicates the stylesheet; keep them identical.
+  assert.ok(readFileSync(new URL("../examples/drawings.py", import.meta.url), "utf8").includes(THEME_STYLE));
+});

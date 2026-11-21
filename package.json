@@ -19,5 +19,20 @@
     "check:screening-layout": "node scripts/check-family-08-layout.mjs",
     "check:structure-layout": "node scripts/check-family-09-layout.mjs",
     "review:families-04-09": "node scripts/build-families-04-09-review.mjs"
+  },
+  "exports": {
+    ".": "./src/index.mjs",
+    "./catalogue.json": "./drawings/symbols/catalogue.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "drawings/symbols/catalogue.json",
+    "docs",
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
   }
 }

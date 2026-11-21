@@ -126,7 +126,7 @@ try {
     process.exitCode = 1;
   } else {
     const print = path.join(dir, "print.html");
-    writeFileSync(print, `<!doctype html><meta charset="utf-8"><title>Processvg Family ${family} · ${title}</title><style>${styles}
+    writeFileSync(print, `<!doctype html><meta charset="utf-8"><title>processvg Family ${family} · ${title}</title><style>${styles}
       @page{size:560px 440px;margin:0} section{width:560px;height:440px}section + section{break-before:page}
       *{print-color-adjust:exact}</style>${sheets.filter((file) => file.endsWith("-print.svg"))
         .map((file) => `<section>${load(file)}</section>`).join("")}`);

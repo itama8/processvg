@@ -70,9 +70,9 @@ for (const cat of cats) {
         "fe-analysis-orp": "Oxidation-reduction potential",
       })[sym.id] ?? sym.name;
       const candidatePump = sym.pump && (sym.legendVariant ?? sym.pump.defaultVariant) !== sym.pump.archiveVariant;
-      const source = candidatePump ? "Processvg candidate" :
+      const source = candidatePump ? "processvg candidate" :
         ["fe-float", "fe-hydrostatic"].includes(sym.id) ? "Approved · verify standard" : srcLine(sym);
-      shapes.push({ t: [cx, cy + 46, name] }, { t: [cx, cy + 59, isCandidate ? "Processvg candidate" : source], value: true });
+      shapes.push({ t: [cx, cy + 46, name] }, { t: [cx, cy + 59, isCandidate ? "processvg candidate" : source], value: true });
     });
     const slug = `legend-${cat.toLowerCase().replace(/[^a-z]+/g, "-").replace(/-$/, "")}${page ? `-${page + 1}` : ""}`;
     const description = isCandidate ? "Candidate P&ID enclosures and panel identities. Original symbols remain in the instrument archive." :
@@ -90,12 +90,12 @@ const catalogue = {
     "ISA-5.1": "ANSI/ISA-5.1-2009 Instrumentation symbols and identification",
     "B&C": "Brown and Caldwell, Pahala WWTP design-build documents, sheets C-001, P-002, P-003, P-101 (County of Hawaii, 2021; published by US EPA)",
     Proposed: "Drafted here; agree with the firm before use",
-    "Processvg design": "User-approved library geometry; exact standards verification pending",
+    "processvg design": "User-approved library geometry; exact standards verification pending",
   },
   aliases: GATE_ALIASES,
   gateArchive,
   logicView: {
-    mode: "logic", verification: "Processvg candidate conventions, diagram only",
+    mode: "logic", verification: "processvg candidate conventions, diagram only",
     primitives: Object.fromEntries(LOGIC_IDS.map((id) => [id, placeLogicPrimitive(id, {}, { mode: "logic" })])),
   },
   symbols: SYMBOLS.map((s) => ({
@@ -114,7 +114,7 @@ const catalogue = {
       return {
         defaultMode: legacyPortAnchors ? "legacy" : "candidate",
         legacyPortAnchors,
-        verification: "Processvg candidate geometry; exact standards verification pending",
+        verification: "processvg candidate geometry; exact standards verification pending",
         candidate: { metadata, shapes, anchors, ports, bars, radius },
       };
     })() : undefined,

@@ -9,6 +9,8 @@ opacity for hierarchy, and per-symbol source and review status.
 
 | Path | What |
 |---|---|
+| `src/index.mjs` | The public API. Import from here (`import … from "processvg"`); other modules are internal. |
+| `AGENTS.md`, `docs/agents.md` | How agents draw with the library today, and the plan for Sushi, Claude and ChatGPT. |
 | `src/library.mjs` | The symbol library: lines, valves (open and closed), actuators, channel gates, instruments, primary elements, pumps and blowers, screening and grit. Each symbol has ports, states and its sources. |
 | `src/render.mjs` | Shapes to SVG in Plotter roles, with screen and print profiles. |
 | `docs/family-01.md` | Family 01 ports, routed line patterns, off-sheet connectors, elevation annotations, and the review gallery. |
@@ -36,7 +38,7 @@ opacity for hierarchy, and per-symbol source and review status.
 - Treatment structures are drawn as open-top sections: walls and floor at full ink, water
   level and internals faint, ports on the outline.
 - **Screen drawings follow the reader's theme by default**: dark ink on light, light ink on dark, through
-  `prefers-color-scheme`. A host page can set the ink itself with `data-host-ink` on the svg.
+  `prefers-color-scheme`. A host page sets the ink with the `--plotter-ink` CSS custom property on any ancestor, or with `data-host-ink` on the svg and its own colour rule.
   Strokes stay one pixel at any display size. The SVG print profile uses black ink on white paper.
 
 ## Use

@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" data-plotter="" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 560 440" width="560" height="440" role="img" aria-labelledby="legend-lines-title" aria-describedby="legend-lines-desc" style="font-family:Cal Sans, sans-serif;font-optical-sizing:auto;font-synthesis:none;font-variation-settings:'GEOM' 25;font-weight:400">
 <title id="legend-lines-title">Lines symbols</title>
 <desc id="legend-lines-desc">P&amp;ID symbols: Process line, Flow direction, Electric signal, Data link (SCADA), Instrument air signal, Connected junction, Four-way junction, Lines crossing, not connected, Inflow from another sheet, Outflow to another sheet, Dead end, blind flange, Water level.</desc>
-<style>svg[data-plotter]{color:#171717}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:#ededed}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
+<style>svg[data-plotter]{color:var(--plotter-ink,#171717)}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:var(--plotter-ink,#ededed)}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
 <g data-plotter-role="primary" opacity="1" stroke-dasharray="none">
 <path d="M74 58 L134 58" />
 <path d="M250 58 L310 58" />
@@ -27,7 +27,7 @@
 <path d="M447 362.5 L465 362.5 M451.5 367 L460.5 367" />
 </g>
 <g data-plotter-role="secondary" opacity="0.32" stroke-dasharray="6 4" stroke-linecap="butt">
-<path d="M426 58 L486 58" />
+<path d="M426 58 L486 58" stroke-dasharray="6 4" />
 </g>
 <g fill="currentColor">
 <circle cx="456" cy="158" r="3" fill="currentColor" stroke="none" />

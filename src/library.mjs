@@ -64,7 +64,7 @@ const primaryApproval = { designApproval: "Family 06 Revision 03", verification:
 const primaryCatalogueSymbols = Object.entries({ ...PRIMARY_DEFINITIONS, ...ANALYTE_PRESETS })
   .filter(([id]) => !PRIMARY_ARCHIVE_IDS.includes(id))
   .map(([id, { name, interfaces, base }]) => ({
-    id, name, cat: "Primary elements", src: [{ std: "Processvg design", ref: "Family 06 Revision 03" }],
+    id, name, cat: "Primary elements", src: [{ std: "processvg design", ref: "Family 06 Revision 03" }],
     ...primaryApproval, ports: (interfaces ?? PRIMARY_DEFINITIONS[base].interfaces).map(({ anchor }) => anchor),
     draw: () => composePrimaryElement({ symbolId: id }).shapes,
   }));

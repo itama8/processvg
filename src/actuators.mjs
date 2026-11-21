@@ -15,7 +15,7 @@ const bbox = (points, pad = 0) => ({
   bottom: Math.max(...points.map(([, y]) => y)) + pad,
 });
 
-const proposed = [{ std: "Processvg design", ref: "Family 03" }];
+const proposed = [{ std: "processvg design", ref: "Family 03" }];
 const referenced = (ref) => [...(ref ? [{ std: "IS 3232", ref }] : []), { std: "B&C", ref: "P-002" }];
 const font = { family: "sans-serif", size: 10, weight: 400 };
 const text = (letter, y, fit, legacyBaseline) => ({ letter, y, fit, legacyBaseline });
@@ -41,7 +41,7 @@ const heads = [
   ["hydraulic-cylinder", "Hydraulic cylinder", "hydraulic-cylinder", "cylinder", 8, [-7, -14, 7, 0],
     cylinder, text("H", -9.5, [7, 4.5])],
   ["float", "Float operator", "float", "float", 9, [0, -10, 22, 0],
-    () => [path("M0 0 L14 -6"), { c: [18, -6, 4] }], null, [{ std: "Processvg design", ref: "Family 02 float" }]],
+    () => [path("M0 0 L14 -6"), { c: [18, -6, 4] }], null, [{ std: "processvg design", ref: "Family 02 float" }]],
 ];
 
 const definitions = Object.fromEntries(heads.map(([slug, name, type, mechanism, defaultStem, extent, geometry, identifier, src]) => {

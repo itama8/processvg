@@ -1,9 +1,15 @@
 // Shared rendering: shapes from the library -> Plotter-style SVG.
 
-// Ink follows the viewer's colour scheme (dark ink on light, light ink on dark); a host page that sets data-host-ink on the svg controls the colour itself. Strokes stay one pixel at any display size.
-export const THEME_STYLE = "<style>svg[data-plotter]{color:#171717}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:#ededed}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>";
-const DARK_STYLE = "<style>svg[data-plotter][data-theme=dark]{color:#ededed}</style>";
-const PRINT_STYLE = '<style>svg[data-plotter][data-profile=print]{color:#000!important}</style>';
+// Ink follows the viewer's colour scheme (dark ink on light, light ink on dark). A host page
+// sets the ink with the --plotter-ink custom property on any ancestor (the token Plotter's
+// roles.css also reads), or sets data-host-ink on the svg and styles its colour directly.
+// Strokes stay one pixel at any display size.
+export const THEME_CSS = "svg[data-plotter]{color:var(--plotter-ink,#171717)}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:var(--plotter-ink,#ededed)}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}";
+export const THEME_STYLE = `<style>${THEME_CSS}</style>`;
+// Explicit themes and print paint their own paper, so they ignore host ink.
+const THEME_CSS_BY_NAME = { light: "svg[data-plotter][data-theme=light]{color:#171717}", dark: "svg[data-plotter][data-theme=dark]{color:#ededed}" };
+// Print stays full ink even when a host also loads Plotter's roles.css, which sets role opacity.
+const PRINT_CSS = "svg[data-plotter][data-profile=print]{color:#000!important}svg[data-plotter][data-profile=print] [data-plotter-role]{opacity:1!important}";
 const ROLE = { primary: [1, null], secondary: [0.32, null], signal: [0.32, "6 4"] };
 export const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 let knockoutSerial = 0;
@@ -42,7 +48,9 @@ export function render(shapes, { profile = "screen" } = {}) {
       continue;
     }
     const fill = sh.fill === "solid" ? ' fill="currentColor"' : "";
-    const dash = sh.dash ? ` stroke-dasharray="${esc(sh.dash)}"` : "";
+    // Signal paths carry their dash themselves: roles.css resets dashes on role groups.
+    const pathDash = sh.dash ?? (sh.role === "signal" ? ROLE.signal[1] : null);
+    const dash = pathDash ? ` stroke-dasharray="${esc(pathDash)}"` : "";
     const cap = sh.cap ? ` stroke-linecap="${esc(sh.cap)}"` : "";
     let mask = "";
     if (sh.knockout) {
@@ -91,9 +99,7 @@ export function svgDoc(id, title, desc, body, { profile = "screen", theme = "aut
     `<svg xmlns="http://www.w3.org/2000/svg" data-plotter=""${themeAttrs}${print ? ' data-profile="print"' : ""} fill="none" stroke="currentColor" stroke-width="${strokeWidth ?? 1}" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-labelledby="${id}-title" aria-describedby="${id}-desc" style="font-family:Cal Sans, sans-serif;font-optical-sizing:auto;font-synthesis:none;font-variation-settings:'GEOM' 25;font-weight:400">`,
     `<title id="${id}-title">${esc(title)}</title>`,
     `<desc id="${id}-desc">${esc(desc)}</desc>`,
-    THEME_STYLE,
-    theme === "dark" && !print ? DARK_STYLE : "",
-    print ? PRINT_STYLE : "",
+    `<style>${THEME_CSS}${print ? "" : THEME_CSS_BY_NAME[theme] ?? ""}${print ? PRINT_CSS : ""}</style>`,
     paper ? `<rect width="${width}" height="${height}" fill="${paper}" stroke="none" />` : "",
     body,
     `</svg>`,

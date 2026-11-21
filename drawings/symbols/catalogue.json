@@ -5,7 +5,7 @@
   "ISA-5.1": "ANSI/ISA-5.1-2009 Instrumentation symbols and identification",
   "B&C": "Brown and Caldwell, Pahala WWTP design-build documents, sheets C-001, P-002, P-003, P-101 (County of Hawaii, 2021; published by US EPA)",
   "Proposed": "Drafted here; agree with the firm before use",
-  "Processvg design": "User-approved library geometry; exact standards verification pending"
+  "processvg design": "User-approved library geometry; exact standards verification pending"
  },
  "aliases": {
   "gate-sluice": "gate-slide",
@@ -88,7 +88,7 @@
  },
  "logicView": {
   "mode": "logic",
-  "verification": "Processvg candidate conventions, diagram only",
+  "verification": "processvg candidate conventions, diagram only",
   "primitives": {
    "logic-and": {
     "shapes": [
@@ -1848,7 +1848,7 @@
    "category": "Valves",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Approved NRV"
     }
    ],
@@ -3420,7 +3420,7 @@
    "category": "Operator heads",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 03"
     }
    ],
@@ -3460,7 +3460,7 @@
    "category": "Operator heads",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 03"
     }
    ],
@@ -3500,7 +3500,7 @@
    "category": "Operator heads",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 03"
     }
    ],
@@ -3703,7 +3703,7 @@
    "category": "Operator heads",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 03"
     }
    ],
@@ -3753,7 +3753,7 @@
    "category": "Operator heads",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 03"
     }
    ],
@@ -3803,7 +3803,7 @@
    "category": "Operator heads",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 02 float"
     }
    ],
@@ -3850,7 +3850,7 @@
    "category": "Operator modifiers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 03"
     }
    ],
@@ -3888,7 +3888,7 @@
    "category": "Gates",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 04 revision 03"
     }
    ],
@@ -4045,7 +4045,7 @@
    "category": "Gates",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 04 revision 03"
     }
    ],
@@ -4103,7 +4103,7 @@
    "category": "Gates",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 04 revision 03"
     }
    ],
@@ -4160,7 +4160,7 @@
    "category": "Gates",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 04 revision 03"
     }
    ],
@@ -4224,7 +4224,7 @@
    "category": "Gates",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 04 revision 03"
     }
    ],
@@ -4360,7 +4360,7 @@
    "category": "Gates",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 04 revision 03"
     }
    ],
@@ -4408,7 +4408,7 @@
    "category": "Gates",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 04 revision 03"
     }
    ],
@@ -4456,7 +4456,7 @@
    "category": "Gates",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 04 revision 03"
     }
    ],
@@ -4529,7 +4529,7 @@
      "S",
      "N"
     ],
-    "verification": "Processvg candidate geometry; exact standards verification pending",
+    "verification": "processvg candidate geometry; exact standards verification pending",
     "candidate": {
      "metadata": {
       "id": "inst-field",
@@ -4691,7 +4691,7 @@
      "S",
      "N"
     ],
-    "verification": "Processvg candidate geometry; exact standards verification pending",
+    "verification": "processvg candidate geometry; exact standards verification pending",
     "candidate": {
      "metadata": {
       "id": "inst-panel",
@@ -4887,7 +4887,7 @@
      "S",
      "N"
     ],
-    "verification": "Processvg candidate geometry; exact standards verification pending",
+    "verification": "processvg candidate geometry; exact standards verification pending",
     "candidate": {
      "metadata": {
       "id": "inst-local",
@@ -5108,7 +5108,7 @@
      "S",
      "N"
     ],
-    "verification": "Processvg candidate geometry; exact standards verification pending",
+    "verification": "processvg candidate geometry; exact standards verification pending",
     "candidate": {
      "metadata": {
       "id": "inst-scada",
@@ -5302,7 +5302,7 @@
      "S",
      "N"
     ],
-    "verification": "Processvg candidate geometry; exact standards verification pending",
+    "verification": "processvg candidate geometry; exact standards verification pending",
     "candidate": {
      "metadata": {
       "id": "inst-plc",
@@ -5423,7 +5423,7 @@
      "W",
      "E"
     ],
-    "verification": "Processvg candidate geometry; exact standards verification pending",
+    "verification": "processvg candidate geometry; exact standards verification pending",
     "candidate": {
      "metadata": {
       "id": "inst-interlock",
@@ -5522,7 +5522,7 @@
     "legacyPortAnchors": [
      "S"
     ],
-    "verification": "Processvg candidate geometry; exact standards verification pending",
+    "verification": "processvg candidate geometry; exact standards verification pending",
     "candidate": {
      "metadata": {
       "id": "inst-transmitter-is",
@@ -5596,7 +5596,7 @@
    "ports": [],
    "instrument": {
     "defaultMode": "candidate",
-    "verification": "Processvg candidate geometry; exact standards verification pending",
+    "verification": "processvg candidate geometry; exact standards verification pending",
     "candidate": {
      "metadata": {
       "id": "inst-computer",
@@ -5781,7 +5781,7 @@
    "ports": [],
    "instrument": {
     "defaultMode": "candidate",
-    "verification": "Processvg candidate geometry; exact standards verification pending",
+    "verification": "processvg candidate geometry; exact standards verification pending",
     "candidate": {
      "metadata": {
       "id": "inst-panel-inaccessible",
@@ -6073,7 +6073,7 @@
    "ports": [],
    "instrument": {
     "defaultMode": "candidate",
-    "verification": "Processvg candidate geometry; exact standards verification pending",
+    "verification": "processvg candidate geometry; exact standards verification pending",
     "candidate": {
      "metadata": {
       "id": "inst-local-inaccessible",
@@ -6468,7 +6468,7 @@
    "ports": [],
    "instrument": {
     "defaultMode": "candidate",
-    "verification": "Processvg candidate geometry; exact standards verification pending",
+    "verification": "processvg candidate geometry; exact standards verification pending",
     "candidate": {
      "metadata": {
       "id": "inst-shared-field",
@@ -7271,7 +7271,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -7367,7 +7367,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -7481,7 +7481,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -7611,7 +7611,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -7707,7 +7707,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -7792,7 +7792,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -7989,7 +7989,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -8065,7 +8065,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -8141,7 +8141,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -8217,7 +8217,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -8285,7 +8285,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -8353,7 +8353,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -8434,7 +8434,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -8524,7 +8524,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -8614,7 +8614,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -8709,7 +8709,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -8787,7 +8787,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -8875,7 +8875,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -9003,7 +9003,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -9188,7 +9188,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -9373,7 +9373,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -9566,7 +9566,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -9751,7 +9751,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -9952,7 +9952,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -10145,7 +10145,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -10338,7 +10338,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -10531,7 +10531,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -10724,7 +10724,7 @@
    "category": "Primary elements",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 06 Revision 03"
     }
    ],
@@ -10969,7 +10969,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      },
      "compact": {
       "shapes": [
@@ -11093,7 +11093,7 @@
         "physicalViewVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      },
      "legacy": {
       "shapes": [
@@ -11204,7 +11204,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      },
      "legacy": {
       "shapes": [
@@ -11371,7 +11371,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved; legacy assembly retained and head/drive composition required",
@@ -11473,7 +11473,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      },
      "3-lobe": {
       "shapes": [
@@ -11519,7 +11519,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      },
      "legacy": {
       "shapes": [
@@ -11674,7 +11674,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      },
      "legacy": {
       "shapes": [
@@ -11750,7 +11750,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -11764,7 +11764,7 @@
      0
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Vertical turbine pump",
@@ -11811,7 +11811,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -11841,7 +11841,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -11859,7 +11859,7 @@
      -14
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Vertical inline pump",
@@ -11914,7 +11914,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -11942,7 +11942,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -11960,7 +11960,7 @@
      -8
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Diaphragm pump",
@@ -12011,7 +12011,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -12035,7 +12035,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -12053,7 +12053,7 @@
      -12
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Peristaltic / hose pump",
@@ -12126,7 +12126,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -12172,7 +12172,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -12190,7 +12190,7 @@
      -10
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Rotary lobe liquid pump",
@@ -12244,7 +12244,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -12271,7 +12271,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -12289,7 +12289,7 @@
      -10
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Gear pump",
@@ -12365,7 +12365,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -12414,7 +12414,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -12428,7 +12428,7 @@
      0
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Reciprocating piston pump",
@@ -12479,7 +12479,7 @@
         "schematicVisible": false
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -12503,7 +12503,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -12517,7 +12517,7 @@
      -12
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Archimedes screw pump",
@@ -12565,7 +12565,7 @@
         "schematicVisible": false
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -12586,7 +12586,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -12604,7 +12604,7 @@
      -22
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Airlift pump",
@@ -12682,7 +12682,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -12733,7 +12733,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -12751,7 +12751,7 @@
      0
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Ejector / eductor",
@@ -12802,7 +12802,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -12826,7 +12826,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -12844,7 +12844,7 @@
      -10
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Rotary screw blower",
@@ -12895,7 +12895,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -12919,7 +12919,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -12937,7 +12937,7 @@
      -8
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Multistage centrifugal blower",
@@ -13006,7 +13006,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -13048,7 +13048,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -13066,7 +13066,7 @@
      -10
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Reciprocating compressor",
@@ -13124,7 +13124,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -13155,7 +13155,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -13173,7 +13173,7 @@
      11
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Liquid ring blower / vacuum pump",
@@ -13239,7 +13239,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -13278,7 +13278,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -13292,7 +13292,7 @@
      0
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Electric motor",
@@ -13348,7 +13348,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -13387,7 +13387,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -13401,7 +13401,7 @@
      0
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Gearbox",
@@ -13457,7 +13457,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -13496,7 +13496,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -13510,7 +13510,7 @@
      0
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Mechanical shaft coupling",
@@ -13551,7 +13551,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -13575,7 +13575,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -13593,7 +13593,7 @@
      -11
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Variable frequency drive",
@@ -13670,7 +13670,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -13722,7 +13722,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -13736,7 +13736,7 @@
      0
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Diesel engine drive",
@@ -13795,7 +13795,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -13837,7 +13837,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -13851,7 +13851,7 @@
      0
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Integral motor package",
@@ -13910,7 +13910,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -13952,7 +13952,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -13966,7 +13966,7 @@
      0
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Suction strainer",
@@ -14007,7 +14007,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -14032,7 +14032,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -14042,7 +14042,7 @@
      12
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Pulsation dampener",
@@ -14073,7 +14073,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -14098,7 +14098,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -14112,7 +14112,7 @@
      0
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Air intake filter",
@@ -14153,7 +14153,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -14178,7 +14178,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -14192,7 +14192,7 @@
      0
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Blower silencer",
@@ -14233,7 +14233,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -14258,7 +14258,7 @@
    "category": "Pumps and blowers",
    "sources": [
     {
-     "std": "Processvg design",
+     "std": "processvg design",
      "ref": "Family 07 Revision 03"
     }
    ],
@@ -14272,7 +14272,7 @@
      0
     ]
    ],
-   "verification": "User-approved Processvg proposal; drawing legend and standards verification pending",
+   "verification": "User-approved processvg proposal; drawing legend and standards verification pending",
    "designApproval": "Family 07 Revision 03",
    "pump": {
     "label": "Expansion bellows",
@@ -14316,7 +14316,7 @@
         "schematicVisible": true
        }
       ],
-      "verification": "User-approved Processvg proposal; drawing legend and standards verification pending"
+      "verification": "User-approved processvg proposal; drawing legend and standards verification pending"
      }
     },
     "sourceStatus": "design approved / source verification pending",
@@ -14733,7 +14733,7 @@
     "group": "screening",
     "label": "Mechanical bar screen",
     "notes": "Single complete mechanical screen with drive depicted. Legacy ID had no process ports: new typed ports are schematic interfaces, not physical pipe flanges. Mechanical bar bank remains original. Drive has shared geometry internally but is one complete rendered symbol.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "legacyId": "screen-bar",
     "drive": "integral-motor",
     "defaultVariant": "legacy",
@@ -14844,7 +14844,7 @@
     "group": "screening",
     "label": "Fine drum screen",
     "notes": "Preserve source drum/rectangular body geometry and elevate identity marks. Drive integrated in complete schematic. Real drum style may vary.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "legacyId": "screen-fine",
     "drive": "integral-motor",
     "defaultVariant": "legacy",
@@ -14959,7 +14959,7 @@
     "group": "solids-handling",
     "label": "Screw conveyor",
     "notes": "Promote screw flights to primary ink. Geometry and external ports unchanged; actual transport direction is instance-defined.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "legacyId": "conveyor-screw",
     "defaultVariant": "legacy",
     "variants": {
@@ -15023,7 +15023,7 @@
     "group": "grit-handling",
     "label": "Grit classifier",
     "notes": "Third outlet proposed for classifier overflow/return liquor. Port positions illustrative; validate equipment-specific connection locations.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "legacyId": "grit-classifier",
     "defaultVariant": "legacy",
     "variants": {
@@ -15099,7 +15099,7 @@
     "group": "grit-separation",
     "label": "Hydrocyclone grit separator",
     "notes": "This existing conical symbol is hydrocyclone-like, not the same as open circular vortex grit chamber.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "legacyId": "grit-separator",
     "mechanism": "hydrocyclone",
     "defaultVariant": "legacy",
@@ -15177,7 +15177,7 @@
     "group": "solids-handling",
     "label": "Screenings bin / skip",
     "notes": "Receiving asset; the receiving connection is bulk solids handling, not water process.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "legacyId": "container",
     "defaultVariant": "legacy",
     "variants": {
@@ -15223,7 +15223,7 @@
     "group": "mixing",
     "label": "Top-entry mixer",
     "notes": "Preserve ID under screening family; completed mixer glyph includes drive, shaft and impeller. Mixer has no generic inline liquid-process port.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "legacyId": "mixer",
     "drive": "integral-motor",
     "defaultVariant": "legacy",
@@ -15317,7 +15317,7 @@
     "group": "mixing",
     "label": "Static inline mixer",
     "notes": "Internal mixing elements full primary ink. No mechanical drive.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "legacyId": "mixer-static",
     "defaultVariant": "legacy",
     "variants": {
@@ -15384,7 +15384,7 @@
     "group": "screening",
     "label": "Manually cleaned bar screen",
     "notes": "Manual rake not powered; one complete symbol with manual rake mark. Bulk screenings output represents handled solids, not a physical pipe.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "drive": "manual-rake",
     "defaultVariant": null,
     "variants": {
@@ -15443,7 +15443,7 @@
     "group": "screening",
     "label": "Step screen",
     "notes": "Stepped elements identify step screen; motor integrated. Do not imply bar gaps or step clearance.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "drive": "integral-motor",
     "defaultVariant": null,
     "variants": {
@@ -15530,7 +15530,7 @@
     "group": "screening",
     "label": "Perforated plate fine screen",
     "notes": "Perforations are full-ink repeated hole boundaries; complete motorized symbol. No claimed aperture dimension.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "drive": "integral-motor",
     "defaultVariant": null,
     "variants": {
@@ -15674,7 +15674,7 @@
     "group": "screening",
     "label": "Rotary drum screen",
     "notes": "Rotating drum identity clearly distinct from source screen-fine rectangular motif. Real configurations include internally/externally fed screens.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "drive": "integral-motor",
     "defaultVariant": null,
     "variants": {
@@ -15765,7 +15765,7 @@
     "group": "screening",
     "label": "Travelling band screen",
     "notes": "Complete motorized travelling band screen, stylized belt with repeated band elements.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "drive": "integral-motor",
     "defaultVariant": null,
     "variants": {
@@ -15855,7 +15855,7 @@
     "group": "solids-handling",
     "label": "Screenings washer-compactor",
     "notes": "Combined washing, conveyance and compaction preset. Four visible media-specific terminals; actual design may contain bypass and spray sections.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "defaultVariant": null,
     "variants": {
      "candidate": {
@@ -15923,7 +15923,7 @@
     "group": "screening",
     "label": "Macerator / grinder",
     "notes": "Comminuting/grinding changes solids size and retains slurry in outgoing wastewater, not a screenings removal stream unless explicitly configured.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "drive": "integral-motor",
     "defaultVariant": null,
     "variants": {
@@ -16000,7 +16000,7 @@
     "group": "grit-separation",
     "label": "Vortex grit chamber",
     "notes": "Plan schematic circular chamber; tangential inflow. Does not reuse conical hydrocyclone symbol.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "mechanism": "open-vortex",
     "defaultVariant": null,
     "variants": {
@@ -16073,7 +16073,7 @@
     "group": "grit-separation",
     "label": "Aerated grit chamber",
     "notes": "Schematic section with aeration diffuser and bottom grit hopper. Air injection is not a wastewater outlet.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "mechanism": "aerated-chamber",
     "defaultVariant": null,
     "variants": {
@@ -16163,7 +16163,7 @@
     "group": "grit-separation",
     "label": "Horizontal-flow grit channel",
     "notes": "Schematic longitudinal section; no air port; grit collection sump indicated. Geometry not dimensioned.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "mechanism": "horizontal-flow",
     "defaultVariant": null,
     "variants": {
@@ -16219,7 +16219,7 @@
     "group": "grit-handling",
     "label": "Grit washer",
     "notes": "Washing + conveying combined equipment; washwater input and return liquor output separately typed.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "defaultVariant": null,
     "variants": {
      "candidate": {
@@ -16284,7 +16284,7 @@
     "group": "solids-handling",
     "label": "Grit storage bin",
     "notes": "One bulk washed-grit receiving interface; optional drain is separate asset feature rather than an assumed pipe.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "defaultVariant": null,
     "variants": {
      "candidate": {
@@ -16319,7 +16319,7 @@
     "group": "solids-handling",
     "label": "Screenings discharge chute",
     "notes": "Gravity screenings chute; two solids ports. It does not imply a continuous liquid-process flow.",
-    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "verification": "Provisional processvg geometry. Visual and standards approval pending.",
     "defaultVariant": null,
     "variants": {
      "candidate": {

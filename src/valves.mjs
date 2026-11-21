@@ -85,7 +85,7 @@ export const VALVES = [
     shape("M-4 -7 L-4 7 M4 -7 L4 7"),
     shape("M-1.5 -11 L1.5 -11 L1.5 7 L-1.5 7 Z", closed ? solid : {}),
   ], { ports: [[-4, 0], [4, 0]], bounds: [-4, -11, 4, 7], mount: atTop(-11), minFillScale: 1 }),
-  definition("check", "Check (non-return) valve", [{ std: "Processvg design", ref: "Approved NRV" }],
+  definition("check", "Check (non-return) valve", [{ std: "processvg design", ref: "Approved NRV" }],
     () => nrv.map((part) => ({ ...part })), [[-7, 0], [7, 0]], {
       mode: "passive", roles: ["inlet", "outlet"], permittedFlow: { from: "in", to: "out" },
       bounds: [-7, -6.2, 7, 6.2],

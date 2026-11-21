@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" data-plotter="" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 560 440" width="560" height="440" role="img" aria-labelledby="inlet-works-pid-title" aria-describedby="inlet-works-pid-desc" style="font-family:Cal Sans, sans-serif;font-optical-sizing:auto;font-synthesis:none;font-variation-settings:'GEOM' 25;font-weight:400">
 <title id="inlet-works-pid-title">Fine screening, duty and standby</title>
 <desc id="inlet-works-pid-desc">Raw sewage passes flow meter FIT-1 into the stilling chamber, splits across two mechanical fine screens on duty, each with a level transmitter either side (LIT-1 to LIT-4) and the difference computed as DLT-1 and DLT-2, while the manual channel stands by behind closed slide gates. Two grit chambers collect the screened flow for the SBR basins.</desc>
-<style>svg[data-plotter]{color:#171717}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:#ededed}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
+<style>svg[data-plotter]{color:var(--plotter-ink,#171717)}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:var(--plotter-ink,#ededed)}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
 <g data-plotter-role="primary" opacity="1" stroke-dasharray="none">
 <path d="M16 215 L28 215 L28 211 L38 220 L28 229 L28 225 L16 225 Z" />
 <path d="M38 220 L52 220" />
@@ -78,15 +78,15 @@
 <path d="M281 310 A7 7 0 0 0 271 310 M283 306 A10 10 0 0 0 269 306" />
 </g>
 <g data-plotter-role="secondary" opacity="0.32" stroke-dasharray="6 4" stroke-linecap="butt">
-<path d="M72 182 L72 213" />
-<path d="M224 116 L224 100" />
-<path d="M276 116 L276 100" />
-<path d="M290 86 L316 86" />
-<path d="M224 72 L224 62 L332 62 L332 70" />
-<path d="M224 324 L224 340" />
-<path d="M276 324 L276 340" />
-<path d="M290 354 L316 354" />
-<path d="M224 368 L224 378 L332 378 L332 370" />
+<path d="M72 182 L72 213" stroke-dasharray="6 4" />
+<path d="M224 116 L224 100" stroke-dasharray="6 4" />
+<path d="M276 116 L276 100" stroke-dasharray="6 4" />
+<path d="M290 86 L316 86" stroke-dasharray="6 4" />
+<path d="M224 72 L224 62 L332 62 L332 70" stroke-dasharray="6 4" />
+<path d="M224 324 L224 340" stroke-dasharray="6 4" />
+<path d="M276 324 L276 340" stroke-dasharray="6 4" />
+<path d="M290 354 L316 354" stroke-dasharray="6 4" />
+<path d="M224 368 L224 378 L332 378 L332 370" stroke-dasharray="6 4" />
 </g>
 <g fill="currentColor">
 <circle cx="166" cy="220" r="2" fill="currentColor" stroke="none" />

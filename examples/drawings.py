@@ -10,7 +10,7 @@ from pathlib import Path
 
 OUT = Path(__file__).resolve().parents[1] / "drawings"
 # Ink follows the viewer's colour scheme (dark ink on light, light ink on dark); a host page that sets data-host-ink on the svg controls the colour itself. Strokes stay one pixel at any display size.
-THEME_STYLE = '<style>svg[data-plotter]{color:#171717}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:#ededed}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>'
+THEME_STYLE = '<style>svg[data-plotter]{color:var(--plotter-ink,#171717)}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:var(--plotter-ink,#ededed)}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>'  # keep in step with THEME_CSS in src/render.mjs
 ROLE = {
     "primary": ("1", None),
     "secondary": ("0.32", None),

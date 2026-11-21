@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" data-plotter="" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 560 440" width="560" height="440" role="img" aria-labelledby="legend-primary-elements-2-title" aria-describedby="legend-primary-elements-2-desc" style="font-family:Cal Sans, sans-serif;font-optical-sizing:auto;font-synthesis:none;font-variation-settings:'GEOM' 25;font-weight:400">
 <title id="legend-primary-elements-2-title">Primary elements symbols</title>
 <desc id="legend-primary-elements-2-desc">P&amp;ID symbols: Ultrasonic level, Radar level, Guided-wave radar, Conductivity level switch, Immersion probe, Insertion probe, Flow-through cell, Sample-based analyser, Pressure tap, Diaphragm seal, Thermowell, Sampling point.</desc>
-<style>svg[data-plotter]{color:#171717}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:#ededed}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
+<style>svg[data-plotter]{color:var(--plotter-ink,#171717)}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:var(--plotter-ink,#ededed)}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
 <g data-plotter-role="primary" opacity="1" stroke-dasharray="none">
 <path d="M98 46 L110 46 L110 61 L98 61 Z" />
 <path d="M274 46 L286 46 L286 55 L290.5 62.5 L269.5 62.5 L274 55 Z" />

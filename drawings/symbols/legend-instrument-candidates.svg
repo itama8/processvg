@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" data-plotter="" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 560 440" width="560" height="440" role="img" aria-labelledby="legend-instrument-candidates-title" aria-describedby="legend-instrument-candidates-desc" style="font-family:Cal Sans, sans-serif;font-optical-sizing:auto;font-synthesis:none;font-variation-settings:'GEOM' 25;font-weight:400">
 <title id="legend-instrument-candidates-title">Instrument candidates symbols</title>
 <desc id="legend-instrument-candidates-desc">Candidate P&amp;ID enclosures and panel identities. Original symbols remain in the instrument archive.</desc>
-<style>svg[data-plotter]{color:#171717}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:#ededed}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
+<style>svg[data-plotter]{color:var(--plotter-ink,#171717)}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:var(--plotter-ink,#ededed)}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
 <g data-plotter-role="primary" opacity="1" stroke-dasharray="none">
 <circle cx="104" cy="58" r="24" />
 <circle cx="280" cy="58" r="24" />
@@ -40,17 +40,17 @@
 <text x="280" y="404" text-anchor="middle">Field shared display</text>
 </g>
 <g fill="currentColor" stroke="none" font-size="10" opacity="0.5">
-<text x="104" y="117" text-anchor="middle">Processvg candidate</text>
-<text x="280" y="117" text-anchor="middle">Processvg candidate</text>
-<text x="456" y="117" text-anchor="middle">Processvg candidate</text>
-<text x="104" y="217" text-anchor="middle">Processvg candidate</text>
-<text x="280" y="217" text-anchor="middle">Processvg candidate</text>
-<text x="456" y="217" text-anchor="middle">Processvg candidate</text>
-<text x="104" y="317" text-anchor="middle">Processvg candidate</text>
-<text x="280" y="317" text-anchor="middle">Processvg candidate</text>
-<text x="456" y="317" text-anchor="middle">Processvg candidate</text>
-<text x="104" y="417" text-anchor="middle">Processvg candidate</text>
-<text x="280" y="417" text-anchor="middle">Processvg candidate</text>
+<text x="104" y="117" text-anchor="middle">processvg candidate</text>
+<text x="280" y="117" text-anchor="middle">processvg candidate</text>
+<text x="456" y="117" text-anchor="middle">processvg candidate</text>
+<text x="104" y="217" text-anchor="middle">processvg candidate</text>
+<text x="280" y="217" text-anchor="middle">processvg candidate</text>
+<text x="456" y="217" text-anchor="middle">processvg candidate</text>
+<text x="104" y="317" text-anchor="middle">processvg candidate</text>
+<text x="280" y="317" text-anchor="middle">processvg candidate</text>
+<text x="456" y="317" text-anchor="middle">processvg candidate</text>
+<text x="104" y="417" text-anchor="middle">processvg candidate</text>
+<text x="280" y="417" text-anchor="middle">processvg candidate</text>
 </g>
 <g fill="currentColor" stroke="none" opacity="1">
 <g data-processvg-identity="" role="img" aria-label="FIT" aria-description="FIT-101" transform="translate(95.680625 53.05) scale(0.005625)"><title>FIT</title><path transform="translate(0 0)" d="M173 0V-1440H995V-1276H355V-802H985V-636H355V0Z" /><path transform="translate(1135 0)" d="M173 0V-720V-1440H351V0ZM175 0V-156H349V0ZM175 -1284V-1440H349V-1284Z" /><path transform="translate(1659 0)" d="M524 0V-1357H702V0ZM100 -1276V-1440H1126V-1276Z" /></g>

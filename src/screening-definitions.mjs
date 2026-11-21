@@ -2,7 +2,7 @@ import handoff from "./data/family-08-handoff.mjs";
 import { driveIdentity } from "./drive-ink.mjs";
 import { normalizeEquipmentPath } from "./geometry.mjs";
 
-export const SCREENING_VERIFICATION = "Provisional Processvg geometry. Visual and standards approval pending.";
+export const SCREENING_VERIFICATION = "Provisional processvg geometry. Visual and standards approval pending.";
 
 const alternatives = {
   "screen-bar": { add: ["M-14 0 H-0.63 M5.22 0 H14"], replace: { 1: "M7.4 -10.05 V-13" } },

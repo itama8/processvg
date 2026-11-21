@@ -55,7 +55,7 @@ function matrix(size, s) {
     }
   }
   fixtureData[`matrix-${size}`] = results;
-  shapes.push(text(280, 419, "Processvg review candidate · solid and dashed location marks"));
+  shapes.push(text(280, 419, "processvg review candidate · solid and dashed location marks"));
   return shapes;
 }
 

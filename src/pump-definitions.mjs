@@ -3,7 +3,7 @@ import { normalizeEquipmentPath } from "./geometry.mjs";
 import { driveIdentity } from "./drive-ink.mjs";
 
 export const PUMP_APPROVAL = "Family 07 Revision 03";
-export const PUMP_CANDIDATE = "User-approved Processvg proposal; drawing legend and standards verification pending";
+export const PUMP_CANDIDATE = "User-approved processvg proposal; drawing legend and standards verification pending";
 
 const archiveVariants = {
   "pump-centrifugal": "compact",
@@ -95,7 +95,7 @@ export function pumpDefinitions(archive) {
     const listed = variants[archiveVariant ?? defaultVariant];
     return {
       id, name: historical?.name ?? label, cat: "Pumps and blowers",
-      src: historical?.src ?? [{ std: "Processvg design", ref: PUMP_APPROVAL }],
+      src: historical?.src ?? [{ std: "processvg design", ref: PUMP_APPROVAL }],
       ports: historical?.ports ?? listed.interfaces.filter((port) => port.schematicVisible).map((port) => port.anchor),
       draw: historical?.draw ?? (() => listed.shapes),
       ...(!historical && { designApproval: PUMP_APPROVAL, verification: PUMP_CANDIDATE }),
