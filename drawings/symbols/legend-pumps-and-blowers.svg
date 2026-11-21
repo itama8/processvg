@@ -1,28 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" data-plotter="" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 560 440" width="560" height="440" role="img" aria-labelledby="legend-pumps-and-blowers-title" aria-describedby="legend-pumps-and-blowers-desc" style="font-family:Cal Sans, sans-serif;font-optical-sizing:auto;font-synthesis:none;font-variation-settings:'GEOM' 25;font-weight:400">
 <title id="legend-pumps-and-blowers-title">Pumps and blowers symbols</title>
-<desc id="legend-pumps-and-blowers-desc">P&amp;ID symbols: Centrifugal pump, Submersible pump, Progressing cavity pump, Dosing (metering) pump, Blower, rotary lobe, Blower, centrifugal (turbo).</desc>
+<desc id="legend-pumps-and-blowers-desc">P&amp;ID symbols: Centrifugal pump, Submersible pump, Progressing cavity pump, Dosing (metering) pump, Blower, rotary lobe, Blower, rotary lobe, Blower, centrifugal (turbo), Vertical turbine pump, Vertical inline pump, Diaphragm pump, Peristaltic / hose pump, Rotary lobe liquid pump.</desc>
 <style>svg[data-plotter]{color:#171717}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:#ededed}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
 <g data-plotter-role="primary" opacity="1" stroke-dasharray="none">
 <circle cx="104" cy="58" r="13.5" />
 <path d="M104 44.5 L125 44.5" />
-<path d="M269.5 52 L290.5 52 L290.5 73 L269.5 73 Z" />
-<path d="M274 43 L286 43 L286 52 L274 52 Z" />
-<path d="M286 47.5 L298 47.5 L298 34" />
+<path d="M271 34 L289 34 L289 55 L271 55 Z" />
+<path d="M269.5 55 L290.5 55 Q298 56.5 298 65.5 L298 71.5 L266.5 71.5 L266.5 65.5 Q266.5 58 269.5 55 Z" />
+<path d="M298 62.5 L307 62.5 L307 38.5 M307 38.5 L316 38.5" />
 <path d="M435 50.5 L477 50.5 L477 65.5 L435 65.5 Z" />
+<path d="M439.5 58 Q444 52 448.5 58 Q453 64 457.5 58 Q462 52 466.5 58 Q471 64 472.5 58" />
 <path d="M86 158 L95 158 M113 158 L122 158" />
 <path d="M95 150.5 L113 150.5 L113 165.5 L95 165.5 Z" />
 <path d="M104 165.5 L104 171.5" />
 <path d="M95 171.5 L113 171.5 L113 189.5 L95 189.5 Z" />
-<circle cx="280" cy="158" r="15" />
-<circle cx="280" cy="152" r="5.25" />
-<circle cx="280" cy="164" r="5.25" />
-<path d="M295 158 L304 158 M256 158 L265 158" />
-<circle cx="456" cy="158" r="13.5" />
-<circle cx="456" cy="158" r="5.25" />
-<path d="M456 144.5 L477 144.5" />
-</g>
-<g data-plotter-role="secondary" opacity="0.32" stroke-dasharray="none">
-<path d="M441 58 L445.5 53.5 L454.5 62.5 L463.5 53.5 L471 58" />
+<path d="M256 158 L263.5 158 M296.5 158 L304 158 M263.5 140 Q263.5 135.5 268 135.5 L292 135.5 Q296.5 135.5 296.5 140 L296.5 176 Q296.5 180.5 292 180.5 L268 180.5 Q263.5 180.5 263.5 176 Z" />
+<path d="M287.58 149 L287.51 149.66 L287.33 150.29 L287.03 150.88 L286.62 151.41 L286.14 151.86 L285.59 152.23 L284.99 152.5 L284.38 152.67 L283.77 152.76 L283.17 152.78 L282.61 152.73 L282.1 152.64 L281.64 152.52 L281.23 152.38 L280.87 152.26 L280.56 152.16 L280.27 152.1 L280 152.07 L279.73 152.1 L279.44 152.16 L279.13 152.26 L278.77 152.38 L278.36 152.52 L277.9 152.64 L277.39 152.73 L276.83 152.78 L276.24 152.76 L275.62 152.67 L275.01 152.5 L274.41 152.23 L273.86 151.86 L273.38 151.41 L272.97 150.88 L272.67 150.29 L272.49 149.66 L272.43 149 L272.49 148.34 L272.67 147.71 L272.97 147.12 L273.38 146.59 L273.86 146.14 L274.41 145.78 L275.01 145.51 L275.62 145.33 L276.24 145.24 L276.83 145.22 L277.39 145.27 L277.9 145.36 L278.36 145.48 L278.77 145.62 L279.13 145.74 L279.44 145.84 L279.73 145.9 L280 145.93 L280.27 145.9 L280.56 145.84 L280.87 145.74 L281.23 145.62 L281.64 145.48 L282.1 145.36 L282.61 145.27 L283.17 145.22 L283.77 145.24 L284.38 145.33 L284.99 145.51 L285.59 145.78 L286.14 146.14 L286.62 146.59 L287.03 147.12 L287.33 147.71 L287.51 148.34 Z" />
+<path d="M285.33 167 L284.92 167.43 L284.49 167.79 L284.06 168.09 L283.65 168.33 L283.26 168.52 L282.92 168.69 L282.63 168.84 L282.38 169 L282.18 169.18 L282 169.38 L281.84 169.63 L281.69 169.92 L281.52 170.26 L281.33 170.65 L281.09 171.06 L280.79 171.49 L280.43 171.92 L280 172.33 L279.5 172.69 L278.94 173 L278.33 173.23 L277.68 173.36 L277.02 173.39 L276.36 173.3 L275.73 173.09 L275.15 172.78 L274.64 172.36 L274.22 171.85 L273.91 171.27 L273.7 170.64 L273.61 169.98 L273.64 169.32 L273.77 168.67 L274 168.06 L274.31 167.5 L274.68 167 L275.08 166.57 L275.51 166.21 L275.94 165.91 L276.36 165.67 L276.74 165.48 L277.08 165.31 L277.37 165.16 L277.62 165 L277.83 164.83 L278 164.62 L278.16 164.37 L278.31 164.08 L278.48 163.74 L278.67 163.35 L278.91 162.94 L279.21 162.51 L279.57 162.08 L280 161.68 L280.5 161.31 L281.06 161 L281.67 160.77 L282.32 160.64 L282.98 160.61 L283.64 160.7 L284.27 160.91 L284.85 161.22 L285.36 161.64 L285.78 162.15 L286.09 162.73 L286.3 163.36 L286.39 164.02 L286.36 164.68 L286.23 165.33 L286 165.94 L285.69 166.5 Z" />
+<path d="M432 158 L439.5 158 M472.5 158 L480 158 M439.5 140 Q439.5 135.5 444 135.5 L468 135.5 Q472.5 135.5 472.5 140 L472.5 176 Q472.5 180.5 468 180.5 L444 180.5 Q439.5 180.5 439.5 176 Z" />
+<path d="M463.58 149 L463.47 149.65 L463.16 150.26 L462.68 150.79 L462.06 151.21 L461.35 151.5 L460.61 151.66 L459.89 151.72 L459.22 151.7 L458.64 151.64 L458.17 151.59 L457.81 151.58 L457.54 151.66 L457.33 151.86 L457.16 152.17 L456.97 152.61 L456.73 153.14 L456.41 153.73 L456 154.32 L455.49 154.88 L454.88 155.35 L454.21 155.68 L453.51 155.84 L452.83 155.8 L452.21 155.56 L451.7 155.14 L451.32 154.57 L451.11 153.89 L451.06 153.15 L451.16 152.39 L451.39 151.66 L451.7 151 L452.05 150.44 L452.39 149.97 L452.67 149.59 L452.86 149.27 L452.93 149 L452.86 148.73 L452.67 148.41 L452.39 148.03 L452.05 147.56 L451.7 147 L451.39 146.34 L451.16 145.61 L451.06 144.85 L451.11 144.11 L451.32 143.43 L451.7 142.86 L452.21 142.44 L452.83 142.2 L453.51 142.16 L454.21 142.32 L454.88 142.65 L455.49 143.12 L456 143.68 L456.41 144.28 L456.73 144.86 L456.97 145.39 L457.16 145.83 L457.33 146.14 L457.54 146.34 L457.81 146.42 L458.17 146.41 L458.64 146.36 L459.22 146.3 L459.89 146.28 L460.61 146.34 L461.35 146.5 L462.06 146.79 L462.68 147.21 L463.16 147.74 L463.47 148.35 Z" />
+<path d="M462.45 167 L461.88 167.51 L461.24 167.92 L460.58 168.23 L459.95 168.44 L459.38 168.58 L458.92 168.69 L458.58 168.81 L458.36 168.98 L458.23 169.23 L458.17 169.59 L458.14 170.06 L458.1 170.64 L458 171.3 L457.82 172 L457.53 172.71 L457.12 173.35 L456.6 173.89 L456 174.27 L455.35 174.47 L454.68 174.46 L454.06 174.24 L453.51 173.84 L453.08 173.27 L452.78 172.59 L452.61 171.84 L452.58 171.08 L452.65 170.35 L452.78 169.7 L452.94 169.14 L453.08 168.69 L453.14 168.33 L453.11 168.05 L452.96 167.82 L452.67 167.59 L452.28 167.33 L451.8 167 L451.28 166.59 L450.76 166.08 L450.29 165.47 L449.94 164.79 L449.73 164.08 L449.7 163.36 L449.86 162.7 L450.2 162.13 L450.7 161.7 L451.32 161.43 L452.03 161.33 L452.78 161.41 L453.5 161.65 L454.18 162 L454.77 162.42 L455.27 162.86 L455.67 163.28 L456 163.62 L456.27 163.86 L456.53 163.97 L456.82 163.96 L457.16 163.83 L457.58 163.62 L458.1 163.36 L458.72 163.12 L459.42 162.92 L460.18 162.82 L460.94 162.85 L461.67 163.03 L462.3 163.36 L462.8 163.83 L463.12 164.41 L463.24 165.06 L463.16 165.74 L462.89 166.4 Z" />
+<path d="M104 244.5 L125 244.5 L125 253.5 L116.74 253.5 A13.5 13.5 0 1 1 104 244.5 Z" />
+<circle cx="104" cy="258" r="5.25" />
+<path d="M272.5 229.5 L287.5 229.5 L287.5 241.5 L272.5 241.5 Z" />
+<path d="M280 241.5 L280 249" />
+<path d="M274 249 L286 249 L286 280.5 L274 280.5 Z" />
+<path d="M269.5 280.5 L290.5 280.5 L286 288 L274 288 Z" />
+<path d="M286 253.5 L304 253.5 L304 262.5 L286 262.5" />
+<path d="M421.5 258 L441 258 M471 258 L490.5 258" />
+<path d="M447 246 L447 237 L465 237 L465 246" />
+<circle cx="456" cy="258" r="15" />
+<path d="M68 358 L86 358 M122 358 L140 358" />
+<path d="M86 346 Q80 358 86 370 L122 370 Q128 358 122 346 Z" />
+<path d="M104 346 Q93.5 358 104 370 Q114.5 358 104 346" />
+<path d="M244 365.5 L262 365.5 Q266.5 343 280 343 Q293.5 343 298 365.5 L316 365.5" />
+<circle cx="280" cy="358" r="18" />
+<circle cx="274" cy="355" r="3" />
+<circle cx="286" cy="355" r="3" />
+<circle cx="280" cy="365.5" r="3" />
+<path d="M420 358 L436.5 358 M475.5 358 L492 358" />
+<path d="M436.5 343 L475.5 343 L475.5 373 L436.5 373 Z" />
+<path d="M447 347.5 C438 347.5 438 356.5 447 356.5 C456 356.5 456 365.5 447 365.5 C438 365.5 438 356.5 447 356.5" />
+<path d="M465 347.5 C474 347.5 474 356.5 465 356.5 C456 356.5 456 365.5 465 365.5 C474 365.5 474 356.5 465 356.5" />
 </g>
 <g fill="currentColor" stroke="none" font-size="10" opacity="0.72">
 <text x="104" y="104" text-anchor="middle">Centrifugal pump</text>
@@ -30,15 +49,27 @@
 <text x="456" y="104" text-anchor="middle">Progressing cavity pump</text>
 <text x="104" y="185.9" text-anchor="middle">M</text>
 <text x="104" y="204" text-anchor="middle">Dosing (metering) pump</text>
-<text x="280" y="204" text-anchor="middle">Blower, rotary lobe</text>
-<text x="456" y="204" text-anchor="middle">Blower, centrifugal (turbo)</text>
+<text x="280" y="204" text-anchor="middle">Rotary lobe blower (2-lobe)</text>
+<text x="456" y="204" text-anchor="middle">Rotary lobe blower (3-lobe)</text>
+<text x="104" y="304" text-anchor="middle">Blower, centrifugal (turbo)</text>
+<text x="280" y="304" text-anchor="middle">Vertical turbine pump</text>
+<text x="456" y="304" text-anchor="middle">Vertical inline pump</text>
+<text x="104" y="404" text-anchor="middle">Diaphragm pump</text>
+<text x="280" y="404" text-anchor="middle">Peristaltic / hose pump</text>
+<text x="456" y="404" text-anchor="middle">Rotary lobe liquid pump</text>
 </g>
 <g fill="currentColor" stroke="none" font-size="10" opacity="0.5">
 <text x="104" y="117" text-anchor="middle">IS 3232 0701 · B&amp;C P-003</text>
-<text x="280" y="117" text-anchor="middle">B&amp;C P-003</text>
-<text x="456" y="117" text-anchor="middle">B&amp;C P-003</text>
+<text x="280" y="117" text-anchor="middle">Processvg candidate</text>
+<text x="456" y="117" text-anchor="middle">Processvg candidate</text>
 <text x="104" y="217" text-anchor="middle">IS 3232 0703 · B&amp;C P-003</text>
-<text x="280" y="217" text-anchor="middle">IS 3232 0701 (gear form) · B&amp;C P-003</text>
-<text x="456" y="217" text-anchor="middle">B&amp;C P-003</text>
+<text x="280" y="217" text-anchor="middle">Processvg candidate</text>
+<text x="456" y="217" text-anchor="middle">Processvg candidate</text>
+<text x="104" y="317" text-anchor="middle">Processvg candidate</text>
+<text x="280" y="317" text-anchor="middle">Processvg candidate</text>
+<text x="456" y="317" text-anchor="middle">Processvg candidate</text>
+<text x="104" y="417" text-anchor="middle">Processvg candidate</text>
+<text x="280" y="417" text-anchor="middle">Processvg candidate</text>
+<text x="456" y="417" text-anchor="middle">Processvg candidate</text>
 </g>
 </svg>

@@ -2,7 +2,7 @@
 //
 // Each symbol is drawn in local units around (0, 0), typically inline left to right, sized for a
 // 560 × 440 Plotter canvas (a valve body is 16 × 10). Geometry uses absolute M, L, A, Z
-// path commands, plus Q for primary elements, so it can be moved, scaled and quarter-turned.
+// path commands with quadratic and cubic controls, so it can be moved, scaled and quarter-turned.
 //
 // Sources, cited per symbol:
 //   IS 3232:1999  Recommendations on graphical symbols for PFDs and P&IDs (BIS), by symbol no.
@@ -23,6 +23,11 @@ import { LOGIC_IDS, placeLogicPrimitive } from "./logic.mjs";
 import { ANALYTE_PRESETS, PRIMARY_ARCHIVE_IDS, PRIMARY_DEFINITIONS, layoutPrimaryElements, primaryBody,
   primaryMigration, primaryMode } from "./primary-elements.mjs";
 import { measurementView } from "./measuring-structures.mjs";
+
+import { pumpDefinitions } from "./pump-definitions.mjs";
+import { placePumpSymbol, composePumpDrawing, migratePumpInstance } from "./pumps.mjs";
+
+export { pumpBoundary, pumpNetwork, PUMP_DOCUMENT_VERSION } from "./pumps.mjs";
 
 export { composeInstrument, instrumentNetwork, INSTRUMENT_VERSION, INSTRUMENT_PRESETS } from "./instruments.mjs";
 export { composeLogicDiagram, logicTruth, placeLogicPrimitive, resolveInterlockReference } from "./logic.mjs";
@@ -100,6 +105,22 @@ const candidateInstruments = [
   id, name, cat: "Instrument candidates", src: [PROPOSED], ports: [],
   draw: () => composeInstrument({ id, preset: id }).shapes,
 }));
+
+const pumpCatalogueSymbols = pumpDefinitions([
+  { id: "pump-centrifugal", name: "Centrifugal pump", cat: "Pumps and blowers", src: [IS("0701"), BC("P-003")],
+    draw: () => [C(0, 0, 9), S(line([0, -9], [14, -9]))], ports: [[-9, 0], [14, -9]] },
+  { id: "pump-submersible", name: "Submersible pump", cat: "Pumps and blowers", src: [BC("P-003")],
+    draw: () => [S(rect(-7, -4, 14, 14)), S(rect(-4, -10, 8, 6)), S(line([4, -7], [12, -7], [12, -16]))], ports: [[12, -16]] },
+  { id: "pump-pc", name: "Progressing cavity pump", cat: "Pumps and blowers", src: [BC("P-003")],
+    draw: () => [S(rect(-14, -5, 28, 10)), S(line([-10, 0], [-7, -3], [-1, 3], [5, -3], [10, 0]), { role: "secondary" })], ports: [[-14, 0], [14, 0]] },
+  { id: "pump-dosing", name: "Dosing (metering) pump", cat: "Pumps and blowers", src: [IS("0703"), BC("P-003")],
+    draw: () => [S(line([-12, 0], [-6, 0]) + " " + line([6, 0], [12, 0])), S(rect(-6, -5, 12, 10)), S(line([0, 5], [0, 9])), S(rect(-6, 9, 12, 12)), T(0, 18.6, "M")],
+    ports: [[-12, 0], [12, 0]] },
+  { id: "blower-lobe", name: "Blower, rotary lobe", cat: "Pumps and blowers", src: [IS("0701 (gear form)"), BC("P-003")],
+    draw: () => [C(0, 0, 10), C(0, -4, 3.5), C(0, 4, 3.5), S(line([10, 0], [16, 0]) + " " + line([-16, 0], [-10, 0]))], ports: [[-16, 0], [16, 0]] },
+  { id: "blower-centrifugal", name: "Blower, centrifugal (turbo)", cat: "Pumps and blowers", src: [BC("P-003")],
+    draw: () => [C(0, 0, 9), C(0, 0, 3.5), S(line([0, -9], [14, -9]))], ports: [[-9, 0], [14, -9]] },
+]);
 
 export const SYMBOLS = [
   // Lines and connectors -----------------------------------------------------------------
@@ -194,19 +215,7 @@ export const SYMBOLS = [
   ...primaryCatalogueSymbols,
 
   // Pumps and blowers ------------------------------------------------------------------------
-  { id: "pump-centrifugal", name: "Centrifugal pump", cat: "Pumps and blowers", src: [IS("0701"), BC("P-003")],
-    draw: () => [C(0, 0, 9), S(line([0, -9], [14, -9]))], ports: [[-9, 0], [14, -9]] },
-  { id: "pump-submersible", name: "Submersible pump", cat: "Pumps and blowers", src: [BC("P-003")],
-    draw: () => [S(rect(-7, -4, 14, 14)), S(rect(-4, -10, 8, 6)), S(line([4, -7], [12, -7], [12, -16]))], ports: [[12, -16]] },
-  { id: "pump-pc", name: "Progressing cavity pump", cat: "Pumps and blowers", src: [BC("P-003")],
-    draw: () => [S(rect(-14, -5, 28, 10)), S(line([-10, 0], [-7, -3], [-1, 3], [5, -3], [10, 0]), { role: "secondary" })], ports: [[-14, 0], [14, 0]] },
-  { id: "pump-dosing", name: "Dosing (metering) pump", cat: "Pumps and blowers", src: [IS("0703"), BC("P-003")],
-    draw: () => [S(line([-12, 0], [-6, 0]) + " " + line([6, 0], [12, 0])), S(rect(-6, -5, 12, 10)), S(line([0, 5], [0, 9])), S(rect(-6, 9, 12, 12)), T(0, 18.6, "M")],
-    ports: [[-12, 0], [12, 0]] },
-  { id: "blower-lobe", name: "Blower, rotary lobe", cat: "Pumps and blowers", src: [IS("0701 (gear form)"), BC("P-003")],
-    draw: () => [C(0, 0, 10), C(0, -4, 3.5), C(0, 4, 3.5), S(line([10, 0], [16, 0]) + " " + line([-16, 0], [-10, 0]))], ports: [[-16, 0], [16, 0]] },
-  { id: "blower-centrifugal", name: "Blower, centrifugal (turbo)", cat: "Pumps and blowers", src: [BC("P-003")],
-    draw: () => [C(0, 0, 9), C(0, 0, 3.5), S(line([0, -9], [14, -9]))], ports: [[-9, 0], [14, -9]] },
+  ...pumpCatalogueSymbols,
 
   // Screening, grit and solids handling ------------------------------------------------------
   { id: "screen-bar", name: "Bar screen, mechanical", cat: "Screening and grit", src: [IS("1505"), BC("P-003")],
@@ -327,6 +336,15 @@ export function migrateInstrument({ version = 0, symbolId, at = {}, id, options 
     report: { fromVersion: 0, toVersion: candidate.metadata.version, missingIdentity: Boolean(missingIdentity), needsClassification: Boolean(needsClassification), portMap } };
 }
 
+/** Resolve and serialize Family 07 asset and symbol instances. */
+export function composePumpDocument(document, options) {
+  return composePumpDrawing(byId, document, options);
+}
+
+export function migratePumpVariant(instance, variant) {
+  return migratePumpInstance(byId, instance, variant);
+}
+
 /** Place a library symbol and its ports in the same drawing coordinate system. */
 export function placeSymbol(id, at = {}, options = {}) {
   if (isPrimary(id)) {
@@ -347,6 +365,7 @@ export function placeSymbol(id, at = {}, options = {}) {
   }
   const symbol = byId[id];
   if (!Object.hasOwn(byId, id)) throw new RangeError(`Unknown symbol: ${id}`);
+  if (symbol.pump) return placePumpSymbol(symbol, at, options);
   if (symbol.gate) {
     const { renderScale, closedStyle, closed, convention, stateBasis, measureText, labelAnchor, ...config } = options;
     const placed = composeEquipment({ ...config, type: id }, at, {

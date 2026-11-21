@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-plotter="" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 560 440" width="560" height="440" role="img" aria-labelledby="legend-pumps-and-blowers-3-title" aria-describedby="legend-pumps-and-blowers-3-desc" style="font-family:Cal Sans, sans-serif;font-optical-sizing:auto;font-synthesis:none;font-variation-settings:'GEOM' 25;font-weight:400">
+<title id="legend-pumps-and-blowers-3-title">Pumps and blowers symbols</title>
+<desc id="legend-pumps-and-blowers-3-desc">P&amp;ID symbols: Variable frequency drive, Diesel engine drive, Integral motor package, Suction strainer, Pulsation dampener, Air intake filter, Blower silencer, Expansion bellows.</desc>
+<style>svg[data-plotter]{color:#171717}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:#ededed}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
+<g data-plotter-role="primary" opacity="1" stroke-dasharray="none">
+<path d="M83 41.5 L125 41.5 L125 74.5 L83 74.5 Z" />
+<path d="M89 47.5 Q96.5 41.5 104 47.5 Q111.5 53.5 119 47.5" />
+<path d="M259 41.5 L301 41.5 L301 74.5 L259 74.5 Z" />
+<path d="M266.5 50.5 L293.5 50.5 L293.5 55 L266.5 55 Z" />
+<path d="M438 43 L474 43 L474 73 L438 73 Z" />
+<path d="M456 43 L456 37" />
+<path d="M68 158 L89 158 M119 158 L140 158" />
+<path d="M89 147.5 L119 147.5 L119 168.5 L89 168.5 Z" />
+<path d="M89 147.5 L119 168.5 M89 158 L99.5 168.5 M108.5 147.5 L119 158" />
+<path d="M280 176 L280 158.75" />
+<path d="M269.5 137 Q280 131 290.5 137 L290.5 152 Q280 165.5 269.5 152 Z" />
+<path d="M269.5 146 L290.5 146" />
+<path d="M420 158 L441 158 M471 158 L492 158" />
+<path d="M441 144.5 L471 144.5 L471 171.5 L441 171.5 Z" />
+<path d="M441 144.5 L471 171.5 M441 155 L459 171.5 M453 144.5 L471 161 M471 144.5 L441 171.5" />
+<path d="M68 258 L84.5 258 M123.5 258 L140 258" />
+<path d="M84.5 247.5 L123.5 247.5 L123.5 268.5 L84.5 268.5 Z" />
+<path d="M90.5 252 L117.5 252 M90.5 258 L117.5 258 M90.5 264 L117.5 264" />
+<path d="M244 258 L262 258 M298 258 L316 258" />
+<path d="M262 247.5 L262 268.5 M298 247.5 L298 268.5" />
+<path d="M262 252 L268 247.5 L274 252 L280 247.5 L286 252 L292 247.5 L298 252" />
+<path d="M262 264 L268 268.5 L274 264 L280 268.5 L286 264 L292 268.5 L298 264" />
+</g>
+<g fill="currentColor" stroke="none" font-size="10" opacity="0.72">
+<text x="104" y="104" text-anchor="middle">Variable frequency drive</text>
+<text x="280" y="104" text-anchor="middle">Diesel engine drive</text>
+<text x="456" y="104" text-anchor="middle">Integral motor package</text>
+<text x="104" y="204" text-anchor="middle">Suction strainer</text>
+<text x="280" y="204" text-anchor="middle">Pulsation dampener</text>
+<text x="456" y="204" text-anchor="middle">Air intake filter</text>
+<text x="104" y="304" text-anchor="middle">Blower silencer</text>
+<text x="280" y="304" text-anchor="middle">Expansion bellows</text>
+</g>
+<g fill="currentColor" stroke="none" font-size="10" opacity="0.5">
+<text x="104" y="117" text-anchor="middle">Processvg candidate</text>
+<text x="280" y="117" text-anchor="middle">Processvg candidate</text>
+<text x="456" y="117" text-anchor="middle">Processvg candidate</text>
+<text x="104" y="217" text-anchor="middle">Processvg candidate</text>
+<text x="280" y="217" text-anchor="middle">Processvg candidate</text>
+<text x="456" y="217" text-anchor="middle">Processvg candidate</text>
+<text x="104" y="317" text-anchor="middle">Processvg candidate</text>
+<text x="280" y="317" text-anchor="middle">Processvg candidate</text>
+</g>
+<g fill="currentColor" stroke="none" opacity="1">
+<g data-processvg-identity="" role="img" aria-label="VFD" transform="translate(93.5735 67.03) scale(0.00525)"><title>VFD</title><path transform="translate(0 0)" d="M641 0 28 -1440H242L643 -431Q669 -368 684.0 -319.0Q699 -270 711 -223H715Q729 -270 744.0 -317.0Q759 -364 784 -431L1181 -1440H1394L786 0Z" /><path transform="translate(1422 0)" d="M173 0V-1440H995V-1276H355V-802H985V-636H355V0Z" /><path transform="translate(2557 0)" d="M173 0V-1440H609Q835 -1440 1010.5 -1353.5Q1186 -1267 1286.5 -1105.5Q1387 -944 1387 -718Q1387 -494 1286.5 -333.0Q1186 -172 1010.5 -86.0Q835 0 609 0ZM351 -164H613Q788 -164 921.5 -228.5Q1055 -293 1130.0 -416.5Q1205 -540 1205 -718Q1205 -897 1130.0 -1021.5Q1055 -1146 921.5 -1211.0Q788 -1276 613 -1276H351Z" /></g>
+<g data-processvg-identity="" role="img" aria-label="D" transform="translate(274.735 68.11) scale(0.00675)"><title>D</title><path transform="translate(0 0)" d="M173 0V-1440H609Q835 -1440 1010.5 -1353.5Q1186 -1267 1286.5 -1105.5Q1387 -944 1387 -718Q1387 -494 1286.5 -333.0Q1186 -172 1010.5 -86.0Q835 0 609 0ZM351 -164H613Q788 -164 921.5 -228.5Q1055 -293 1130.0 -416.5Q1205 -540 1205 -718Q1205 -897 1130.0 -1021.5Q1055 -1146 921.5 -1211.0Q788 -1276 613 -1276H351Z" /></g>
+<g data-processvg-identity="" role="img" aria-label="M" transform="translate(449.547 63.61) scale(0.00675)"><title>M</title><path transform="translate(0 0)" d="M173 0V-1440H423L803 -642Q838 -567 865.5 -507.5Q893 -448 912.5 -402.0Q932 -356 944.0 -321.5Q956 -287 962 -259H964Q971 -287 982.5 -321.0Q994 -355 1012.0 -401.0Q1030 -447 1056.5 -506.5Q1083 -566 1120 -642L1503 -1440H1739V0H1561V-760Q1561 -846 1562.0 -915.5Q1563 -985 1565.0 -1039.0Q1567 -1093 1570.5 -1136.0Q1574 -1179 1578 -1212H1575L1002 -1H913L336 -1212H333Q338 -1175 341.5 -1131.5Q345 -1088 347.5 -1034.0Q350 -980 351.5 -912.5Q353 -845 353 -760V0Z" /></g>
+</g>
+</svg>

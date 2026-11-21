@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-plotter="" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 560 440" width="560" height="440" role="img" aria-labelledby="legend-pumps-and-blowers-2-title" aria-describedby="legend-pumps-and-blowers-2-desc" style="font-family:Cal Sans, sans-serif;font-optical-sizing:auto;font-synthesis:none;font-variation-settings:'GEOM' 25;font-weight:400">
+<title id="legend-pumps-and-blowers-2-title">Pumps and blowers symbols</title>
+<desc id="legend-pumps-and-blowers-2-desc">P&amp;ID symbols: Gear pump, Reciprocating piston pump, Archimedes screw pump, Airlift pump, Ejector / eductor, Rotary screw blower, Multistage centrifugal blower, Reciprocating compressor, Liquid ring blower / vacuum pump, Electric motor, Gearbox, Mechanical shaft coupling.</desc>
+<style>svg[data-plotter]{color:#171717}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:#ededed}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
+<g data-plotter-role="primary" opacity="1" stroke-dasharray="none">
+<path d="M68 58 L84.5 58 M123.5 58 L140 58" />
+<path d="M84.5 43 L123.5 43 L123.5 73 L84.5 73 Z" />
+<circle cx="95" cy="58" r="7.5" />
+<circle cx="113" cy="58" r="7.5" />
+<circle cx="95" cy="58" r="2.1" />
+<circle cx="113" cy="58" r="2.1" />
+<path d="M244 58 L262 58 M298 58 L316 58" />
+<path d="M262 47.5 L298 47.5 L298 68.5 L262 68.5 Z" />
+<path d="M275.5 47.5 L275.5 68.5 M275.5 58 L290.5 58" />
+<path d="M429 76 L483 40 M435 82 L489 46" />
+<path d="M429 67 L441 79 M439.5 59.5 L451.5 71.5 M450 52 L462 64 M460.5 44.5 L472.5 56.5 M471 37 L483 49" />
+<path d="M99.5 185 L99.5 134 L108.5 134 L108.5 185 M99.5 185 L104 188 L108.5 185" />
+<path d="M81.5 150.5 L81.5 177.5 L99.5 177.5" />
+<path d="M92 173 L99.5 170 L92 167" />
+<path d="M104 174.5 L104 140 M101 146 L104 140 L107 146" />
+<path d="M104 134 L104 125 M104 188 L104 192.5" />
+<circle cx="104" cy="165.5" r="1.5" />
+<circle cx="104" cy="158" r="1.5" />
+<circle cx="102.5" cy="150.5" r="1.2" />
+<path d="M244 158 L262 158 L275.5 152 L287.5 152 L302.5 146 L302.5 170 L287.5 164 L275.5 164 L262 158" />
+<path d="M280 183.5 L280 164 M274 171.5 L280 165.5 L286 171.5" />
+<path d="M302.5 158 L316 158" />
+<path d="M421.5 158 L433.5 158 M478.5 158 L490.5 158" />
+<path d="M433.5 143 L478.5 143 L478.5 173 L433.5 173 Z" />
+<path d="M438 147.5 L447 158 L438 168.5 M450 147.5 L459 158 L450 168.5 M462 147.5 L471 158 L462 168.5" />
+<path d="M68 258 L77 258 M131 258 L140 258" />
+<path d="M77 246 L131 246 L131 270 L77 270 Z" />
+<circle cx="87.5" cy="258" r="6.75" />
+<circle cx="104" cy="258" r="6.75" />
+<circle cx="120.5" cy="258" r="6.75" />
+<path d="M244 258 L263.5 258 M296.5 258 L316 258" />
+<path d="M263.5 243 L296.5 243 L296.5 273 L263.5 273 Z" />
+<path d="M263.5 255 L296.5 255 M280 255 L280 268.5" />
+<circle cx="280" cy="268.5" r="3" />
+<path d="M420 258 L439.5 258 M472.5 258 L492 258" />
+<circle cx="456" cy="258" r="16.5" />
+<circle cx="456" cy="261" r="10.5" />
+<circle cx="456" cy="255" r="3" />
+<path d="M92 343 L116 343 L116 373 L92 373 Z" />
+<path d="M265 344.5 L295 344.5 L295 371.5 L265 371.5 Z" />
+<path d="M420 358 L445.5 358 M466.5 358 L492 358" />
+<path d="M445.5 349 L454.5 349 L454.5 367 L445.5 367 Z" />
+<path d="M457.5 349 L466.5 349 L466.5 367 L457.5 367 Z" />
+</g>
+<g fill="currentColor" stroke="none" font-size="10" opacity="0.72">
+<text x="104" y="104" text-anchor="middle">Gear pump</text>
+<text x="280" y="104" text-anchor="middle">Reciprocating piston pump</text>
+<text x="456" y="104" text-anchor="middle">Archimedes screw pump</text>
+<text x="104" y="204" text-anchor="middle">Airlift pump</text>
+<text x="280" y="204" text-anchor="middle">Ejector / eductor</text>
+<text x="456" y="204" text-anchor="middle">Rotary screw blower</text>
+<text x="104" y="304" text-anchor="middle">Multistage centrifugal blower</text>
+<text x="280" y="304" text-anchor="middle">Reciprocating compressor</text>
+<text x="456" y="304" text-anchor="middle">Liquid ring blower / vacuum pump</text>
+<text x="104" y="404" text-anchor="middle">Electric motor</text>
+<text x="280" y="404" text-anchor="middle">Gearbox</text>
+<text x="456" y="404" text-anchor="middle">Mechanical shaft coupling</text>
+</g>
+<g fill="currentColor" stroke="none" font-size="10" opacity="0.5">
+<text x="104" y="117" text-anchor="middle">Processvg candidate</text>
+<text x="280" y="117" text-anchor="middle">Processvg candidate</text>
+<text x="456" y="117" text-anchor="middle">Processvg candidate</text>
+<text x="104" y="217" text-anchor="middle">Processvg candidate</text>
+<text x="280" y="217" text-anchor="middle">Processvg candidate</text>
+<text x="456" y="217" text-anchor="middle">Processvg candidate</text>
+<text x="104" y="317" text-anchor="middle">Processvg candidate</text>
+<text x="280" y="317" text-anchor="middle">Processvg candidate</text>
+<text x="456" y="317" text-anchor="middle">Processvg candidate</text>
+<text x="104" y="417" text-anchor="middle">Processvg candidate</text>
+<text x="280" y="417" text-anchor="middle">Processvg candidate</text>
+<text x="456" y="417" text-anchor="middle">Processvg candidate</text>
+</g>
+<g fill="currentColor" stroke="none" opacity="1">
+<g data-processvg-identity="" role="img" aria-label="M" transform="translate(97.547 362.86) scale(0.00675)"><title>M</title><path transform="translate(0 0)" d="M173 0V-1440H423L803 -642Q838 -567 865.5 -507.5Q893 -448 912.5 -402.0Q932 -356 944.0 -321.5Q956 -287 962 -259H964Q971 -287 982.5 -321.0Q994 -355 1012.0 -401.0Q1030 -447 1056.5 -506.5Q1083 -566 1120 -642L1503 -1440H1739V0H1561V-760Q1561 -846 1562.0 -915.5Q1563 -985 1565.0 -1039.0Q1567 -1093 1570.5 -1136.0Q1574 -1179 1578 -1212H1575L1002 -1H913L336 -1212H333Q338 -1175 341.5 -1131.5Q345 -1088 347.5 -1034.0Q350 -980 351.5 -912.5Q353 -845 353 -760V0Z" /></g>
+<g data-processvg-identity="" role="img" aria-label="G" transform="translate(275.03875 362.86) scale(0.00675)"><title>G</title><path transform="translate(0 0)" d="M826 26Q666 26 532.0 -30.5Q398 -87 299.0 -188.0Q200 -289 145.5 -424.5Q91 -560 91 -718Q91 -879 146.0 -1015.0Q201 -1151 300.5 -1252.5Q400 -1354 534.5 -1410.0Q669 -1466 826 -1466Q989 -1466 1122.0 -1411.0Q1255 -1356 1353 -1240L1223 -1125Q1144 -1222 1043.5 -1262.0Q943 -1302 828 -1302Q669 -1302 543.5 -1225.5Q418 -1149 345.5 -1017.5Q273 -886 273 -719Q273 -595 315.0 -489.0Q357 -383 433.0 -304.5Q509 -226 610.0 -182.0Q711 -138 830 -138Q966 -138 1066.0 -176.0Q1166 -214 1261 -295L1207 -173V-648L1257 -598L755 -596V-762H1379V-174Q1273 -84 1134.5 -29.0Q996 26 826 26Z" /></g>
+</g>
+</svg>

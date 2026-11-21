@@ -27,6 +27,10 @@ for (const cat of cats) {
   const isCandidate = cat === "Instrument candidates";
   const list = isCandidate ? SYMBOLS.filter((s) => Object.hasOwn(INSTRUMENT_PRESETS, s.id)) :
     SYMBOLS.filter((s) => legendCategory(s) === cat);
+  if (cat === "Pumps and blowers") {
+    const lobe = list.find((symbol) => symbol.id === "blower-lobe");
+    list.splice(list.indexOf(lobe) + 1, 0, { ...lobe, legendVariant: "3-lobe" });
+  }
   for (let page = 0; page * COLS * ROWS < list.length; page++) {
     const chunk = list.slice(page * COLS * ROWS, (page + 1) * COLS * ROWS);
     const shapes = [];
@@ -42,12 +46,17 @@ for (const cat of cats) {
         shapes.push(...placeSymbol(sym.id, { x: cx, y: cy, s: SCALE }, { mode: "candidate" }).shapes);
       } else if (sym.cat === "Primary elements") {
         shapes.push(...placeSymbol(sym.id, { x: cx, y: cy, s: SCALE }, { mode: "current" }).shapes);
+      } else if (sym.pump) {
+        shapes.push(...placeSymbol(sym.id, { x: cx, y: cy, s: SCALE }, {
+          variant: sym.legendVariant ?? sym.pump.defaultVariant,
+        }).shapes);
       } else if (sym.operator || sym.modifier || sym.assemblyPreset) {
         shapes.push(...placeSymbol(sym.id, { x: cx, y: cy, s: SCALE }).shapes);
       } else {
         shapes.push(...place(sym.draw({}), { x: cx, y: cy, s: SCALE }));
       }
-      const name = isCandidate ? candidateNames[sym.id] ?? sym.name : ({
+      const name = sym.id === "blower-lobe" ? `Rotary lobe blower (${sym.legendVariant ?? "2-lobe"})` :
+        isCandidate ? candidateNames[sym.id] ?? sym.name : ({
         "fe-ultrasonic": "Generic non-contact level",
         "fe-hydrostatic": "Hydrostatic probe",
         "fe-analysis-chlorine": "Residual chlorine",
@@ -57,7 +66,9 @@ for (const cat of cats) {
         "fe-analysis-mlss": "Mixed liquor suspended solids",
         "fe-analysis-orp": "Oxidation-reduction potential",
       })[sym.id] ?? sym.name;
-      const source = ["fe-float", "fe-hydrostatic"].includes(sym.id) ? "Approved · verify standard" : srcLine(sym);
+      const candidatePump = sym.pump && (sym.legendVariant ?? sym.pump.defaultVariant) !== sym.pump.archiveVariant;
+      const source = candidatePump ? "Processvg candidate" :
+        ["fe-float", "fe-hydrostatic"].includes(sym.id) ? "Approved · verify standard" : srcLine(sym);
       shapes.push({ t: [cx, cy + 46, name] }, { t: [cx, cy + 59, isCandidate ? "Processvg candidate" : source], value: true });
     });
     const slug = `legend-${cat.toLowerCase().replace(/[^a-z]+/g, "-").replace(/-$/, "")}${page ? `-${page + 1}` : ""}`;
@@ -70,7 +81,7 @@ for (const cat of cats) {
 
 // Catalogue: geometry at scale 1, for other tools to place and connect.
 const catalogue = {
-  about: "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for valves and docs/family-04.md for gates and weirs. See docs/family-05.md for instrument modes and docs/family-06.md for primary elements and measuring views.",
+  about: "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for valves and docs/family-04.md for gates and weirs. See docs/family-05.md for instrument modes, docs/family-06.md for primary elements and measuring views, and docs/family-07.md for pump variants and equipment views.",
   sources: {
     "IS 3232": "IS 3232:1999 Recommendations on graphical symbols for process flow diagrams, piping and instrumentation diagrams (BIS), by symbol number",
     "ISA-5.1": "ANSI/ISA-5.1-2009 Instrumentation symbols and identification",
@@ -105,6 +116,7 @@ const catalogue = {
       };
     })() : undefined,
     glyphRef: s.glyphRef,
+    pump: s.pump,
     primaryElement: s.cat === "Primary elements" ? (() => {
       const archived = PRIMARY_ARCHIVE_IDS.includes(s.id);
       const config = { symbolId: s.id };
