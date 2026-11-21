@@ -20,10 +20,19 @@ const sheets = readdirSync(gallery).filter((file) => file.endsWith(".svg")).sort
 const legends = categories.map((category) => path.join(root, "drawings/symbols", `legend-${category}.svg`));
 const dir = mkdtempSync(path.join(tmpdir(), `processvg-${suite}-layout-`));
 const font = new URL("../vendor/plotter/assets/fonts/CalSansVF.woff2", import.meta.url);
-const styles = `@font-face{font-family:"Cal Sans";src:url("${font}")}body{margin:0}svg{display:block}`;
+const styles = `@font-face{font-family:"Cal Sans";src:url("${font}")}body{margin:0}svg{display:block}
+  .reference-copy svg{width:364px;height:auto}`;
 const load = (file) => readFileSync(file, "utf8").replace(
   /(id="|url\(#)processvg-knockout-/g, `$1${path.basename(file, ".svg")}-knockout-`,
 );
+let sectionId = 0;
+function section(file, reduced = false) {
+  const prefix = `sheet-${++sectionId}-`;
+  const svg = load(file).replace(/(\bid="|\burl\(#|\baria-labelledby="|\baria-describedby=")([\w-]+)/g,
+    (_, attribute, id) => attribute + prefix + id);
+  const name = path.basename(file) + (reduced ? " (65%)" : "");
+  return `<section data-file="${name}"${reduced ? ' class="reference-copy"' : ""}>${svg}</section>`;
+}
 
 function chromium(...args) {
   const result = spawnSync(process.env.CHROMIUM ?? "chromium", [
@@ -46,6 +55,8 @@ async function inspect() {
     const errors = [];
     const svg = section.querySelector("svg");
     const { width, height } = svg.viewBox.baseVal;
+    const cssWidth = svg.getBoundingClientRect().width;
+    const strokePad = 0.5 * width / cssWidth;
     const items = [...svg.querySelectorAll("text")];
     const boxes = items.map((item) => item.getBBox());
     const geometry = [...svg.querySelectorAll("path,circle")].filter((node) => !node.closest("defs"));
@@ -80,7 +91,8 @@ async function inspect() {
       const ink = { x: left, y: top, width: right - left, height: bottom - top };
       const candidates = geometry.filter((node) => {
         const { x, y, width, height } = node.getBBox();
-        return overlap(ink, { x: x - 0.5, y: y - 0.5, width: width + 1, height: height + 1 });
+        return overlap(ink, { x: x - strokePad, y: y - strokePad,
+          width: width + 2 * strokePad, height: height + 2 * strokePad });
       });
       let collision;
       for (let px = left; px <= right + 0.001; px += Math.min((right - left) / 20, 0.75)) {
@@ -92,7 +104,7 @@ async function inspect() {
       if (collision) errors.push("Label crosses geometry " + name + " at " + collision.map((v) => v.toFixed(2)).join(", "));
     }
     for (const shape of geometry) {
-      if (outside(shape.getBBox(), 0.5)) errors.push("Clipped geometry " + (shape.getAttribute("d") ?? "circle"));
+      if (outside(shape.getBBox(), strokePad)) errors.push("Clipped geometry " + (shape.getAttribute("d") ?? "circle"));
     }
     const ink = getComputedStyle(svg).color;
     const roles = [...svg.querySelectorAll("[data-plotter-role=secondary]")].map((g) => getComputedStyle(g).opacity);
@@ -102,16 +114,19 @@ async function inspect() {
     const paper = Boolean(svg.querySelector(":scope > rect"));
     if (section.dataset.file.includes("transparent") && paper) errors.push("Transparent profile has page paint");
     if (print && (!paper || items.some((item) => getComputedStyle(item.parentElement).opacity !== "1"))) errors.push("Print page or label ink");
-    return { file: section.dataset.file, labels: items.length, identifiers, shapes: geometry.length, ink, paper, errors };
+    if (cssWidth !== (section.classList.contains("reference-copy") ? 364 : 560)) errors.push("Unexpected sheet width");
+    return { file: section.dataset.file, cssWidth, labels: items.length, identifiers, shapes: geometry.length, ink, paper, errors };
   });
   document.querySelector("output").textContent = JSON.stringify(results);
 }
 
 try {
   mkdirSync(evidence, { recursive: true });
+  const referenceCopies = sheets.filter((file) => path.basename(file).startsWith("comparison-") && file.endsWith("-print.svg"));
   const html = path.join(dir, "layout.html");
   writeFileSync(html, `<!doctype html><meta charset="utf-8"><style>:root{color-scheme:light}${styles}</style>
-    ${[...sheets, ...legends].map((file) => `<section data-file="${path.basename(file)}">${load(file)}</section>`).join("")}
+    ${[...sheets, ...legends].map((file) => section(file)).join("")}
+    ${referenceCopies.map((file) => section(file, true)).join("")}
     <output>pending</output><script>(${inspect})().catch((err) => document.querySelector("output").textContent = JSON.stringify(err.message));</script>`);
   const dom = chromium("--virtual-time-budget=5000", "--dump-dom", html);
   const output = dom.match(/<output>(.*?)<\/output>/)?.[1];
@@ -128,8 +143,10 @@ try {
     const print = path.join(dir, "print.html");
     writeFileSync(print, `<!doctype html><meta charset="utf-8"><title>processvg Family ${family} · ${title}</title><style>${styles}
       @page{size:560px 440px;margin:0} section{width:560px;height:440px}section + section{break-before:page}
+      .reference-copy svg{margin:auto}
       *{print-color-adjust:exact}</style>${sheets.filter((file) => file.endsWith("-print.svg"))
-        .map((file) => `<section>${load(file)}</section>`).join("")}`);
+        .map((file) => section(file)).join("")}
+      ${referenceCopies.map((file) => section(file, true)).join("")}`);
     const pdf = path.join(evidence, `${suite}-print.pdf`);
     chromium("--no-pdf-header-footer", `--print-to-pdf=${pdf}`, print);
     console.log(path.relative(root, pdf));
