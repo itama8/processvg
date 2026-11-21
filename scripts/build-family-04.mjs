@@ -33,12 +33,15 @@ for (const [theme, options] of Object.entries(profiles)) {
         if (id === "gate-flap") {
           top.labelAnchor = [x + 20, y + 3];
         }
+        if (id === "gate-slide") {
+          shapes.push(...placeSymbol("gate-sluice", { x: x - 33, y, q, s: 1.35 }, { closed: false }).shapes);
+        }
         shapes.push(...placeSymbol(id, { x, y, q, s: 1.35 }, top).shapes);
         shapes.push(...placeSymbol(id, { x, y: y + (id === "weir-serrated" ? 45 : 29), q, s: 0.62 }, bottom).shapes);
       }
     });
     save(`01-symbols-${page + 1}-${theme}`, `Gate symbols ${page + 1} · ${theme}`,
-      "Each cell shows a nominal glyph above a reduced sample. The slide knockout retains its approved local width, with NC used at reduced scale.", shapes, options);
+      "Nominal glyphs appear above reduced samples. The slide row shows open and closed side by side at nominal scale and uses NC for the reduced closed slide.", shapes, options);
   }
 }
 

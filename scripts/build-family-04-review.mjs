@@ -9,6 +9,7 @@ import { routeLine } from "../src/lines.mjs";
 import { render, svgDoc } from "../src/render.mjs";
 
 const base = "a10f64e8c245090bbf28328774092caa91082dce";
+const referenceReview = "bcb662ccf4bdda859c43460b95c8d5cffc8620a2";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const out = new URL("../review/family-04/", import.meta.url);
 const scratch = mkdtempSync(join(tmpdir(), "processvg-family-04-base-"));
@@ -36,7 +37,7 @@ function routed(result, directionPort, showArrow = true) {
 
 function schematic(api, x, s) {
   const valve = api.placeSymbol("valve-check", { x: x - 53, y: 90, s });
-  const flap = api.composeEquipment({ type: "gate-flap", tag: "OUT-01", normalPosition: "closed" }, { x: x + 53, y: 90, s });
+  const flap = api.composeEquipment({ type: "gate-flap", tag: "FG-201", normalPosition: "closed" }, { x: x + 53, y: 90, s });
   const turned = api.composeEquipment({ type: "gate-flap" }, { x, y: 204, q: 2, s });
   const penstock = api.composeEquipment({
     type: "gate-sluice", tag: "SG-101", installation: "wall", normalPosition: "closed", designDirection: "out-to-in",
@@ -85,20 +86,26 @@ function physicalColumn(api, x, scale) {
   return shapes;
 }
 
+function loadSnapshot(commit) {
+  const directory = join(scratch, commit);
+  mkdirSync(directory);
+  const snapshot = execFileSync("git", ["archive", commit, "src"], { cwd: root });
+  execFileSync("tar", ["-x", "-C", directory], { input: snapshot });
+  return import(pathToFileURL(join(directory, "src/library.mjs")));
+}
+
 try {
-  // Load the base modules directly from the immutable Git object without changing any checkout.
-  const snapshot = execFileSync("git", ["archive", base, "src"], { cwd: root });
-  execFileSync("tar", ["-x", "-C", scratch], { input: snapshot });
-  const before = await import(pathToFileURL(join(scratch, "src/library.mjs")));
+  const beforeLevels = await loadSnapshot(base);
+  const beforeSchematic = await loadSnapshot(referenceReview);
   mkdirSync(out, { recursive: true });
   for (const [size, s, scale] of [["nominal", 1.6, 40], ["reduced", 0.65, 25]]) {
-    const headings = [label(140, 25, "Before · a10f64e"), label(417, 25, "After · Family 04 review")];
+    const after = label(417, 25, "Final handoff · revision 03");
     save(`schematic-${size}`, `Schematic · ${size} (${s}× glyphs)`,
-      "The flap and pipe check carry distinct silhouettes. Stop-log count is an installation observation. The penstock arrow follows the explicit design direction through unchanged routing ports.",
-      [...headings, ...schematic(before, 140, s), ...schematic(current, 417, s)]);
+      "Revision 03 assigns the same schematic glyph to the flap gate and pipe check. The FG tag and legend identify the flap, and its hinged leaf appears in physical views. Stop-log counts and the declared penstock direction carry through from the reference review.",
+      [label(140, 25, "Before · bcb662c"), after, ...schematic(beforeSchematic, 140, s), ...schematic(current, 417, s)]);
     save(`levels-${size}`, `Physical projections · ${size} (${scale} sheet units/m)`,
       "Design sections and front elevation use the same two-bay plate, invert RL +1000 mm and notch root 1.20 m above invert. The longitudinal centreline cuts a peak at RL +2450 mm. Water levels are prescribed.",
-      [...headings, ...physicalColumn(before, 120, scale), ...physicalColumn(current, 397, scale)]);
+      [label(140, 25, "Before · a10f64e"), after, ...physicalColumn(beforeLevels, 120, scale), ...physicalColumn(current, 397, scale)]);
   }
   const cards = sheets.map(({ file, title, description }) =>
     `<figure><img src="family-04/${file}" alt="${title}"><figcaption><strong>${title}</strong><p>${description}</p></figcaption></figure>`);
@@ -111,8 +118,8 @@ main{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 500px),
 figure{margin:0;border:1px solid #ccc;break-inside:avoid}img{display:block;width:100%}figcaption{padding:0 1rem}
 </style>
 <h1>Family 04 gate and weir reference review</h1>
-<p>Before renders use local Git commit <code>${base}</code>. After renders use the current checkout.</p>
-<p><a href="../docs/family-04.md#second-pass-reference-review">Source decisions and limits</a> ·
+<p>Schematic comparisons use <code>${referenceReview}</code> as the baseline. Physical comparisons use <code>${base}</code> to show the retained level callout fixes. Final renders use the current checkout.</p>
+<p><a href="../docs/family-04.md#final-handoff-reconciliation">Source decisions and limits</a> ·
 <a href="family-04-evidence/gates-print.pdf">Chromium print sheets</a> ·
 <a href="index.html">Full gallery</a></p>
 <main>${cards.join("\n")}</main></html>

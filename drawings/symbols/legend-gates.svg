@@ -12,7 +12,8 @@
 <path d="M250.25 43 L257.75 43" />
 <path d="M302.25 49 L309.75 49 L309.75 73 L302.25 73 Z" fill="currentColor" />
 <path d="M302.25 43 L309.75 43" />
-<path d="M445.5 58 L451.5 58 M451.5 68.5 L451.5 47.5 L463.5 68.5 M457.5 58 L466.5 58" />
+<path d="M445.5 50.5 L466.5 58 L445.5 65.5 Z" />
+<path d="M466.5 48.7 L466.5 67.3" />
 <path d="M96.5 143 L111.5 143 L111.5 173 L96.5 173 Z M96.5 153.5 L111.5 153.5 M96.5 162.5 L111.5 162.5" />
 <circle cx="280" cy="158" r="15" />
 <path d="M271 168.5 L289 147.5" />
@@ -28,9 +29,6 @@
 <path d="M262 244.5 L272.5 244.5 L272.5 261 L287.5 261 L287.5 244.5 L298 244.5 L298 273 L262 273 Z" />
 <path d="M438 244.5 L444 244.5 L450 261 L462 261 L468 244.5 L474 244.5 L474 273 L438 273 Z" />
 <path d="M74 349 L81.5 358 L89 349 L96.5 358 L104 349 L111.5 358 L119 349 L126.5 358 L134 349 L134 373 L74 373 Z" />
-</g>
-<g fill="currentColor">
-<circle cx="451.5" cy="47.5" r="1.8" fill="currentColor" stroke="none" />
 </g>
 <g fill="currentColor" stroke="none" font-size="10" opacity="0.72">
 <text x="104" y="104" text-anchor="middle">Slide / sluice gate</text>

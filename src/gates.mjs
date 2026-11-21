@@ -1,11 +1,13 @@
 import { composeActuator } from "./actuators.mjs";
 import { place, placePoint, round } from "./geometry.mjs";
 import { physicalGate } from "./gate-physical.mjs";
+import { VALVES } from "./valves.mjs";
 
 const bc = (ref) => ({ std: "B&C", ref });
 const historical = bc("P-002, P-003");
 const approved = [{ std: "Processvg design", ref: "Family 04 revision 03" }];
 const verification = "Exact glyph pending standards verification";
+const nrv = VALVES.find(({ id }) => id === "valve-check");
 const mount = { point: [0, -10], normal: [0, -1] };
 const slide = "M-2.5 -10 L2.5 -10 L2.5 10 L-2.5 10 Z";
 const diagonal = "M-2.5 10 L2.5 -10";
@@ -48,11 +50,8 @@ export const GATES = [
     ({ closed } = {}) => [
       (closed ? solid : path)("M-2.5 -6 L2.5 -6 L2.5 10 L-2.5 10 Z"), path("M-2.5 -10 L2.5 -10"),
     ], { states: true, stateLabels: ["Removed", "Installed"], src: [bc("P-002 (stop gate)")], designApproval: undefined, verification: undefined }),
-  definition("gate-flap", "Flap gate (FG)", "flap", pair(7), [-7, -8.2, 7, 7],
-    () => [path("M-7 0 L-3 0 M-3 7 L-3 -7 L5 7 M1 0 L7 0"),
-      { c: [-3, -7, 1.2], role: "dot", fill: "solid" }], {
-      src: [...approved, bc("P-002, P-003 (flap gate reference)")], historicalSources: [historical],
-    }),
+  definition("gate-flap", "Flap gate (FG)", "flap", nrv.ports, nrv.valve.bounds, nrv.draw,
+    { historicalSources: [historical], glyphRef: nrv.id }),
   definition("gate-weir-adjustable", "Adjustable crest gate", "adjustable", pair(5), [-5, -10, 5, 10],
     () => [path("M-5 -10 L5 -10 L5 10 L-5 10 Z M-5 -3 L5 -3 M-5 3 L5 3")], {
       gate: { kind: "adjustable", bounds: [-5, -10, 5, 10], mount },

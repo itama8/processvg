@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { byId, SYMBOLS, composeActuator, composeEquipment, gateArchive, placePoint, placeSymbol } from "../src/library.mjs";
+import { byId, SYMBOLS, composeActuator, composeEquipment, gateArchive, placeSymbol } from "../src/library.mjs";
 import { routeLine } from "../src/lines.mjs";
 import { render, svgDoc } from "../src/render.mjs";
 
@@ -91,19 +91,53 @@ test("slide and bulkhead knockouts use transparent shared masks; small slides ca
   }
 });
 
-test("flap has a dedicated hinge and leaf with compatible endpoints and direction at every turn", () => {
+test("approved gate and fixed-notch outlines use the specified schematic ports", () => {
+  const expected = [
+    ["gate-slide", 2.5, [draw(body), draw(diagonal)]],
+    ["gate-weir-adjustable", 5, [draw("M-5 -10 L5 -10 L5 10 L-5 10 Z M-5 -3 L5 -3 M-5 3 L5 3")]],
+    ["gate-butterfly", 10, [{ c: [0, 0, 10] }, draw("M-6 7 L6 -7")]],
+    ["gate-bulkhead", 4, [draw("M-4 -12 L4 -12 L4 12 L-4 12 Z"), draw("M-4 0 L4 0"), draw("M-7 -12 L7 -12 M-7 12 L7 12")]],
+    ["weir-rectangular", 12, [draw("M-12 -9 L-5 -9 L-5 2 L5 2 L5 -9 L12 -9 L12 10 L-12 10 Z")]],
+    ["weir-trapezoidal", 12, [draw("M-12 -9 L-8 -9 L-4 2 L4 2 L8 -9 L12 -9 L12 10 L-12 10 Z")]],
+    ["weir-serrated", 20, [draw("M-20 -6 L-15 0 L-10 -6 L-5 0 L0 -6 L5 0 L10 -6 L15 0 L20 -6 L20 10 L-20 10 Z")]],
+  ];
+  for (const [id, end, shapes] of expected) {
+    assert.deepEqual(glyph(placeSymbol(id)), shapes, id);
+    assert.deepEqual(byId[id].ports, [[-end, 0], [end, 0]], id);
+  }
+});
+
+test("flap uses the same NRV definition with distinct equipment identity and directed channel routing", () => {
+  assert.equal(byId["gate-flap"].draw, byId["valve-check"].draw);
+  assert.deepEqual(glyph(placeSymbol("gate-flap")), [draw("M-7 -5 L7 0 L-7 5 Z"), draw("M7 -6.2 L7 6.2")]);
+  assert.deepEqual(byId["gate-flap"].ports, [[-7, 0], [7, 0]]);
+  const catalogue = JSON.parse(readFileSync(new URL("../drawings/symbols/catalogue.json", import.meta.url)));
+  const entry = catalogue.symbols.find(({ id }) => id === "gate-flap");
+  assert.equal(entry.glyphRef, "valve-check");
+  assert.equal(entry.category, "Gates");
+  assert.equal(entry.name, "Flap gate (FG)");
   for (const q of rotations) {
     const at = { q, x: 50, y: 30, s: 2 };
     const gate = placeSymbol("gate-flap", at);
     const nrv = placeSymbol("valve-check", at);
-    assert.notDeepEqual(glyph(gate), glyph(nrv));
-    assert.deepEqual(glyph(gate)[1].c.slice(0, 2), placePoint([-3, -7], at));
+    assert.deepEqual(glyph(gate), glyph(nrv));
     assert.deepEqual(labels(gate), ["FG"]);
     assert.equal(gate.metadata.type, "gate-flap");
     assert.deepEqual(gate.ports, nrv.ports);
     assert.deepEqual(gate.connectivity, [[0, 1]]);
-    assert.deepEqual(gate.permittedFlow.from.normal, nrv.permittedFlow.from.normal);
-    assert.deepEqual(gate.permittedFlow.to.point, nrv.permittedFlow.to.point);
+    assert.deepEqual(gate.permittedFlow, { from: gate.channelPorts[0], to: gate.channelPorts[1] });
+    for (const end of ["from", "to"]) {
+      assert.deepEqual(gate.permittedFlow[end].normal, nrv.permittedFlow[end].normal);
+      assert.deepEqual(gate.permittedFlow[end].point, nrv.permittedFlow[end].point);
+    }
+    for (const [normalPosition, state] of [["open", "NO"], ["closed", "NC"]]) {
+      const tagged = composeEquipment({ ...flap, tag: "FG-201", normalPosition }, at);
+      assert.deepEqual(glyph(tagged), glyph(nrv));
+      assert.deepEqual(labels(tagged), ["FG-201", state]);
+      assert.equal(tagged.metadata.id, flap.id);
+      assert.equal(tagged.metadata.kind, "flap");
+      assert.equal(tagged.metadata.closedDisplay, null);
+    }
     const reverse = composeEquipment({ type: "gate-sluice", designDirection: "out-to-in", normalPosition: "closed" }, at);
     assert.deepEqual(reverse.designFlow, { from: reverse.channelPorts[1], to: reverse.channelPorts[0] });
     assert.equal(reverse.permittedFlow, undefined);
@@ -216,6 +250,15 @@ test("flap closes against the wall seat and swings its toe downstream about a fi
   assert.deepEqual(opened.physical.toe, { x: 1, z: 1 });
   assert.deepEqual(glyph(closed).slice(-2), [draw("M0 -100 L0 0 L10 0 L10 -100 Z"), { c: [0, -100, 1.6], role: "dot", fill: "solid" }]);
   assert.deepEqual(glyph(opened).at(-2), draw("M0 -100 L100 -100 L100 -90 L0 -90 Z"));
+  for (const view of ["plan", "elevation", "section"]) {
+    const result = physical(flap, view, "operating");
+    assert.deepEqual(result.physical.hinge, opened.physical.hinge);
+    assert.deepEqual(result.physical.toe, opened.physical.toe);
+    assert.equal(result.metadata.id, flap.id);
+    assert.equal(result.metadata.tag, flap.tag);
+    assert.equal(result.metadata.type, "gate-flap");
+    assert.deepEqual(result.channelPorts, []);
+  }
   assert.throws(() => physical({ ...flap, installation: "channel" }, "plan"), /wall-mounted/);
   assert.throws(() => physical(replace(flap, { downstreamLength: 1 }), "plan"), /extent/);
   assert.throws(() => physical({ ...flap, operatingPosition: { angle: -10 } }, "plan", "operating"), /Flap angle/);
