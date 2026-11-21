@@ -30,6 +30,11 @@ test("catalogue, legacy draws, actuator assemblies and upstream instrumentation 
   assert.deepEqual(nrv.historicalSources.map(({ ref }) => ref), ["0403", "P-002"]);
   assert.ok(nrv.verification);
   assert.equal(nrv.states, undefined);
+  const butterfly = catalogue.symbols.find(({ id }) => id === "valve-butterfly");
+  assert.deepEqual(labels({ shapes: butterfly.shapes.closed }), ["NC"]);
+  const regulator = catalogue.symbols.find(({ id }) => id === "valve-pressure-reducing");
+  assert.deepEqual(labels(regulator), ["Pressure reducing"]);
+  assert.deepEqual(labels(regulator.representations.compact), ["Pressure reducing"]);
 });
 
 test("approved hollow NRV and derived foot preserve exact geometry and route-aligned direction", () => {
@@ -151,15 +156,47 @@ test("pressure reducing representations keep the downstream tap, receiver and pi
     endConnections: { out: { type: "flanged" } },
   }, { x: 29, y: 50, q: 1 });
   assert.deepEqual(compact.ports, [[-8, 0], [8, 0]]);
+  assert.deepEqual(labels(compact), ["Pressure reducing"]);
+  assert.deepEqual(labels(placeSymbol(bodyId)), ["Pressure reducing"]);
+  assert.deepEqual(byId[bodyId].draw().filter(({ t }) => t).map(({ t }) => t[2]), ["Pressure reducing"]);
   assert.equal(compact.sensing, undefined);
   assert.deepEqual(explicit.ports, [[29, 42], [29, 77]]);
   assert.deepEqual(explicit.processPorts[1].bodyPoint, [29, 68]);
   assert.deepEqual(explicit.sensing, { kind: "hydraulic-impulse", tap: [29, 68], receiver: [44, 50] });
   assert.equal(explicit.shapes.filter(({ role }) => role === "dot").length, 1);
-  assert.match(render(explicit.shapes, { profile: "print" }), /stroke-dasharray="2 2"/);
+  assert.equal(explicit.shapes.filter(({ role }) => role === "secondary").length, 3);
   assert.deepEqual(labels(explicit), ["Pressure reducing", "Setpoint 300 kPa"]);
   assert.throws(() => build(bodyId, { setpoint: { value: 300 } }), /units/);
   assert.throws(() => build(bodyId, { actuator: { type: "hand" } }), /mount/);
+  const short = build(bodyId, { representation: "downstream-sensing" }, { s: 0.65 });
+  assert.match(render(short.shapes, { profile: "print" }), /stroke-dasharray="2 2"/);
+  assert.deepEqual(labels(short), ["Pressure reducing", "Hydraulic impulse"]);
+});
+
+test("butterfly design specifies NC while operating closure uses the reported position", () => {
+  const bodyId = "valve-butterfly";
+  const config = { bodyId, normalPosition: "closed", operatingPosition: { position: "open", openingPercent: 100 } };
+  const at = { s: 2 };
+  const closed = composeValve(config, at);
+  assert.deepEqual(drawing(closed), drawing(build(bodyId, { normalPosition: "open" }, at)));
+  assert.deepEqual(labels(closed), ["NC"]);
+  assert.deepEqual(labels(placeSymbol(bodyId, at, { normalPosition: "closed" })), ["NC"]);
+  assert.deepEqual(labels(placeOperatingValve(config, at)), ["Operating open · 100% travel"]);
+  const live = placeOperatingValve({ ...config, operatingPosition: { position: "closed", openingPercent: 0 } }, at);
+  assert.deepEqual(labels(live), ["Operating closed · 0% travel"]);
+  assert.equal(live.shapes.find(({ c }) => c).fill, "solid");
+  assert.equal(placeSymbol(bodyId, at, { closed: true }).shapes.find(({ c }) => c).fill, "solid");
+});
+
+test("pinch keeps its compression identity without an exposed blade", () => {
+  const bodyId = "valve-pinch";
+  const open = byId[bodyId].draw({ closed: false });
+  const closed = byId[bodyId].draw({ closed: true });
+  assert.deepEqual(open[1], closed[1]);
+  assert.equal(closed[0].knockout[0].d, open[1].d);
+  assert.notDeepEqual(drawing(build(bodyId, { normalPosition: "open" }, { s: 0.65 })),
+    drawing(build("valve-knife", { normalPosition: "open" }, { s: 0.65 })));
+  assert.deepEqual(build(bodyId).ports, [[-8, 0], [8, 0]]);
 });
 
 test("mount and process normals rotate together while identification stays upright", () => {

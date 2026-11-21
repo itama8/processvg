@@ -5,7 +5,9 @@
   "ISA-5.1": "ANSI/ISA-5.1-2009 Instrumentation symbols and identification",
   "B&C": "Brown and Caldwell, Pahala WWTP design-build documents, sheets C-001, P-002, P-003, P-101 (County of Hawaii, 2021; published by US EPA)",
   "Proposed": "Drafted here; agree with the firm before use",
-  "processvg design": "User-approved library geometry; exact standards verification pending"
+  "processvg design": "User-approved library geometry; exact standards verification pending",
+  "ProjectMaterials": "P&ID Symbols Reference, Lines & Signals, user-supplied PDF",
+  "Dock 10–11": "Dock 10–11 terminal P&ID legend, user-supplied PDF"
  },
  "aliases": {
   "gate-sluice": "gate-slide",
@@ -1117,8 +1119,8 @@
    "category": "Lines",
    "sources": [
     {
-     "std": "Proposed",
-     "ref": "to agree"
+     "std": "ProjectMaterials",
+     "ref": "p. 10"
     }
    ],
    "ports": [
@@ -1145,8 +1147,56 @@
    "shapes": [
     {
      "d": "M-20 0 L20 0",
-     "role": "secondary",
-     "dash": "2 2"
+     "role": "secondary"
+    },
+    {
+     "d": "M-10.5 -4 L-14 4 L-9 4",
+     "role": "secondary"
+    },
+    {
+     "d": "M5.5 -4 L2 4 L7 4",
+     "role": "secondary"
+    }
+   ]
+  },
+  {
+   "id": "line-spec-break",
+   "name": "Specification break",
+   "category": "Lines",
+   "sources": [
+    {
+     "std": "Dock 10–11",
+     "ref": "p. 1"
+    }
+   ],
+   "ports": [
+    [
+     -16,
+     0
+    ],
+    [
+     16,
+     0
+    ]
+   ],
+   "portNames": [
+    "in",
+    "out"
+   ],
+   "connectivity": [
+    [
+     0,
+     1
+    ]
+   ],
+   "verification": "Proposed",
+   "shapes": [
+    {
+     "d": "M-16 0 L16 0 M0 -7 L0 7"
+    },
+    {
+     "d": "M-7 -2.5 L-1 0 L-7 2.5 Z M7 -2.5 L1 0 L7 2.5 Z",
+     "fill": "solid"
     }
    ]
   },
@@ -1706,6 +1756,7 @@
      ]
     ],
     "minFillScale": 1.5,
+    "designClosedLabel": true,
     "terminals": [
      {
       "id": "in",
@@ -1763,8 +1814,16 @@
        0,
        0,
        2
+      ]
+     },
+     {
+      "t": [
+       0,
+       23,
+       "NC"
       ],
-      "fill": "solid"
+      "align": "middle",
+      "fontFamily": "sans-serif"
      }
     ]
    }
@@ -2589,9 +2648,9 @@
     "mode": "isolation",
     "bounds": [
      -8,
-     -12,
+     -8,
      8,
-     12
+     8
     ],
     "mount": null,
     "minFillScale": 1.25,
@@ -2627,19 +2686,25 @@
    "shapes": {
     "open": [
      {
-      "d": "M-8 -6 L-2 -2 L2 -2 L8 -6 L8 6 L2 2 L-2 2 L-8 6 Z"
+      "d": "M-8 -8 L-2 -5 L2 -5 L8 -8 L8 8 L2 5 L-2 5 L-8 8 Z"
      },
      {
-      "d": "M0 -12 L0 -3 M0 3 L0 12"
+      "d": "M-3 -3.5 L0 -1.5 L3 -3.5 M-3 3.5 L0 1.5 L3 3.5"
      }
     ],
     "closed": [
      {
-      "d": "M-8 -6 L-2 -2 L2 -2 L8 -6 L8 6 L2 2 L-2 2 L-8 6 Z",
-      "fill": "solid"
+      "d": "M-8 -8 L-2 -5 L2 -5 L8 -8 L8 8 L2 5 L-2 5 L-8 8 Z",
+      "fill": "solid",
+      "knockout": [
+       {
+        "d": "M-3 -3.5 L0 -1.5 L3 -3.5 M-3 3.5 L0 1.5 L3 3.5",
+        "cutWidth": 2.6
+       }
+      ]
      },
      {
-      "d": "M0 -12 L0 -3 M0 3 L0 12"
+      "d": "M-3 -3.5 L0 -1.5 L3 -3.5 M-3 3.5 L0 1.5 L3 3.5"
      }
     ]
    }
@@ -2888,8 +2953,15 @@
       },
       {
        "d": "M18 0 L18 -18 L0 -18 L0 -15",
-       "role": "secondary",
-       "dash": "2 2"
+       "role": "secondary"
+      },
+      {
+       "d": "M14 -9.5 L22 -6 L22 -11",
+       "role": "secondary"
+      },
+      {
+       "d": "M10.5 -14 L14 -22 L9 -22",
+       "role": "secondary"
       },
       {
        "c": [
@@ -2974,6 +3046,14 @@
     },
     {
      "d": "M-6 -9 A6 6 0 0 1 6 -9 Z"
+    },
+    {
+     "t": [
+      0,
+      21,
+      "Pressure reducing"
+     ],
+     "fontFamily": "sans-serif"
     }
    ]
   },

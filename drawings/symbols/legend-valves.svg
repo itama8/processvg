@@ -21,7 +21,7 @@
 <circle cx="254" cy="158" r="3" />
 <path d="M298.5 147.5 L298.5 168.5 M313.5 147.5 L313.5 168.5" />
 <path d="M301.5 167 L304.67 160.69 M307.33 155.32 L310.5 149" />
-<circle cx="306" cy="158" r="3" fill="currentColor" />
+<circle cx="306" cy="158" r="3" />
 <path d="M424 147.5 L424 168.5 M436 147.5 L436 168.5" />
 <path d="M427.75 141.5 L432.25 141.5 L432.25 168.5 L427.75 168.5 Z" />
 <path d="M476 147.5 L476 168.5 M488 147.5 L488 168.5" />
@@ -52,6 +52,7 @@
 <text x="280" y="104" text-anchor="middle">Globe valve</text>
 <text x="456" y="104" text-anchor="middle">Ball valve</text>
 <text x="104" y="204" text-anchor="middle">Plug valve</text>
+<text x="306" y="188" text-anchor="middle" font-family="sans-serif">NC</text>
 <text x="280" y="204" text-anchor="middle">Butterfly valve</text>
 <text x="456" y="204" text-anchor="middle">Knife gate valve</text>
 <text x="104" y="304" text-anchor="middle">Check (non-return) valve</text>
@@ -75,7 +76,6 @@
 <text x="130" y="188" text-anchor="middle">Closed</text>
 <text x="104" y="217" text-anchor="middle">IS 3232 0413 · B&amp;C P-002</text>
 <text x="254" y="188" text-anchor="middle">Open</text>
-<text x="306" y="188" text-anchor="middle">Closed</text>
 <text x="280" y="217" text-anchor="middle">IS 3232 0410 · B&amp;C P-002</text>
 <text x="430" y="188" text-anchor="middle">Open</text>
 <text x="482" y="188" text-anchor="middle">Closed</text>

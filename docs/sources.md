@@ -33,13 +33,15 @@ These project legends informed the visual review. The Family 01 candidates retai
 
 See [Family 02 verification and provenance](family-02.md#verification-and-provenance) for the audit of valve references and the BIS bulletin on the 2024 edition.
 
-## Follow-up audit of Families 01 and 02
+## Families 01 and 02 · Symbol references and limits
 
-| Reference and location | What it supports | Processvg decision |
-|---|---|---|
-| Ford, Bacon & Davis, *Art of the P&ID*, slides 56–58 and 90 | Layout should communicate meaningful gravity-flow relationships. Stream arrows need cross-checking between drawings. | Audit explicit reciprocal sheet links. Gravity feasibility still requires elevations and service context. |
-| Stockton Terminal, Dock 10–11, `STOT-02-002` rev. 2, PDF p. 1 | Continuation flags carry a drawing reference and line number. The legend distinguishes hydraulic, pneumatic and electrical lines, a specification break, and FO, FC and FL failure tags. | Full flags can carry the line ID. Keep the existing omitted-length pipe break meaning. Add a named hydraulic line using the existing PRV pattern. Processvg legends spell out its FLP label. |
-| ProjectMaterials, *P&ID Symbols Reference Guide*, pp. 5–10 | The check-valve triangle and stop bar agree with the Processvg concept. Other pages show alternative pinch, butterfly, diverter and signal marks. | Keep the approved check and foot geometry. Treat the catalogue as a comparative reference. |
-| Edraw, *Standard P&ID Symbols Legend*, valve section | The catalogue shows a diagonal check variant and a filled closed gate. | Keep the documented local state and signal conventions. Use a project legend when applying them to a drawing set. |
+| Reference and location | Observed convention | Processvg decision |
+| --- | --- | --- |
+| Ford, Bacon & Davis / AIChE, *Art of the P&ID*, slides 18, 21, 56–62, 88 and 90 | Repeating right-angle hydraulic marks, butterfly and knife NC, clear routing, specification breaks in a staged checklist, and continuation cross-checks. | Use explicit NC for typed butterfly design closure. Preserve the current knife convention. Keep the reciprocal sheet audit. See the [94-slide inventory](art-of-the-pid-audit.md). |
+| Stockton Terminal, Dock 10–11, `STOT-02-002` rev. 2, PDF p. 1 | A specification break uses inward triangles on a continuous pipe with a transverse boundary. The legend distinguishes signal media, shows continuation references with line numbers, and uses FO, FC and FL. | Add `line-spec-break` with optional class labels. Class positions and local dimensions are Processvg choices. The symbol denotes a piping specification boundary. `line-break` denotes omitted length. |
+| ProjectMaterials, *P&ID Symbols Reference*, PDF pp. 5 and 10 | The manual-valve page shows opposing chevrons for pinch and a separate projecting knife blade. The signal page shows repeating slanted hooks for hydraulic and paired slashes for air. | Fit the pinch compression chevrons inside the sleeve outline and use one Family 01/02 hydraulic hook/fallback rule. |
+| Edraw, *Standard P&ID Symbols Legend*, p. 1, Valves section | Opposed pinch chevrons, distinct knife and slide blades, a diagonal butterfly disc and alternative check geometries. It also depicts separate control-valve and back-pressure regulator examples. | Retain the diagonal butterfly and use explicit pressure-reducing text and downstream sensing. Preserve the approved NRV and foot valve. |
 
-A specification break changes the piping class or specification at a location. The Family 01 pipe break stands for omitted drawing length on a through connection. Treat a future specification-break symbol as a separate catalogue addition. The attached references provide comparison and project examples. Exact standards verification of the Family 02 glyphs remains pending.
+The four supplied PDFs are comparative sources for drafting, with project-specific examples. The pinched sleeve, closed-state rendering, hook pitch and short-run threshold are Processvg design decisions. These sources and the reduced review sheets give no equipment sizing or hydraulic validation. Exact glyph verification against the governing project legend and licensed standards remains pending.
+
+In the Chromium monochrome view and the 300 dpi one-bit print raster, the 0.65× pinch sleeve read separately from the knife blade, with NC carrying the closed state at that reduction. The reduced butterfly centre approached the stroke width, while the NC remained legible. The hooked hydraulic pattern separated from standby, electrical and paired air slashes. The short dash needed its caption. The specification-break labels stayed on their respective piping sides through all four orientations.

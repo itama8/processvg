@@ -26,7 +26,8 @@ isolationIds.forEach((id, index) => {
   const y = 52 + 39 * index;
   stateMatrix.push(text(24, y + 4, byId[`valve-${id}`].name, "start"));
   for (const [x, normalPosition, s] of [[204, "open", 1.5], [316, "closed", 1.5], [450, "closed", 0.65]]) {
-    const v = valve(id, x, y, { normalPosition }, { s });
+    const labelAnchor = id === "butterfly" && x === 316 ? [x + 38, y + 4] : undefined;
+    const v = valve(id, x, y, { normalPosition, labelAnchor }, { s });
     stateMatrix.push(...v.shapes, ...v.processPorts.map((port) => pipeFrom(port, 15)));
   }
 });
@@ -101,8 +102,10 @@ for (const [representation, x] of [["compact", 141], ["downstream-sensing", 417]
   processOne.push(...v.shapes, ...v.processPorts.map((port) => pipeFrom(port, 55)));
 }
 processOne.push(text(141, 324, "Compact"), text(417, 324, "Downstream sensing"),
-  text(417, 425, "Short dashes = hydraulic impulse"));
-save("04-process", "Valve applications, sheet 1", "Conceptual sludge withdrawal, foot valve on pump suction, and both pressure-reducing representations. Short dashes indicate hydraulic impulse.", processOne);
+  text(417, 425, "Repeating hooks = hydraulic impulse"));
+const processOneDescription = "Conceptual sludge withdrawal, foot valve on pump suction, and both pressure-reducing representations. Hooks identify the hydraulic impulse.";
+save("04-process", "Valve applications, sheet 1", processOneDescription, processOne);
+save("04-process-print", "Valve applications, sheet 1 (print)", processOneDescription, processOne, { profile: "print" });
 
 const processTwo = [header(27, "Rising-main high point"), header(162, "Makeup tank float control"), header(329, "Instrument sample line")];
 const air = valve("air-combination", 278, 71);
@@ -131,3 +134,46 @@ for (const [q, id, type] of [[0, "needle", "hand"], [1, "ball", "motor"], [2, "k
   attachments.push(...v.shapes, ...v.processPorts.map((p) => pipeFrom(p, 30)));
 }
 save("06-attachments", "Valve ends and actuator mounting", "Existing operator heads and independent flange ends at four orientations.", attachments);
+
+const previousPinch = [
+  { d: "M-8 -6 L-2 -2 L2 -2 L8 -6 L8 6 L2 2 L-2 2 L-8 6 Z" },
+  { d: "M0 -12 L0 -3 M0 3 L0 12" },
+];
+const changes = [
+  header(24, "Design states at 0.65×"),
+  text(164, 48, "Previous open"), text(260, 48, "Previous closed"),
+  text(370, 48, "Revised open"), text(468, 48, "Revised closed"),
+];
+for (const [id, y] of [["pinch", 73], ["knife", 125], ["butterfly", 177]]) {
+  changes.push(header(y + 3, byId[`valve-${id}`].name));
+  for (const [x, closed] of [[164, false], [260, true], [370, false], [468, true]]) {
+    const at = { x, y, s: 0.65 };
+    const prior = x <= 260;
+    const placed = placeSymbol(`valve-${id}`, at, { normalPosition: closed ? "closed" : "open" });
+    const shapes = prior && id === "pinch"
+      ? [...place(previousPinch, at), ...placed.shapes.filter(({ t }) => t)]
+      : placed.shapes;
+    changes.push(...shapes, ...placed.processPorts.map((port) => pipeFrom(port, 17)));
+  }
+}
+changes.push(header(226, "Closed at nominal size"),
+  text(152, 250, "Previous butterfly"), text(280, 250, "Design"), text(423, 250, "Operating snapshot"));
+for (const [x, placement] of [
+  [152, placeSymbol("valve-butterfly", { x: 152, y: 274, s: 1.5 }, { closed: true })],
+  [280, valve("butterfly", 280, 274, { normalPosition: "closed" })],
+  [423, placeOperatingValve({ bodyId: "valve-butterfly", normalPosition: "open",
+    operatingPosition: { position: "closed", openingPercent: 0 } }, { x: 423, y: 274, s: 1.5 })],
+]) changes.push(...placement.shapes, ...placement.processPorts.map((port) => pipeFrom(port, x === 423 ? 28 : 17)));
+changes.push(header(326, "Pressure-reducing entry points"), text(102, 354, "Previous raw body"),
+  text(280, 354, "Compact raw body"), text(457, 354, "Reduced with sensing"));
+const regulator = byId["valve-pressure-reducing"];
+changes.push(...place(regulator.draw({ geometryOnly: true }), { x: 102, y: 390 }),
+  ...place(regulator.draw(), { x: 280, y: 390 }));
+const tap = placeSymbol(regulator.id, { x: 457, y: 390, s: 0.65 }, {
+  representation: "downstream-sensing", labelAnchor: [457, 412],
+});
+changes.push(...tap.shapes, ...tap.processPorts.map((port) => pipeFrom(port, 24)));
+for (const [name, options] of [["light", { theme: "light" }], ["dark", { theme: "dark" }], ["print", { profile: "print" }]]) {
+  save(`07-symbol-changes-${name}`, `Valve symbol comparison (${name})`,
+    "Previous and revised reduced glyphs, design versus operating butterfly closure, and pressure-reducing identification.", changes, options);
+}
