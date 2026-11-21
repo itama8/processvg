@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Reproducible review sheets for Family 01.
 import { mkdirSync, writeFileSync } from "node:fs";
-import { SYMBOLS, placeSymbol } from "../src/library.mjs";
-import { levelAnnotation, offSheet, routeLine } from "../src/lines.mjs";
+import { SYMBOLS, place, placeSymbol } from "../src/library.mjs";
+import { checkSheetContinuations, levelAnnotation, offSheet, routeLine } from "../src/lines.mjs";
 import { render, svgDoc } from "../src/render.mjs";
 
 const output = new URL("../review/family-01/", import.meta.url);
@@ -16,7 +16,7 @@ function matrix(symbols) {
   const shapes = [start(20, 29, "Symbol")];
   for (let q = 0; q < 4; q++) shapes.push(text(220 + q * 94, 29, `${q * 90}°`));
   symbols.forEach(({ id, name, verification }, row) => {
-    const y = 67 + row * 40;
+    const y = 65 + row * 37;
     shapes.push(start(20, y + 3, name));
     if (verification) shapes.push(text(20, y + 15, verification, { align: "start", value: true }));
     for (let q = 0; q < 4; q++) {
@@ -34,8 +34,8 @@ function connections() {
     shapes.push(...placeSymbol("crossover", at).shapes);
     shapes.push(...placeSymbol("junction-cross", { ...at, x: at.x + 24 }).shapes);
   }
-  for (const [index, id] of ["line-process", "line-flow", "line-electric", "line-data", "line-pneumatic"].entries()) {
-    const y = 151 + index * 38;
+  for (const [index, id] of ["line-process", "line-flow", "line-electric", "line-data", "line-pneumatic", "line-hydraulic"].entries()) {
+    const y = 148 + index * 32;
     shapes.push(start(20, y + 3, family.find((symbol) => symbol.id === id).name));
     shapes.push(...routeLine(id, [[145, y], [217, y], [242, y - 12], [310, y - 12], [310, y + 11], [532, y + 11]]).shapes);
   }
@@ -57,12 +57,14 @@ function connections() {
 }
 
 const streamId = "RS-104 · Raw sewage transfer";
+const lineId = "150-RS-104-01";
 const service = "Raw sewage to the treatment train";
 const inlet = "PID-101 · Inlet works and screening";
 const discharge = "PID-102 · Wet well and discharge";
 // Actual centered Chromium canvas ink boxes at 10 px sans-serif, rounded up.
 const measured = {
   [streamId]: [69, 70, 8, 2],
+  [lineId]: [34, 34, 8, 1],
   [`TO ${discharge}`]: [83, 84, 8, 2],
   [`FROM ${inlet}`]: [96, 96, 8, 2],
   [service]: [77, 76, 8, 2],
@@ -74,8 +76,12 @@ function measureText(label) {
 
 function components() {
   const shapes = [start(20, 32, inlet), start(20, 137, discharge), start(20, 251, "Wet well levels")];
-  const outgoing = offSheet({ direction: "out", streamId, sheetRef: discharge, service, detail: "full", x: 403, y: 72, measureText });
-  const incoming = offSheet({ direction: "in", streamId, sheetRef: inlet, service, detail: "full", x: 143, y: 178, measureText });
+  const outgoing = offSheet({ direction: "out", streamId, lineId, sheetRef: discharge, service, detail: "full", x: 403, y: 72, measureText });
+  const incoming = offSheet({ direction: "in", streamId, lineId, sheetRef: inlet, service, detail: "full", x: 143, y: 178, measureText });
+  const issues = checkSheetContinuations([
+    { sheetId: inlet, ...outgoing.metadata }, { sheetId: discharge, ...incoming.metadata },
+  ]);
+  if (issues.length) throw new Error(`Invalid continuation fixture: ${JSON.stringify(issues)}`);
   shapes.push(...outgoing.shapes, ...incoming.shapes,
     ...routeLine("line-flow", [[20, 72], outgoing.ports[0]]).shapes,
     ...routeLine("line-flow", [incoming.ports[0], [540, 178]]).shapes,
@@ -106,12 +112,54 @@ function rotations() {
   return shapes;
 }
 
+function symbolChanges() {
+  const shapes = [
+    text(236, 29, "Previous hydraulic"), text(439, 29, "Hooked hydraulic"),
+    start(20, 68, "Impulse"),
+  ];
+  const run = [[0, 0], [188, 0]];
+  const scale = 0.65;
+  const sample = (parts, x, y) => place(parts, { x, y, s: scale });
+  shapes.push(...sample([{ d: "M0 0 L188 0", dash: "2 2", role: "secondary" }], 175, 64),
+    ...sample(routeLine("line-hydraulic", run, { renderScale: scale }).shapes, 378, 64));
+  for (const [label, y, route] of [
+    ["Standby process (3/2)", 96, [{ d: "M0 0 L188 0", dash: "3 2", role: "secondary" }]],
+    ["Electrical", 126, routeLine("line-electric", run).shapes],
+    ["Instrument air", 156, routeLine("line-pneumatic", run).shapes],
+  ]) {
+    shapes.push(start(20, y + 4, label), ...sample(route, 175, y), ...sample(route, 378, y));
+  }
+  shapes.push(start(20, 192, "Short hydraulic runs"));
+  for (const [x, width, label] of [[210, 24, "One hook"], [384, 15, "2/2 fallback"]]) {
+    shapes.push(...sample(routeLine("line-hydraulic", [[0, 0], [width, 0]], { renderScale: scale }).shapes, x, 189),
+      start(x + 24, 192, label));
+  }
+  shapes.push(text(144, 248, "Pipe break (omitted length)"),
+    text(410, 248, "Specification break (continuous)"));
+  for (const [id, x, classOptions] of [
+    ["line-break", 144, {}], ["line-spec-break", 410, { classIn: "A150", classOut: "B300" }],
+  ]) {
+    const y = 291;
+    const placed = placeSymbol(id, { x, y }, classOptions);
+    shapes.push(...placed.shapes, ...routeLine("line-process", [[x - 80, y], placed.ports[0]]).shapes,
+      ...routeLine("line-process", [placed.ports[1], [x + 80, y]]).shapes);
+  }
+  for (const [q, x] of [[1, 144], [2, 280], [3, 416]]) {
+    const y = 371;
+    const placed = placeSymbol("line-spec-break", { x, y, q, s: 0.85 }, { classIn: "A150", classOut: "B300" });
+    shapes.push(...placed.shapes, text(x, 425, `${q * 90}°`));
+  }
+  return shapes;
+}
+
 const pages = [
-  ["01-symbols", "Symbols 1 of 2", "Original line and connection symbols at four orientations.", matrix(family.slice(0, 9))],
-  ["02-symbols", "Symbols 2 of 2", "Symbolic level and proposed fittings at four orientations.", matrix(family.slice(9))],
+  ["01-symbols", "Symbols 1 of 2", "Line and connection symbols at four orientations.", matrix(family.slice(0, 10))],
+  ["02-symbols", "Symbols 2 of 2", "Levels, piping fittings and boundaries at four orientations.", matrix(family.slice(10))],
   ["03-connections", "Connections and routes", "Dense junction and crossover pairs, patterned routes and a pump discharge composition.", connections()],
   ["04-components", "Sheet references and levels", "Reciprocal references between two sheets and elevations on a wet well section.", components()],
   ["05-orientation", "Connector orientations", "Full off-sheet connectors with upright text and drawing-side ports.", rotations()],
+  ["06-symbol-changes", "Hydraulic and pipe boundary comparison",
+    "Previous and proposed hydraulic routes at 0.65× alongside standby, electrical and air. The specification boundary preserves through connectivity.", symbolChanges()],
 ];
 
 for (const [name, options] of [["light", { theme: "light" }], ["dark", { theme: "dark" }], ["print", { profile: "print" }]]) {

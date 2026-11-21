@@ -53,6 +53,7 @@ export { measurementBoundary, primaryInstrument, primaryNetwork } from "./primar
 
 export { GATE_ALIASES, composeEquipment, gateArchive } from "./gates.mjs";
 export { composeActuator, placeOperator } from "./actuators.mjs";
+import { routeLine, specificationBreak, SPEC_BREAK_PORTS } from "./lines.mjs";
 
 export { place, placePoint };
 
@@ -183,6 +184,12 @@ export const SYMBOLS = [
     "M-16 0 L-8 0 M8 0 L16 0 M-8 -5 L8 -5 L8 5 L-8 5 Z M-4 -5 L-4 5 M4 -5 L4 5", [[-16, 0], [16, 0]]),
   fitting("line-break", "Pipe break",
     "M-20 0 L-4 0 M4 0 L20 0 M-7 5 L-3 -5 M3 5 L7 -5", [[-20, 0], [20, 0]]),
+  { id: "line-hydraulic", name: "Hydraulic impulse line", cat: "Lines", src: [{ std: "ProjectMaterials", ref: "p. 10" }], w: 40,
+    draw: ({ renderScale } = {}) => routeLine("line-hydraulic", [[-20, 0], [20, 0]], { renderScale }).shapes,
+    ports: [[-20, 0], [20, 0]], portNames: ENDS, connectivity: THROUGH, verification: "Proposed" },
+  { id: "line-spec-break", name: "Specification break", cat: "Lines", src: [{ std: "Terminal legend", ref: "p. 1" }], w: 32,
+    draw: (options) => specificationBreak({}, options).shapes,
+    ports: SPEC_BREAK_PORTS, portNames: ENDS, connectivity: THROUGH, verification: "Proposed" },
 
   ...VALVES,
   legacyActuator("valve-control", "Control valve, modulating", [IS("0414"), BC("P-002")], "diaphragm",
@@ -397,6 +404,7 @@ export function placeSymbol(id, at = {}, options = {}) {
   }
   const symbol = byId[id];
   if (!Object.hasOwn(byId, id)) throw new RangeError(`Unknown symbol: ${id}`);
+  if (id === "line-spec-break") return specificationBreak(at, options);
   if (symbol.pump) return placePumpSymbol(symbol, at, options);
   if (symbol.gate) {
     const { renderScale, closedStyle, closed, convention, stateBasis, measureText, labelAnchor, ...config } = options;
@@ -407,12 +415,15 @@ export function placeSymbol(id, at = {}, options = {}) {
   }
   if (symbol.operator || symbol.modifier) return placeOperator(id, at, options);
   if (symbol.valve || symbol.assemblyPreset) {
-    const { renderScale, measureText, closed, ...config } = options;
+    const { renderScale, closedStyle, measureText, closed, ...config } = options;
     return assembleValve(byId, { ...config, bodyId: id }, at,
-      { renderScale, measureText, legacyClosed: closed, quietUnspecified: !Object.hasOwn(config, "normalPosition") });
+      { renderScale, closedStyle, measureText, legacyClosed: closed, quietUnspecified: !Object.hasOwn(config, "normalPosition") });
   }
   const q = ((at.q ?? 0) % 4 + 4) % 4;
   let drawOptions = options;
+  if (id === "line-hydraulic") {
+    drawOptions = { ...options, renderScale: (at.s ?? 1) * (options.renderScale ?? 1) };
+  }
   if (id === "crossover") {
     const projectedScale = (at.s ?? 1) * (options.renderScale ?? 1);
     if (!Number.isFinite(projectedScale) || projectedScale <= 0) throw new RangeError("Invalid crossover render scale");

@@ -32,3 +32,16 @@ The symbols are redrawn in the Plotter style from these conventions; no drawing 
 These project legends informed the visual review. The Family 01 candidates retain the `Proposed` status pending engineering review and acceptance against the governing project legend. The catalogue retains the existing IS 3232, ISA-5.1 and Pahala citations as originally declared.
 
 See [Family 02 verification and provenance](family-02.md#verification-and-provenance) for the audit of valve references and the BIS bulletin on the 2024 edition.
+
+## Families 01 and 02 · Symbol references and limits
+
+| Reference and location | Observed convention | Processvg decision |
+| --- | --- | --- |
+| Ford, Bacon & Davis / AIChE, *Art of the P&ID*, slides 18, 21, 56–62, 88 and 90 | Repeating right-angle hydraulic marks, butterfly and knife NC, clear routing, specification breaks in a staged checklist, and continuation cross-checks. | Use explicit NC for typed butterfly design closure. Preserve the current knife convention. Keep the reciprocal sheet audit. See the [94-slide inventory](art-of-the-pid-audit.md). |
+| Terminal P&ID legend, user-supplied, PDF p. 1 | A specification break uses inward triangles on a continuous pipe with a transverse boundary. The legend distinguishes signal media, shows continuation references with line numbers, and uses FO, FC and FL. | Add `line-spec-break` with optional class labels. Class positions and local dimensions are Processvg choices. The symbol denotes a piping specification boundary. `line-break` denotes omitted length. |
+| ProjectMaterials, *P&ID Symbols Reference*, PDF pp. 5 and 10 | The manual-valve page shows opposing chevrons for pinch and a separate projecting knife blade. The signal page shows repeating slanted hooks for hydraulic and paired slashes for air. | Fit the pinch compression chevrons inside the sleeve outline and use one Family 01/02 hydraulic hook/fallback rule. |
+| Edraw, *Standard P&ID Symbols Legend*, p. 1, Valves section | Opposed pinch chevrons, distinct knife and slide blades, a diagonal butterfly disc and alternative check geometries. It also depicts separate control-valve and back-pressure regulator examples. | Retain the diagonal butterfly and use explicit pressure-reducing text and downstream sensing. Preserve the approved NRV and foot valve. |
+
+The four supplied PDFs are comparative sources for drafting, with project-specific examples. The pinched sleeve, closed-state rendering, hook pitch and short-run threshold are Processvg design decisions. These sources and the reduced review sheets give no equipment sizing or hydraulic validation. Exact glyph verification against the governing project legend and licensed standards remains pending.
+
+In the Chromium monochrome view and the 300 dpi one-bit print raster, the 0.65× pinch sleeve read separately from the knife blade, with NC carrying the closed state at that reduction. The reduced butterfly centre approached the stroke width, while the NC remained legible. The hooked hydraulic pattern separated from standby, electrical and paired air slashes. The short dash needed its caption. The specification-break labels stayed on their respective piping sides through all four orientations.

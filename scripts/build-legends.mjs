@@ -42,9 +42,16 @@ for (const cat of cats) {
       const cy = Y0 + Math.floor(i / COLS) * CH + 38;
       if (sym.states) {
         shapes.push(...place(sym.draw({ closed: false }), { x: cx - 26, y: cy, s: SCALE }));
-        shapes.push(...place(sym.draw({ closed: true }), { x: cx + 26, y: cy, s: SCALE }));
         const [open, closed] = sym.stateLabels ?? ["Open", "Closed"];
-        shapes.push({ t: [cx - 26, cy + 30, open], value: true }, { t: [cx + 26, cy + 30, closed], value: true });
+        shapes.push({ t: [cx - 26, cy + 30, open], value: true });
+        if (sym.valve?.designClosedLabel) {
+          shapes.push(...placeSymbol(sym.id, { x: cx + 26, y: cy, s: SCALE }, {
+            normalPosition: "closed", labelAnchor: [cx + 26, cy + 30],
+          }).shapes);
+        } else {
+          shapes.push(...place(sym.draw({ closed: true }), { x: cx + 26, y: cy, s: SCALE }));
+          shapes.push({ t: [cx + 26, cy + 30, closed], value: true });
+        }
       } else if (isCandidate) {
         shapes.push(...placeSymbol(sym.id, { x: cx, y: cy, s: SCALE }, { mode: "candidate" }).shapes);
       } else if (sym.cat === "Primary elements") {
@@ -56,9 +63,11 @@ for (const cat of cats) {
       } else if (sym.operator || sym.modifier || sym.assemblyPreset) {
         shapes.push(...placeSymbol(sym.id, { x: cx, y: cy, s: SCALE }).shapes);
       } else {
-        shapes.push(...place(sym.draw({}), { x: cx, y: cy, s: SCALE }));
+        // The equipment name underneath already identifies a compact regulator.
+        shapes.push(...place(sym.draw({ geometryOnly: true }), { x: cx, y: cy, s: SCALE }));
       }
-      const name = sym.id === "blower-lobe" ? `Rotary lobe blower (${sym.legendVariant ?? "2-lobe"})` :
+      const name = sym.valve?.mode === "regulating" ? "Pressure reducing valve" :
+        sym.id === "blower-lobe" ? `Rotary lobe blower (${sym.legendVariant ?? "2-lobe"})` :
         isCandidate ? candidateNames[sym.id] ?? sym.name : ({
         "fe-ultrasonic": "Generic non-contact level",
         "fe-hydrostatic": "Hydrostatic probe",
@@ -91,6 +100,8 @@ const catalogue = {
     "B&C": "Brown and Caldwell, Pahala WWTP design-build documents, sheets C-001, P-002, P-003, P-101 (County of Hawaii, 2021; published by US EPA)",
     Proposed: "Drafted here; agree with the firm before use",
     "processvg design": "User-approved library geometry; exact standards verification pending",
+    ProjectMaterials: "P&ID Symbols Reference, Lines & Signals, user-supplied PDF",
+    "Terminal legend": "Terminal P&ID legend, user-supplied PDF",
   },
   aliases: GATE_ALIASES,
   gateArchive,
@@ -140,7 +151,12 @@ const catalogue = {
       const { shapes, processPorts, sensing } = placeSymbol(s.id, {}, { representation });
       return [representation, { shapes, processPorts, sensing }];
     })),
-    shapes: s.states ? { open: s.draw({ closed: false }), closed: s.draw({ closed: true }) } : s.draw({}),
+    shapes: s.states ? {
+      open: s.draw({ closed: false }),
+      closed: s.valve?.designClosedLabel
+        ? placeSymbol(s.id, {}, { normalPosition: "closed" }).shapes
+        : s.draw({ closed: true }),
+    } : s.draw({}),
   })),
   screeningReview: {
     optIn: { variant: "candidate" },

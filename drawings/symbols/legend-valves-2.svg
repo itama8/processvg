@@ -2,16 +2,16 @@
 <title id="legend-valves-2-title">Valves symbols</title>
 <desc id="legend-valves-2-desc">P&amp;ID symbols: Needle valve, Pinch valve, Foot valve with strainer, Pressure-reducing valve, Combination air valve, Float-operated valve.</desc>
 <style>svg[data-plotter]{color:var(--plotter-ink,#171717)}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:var(--plotter-ink,#ededed)}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
-<defs><mask id="legend-valves-2-knockout-1" maskUnits="objectBoundingBox" maskContentUnits="userSpaceOnUse" mask-type="luminance"><path d="M66 50.5 L78 58 L66 65.5 Z M90 50.5 L90 65.5 L78 58 Z" fill="#fff" stroke="#fff" /><path d="M78 44.5 L78 59.5 M73.5 50.5 L78 56.5 L82.5 50.5" fill="none" stroke="#000" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" style="vector-effect:none" /></mask><mask id="legend-valves-2-knockout-2" maskUnits="objectBoundingBox" maskContentUnits="userSpaceOnUse" mask-type="luminance"><path d="M118 50.5 L130 58 L118 65.5 Z M142 50.5 L142 65.5 L130 58 Z" fill="#fff" stroke="#fff" /><path d="M130 44.5 L130 59.5 M125.5 50.5 L130 56.5 L134.5 50.5" fill="none" stroke="#000" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" style="vector-effect:none" /></mask></defs>
+<defs><mask id="legend-valves-2-knockout-1" maskUnits="objectBoundingBox" maskContentUnits="userSpaceOnUse" mask-type="luminance"><path d="M66 50.5 L78 58 L66 65.5 Z M90 50.5 L90 65.5 L78 58 Z" fill="#fff" stroke="#fff" /><path d="M78 44.5 L78 59.5 M73.5 50.5 L78 56.5 L82.5 50.5" fill="none" stroke="#000" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" style="vector-effect:none" /></mask><mask id="legend-valves-2-knockout-2" maskUnits="objectBoundingBox" maskContentUnits="userSpaceOnUse" mask-type="luminance"><path d="M118 50.5 L130 58 L118 65.5 Z M142 50.5 L142 65.5 L130 58 Z" fill="#fff" stroke="#fff" /><path d="M130 44.5 L130 59.5 M125.5 50.5 L130 56.5 L134.5 50.5" fill="none" stroke="#000" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" style="vector-effect:none" /></mask><mask id="legend-valves-2-knockout-3" maskUnits="objectBoundingBox" maskContentUnits="userSpaceOnUse" mask-type="luminance"><path d="M294 46 L303 50.5 L309 50.5 L318 46 L318 70 L309 65.5 L303 65.5 L294 70 Z" fill="#fff" stroke="#fff" /><path d="M301.5 52.75 L306 55.75 L310.5 52.75 M301.5 63.25 L306 60.25 L310.5 63.25" fill="none" stroke="#000" stroke-width="3.9" stroke-linecap="round" stroke-linejoin="round" style="vector-effect:none" /></mask></defs>
 <g data-plotter-role="primary" opacity="1" stroke-dasharray="none">
 <path d="M66 50.5 L78 58 L66 65.5 Z M90 50.5 L90 65.5 L78 58 Z" mask="url(#legend-valves-2-knockout-1)" />
 <path d="M78 44.5 L78 59.5 M73.5 50.5 L78 56.5 L82.5 50.5" />
 <path d="M118 50.5 L130 58 L118 65.5 Z M142 50.5 L142 65.5 L130 58 Z" fill="currentColor" mask="url(#legend-valves-2-knockout-2)" />
 <path d="M130 44.5 L130 59.5 M125.5 50.5 L130 56.5 L134.5 50.5" />
-<path d="M242 49 L251 55 L257 55 L266 49 L266 67 L257 61 L251 61 L242 67 Z" />
-<path d="M254 40 L254 53.5 M254 62.5 L254 76" />
-<path d="M294 49 L303 55 L309 55 L318 49 L318 67 L309 61 L303 61 L294 67 Z" fill="currentColor" />
-<path d="M306 40 L306 53.5 M306 62.5 L306 76" />
+<path d="M242 46 L251 50.5 L257 50.5 L266 46 L266 70 L257 65.5 L251 65.5 L242 70 Z" />
+<path d="M249.5 52.75 L254 55.75 L258.5 52.75 M249.5 63.25 L254 60.25 L258.5 63.25" />
+<path d="M294 46 L303 50.5 L309 50.5 L318 46 L318 70 L309 65.5 L303 65.5 L294 70 Z" fill="currentColor" mask="url(#legend-valves-2-knockout-3)" />
+<path d="M301.5 52.75 L306 55.75 L310.5 52.75 M301.5 63.25 L306 60.25 L310.5 63.25" />
 <path d="M448.5 68.5 L456 47.5 L463.5 68.5 Z" />
 <path d="M446.7 47.5 L465.3 47.5" />
 <path d="M456 34 L456 47.5 M456 68.5 L456 73" />
@@ -34,7 +34,7 @@
 <text x="104" y="104" text-anchor="middle">Needle valve</text>
 <text x="280" y="104" text-anchor="middle">Pinch valve</text>
 <text x="456" y="104" text-anchor="middle">Foot valve with strainer</text>
-<text x="104" y="204" text-anchor="middle">Pressure-reducing valve</text>
+<text x="104" y="204" text-anchor="middle">Pressure reducing valve</text>
 <text x="280" y="204" text-anchor="middle">Combination air valve</text>
 <text x="456" y="204" text-anchor="middle">Float-operated valve</text>
 </g>

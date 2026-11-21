@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { byId, crossover, placePoint, placeSymbol } from "../src/library.mjs";
-import { levelAnnotation, offSheet, routeLine } from "../src/lines.mjs";
+import { checkSheetContinuations, levelAnnotation, offSheet, routeLine } from "../src/lines.mjs";
 import { render, svgDoc } from "../src/render.mjs";
 
 const catalogue = JSON.parse(readFileSync(new URL("../drawings/symbols/catalogue.json", import.meta.url)));
@@ -158,4 +158,59 @@ test("stylesheet lets hosts set ink, keeps signal dashes and print ink under Plo
   assert.match(svgDoc("l", "t", "d", "", { theme: "light" }), /\[data-theme=light\]\{color:#171717\}/);
   // The Python section generator duplicates the stylesheet; keep them identical.
   assert.ok(readFileSync(new URL("../examples/drawings.py", import.meta.url), "utf8").includes(THEME_STYLE));
+});
+
+test("full continuation flags show the line ID and drawing sets check both ends", () => {
+  const measureText = () => ({ left: 35, right: 35, ascent: 8, descent: 2 });
+  const common = { streamId: "Sludge return", lineId: "100-RAS-03", detail: "full", measureText };
+  const out = offSheet({ ...common, direction: "out", sheetRef: "PID-B" });
+  const incoming = offSheet({ ...common, direction: "in", sheetRef: "PID-A", orientation: 90 });
+  assert.deepEqual(out.shapes.slice(1).map(({ t }) => t[2]), ["Sludge return", "TO PID-B", "100-RAS-03"]);
+  assert.deepEqual(incoming.shapes.slice(1).map(({ t }) => t[2]), ["Sludge return", "FROM PID-A", "100-RAS-03"]);
+  const compact = offSheet({ ...common, detail: "compact", direction: "in", sheetRef: "PID-A" });
+  assert.equal(compact.shapes.length, 2);
+  assert.equal(compact.metadata.lineId, "100-RAS-03");
+  const from = { sheetId: "PID-A", ...out.metadata };
+  const to = { sheetId: "PID-B", ...incoming.metadata };
+  assert.deepEqual(checkSheetContinuations([from, to]), []);
+  assert.deepEqual(checkSheetContinuations([from]).map(({ code, direction }) => [code, direction]), [["missing", "in"]]);
+  assert.deepEqual(checkSheetContinuations([from, to, to]).map(({ code, direction }) => [code, direction]), [["duplicate", "in"]]);
+  assert.equal(checkSheetContinuations([from, { ...to, lineId: "100-RAS-04" }])[0].code, "line-id-mismatch");
+  assert.equal(checkSheetContinuations([from, { ...to, lineId: undefined }])[0].toLineId, null);
+  assert.equal(checkSheetContinuations([from, { ...to, direction: "out" }]).length, 2);
+  assert.equal(checkSheetContinuations([from, { ...to, sheetRef: "PID-C" }]).length, 2);
+});
+
+test("hydraulic impulse routes use hooks or an explicit short-run dash fallback", () => {
+  const placed = routeLine("line-hydraulic", [[18, 0], [18, -18], [0, -18], [0, -15]]);
+  assert.deepEqual(placed.ports, [[18, 0], [0, -15]]);
+  assert.equal(placed.shapes[0].d, "M18 0 L18 -18 L0 -18 L0 -15");
+  assert.equal(placed.shapes.length, 3);
+  assert.equal(placed.shapes[1].d, "M14 -9.5 L22 -6 L22 -11");
+  assert.deepEqual(byId["line-hydraulic"].draw({}), routeLine("line-hydraulic", [[-20, 0], [20, 0]]).shapes);
+  const centered = routeLine("line-hydraulic", [[0, 0], [12, 0]]);
+  assert.equal(centered.shapes[1].d, "M7.5 -4 L4 4 L9 4");
+  const short = routeLine("line-hydraulic", [[0, 0], [7, 0], [7, 7]]);
+  assert.deepEqual(short.shapes, [{ d: "M0 0 L7 0 L7 7", role: "secondary", dash: "2 2", cap: "butt" }]);
+  assert.match(render(short.shapes, { profile: "print" }), /stroke-dasharray="2 2"/);
+  assert.equal(placeSymbol("line-hydraulic", { s: 0.5 }).shapes[0].dash, "2 2");
+});
+
+test("specification break connects exact drawn endpoints and keeps classes on their placed sides", () => {
+  for (const [q, ports] of [
+    [0, [[30, 60], [70, 60]]], [1, [[50, 40], [50, 80]]],
+    [2, [[70, 60], [30, 60]]], [3, [[50, 80], [50, 40]]],
+  ]) {
+    const placed = placeSymbol("line-spec-break", { x: 50, y: 60, s: 1.25, q }, { classIn: "A150", classOut: "B300" });
+    assert.deepEqual(placed.ports, ports);
+    assert.ok(placed.shapes[0].d.startsWith(`M${ports[0].join(" ")} L${ports[1].join(" ")} M`));
+    assert.deepEqual(placed.connectivity, [[0, 1]]);
+    assert.equal(placed.shapes[2].align, q === 0 ? "end" : "start");
+    assert.ok((placed.shapes[2].t[q % 2] < placed.shapes[3].t[q % 2]) === (q < 2));
+    assert.equal(placed.metadata.classOut, "B300");
+  }
+  assert.equal(placeSymbol("line-spec-break").shapes.filter(({ t }) => t).length, 0);
+  assert.equal(placeSymbol("line-spec-break", {}, { classOut: "B300" }).shapes.at(-1).t[2], "B300");
+  assert.throws(() => placeSymbol("line-spec-break", {}, { classIn: "A\nB" }), /piping class/);
+  assert.match(byId["line-break"].draw({})[0].d, /L-4 0 M4 0/);
 });

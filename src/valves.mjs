@@ -1,6 +1,7 @@
 // Family 02 valve bodies and assembly semantics. Coordinates are schematic drawing units.
 import { place, placePoint, round } from "./geometry.mjs";
 import { composeActuator, drawPresetHead } from "./actuators.mjs";
+import { routeLine } from "./lines.mjs";
 
 const path = (...points) => "M" + points.map((point) => point.join(" ")).join(" L");
 const shape = (d, props = {}) => ({ d, ...props });
@@ -11,6 +12,9 @@ const inline = [[-8, 0], [8, 0]];
 const angle = [[-8, 0], [0, 8]];
 const nrv = [shape("M-7 -5 L7 0 L-7 5 Z"), shape("M7 -6.2 L7 6.2")];
 const needle = "M0 -9 L0 1 M-3 -5 L0 -1 L3 -5";
+const sleeve = "M-8 -8 L-2 -5 L2 -5 L8 -8 L8 8 L2 5 L-2 5 L-8 8 Z";
+const compression = "M-3 -3.5 L0 -1.5 L3 -3.5 M-3 3.5 L0 1.5 L3 3.5";
+const regulatorLabel = "Pressure reducing";
 const regulator = [
   shape("M0 0 L0 -9"),
   shape("M-6 -9 A6 6 0 0 1 6 -9 Z"),
@@ -56,12 +60,14 @@ function inlineIsolation(id, name, src, draw, valve = {}, provenance) {
   }, provenance);
 }
 
-function regulatorGeometry({ representation = "compact" } = {}) {
-  if (representation === "compact") return [shape(bowtie), ...regulator];
+function regulatorGeometry({ representation = "compact", geometryOnly = false, renderScale = 1 } = {}) {
+  const body = [shape(bowtie), ...regulator];
+  if (!geometryOnly) body.push({ t: [0, 21, regulatorLabel], fontFamily: "sans-serif" });
+  if (representation === "compact") return body;
   if (representation !== "downstream-sensing") throw new RangeError("Unknown pressure-reducing representation");
   return [
-    shape(bowtie), ...regulator, shape("M8 0 L18 0"),
-    shape("M18 0 L18 -18 L0 -18 L0 -15", { role: "secondary", dash: "2 2" }),
+    ...body, shape("M8 0 L18 0"),
+    ...routeLine("line-hydraulic", [[18, 0], [18, -18], [0, -18], [0, -15]], { renderScale }).shapes,
     circle(18, 0, 1.5, { ...solid, role: "dot" }),
   ];
 }
@@ -80,7 +86,8 @@ export const VALVES = [
     shape("M-5 -7 L-5 7 M5 -7 L5 7"),
     shape("M-3 6 L-0.89 1.79 M0.89 -1.79 L3 -6"),
     circle(0, 0, 2, closed ? solid : {}),
-  ], { ports: [[-5, 0], [5, 0]], bounds: [-5, -7, 5, 7], mount: atTop(-2.3, 4.7), minFillScale: 1.5 }),
+  ], { ports: [[-5, 0], [5, 0]], bounds: [-5, -7, 5, 7], mount: atTop(-2.3, 4.7), minFillScale: 1.5,
+    designClosedLabel: true }),
   inlineIsolation("knife", "Knife gate valve", [bc()], ({ closed } = {}) => [
     shape("M-4 -7 L-4 7 M4 -7 L4 7"),
     shape("M-1.5 -11 L1.5 -11 L1.5 7 L-1.5 7 Z", closed ? solid : {}),
@@ -113,8 +120,11 @@ export const VALVES = [
     isolation(bowtie, [shape(needle)], [shape(needle, { cutWidth: 3.4 })]),
     { mount: atTop(-9), bounds: [-8, -9, 8, 5], minFillScale: 1.25 }, design),
   inlineIsolation("pinch", "Pinch valve", [proposed],
-    isolation("M-8 -6 L-2 -2 L2 -2 L8 -6 L8 6 L2 2 L-2 2 L-8 6 Z", [shape("M0 -12 L0 -3 M0 3 L0 12")]),
-    { mount: null, bounds: [-8, -12, 8, 12], minFillScale: 1.25 }, design),
+    ({ closed } = {}) => [
+      shape(sleeve, closed ? { ...solid, knockout: [shape(compression, { cutWidth: 2.6 })] } : {}),
+      shape(compression),
+    ],
+    { mount: null, bounds: [-8, -8, 8, 8], minFillScale: 1.25 }, design),
   definition("foot", "Foot valve with strainer", [proposed],
     () => [...place(nrv, { q: -1 }), shape("M0 -16 L0 -7 M0 7 L0 10"),
       shape("M-8 10 L8 10 L8 19 L-8 19 Z M-4 12 L-4 17 M0 12 L0 17 M4 12 L4 17")],
@@ -215,7 +225,7 @@ function labelsFor(config, valve, state, view, fallback, position, pairs, quietU
     if (!validText(tag)) throw new TypeError("Expected a one-line valve tag");
     labels.push(tag);
   }
-  if (valve.mode === "regulating") labels.push("Pressure reducing");
+  if (valve.mode === "regulating") labels.push(regulatorLabel);
   if (setpoint != null) {
     if (valve.mode !== "regulating" || !Number.isFinite(setpoint.value) || !validText(setpoint.units)) {
       throw new RangeError("A reducing-valve setpoint requires a finite value and units");
@@ -265,17 +275,19 @@ export function assembleValve(library, config, at, display) {
   const position = view === "operating" ? state.operatingPosition?.position ?? null
     : state.normalPosition ?? (legacyClosed === undefined || valve.mode !== "isolation" ? null : legacyClosed ? "closed" : "open");
   const isolationClosed = valve.mode === "isolation" && position === "closed";
-  const fallback = isolationClosed && (closedStyle === "label" || s * renderScale < (valve.minFillScale ?? 0));
+  const projectedScale = s * renderScale;
+  const fallback = isolationClosed && (closedStyle === "label" || projectedScale < (valve.minFillScale ?? 0) ||
+    (view === "design" && state.normalPosition === "closed" && valve.designClosedLabel));
   const closed = isolationClosed && !fallback;
   const local = library[bodyId].assemblyPreset && !closed ? library[bodyId].draw({}).slice(0, 1)
-    : body.draw({ closed, representation });
+    : body.draw({ closed, representation, geometryOnly: true, renderScale: projectedScale });
   const explicit = representation === "downstream-sensing";
   const terminals = explicit ? [valve.terminals[0], { ...valve.terminals[1], point: [18, 0] }] : valve.terminals;
   if (!endConnections || typeof endConnections !== "object" || Array.isArray(endConnections) ||
       Object.keys(endConnections).some((id) => !terminals.some((port) => port.id === id))) {
     throw new RangeError("End treatments require a valve process port");
   }
-  const [left, top, right, bottom] = explicit ? [-8, -18, 20, 5] : valve.bounds;
+  const [left, top, right, bottom] = explicit ? [-8, -22, 22, 5] : valve.bounds;
   const extent = [[left, top], [right, top], [right, bottom], [left, bottom]];
   const localPorts = terminals.map((port) => {
     const end = Object.hasOwn(endConnections, port.id) ? endConnections[port.id] : { type: "plain" };
@@ -308,6 +320,7 @@ export function assembleValve(library, config, at, display) {
     for (const edge of ["right", "bottom"]) bounds[edge] = Math.max(bounds[edge], operator.bounds[edge]);
   }
   const labels = labelsFor(config, valve, state, view, fallback, position, pairs, quietUnspecified);
+  if (explicit && local.some(({ role, dash }) => role === "secondary" && dash)) labels.push("Hydraulic impulse");
   if (operator?.externalIdentifier) labels.push(operator.externalIdentifier);
   if (labelAnchor !== undefined && !validPoint(labelAnchor)) throw new TypeError("Expected a drawing-space label anchor");
   const side = !labelAnchor && [...processPorts, ...interfaces].some(({ normal }) => normal[1] > 0);

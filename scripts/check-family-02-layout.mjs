@@ -7,7 +7,12 @@ import path from "node:path";
 
 const root = new URL("../", import.meta.url);
 const gallery = new URL("review/family-02/", root);
+const family01 = new URL("review/family-01/", root);
 const sheets = [
+  ...(process.argv.includes("--include-family-01") ? [
+    ...readdirSync(family01).filter((file) => file.endsWith(".svg")).sort().map((file) => new URL(file, family01)),
+    ...["legend-lines.svg", "legend-lines-2.svg"].map((file) => new URL(`drawings/symbols/${file}`, root)),
+  ] : []),
   ...readdirSync(gallery).filter((file) => file.endsWith(".svg")).sort().map((file) => new URL(file, gallery)),
   ...["legend-valves.svg", "legend-valves-2.svg"].map((file) => new URL(`drawings/symbols/${file}`, root)),
 ];
@@ -65,7 +70,8 @@ try {
     if (result.status !== 0 || !output || output === "pending") {
       throw new Error(`Chromium did not return layout results for ${sheet.pathname}: ${result.error ?? (result.stderr || `status ${result.status}, output ${output}`)}`);
     }
-    report.push({ file: path.basename(sheet.pathname), ...JSON.parse(output.replaceAll("&amp;", "&").replaceAll("&lt;", "<").replaceAll("&gt;", ">")) });
+    report.push({ file: decodeURIComponent(sheet.pathname.slice(root.pathname.length)),
+      ...JSON.parse(output.replaceAll("&amp;", "&").replaceAll("&lt;", "<").replaceAll("&gt;", ">")) });
   }
 } finally {
   rmSync(dir, { force: true, recursive: true });
