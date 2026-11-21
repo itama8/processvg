@@ -100,8 +100,11 @@ function processCases(s) {
     { assetId: "WATER-FIT", bindings: { instrument: { kind: "electrical", direction: "out" } } });
   const instrument = (id, letters, loop, ports = []) => ({ id, preset: "inst-field", tag: { letters, loop }, ports });
   const input = (id, kind, anchor = "S") => ({ id, kind, anchor, direction: "in" });
+  // An integral transmitter sits on its element (Art of the P&ID slide 17; Pahala P-002 integral
+  // instrument), so its internal connection is topology only. A remote one is joined by a signal.
+  const airProbe = air.interfaces.find(({ id }) => id === "instrument").point;
   const airFit = primaryInstrument(air, { ...instrument("air-fit", "FIT", "105", [input("probe", "electrical")]), integral: true },
-    { x: 128, y: 86, s, q: 1 });
+    { x: airProbe[0], y: airProbe[1] - 16 * s, s, q: 1 });
   const waterFit = primaryInstrument(water, { ...instrument("water-fit", "FIT", "106", [input("probe", "electrical")]), integral: false },
     { x: 382, y: 86, s, q: 3 });
   const orifice = compose("fe-orifice", "orifice", 278, 337, s);
@@ -131,7 +134,7 @@ function processCases(s) {
   shapes.push(...pipe([38, 143], air.ports[0]), ...pipe(air.ports[1], [216, 143]),
     ...pipe([292, 143], water.ports[0]), ...pipe(water.ports[1], [470, 143]),
     ...pipe([44, 337], orifice.ports[0]), ...pipe(orifice.ports[1], [497, 337]),
-    ...network.edges.filter(({ kind }) => Object.hasOwn(lineStyles, kind)).map(({ kind, points }) =>
+    ...network.edges.filter(({ id, kind }) => id !== "air-integral" && Object.hasOwn(lineStyles, kind)).map(({ kind, points }) =>
       ({ ...route(points, lineStyles[kind]), ...(kind === "filled-system" && { dash: "3 2" }) })),
     ...[...network.blocks.values()].flatMap((block) => block.shapes ?? []),
     text(128, 171, "Thermal meter · integral FIT"), text(382, 171, "Mag meter · remote FIT"),
@@ -153,8 +156,10 @@ function analysisCases(s) {
   const process = measurementBoundary({ id: "sample-host", kind: "process-boundary", direction: "out", point: valve.ports[0] });
   const drain = measurementBoundary({ id: "sample-waste", kind: "sample-flow", direction: "in", point: [520, 276] });
   const provisional = composePrimaryElement(sample.config, sample.at);
+  const cabinetTop = provisional.interfaces.find(({ id }) => id === "instrument").point;
   const ait = primaryInstrument(provisional, { id: "AIT-block", preset: "inst-field", tag: { letters: "AIT", loop: "407" },
-    integral: true, ports: [{ id: "signal", anchor: "S", kind: "electrical", direction: "in" }] }, { x: 449, y: 201, s });
+    integral: true, ports: [{ id: "signal", anchor: "S", kind: "electrical", direction: "in" }] },
+  { x: cabinetTop[0], y: cabinetTop[1] - 16 * s, s });
   const network = primaryNetwork([valve, provisional, ait, process, drain], [
     link("branch", "process-boundary", process, "boundary", valve, "process"),
     link("sample-feed", "sample-flow", valve, "sample-out", provisional, "sample-in", [[352, 276]]),
@@ -174,7 +179,7 @@ function analysisCases(s) {
     route([[62, 218], [62, 299], [261, 299], [261, 218]], "primary"), route(water), text(163, 320, "Aeration basin"),
     ...pipe([304, 355], [523, 355]), ...valve.shapes,
     { ...route(feed.points, "primary"), dash: "5 2" }, { ...route(waste.points, "primary"), dash: "5 2" },
-    route(wiring.points, "signal"), ...ait.shapes, ...results.flatMap((result) => result.shapes),
+    ...ait.shapes, ...results.flatMap((result) => result.shapes),
     text(418, 377, "Main process"), text(452, 316, "Sample feed and drain"), text(280, 408, "Cl₂ identifies the analyte; AIT identifies the loop function"));
   return { shapes, layouts: results.map(({ identityLayout }) => identityLayout),
     contract: { edges: network.edges, transfers: network.transfers, assets: [...network.assets] } };

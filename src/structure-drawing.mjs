@@ -152,6 +152,9 @@ export function drawStructure(placeSymbol, model, options = {}) {
     lines.slice(0,2).forEach((item,i) => body.push(text(21,288+i*13,item,{ size:12 })));
   }
   if (model.portDiagnostics.length) body.push(text(21,303,"Illustrative port placement flagged · see model diagnostics",{ size:12 }));
+  else if (result.viewPortDiagnostics.length) {
+    body.push(text(21,303,"Distinct ports overlap in this projection · see view diagnostics",{ size:12 }));
+  }
   body.push(text(21,321,`Datum ${model.datum.id} · ${model.siteTransform ? "site transform unverified" : "site unsurveyed"}`,{ size:12 }));
   body.push("</g>");
   const svg = svgDoc(id,`${options.heading ?? model.name} · ${viewName}`,

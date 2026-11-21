@@ -115,6 +115,17 @@ function portProjection(model, project, view, axis, at, face, span) {
     ? normal[port.surface].slice(0,2) : [normal[port.surface][axis], normal[port.surface][2]] }));
 }
 
+// Separate an authored shared anchor from distinct anchors that this orthogonal view collapses.
+function viewPortOverlaps(ports) {
+  return ports.flatMap((port, i) => ports.slice(0,i)
+    .filter(({ point }) => point.every((v,k) => same(v,port.point[k])))
+    .map((other) => ({
+      code: other.anchorM.every((v,k) => same(v,port.anchorM[k]))
+        ? "COINCIDENT_ILLUSTRATIVE_PORT_ANCHORS" : "PROJECTED_PORT_OVERLAP",
+      ports: [other.id,port.id],
+    })));
+}
+
 function pressureShell(model, civil, axis, at) {
   const { geometry: { floorRL: F, wallTopRL: T, lengthM: L } } = model;
   const r = L / 2;
@@ -229,6 +240,6 @@ export function projectStructure(model, { view = model.viewPolicy.preferred, cut
   const ports = portProjection(model,project,view,axis,at,face,span);
   return { assetId: model.assetId, kind: model.kind, view, axis, reverse, span,
     extent, verticalExtent: plan ? [0,W] : [F,T], primitives, levels, ports, decanter,
-    portDiagnostics: model.portDiagnostics, cuts: plan ? model.cuts : [], cut: section ? selected : null, face: exterior ? face : null,
+    portDiagnostics: model.portDiagnostics, viewPortDiagnostics: viewPortOverlaps(ports), cuts: plan ? model.cuts : [], cut: section ? selected : null, face: exterior ? face : null,
     floor: section ? floor : null };
 }

@@ -287,6 +287,16 @@ test("typed ports and assembly inventory do not merge media, projections or inte
   const { portDiagnostics } = createStructureModel("pressure-sand-filter");
   assert.ok(portDiagnostics.some(({ code,ports })=>code === "COINCIDENT_ILLUSTRATIVE_PORT_ANCHORS" &&
     ports.join("/") === "backwash-in/waste-out"));
+  const filterPlan = projectStructure(createStructureModel("pressure-sand-filter"),{ view:"plan" }).viewPortDiagnostics;
+  assert.deepEqual(filterPlan.map(({ code,ports })=>[code,ports.join("/")]),
+    [["COINCIDENT_ILLUSTRATIVE_PORT_ANCHORS","backwash-in/waste-out"]]);
+  // RAS and air share plan XY at different RL: a projection overlap, not an authored coincidence.
+  const asp = createStructureModel("asp-aeration-tank");
+  assert.deepEqual(asp.portDiagnostics,[]);
+  assert.deepEqual(projectStructure(asp,{ view:"plan" }).viewPortDiagnostics.map(({ code,ports })=>[code,ports.join("/")]),
+    [["PROJECTED_PORT_OVERLAP","return-sludge-in/air-in"]]);
+  assert.deepEqual(projectStructure(asp,{ view:"section" }).viewPortDiagnostics,[]);
+  assert.match(composeStructure(asp,{ view:"plan" }).svg,/Distinct ports overlap in this projection/);
   assert.equal(inventory.filter(({kind})=>kind === "gate-slide").length,2);
   assert.throws(()=>createStructureModel("screen-channel-assembly",{
     components:{"gate-slide-inlet":{mountM:[7.45,1.1,101.35]}},

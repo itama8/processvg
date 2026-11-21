@@ -1,7 +1,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { join } from "node:path";
-import { composeStructure, createStructureModel, DECANTER_IDS, STRUCTURE_RECORDS, STRUCTURE_VIEWS,
+import { composeStructure, createStructureModel, DECANTER_IDS, projectStructure, STRUCTURE_RECORDS, STRUCTURE_VIEWS,
   solveStructureDecanter, structureInventory } from "../src/library.mjs";
 import { esc } from "../src/render.mjs";
 
@@ -111,6 +111,8 @@ ${sections}
     stressCases: stressCases.map(({ slug,model }) => ({ slug,datum:model.datum,water:model.water,
       ...(model.decanter && { decanter:solveStructureDecanter(model) }) })),
     portDiagnostics: models.flatMap(({ kind,portDiagnostics }) => portDiagnostics.map((diagnostic) => ({ kind,...diagnostic }))),
+    viewPortDiagnostics: canonical.flatMap(({ model,view,slug }) => projectStructure(model,{ view }).viewPortDiagnostics
+      .map((diagnostic) => ({ kind:model.kind,view,slug,...diagnostic }))),
   },null,2)+"\n");
   console.log(`Family 09 · ${models.length} assemblies, ${canonical.length} views, ${transverse.length} B–B cuts, ${decanters.length} decanter states, ${stressCases.length} stress cases`);
 }

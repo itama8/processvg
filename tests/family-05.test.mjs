@@ -125,7 +125,11 @@ test("panel identities have their own number and leave authored LIC and PI intac
     assert.equal(panel.metadata.kind, "control-panel");
     const authored = placeSymbol(id, {}, { mode: "candidate", tag: [identifier === "MCP" ? "LIC" : "PI", "0004"] });
     assert.deepEqual(authored.metadata.tag, { letters: identifier === "MCP" ? "LIC" : "PI", loop: "0004" });
-    assert.equal(authored.metadata.kind, "control-function");
+    // The location bar does not classify LIC as control or PI as a readout; the project declares it.
+    assert.equal(authored.metadata.kind, "unclassified");
+    for (const kind of ["control-function", "physical-instrument"]) {
+      assert.equal(placeSymbol(id, {}, { mode: "candidate", kind, tag: ["PI", "0004"] }).metadata.kind, kind);
+    }
     assert.throws(() => placeSymbol(id, {}, { mode: "candidate", measuredQuantity: "level" }), /Control panel identity/);
   }
 });
@@ -167,6 +171,11 @@ test("external identity avoids route and other label ink; versioned migration re
   assert.equal(moved.config.version, 1);
   assert.equal(moved.candidate.metadata.processState, "unknown");
   assert.deepEqual(rows(moved.candidate), ["PI", "0003"]);
+  assert.equal(moved.candidate.metadata.kind, "unclassified");
+  assert.equal(moved.report.needsClassification, true);
+  const declared = migrateInstrument({ ...old, options: { ...old.options, kind: "physical-instrument" } });
+  assert.equal(declared.candidate.metadata.kind, "physical-instrument");
+  assert.equal(declared.report.needsClassification, false);
   assert.deepEqual(moved.report.portMap.map(({ index, anchor, before, reroute }) => [index, anchor, before, reroute]),
     [[0, "S", [6, 50], true], [1, "N", [34, 50], true]]);
   const absent = migrateInstrument({ id: "unknown-tag", symbolId: "inst-plc" });

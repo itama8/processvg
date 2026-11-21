@@ -17,6 +17,7 @@
     "check:primary-layout": "node scripts/check-family-06-layout.mjs",
     "check:pump-layout": "node scripts/check-family-07-layout.mjs",
     "check:screening-layout": "node scripts/check-family-08-layout.mjs",
-    "check:structure-layout": "node scripts/check-family-09-layout.mjs"
+    "check:structure-layout": "node scripts/check-family-09-layout.mjs",
+    "review:families-04-09": "node scripts/build-families-04-09-review.mjs"
   }
 }

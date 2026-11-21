@@ -104,7 +104,10 @@ optional `via` route vertices. Create deliberate pipe or vessel takeoffs with
 for additional connections. `primaryInstrument(primary, config, at)`
 composes a Family 05 instrument with a distinct functional block ID and
 explicit `integral` mounting. An integral attachment shares the primary's
-`assetId`. A remote transmitter uses a separate asset ID.
+`assetId`. A remote transmitter uses a separate asset ID. In the process
+fixture the integral FIT sits directly on its element with no drawn signal
+line, while the remote FIT keeps its dashed signal (Art of the P&ID slide 17;
+Pāhala P-002). The analysis sheet's integral AIT sits on its cabinet the same way. The electrical edge remains in the topology either way.
 
 | Component | Connectivity contract |
 | --- | --- |

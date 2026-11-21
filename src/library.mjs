@@ -327,7 +327,9 @@ function authoredInstrument(id, options) {
   const { mode, display, tag, ...config } = options;
   const authoredTag = Array.isArray(tag) ? { letters: tag[0], ...(tag[1] === undefined ? {} : { loop: tag[1] }) } : tag;
   const hasTag = Object.hasOwn(options, "tag");
-  const kind = config.kind ?? (hasTag && INSTRUMENT_PRESETS[id].kind === "control-panel" ? "control-function" : undefined);
+  // A location bar records where a function is mounted, not what it does. An authored tag on a
+  // panel preset (LIC, PI, ...) therefore stays unclassified until the project declares its kind.
+  const kind = config.kind ?? (hasTag && INSTRUMENT_PRESETS[id].kind === "control-panel" ? "unclassified" : undefined);
   return { ...config, id: config.id ?? id, preset: id, kind, ...(hasTag && { tag: authoredTag }) };
 }
 
@@ -338,7 +340,8 @@ export function migrateInstrument({ version = 0, symbolId, at = {}, id, options 
   }
   const legacy = placeSymbol(symbolId, at, { ...(Array.isArray(options.tag) && { tag: options.tag }) });
   const missingIdentity = Boolean(byId[symbolId].tag && options.tag == null && options.panel == null);
-  const needsClassification = missingIdentity && INSTRUMENT_PRESETS[symbolId].kind === "control-panel" && options.kind === undefined;
+  const needsClassification = INSTRUMENT_PRESETS[symbolId].kind === "control-panel" && options.kind === undefined &&
+    options.panel == null;
   const config = authoredInstrument(symbolId, {
     ...options, id,
     ...(missingIdentity && (options.kind === "control-panel" ? { tag: undefined, panel: null } : { tag: null, panel: undefined })),

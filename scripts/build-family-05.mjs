@@ -77,7 +77,7 @@ function cases(s, size) {
   const panel = instrument("panel-room-7", "inst-panel", 380, 70, { panel: { identifier: "MCP", number: "007" } });
   const lic = instrument("influent-lic", "inst-panel", 494, 70,
     { kind: "control-function", tag: { letters: "LIC", loop: "004" }, hostedBy: panel.metadata.id });
-  const pi = instrument("gauge-pi", "inst-local", 494, 154, { kind: "control-function", tag: { letters: "PI" } });
+  const pi = instrument("gauge-pi", "inst-local", 494, 154, { kind: "physical-instrument", tag: { letters: "PI" } });
   const network = instrumentNetwork([up, down, calc, panel, lic, pi], [up, down].map((source, i) => ({
     id: `reading-${i}`, kind: "digital-data", from: { assetId: source.metadata.id, portId: "reading" },
     to: { assetId: calc.metadata.id, portId: i === 0 ? "upstream" : "downstream" },
