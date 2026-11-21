@@ -8,7 +8,7 @@
   "scripts": {
     "build": "python3 examples/drawings.py && node scripts/build-legends.mjs && node examples/inlet-works-pid.mjs && node scripts/build-family-01.mjs && node scripts/build-family-02.mjs && node scripts/build-family-03.mjs && node scripts/build-family-04.mjs && node scripts/build-family-05.mjs && node scripts/build-family-06.mjs && node scripts/build-family-07.mjs && node scripts/build-family-08.mjs && node scripts/build-family-09.mjs",
     "review": "node scripts/build-review.mjs",
-    "check": "sh scripts/check.sh && node --test tests/*.test.mjs",
+    "check": "python3 scripts/check.py && node --test tests/*.test.mjs",
     "check:valve-layout": "node scripts/check-family-02-layout.mjs",
     "check:actuator-layout": "node scripts/check-equipment-layout.mjs actuators",
     "check:gate-layout": "node scripts/check-equipment-layout.mjs gates",
@@ -28,6 +28,9 @@
   "files": [
     "src",
     "drawings/symbols/catalogue.json",
+    "vendor/plotter/assets/foundation",
+    "vendor/plotter/LICENSE",
+    "vendor/plotter/NOTICE.md",
     "docs",
     "LICENSE",
     "README.md"

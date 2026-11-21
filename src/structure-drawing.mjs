@@ -10,7 +10,10 @@ const angleTitle = { "A-A": "A–A", "B-B": "B–B" };
 export const STRUCTURE_PANEL = Object.freeze({ width: 520, height: 340 });
 
 export function drawStructure(placeSymbol, model, options = {}) {
-  const { profile = "screen", theme = "light", id = `${model.kind}-${options.view ?? model.viewPolicy.preferred}` } = options;
+  const { profile = "screen", id = `${model.kind}-${options.view ?? model.viewPolicy.preferred}` } = options;
+  // The inline profile takes its ink from the host, so it has no explicit theme.
+  const theme = options.theme ?? (profile === "inline" ? "auto" : "light");
+  const nonScaling = profile === "inline" ? ' vector-effect="non-scaling-stroke"' : "";
   if (options.deliverable && options.deliverable !== "review") throw new RangeError("Family 09 is eligible for illustrative review only");
   const print = profile === "print";
   const result = projectStructure(model, options);
@@ -25,13 +28,16 @@ export function drawStructure(placeSymbol, model, options = {}) {
   function path(points, { closed = false, dash, attr = "" } = {}) {
     const pixels = points.map(project);
     if (pixels.every(([x,y]) => Math.hypot(x-pixels[0][0],y-pixels[0][1]) < 0.001)) return "";
-    return `<path d="${strokePath(pixels,closed)}"${dash ? ` stroke-dasharray="${dash}"` : ""}${attr} />`;
+    return `<path d="${strokePath(pixels,closed)}"${dash ? ` stroke-dasharray="${dash}"` : ""}${attr}${nonScaling} />`;
   }
   function ring(point, radius, attr = "") {
     const [x,y] = project(point);
-    return `<circle cx="${fmt(x)}" cy="${fmt(y)}" r="${fmt(radius)}"${attr} />`;
+    return `<circle cx="${fmt(x)}" cy="${fmt(y)}" r="${fmt(radius)}"${attr}${nonScaling} />`;
   }
-  const wire = (points, attr = "") => `<path d="${strokePath(points)}"${attr} />`;
+  const wire = (points, attr = "") => `<path d="${strokePath(points)}"${attr}${nonScaling} />`;
+  // Plotter annotation roles: dimensions and level leaders sit at secondary ink (full ink in print).
+  const annotation = (role) => ` data-plotter-role="${role}" opacity="${print ? 1 : 0.32}"`;
+  const dimensionWire = (points) => wire(points, annotation("dimension"));
   const text = (x,y,value,{ size=13, anchor="start", bold=false, attr="" } = {}) =>
     `<text x="${fmt(x)}" y="${fmt(y)}" fill="currentColor" stroke="none" font-size="${size}" text-anchor="${anchor}"${bold ? ' font-weight="700"' : ""}${attr}>${esc(value)}</text>`;
 
@@ -52,7 +58,7 @@ export function drawStructure(placeSymbol, model, options = {}) {
       const [,y1] = project([x,topSeam]);
       const dx = half*scale, dy = endRise*scale, a = fmt(cx-dx), b = fmt(cx+dx);
       const arc = `${fmt(dx)} ${fmt(dy)} 0 0 1`;
-      body.push(`<path${attr} d="M${a} ${fmt(y0)}L${a} ${fmt(y1)}A${arc} ${b} ${fmt(y1)}L${b} ${fmt(y0)}A${arc} ${a} ${fmt(y0)}Z"/>`);
+      body.push(`<path${attr} d="M${a} ${fmt(y0)}L${a} ${fmt(y1)}A${arc} ${b} ${fmt(y1)}L${b} ${fmt(y0)}A${arc} ${a} ${fmt(y0)}Z"${nonScaling}/>`);
     }
   }
 
@@ -94,7 +100,7 @@ export function drawStructure(placeSymbol, model, options = {}) {
     // A fixed annotation lane keeps labels distinct even at coincident or near-coincident RLs.
     const targetY = 91 + i*31;
     const [x] = project([span[1],rl]);
-    body.push(wire([[x+1,y],[x+7,y],[394,targetY-4],[401,targetY-4]],' stroke-dasharray="2 3"'),
+    body.push(wire([[x+1,y],[x+7,y],[394,targetY-4],[401,targetY-4]],` stroke-dasharray="2 3"${annotation("leader")}`),
       text(407,targetY,name,{ bold:true }),text(407,targetY+13,level(rl),{ size:11 }));
   });
 
@@ -109,16 +115,16 @@ export function drawStructure(placeSymbol, model, options = {}) {
     const label = full ? `${round ? "Ø" : axis ? "W" : "L"} ${metric(byDimension[axis ? "width" : "length"].valueM)} m` :
       `Cut chord ${metric(span[1]-span[0])} m`;
     const horizontalWitness = plan ? project([0,byDimension.length.fromM[1]])[1] : edgeY;
-    body.push(wire([[x0,horizontalWitness+2],[x0,dimY+5]]),wire([[x1,horizontalWitness+2],[x1,dimY+5]]),
-      wire([[x0-4,dimY],[x1+4,dimY]]),wire([[x0-3,dimY+3],[x0+3,dimY-3]]),
-      wire([[x1-3,dimY+3],[x1+3,dimY-3]]),text((x0+x1)/2,dimY+15,label,{ anchor:"middle",bold:true }));
+    body.push(dimensionWire([[x0,horizontalWitness+2],[x0,dimY+5]]),dimensionWire([[x1,horizontalWitness+2],[x1,dimY+5]]),
+      dimensionWire([[x0-4,dimY],[x1+4,dimY]]),dimensionWire([[x0-3,dimY+3],[x0+3,dimY-3]]),
+      dimensionWire([[x1-3,dimY+3],[x1+3,dimY-3]]),text((x0+x1)/2,dimY+15,label,{ anchor:"middle",bold:true }));
     if (plan && !round) {
       const [left,b0] = project([0,byDimension.width.fromM[1]]);
       const [,b1] = project([0,byDimension.width.toM[1]]);
       const dimX = left-29;
       const labelAt = [dimX-4,(b0+b1)/2];
-      body.push(wire([[left-6,b0],[dimX-5,b0]]),wire([[left-6,b1],[dimX-5,b1]]),
-        wire([[dimX,b0+4],[dimX,b1-4]]),
+      body.push(dimensionWire([[left-6,b0],[dimX-5,b0]]),dimensionWire([[left-6,b1],[dimX-5,b1]]),
+        dimensionWire([[dimX,b0+4],[dimX,b1-4]]),
         text(...labelAt,`W ${metric(byDimension.width.valueM)} m`,{ anchor:"middle",bold:true,
           attr:` transform="rotate(-90 ${labelAt.map(fmt).join(" ")})"` }));
     }
@@ -126,8 +132,8 @@ export function drawStructure(placeSymbol, model, options = {}) {
       const d = byDimension.depth;
       const [,y0] = project([0,d.fromM[2]]), [,y1] = project([0,d.toM[2]]);
       const dimX = x0-25;
-      body.push(wire([[dimX,y0],[dimX,y1]]),wire([[dimX-4,y0],[dimX+5,y0]]),
-        wire([[dimX-4,y1],[dimX+5,y1]]),
+      body.push(dimensionWire([[dimX,y0],[dimX,y1]]),dimensionWire([[dimX-4,y0],[dimX+5,y0]]),
+        dimensionWire([[dimX-4,y1],[dimX+5,y1]]),
         text(21,268,`Depth ${metric(d.valueM)} m  ·  Floor ${level(bottom)}  ·  Top ${level(top)}`,{ bold:true }));
     }
   }

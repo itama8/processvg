@@ -12,7 +12,7 @@ opacity for hierarchy, and per-symbol source and review status.
 | `src/index.mjs` | The public API. Import from here (`import … from "processvg"`); other modules are internal. |
 | `AGENTS.md`, `docs/agents.md` | How agents draw with the library today, and the plan for Sushi, Claude and ChatGPT. |
 | `src/library.mjs` | The symbol library: lines, valves (open and closed), actuators, channel gates, instruments, primary elements, pumps and blowers, screening and grit. Each symbol has ports, states and its sources. |
-| `src/render.mjs` | Shapes to SVG in Plotter roles, with screen and print profiles. |
+| `src/render.mjs` | Shapes to SVG in Plotter roles, with screen, print and inline profiles. |
 | `docs/family-01.md` | Family 01 ports, routed line patterns, off-sheet connectors, elevation annotations, and the review gallery. |
 | `docs/family-02.md` | Valve body composition, normal and operating states, typed interfaces and review fixtures. |
 | `docs/family-03.md` | Actuator heads and legacy presets, shared equipment mounting, and layout/export review. |
@@ -45,7 +45,7 @@ opacity for hierarchy, and per-symbol source and review status.
 
 ```sh
 npm run build    # regenerate drawings/ from src/ and examples/
-npm run check    # Plotter checks and family geometry and semantics
+npm run check    # processvg check (Plotter + P&ID exceptions) and family geometry and semantics
 npm run review   # review/index.html: drawings and family galleries
 ```
 

@@ -46,9 +46,11 @@ export function screeningPhysical(view, physical, at) {
     }
     const shift = (point) => point.map((value, i) => i === cross ? value + offset : value);
     const a = world(shift(from)), b = world(shift(to));
-    shapes.push({ d: [path([world(from), a]), path([world(to), b]), path([a, b])].join(" "), role: "secondary" });
+    // Plotter's dimension role, with the approved geometry: Plotter's helper fixes an 8-unit slash,
+    // which swamps assets drawn at a few units per metre, so these keep their 4-unit slashes.
+    shapes.push({ d: [path([world(from), a]), path([world(to), b]), path([a, b])].join(" "), role: "dimension" });
     const ticks = [a, b].map(([x, y]) => path([[x - 2, y + 2], [x + 2, y - 2]]));
-    shapes.push({ d: ticks.join(" "), role: "secondary" });
+    shapes.push({ d: ticks.join(" "), role: "dimension" });
     const value = clean(to[axis] - from[axis]);
     const vertical = (at.q + axis) % 2 === 1;
     const witness = world(from);

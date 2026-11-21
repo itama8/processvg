@@ -21,7 +21,8 @@ const outline = (points) => ({ d: line(...points) + " Z" });
 const rect = (x0, y0, x1, y1) => outline([[x0, y0], [x1, y0], [x1, y1], [x0, y1]]);
 const secondary = (shape) => ({ ...shape, role: "secondary" });
 const reference = (...points) => ({ d: line(...points), role: "secondary" });
-const hidden = (...points) => ({ ...reference(...points), dash: "3 2" });
+// Plotter's hidden role: 0.32 ink, dash 3/5 from the vendored standard (was secondary with dash 3/2).
+const hidden = (...points) => ({ d: line(...points), role: "hidden" });
 const radians = (value) => value * Math.PI / 180;
 
 function prescribed(snapshot, min, max, value) {
