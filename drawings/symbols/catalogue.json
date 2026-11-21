@@ -3761,6 +3761,10 @@
     {
      "std": "Processvg design",
      "ref": "Family 04 revision 03"
+    },
+    {
+     "std": "B&C",
+     "ref": "P-002, P-003 (flap gate reference)"
     }
    ],
    "ports": [
@@ -3795,19 +3799,24 @@
     "kind": "flap",
     "bounds": [
      -7,
-     -6.2,
+     -8.2,
      7,
-     6.2
+     7
     ],
     "mount": null
    },
-   "glyphRef": "valve-check",
    "shapes": [
     {
-     "d": "M-7 -5 L7 0 L-7 5 Z"
+     "d": "M-7 0 L-3 0 M-3 7 L-3 -7 L5 7 M1 0 L7 0"
     },
     {
-     "d": "M7 -6.2 L7 6.2"
+     "c": [
+      -3,
+      -7,
+      1.2
+     ],
+     "role": "dot",
+     "fill": "solid"
     }
    ]
   },

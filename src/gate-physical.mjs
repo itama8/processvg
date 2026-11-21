@@ -275,18 +275,28 @@ function levelsFor(levels, model, at, scale, view) {
     anchor: { x, yDatum: at.y, datumRL: invertRL, scale: localScale },
   }).shapes;
   const shapes = [];
+  // Keep short level callouts outboard when there is too little room for the level marker.
+  const minSpan = 10;
   if (levels.upstream !== undefined) {
     const left = model.pocketOffset ?? model.sweep ?? model.wallThickness ?? 0;
-    shapes.push(...annotate("Upstream", levels.upstream, at.x - model.upstream * scale, (model.upstream - left) * scale));
+    const start = at.x - model.upstream * scale;
+    const span = (model.upstream - left) * scale;
+    shapes.push(...annotate("Upstream", levels.upstream, span < minSpan ? start - minSpan : start, Math.max(minSpan, span)));
   }
   if (levels.downstream !== undefined) {
     const right = model.pocketWidth !== undefined ? model.pocketWidth - model.pocketOffset :
       model.sweep ?? model.reach ?? model.thickness;
-    shapes.push(...annotate("Downstream", levels.downstream, at.x + right * scale, (model.downstream - right) * scale));
+    // The level symbol extends five sheet units to the left of its anchor.
+    const markerClearance = 7;
+    const span = (model.downstream - right) * scale - markerClearance;
+    const start = at.x + (span < minSpan ? model.downstream : right) * scale + markerClearance;
+    shapes.push(...annotate("Downstream", levels.downstream, start,
+      Math.max(minSpan, span)));
   }
   if (crest) {
     const right = view === "elevation" ? model.width / 2 : model.downstream;
-    shapes.push(...annotate("Crest", invertRL + model.crest / units.get(unit), at.x + right * scale + 12, 65));
+    const name = view === "section" && model.centreCrest > model.crest ? "Notch root" : "Crest";
+    shapes.push(...annotate(name, invertRL + model.crest / units.get(unit), at.x + right * scale + 12, 65));
   }
   return shapes;
 }

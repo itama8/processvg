@@ -27,7 +27,7 @@ for (const [theme, options] of Object.entries(profiles)) {
         const bottom = { ...top, labelAnchor: [x + (id === "gate-bulkhead" ? 34 : 18), y + 31] };
         if (id === "gate-butterfly") {
           top.normalPosition = "closed";
-          top.labelAnchor = [x + 22, y + 3];
+          top.labelAnchor = [x + 30, y + 3];
           bottom.normalPosition = "open";
         }
         if (id === "gate-flap") {

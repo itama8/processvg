@@ -91,24 +91,40 @@ test("slide and bulkhead knockouts use transparent shared masks; small slides ca
   }
 });
 
-test("flap reuses the NRV glyph and direction at every turn with distinct channel equipment identity", () => {
-  assert.equal(byId["gate-flap"].draw, byId["valve-check"].draw);
+test("flap has a dedicated hinge and leaf with compatible endpoints and direction at every turn", () => {
   for (const q of rotations) {
     const at = { q, x: 50, y: 30, s: 2 };
     const gate = placeSymbol("gate-flap", at);
     const nrv = placeSymbol("valve-check", at);
-    assert.deepEqual(glyph(gate), glyph(nrv));
+    assert.notDeepEqual(glyph(gate), glyph(nrv));
+    assert.deepEqual(glyph(gate)[1].c.slice(0, 2), placePoint([-3, -7], at));
     assert.deepEqual(labels(gate), ["FG"]);
     assert.equal(gate.metadata.type, "gate-flap");
     assert.deepEqual(gate.ports, nrv.ports);
     assert.deepEqual(gate.connectivity, [[0, 1]]);
     assert.deepEqual(gate.permittedFlow.from.normal, nrv.permittedFlow.from.normal);
     assert.deepEqual(gate.permittedFlow.to.point, nrv.permittedFlow.to.point);
+    const reverse = composeEquipment({ type: "gate-sluice", designDirection: "out-to-in", normalPosition: "closed" }, at);
+    assert.deepEqual(reverse.designFlow, { from: reverse.channelPorts[1], to: reverse.channelPorts[0] });
+    assert.equal(reverse.permittedFlow, undefined);
+    assert.deepEqual(reverse.connectivity, [[0, 1]]);
+    assert.deepEqual(composeEquipment({ ...flap, designDirection: "in-to-out" }, at).designFlow, gate.permittedFlow);
     for (const { point, normal } of gate.channelPorts) {
       const end = point.map((n, i) => n + 10 * normal[i]);
       assert.equal(routeLine("line-process", [point, end]).shapes[0].d, `M${point.join(" ")} L${end.join(" ")}`);
     }
   }
+});
+
+test("explicit stop-log counts remain visible without assuming the full inventory", () => {
+  const config = { type: "gate-stop", designPosition: { installedPanels: 2 } };
+  const result = composeEquipment(config);
+  assert.deepEqual(labels(result), ["2 logs installed"]);
+  assert.equal(result.metadata.installationState, null);
+  assert.equal(result.metadata.closedDisplay, null);
+  assert.throws(() => composeEquipment({ ...config, designPosition: {
+    ...config.designPosition, installationState: "removed",
+  } }), /disagrees/);
 });
 
 test("schematic mounts use Family 03, keep ports independent and label explicit failure states", () => {
@@ -252,4 +268,17 @@ test("fixed notch shapes use declared angle, width, side slope and pitch; the se
   assert.throws(() => physical(replace(t, { notchWidth: 1.5 }), "section"), /plate width/);
   assert.throws(() => physical(replace(v, { angle: 180 }), "elevation"), /included angle/);
   assert.throws(() => physical({ ...r, actuator: { type: "motor" } }, "elevation"), /no schematic actuator/);
+});
+
+test("short sectional level runs keep their RL and even serrations identify the off-section root", () => {
+  const config = equipment("weir-serrated", { ...p, crest: 0.5, notchDepth: 0.25, pitch: 0.4, count: 2,
+    upstreamLength: 0.12, downstreamLength: p.thickness });
+  const levels = { unit: "mm", datum: "Site", invertRL: 1000, upstream: 1950, downstream: 1300, crest: true, precision: 0 };
+  const section = physical(config, "section", "design", { x: 100, y: 150, s: 0.5 }, { levels });
+  assert.deepEqual(section.shapes.slice(2).filter(({ d }) => d).map(({ d }) => d).filter((d) => !d.endsWith("Z")),
+    ["M84 102.5 L94 102.5", "M112 135 L122 135", "M117 125 L182 125"]);
+  assert.ok(labels(section).includes("Notch root RL +1500 mm (Site)"));
+  assert.ok(labels(physical(config, "elevation", "design", {}, {
+    levels: { ...levels, upstream: undefined, downstream: undefined },
+  })).includes("Crest RL +1500 mm (Site)"));
 });
