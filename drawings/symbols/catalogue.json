@@ -16361,6 +16361,6195 @@
    }
   ]
  },
+ "structures": {
+  "docs": "docs/family-09.md",
+  "units": "m",
+  "approval": "Family 09 Revision 03 concept approval",
+  "verification": "Illustrative review only",
+  "views": [
+   "schematic",
+   "plan",
+   "section",
+   "elevation"
+  ],
+  "datum": {
+   "id": "EXAMPLE_RL100_UNVERIFIED",
+   "verticalReference": "illustrative relative level datum only",
+   "floorReferenceRL_m": 100,
+   "units": "m",
+   "coordinateSystem": "right-handed x,y,z",
+   "horizontalCRS": null,
+   "surveyBenchmark": null,
+   "engineeringUse": "example only",
+   "requiredForConstruction": "replace with surveyed project datum and horizontal CRS"
+  },
+  "sourceLeads": [
+   {
+    "id": "SEW-2013-A:5.6.1.5",
+    "label": "CPHEEO sewerage manual (2013), §5.6.1.5",
+    "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.6.1.5"
+   },
+   {
+    "id": "SEW-2013-A:4.2.4",
+    "label": "CPHEEO sewerage manual (2013), §4.2.4",
+    "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:4.2.4"
+   },
+   {
+    "id": "SEW-2013-A:5.6.2",
+    "label": "CPHEEO sewerage manual (2013), §5.6.2",
+    "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.6.2"
+   },
+   {
+    "id": "SEW-2013-A:5.6.3",
+    "label": "CPHEEO sewerage manual (2013), §5.6.3",
+    "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.6.3"
+   },
+   {
+    "id": "SEW-2013-A:5.18.12.1",
+    "label": "CPHEEO sewerage manual (2013), §5.18.12.1",
+    "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.18.12.1"
+   },
+   {
+    "id": "SEW-2013-A:F5.78",
+    "label": "CPHEEO sewerage manual (2013), Fig 5.78",
+    "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:F5.78"
+   },
+   {
+    "id": "SEW-2013-A:5.18.13.2",
+    "label": "CPHEEO sewerage manual (2013), §5.18.13.2",
+    "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.18.13.2"
+   },
+   {
+    "id": "SEW-2013-A:F5.86",
+    "label": "CPHEEO sewerage manual (2013), Fig 5.86",
+    "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:F5.86"
+   },
+   {
+    "id": "WS-2024-A:8.6.8",
+    "label": "CPHEEO water supply manual (2024), §8.6.8",
+    "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/WS-2024-A:8.6.8"
+   },
+   {
+    "id": "SEW-2013-A:5.7.4.2.6.3",
+    "label": "CPHEEO sewerage manual (2013), §5.7.4.2.6.3",
+    "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.7.4.2.6.3"
+   },
+   {
+    "id": "SEW-2013-A:5.18.12.4.1",
+    "label": "CPHEEO sewerage manual (2013), §5.18.12.4.1",
+    "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.18.12.4.1"
+   },
+   {
+    "id": "SEW-2013-A:6.3",
+    "label": "CPHEEO sewerage manual (2013), §6.3",
+    "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:6.3"
+   },
+   {
+    "id": "SEW-2013-A:6.7.7",
+    "label": "CPHEEO sewerage manual (2013), §6.7.7",
+    "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:6.7.7"
+   }
+  ],
+  "decanterIds": [
+   "decanter-floating",
+   "decanter-swing-arm"
+  ],
+  "legacyIds": [
+   "tank-open",
+   "diffuser-grid",
+   "decanter"
+  ],
+  "records": [
+   {
+    "id": "receiving-chamber",
+    "name": "Receiving chamber",
+    "assetId": "RECEIVING_CHAMBER",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        2.5
+       ],
+       "endLocalM": [
+        8,
+        2.5
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        4,
+        0
+       ],
+       "endLocalM": [
+        4,
+        5
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "rect",
+    "geometry": {
+     "shape": "rect",
+     "lengthM": 8,
+     "widthM": 5,
+     "depthM": 5,
+     "floorRL": 100,
+     "wallTopRL": 105
+    },
+    "water": {
+     "mode": "static",
+     "wlRL": 104.15
+    },
+    "features": [
+     "low-inlet",
+     "overflow"
+    ],
+    "featureParameters": {},
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       8,
+       0,
+       100
+      ],
+      "valueM": 8
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       5,
+       100
+      ],
+      "valueM": 5
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       105
+      ],
+      "valueM": 5
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 2.5,
+      "points": [
+       [
+        0,
+        2.5
+       ],
+       [
+        8,
+        2.5
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 4,
+      "points": [
+       [
+        4,
+        0
+       ],
+       [
+        4,
+        5
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sewage-in",
+      "medium": "wastewater",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       2.5,
+       103.1
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "RECEIVING_CHAMBER"
+     },
+     {
+      "id": "overflow-out",
+      "medium": "wastewater",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       8,
+       2.5,
+       103.1
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "RECEIVING_CHAMBER"
+     }
+    ],
+    "portDiagnostics": [
+     {
+      "code": "INLET_NOT_BELOW_OUTLET_ANCHOR",
+      "ports": [
+       "sewage-in",
+       "overflow-out"
+      ]
+     }
+    ],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       4,
+       2.5,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [],
+    "criteriaApplied": []
+   },
+   {
+    "id": "screen-channel-assembly",
+    "name": "Screen channel assembly",
+    "assetId": "SCREEN_CHANNEL_ASSEMBLY",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        1.1
+       ],
+       "endLocalM": [
+        15,
+        1.1
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        7.5,
+        0
+       ],
+       "endLocalM": [
+        7.5,
+        2.2
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "channel",
+    "geometry": {
+     "shape": "channel",
+     "lengthM": 15,
+     "widthM": 2.2,
+     "depthM": 2.7,
+     "floorRL": 100,
+     "wallTopRL": 102.7
+    },
+    "water": {
+     "mode": "static",
+     "wlRL": 101.85
+    },
+    "features": [
+     "screen",
+     "gates"
+    ],
+    "featureParameters": {
+     "screenBars": 7
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       15,
+       0,
+       100
+      ],
+      "valueM": 15
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       2.2,
+       100
+      ],
+      "valueM": 2.2
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       102.7
+      ],
+      "valueM": 2.700000000000003
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 1.1,
+      "points": [
+       [
+        0,
+        1.1
+       ],
+       [
+        15,
+        1.1
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 7.5,
+      "points": [
+       [
+        7.5,
+        0
+       ],
+       [
+        7.5,
+        2.2
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sewage-in",
+      "medium": "wastewater",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       1.1,
+       101.674
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SCREEN_CHANNEL_ASSEMBLY"
+     },
+     {
+      "id": "sewage-out",
+      "medium": "wastewater",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       15,
+       1.1,
+       101.674
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SCREEN_CHANNEL_ASSEMBLY"
+     },
+     {
+      "id": "screenings-out",
+      "medium": "screenings-solids",
+      "direction": "out",
+      "surface": "north",
+      "anchorM": [
+       7.5,
+       2.2,
+       102.7
+      ],
+      "phase": "solid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SCREEN_CHANNEL_ASSEMBLY"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "screen-bar",
+      "sourceSymbolId": "screen-bar",
+      "symbolId": "screen-bar",
+      "membership": "distinct",
+      "mountM": [
+       7.5,
+       1.1,
+       101.35
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "variant": "legacy"
+      },
+      "status": "illustrative_placeholder__engineer_to_place",
+      "assetId": "SCREEN_CHANNEL_ASSEMBLY/screen-bar"
+     },
+     {
+      "id": "gate-slide-inlet",
+      "sourceSymbolId": "gate-slide",
+      "symbolId": "gate-slide",
+      "membership": "distinct",
+      "mountM": [
+       4.5,
+       1.1,
+       101.35
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "convention": "current"
+      },
+      "status": "candidate-inlet-and-outlet-gate-mounts",
+      "assetId": "SCREEN_CHANNEL_ASSEMBLY/gate-slide-inlet"
+     },
+     {
+      "id": "gate-slide-outlet",
+      "sourceSymbolId": "gate-slide",
+      "symbolId": "gate-slide",
+      "membership": "distinct",
+      "mountM": [
+       10.5,
+       1.1,
+       101.35
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "convention": "current"
+      },
+      "status": "candidate-inlet-and-outlet-gate-mounts",
+      "assetId": "SCREEN_CHANNEL_ASSEMBLY/gate-slide-outlet"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [
+     {
+      "id": "SEW-2013-A:5.6.1.5",
+      "kind": "design_reference_lead",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.6.1.5",
+      "verification": "extract_review_only"
+     }
+    ],
+    "criteriaApplied": []
+   },
+   {
+    "id": "raw-sewage-wet-well",
+    "name": "Raw sewage wet well",
+    "assetId": "RAW_SEWAGE_WET_WELL",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        3
+       ],
+       "endLocalM": [
+        9,
+        3
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        4.5,
+        0
+       ],
+       "endLocalM": [
+        4.5,
+        6
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "rect",
+    "geometry": {
+     "shape": "rect",
+     "lengthM": 9,
+     "widthM": 6,
+     "depthM": 6,
+     "floorRL": 100,
+     "wallTopRL": 106
+    },
+    "water": {
+     "mode": "variable",
+     "bwlRL": 103.9,
+     "currentRL": 104.9,
+     "twlRL": 105.5
+    },
+    "features": [
+     "depression",
+     "pumps",
+     "variable-level"
+    ],
+    "featureParameters": {
+     "sumpDropM": 0.6,
+     "pumpCount": 2
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       9,
+       0,
+       100
+      ],
+      "valueM": 9
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       6,
+       100
+      ],
+      "valueM": 6
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       106
+      ],
+      "valueM": 6
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 3,
+      "points": [
+       [
+        0,
+        3
+       ],
+       [
+        9,
+        3
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 4.5,
+      "points": [
+       [
+        4.5,
+        0
+       ],
+       [
+        4.5,
+        6
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sewage-in",
+      "medium": "wastewater",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       3,
+       103.72
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "RAW_SEWAGE_WET_WELL"
+     },
+     {
+      "id": "pumped-out",
+      "medium": "wastewater",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       9,
+       3,
+       103.72
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "RAW_SEWAGE_WET_WELL"
+     },
+     {
+      "id": "drain",
+      "medium": "drain",
+      "direction": "out",
+      "surface": "floor",
+      "anchorM": [
+       4.5,
+       3,
+       100
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "RAW_SEWAGE_WET_WELL"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       4.5,
+       3,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "pump-submersible-1",
+      "sourceSymbolId": "pump-submersible",
+      "symbolId": "pump-submersible",
+      "membership": "distinct",
+      "mountM": [
+       5.85,
+       3.9,
+       100.4
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "variant": "refined"
+      },
+      "status": "illustrative_placeholder__engineer_to_place",
+      "assetId": "RAW_SEWAGE_WET_WELL/pump-submersible-1"
+     },
+     {
+      "id": "pump-submersible-2",
+      "sourceSymbolId": "pump-submersible",
+      "symbolId": "pump-submersible",
+      "membership": "distinct",
+      "mountM": [
+       4.5,
+       3,
+       100.4
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "variant": "refined"
+      },
+      "status": "candidate-supplemental-pump",
+      "assetId": "RAW_SEWAGE_WET_WELL/pump-submersible-2"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [
+     {
+      "id": "SEW-2013-A:4.2.4",
+      "kind": "design_reference_lead",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:4.2.4",
+      "verification": "extract_review_only"
+     }
+    ],
+    "criteriaApplied": []
+   },
+   {
+    "id": "stilling-chamber",
+    "name": "Stilling chamber",
+    "assetId": "STILLING_CHAMBER",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        1.65
+       ],
+       "endLocalM": [
+        4,
+        1.65
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        2,
+        0
+       ],
+       "endLocalM": [
+        2,
+        3.3
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "rect",
+    "geometry": {
+     "shape": "rect",
+     "lengthM": 4,
+     "widthM": 3.3,
+     "depthM": 4.5,
+     "floorRL": 100,
+     "wallTopRL": 104.5
+    },
+    "water": {
+     "mode": "static",
+     "wlRL": 103.65
+    },
+    "features": [
+     "low-inlet",
+     "weir"
+    ],
+    "featureParameters": {},
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       4,
+       0,
+       100
+      ],
+      "valueM": 4
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       3.3,
+       100
+      ],
+      "valueM": 3.3
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       104.5
+      ],
+      "valueM": 4.5
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 1.65,
+      "points": [
+       [
+        0,
+        1.65
+       ],
+       [
+        4,
+        1.65
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 2,
+      "points": [
+       [
+        2,
+        0
+       ],
+       [
+        2,
+        3.3
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sewage-in",
+      "medium": "wastewater",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       1.65,
+       102.79
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "STILLING_CHAMBER"
+     },
+     {
+      "id": "overflow-out",
+      "medium": "wastewater",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       4,
+       1.65,
+       102.79
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "STILLING_CHAMBER"
+     }
+    ],
+    "portDiagnostics": [
+     {
+      "code": "INLET_NOT_BELOW_OUTLET_ANCHOR",
+      "ports": [
+       "sewage-in",
+       "overflow-out"
+      ]
+     }
+    ],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       2,
+       1.65,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "weir",
+      "sourceSymbolId": "weir",
+      "symbolId": "weir",
+      "membership": "integral",
+      "mountM": [
+       3.72,
+       1.65,
+       103.65
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "convention": "current"
+      },
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [],
+    "criteriaApplied": []
+   },
+   {
+    "id": "square-detritor",
+    "name": "Square detritor",
+    "assetId": "SQUARE_DETRITOR",
+    "viewPolicy": {
+     "preferred": "plan",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        3
+       ],
+       "endLocalM": [
+        6,
+        3
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        3,
+        0
+       ],
+       "endLocalM": [
+        3,
+        6
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "rect",
+    "geometry": {
+     "shape": "rect",
+     "lengthM": 6,
+     "widthM": 6,
+     "depthM": 3.4,
+     "floorRL": 100,
+     "wallTopRL": 103.4
+    },
+    "water": {
+     "mode": "static",
+     "wlRL": 102.55
+    },
+    "features": [
+     "scraper",
+     "grit-hopper"
+    ],
+    "featureParameters": {},
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       6,
+       0,
+       100
+      ],
+      "valueM": 6
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       6,
+       100
+      ],
+      "valueM": 6
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       103.4
+      ],
+      "valueM": 3.4000000000000057
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 3,
+      "points": [
+       [
+        0,
+        3
+       ],
+       [
+        6,
+        3
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 3,
+      "points": [
+       [
+        3,
+        0
+       ],
+       [
+        3,
+        6
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sewage-in",
+      "medium": "wastewater",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       3,
+       102.108
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SQUARE_DETRITOR"
+     },
+     {
+      "id": "sewage-out",
+      "medium": "wastewater",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       6,
+       3,
+       102.108
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SQUARE_DETRITOR"
+     },
+     {
+      "id": "grit-out",
+      "medium": "grit-slurry",
+      "direction": "out",
+      "surface": "floor",
+      "anchorM": [
+       3,
+       3,
+       100
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SQUARE_DETRITOR"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       3,
+       3,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "grit-classifier",
+      "sourceSymbolId": "grit-classifier",
+      "symbolId": "grit-classifier",
+      "membership": "distinct",
+      "mountM": [
+       4.8,
+       4.8,
+       103.1
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "variant": "legacy"
+      },
+      "status": "illustrative_placeholder__engineer_to_place",
+      "assetId": "SQUARE_DETRITOR/grit-classifier"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [
+     {
+      "id": "SEW-2013-A:5.6.2",
+      "kind": "design_reference_lead",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.6.2",
+      "verification": "extract_review_only"
+     }
+    ],
+    "criteriaApplied": []
+   },
+   {
+    "id": "equalisation-tank",
+    "name": "Equalisation tank",
+    "assetId": "EQUALISATION_TANK",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        3.5
+       ],
+       "endLocalM": [
+        12,
+        3.5
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        6,
+        0
+       ],
+       "endLocalM": [
+        6,
+        7
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "rect",
+    "geometry": {
+     "shape": "rect",
+     "lengthM": 12,
+     "widthM": 7,
+     "depthM": 5.5,
+     "floorRL": 100,
+     "wallTopRL": 105.5
+    },
+    "water": {
+     "mode": "variable",
+     "bwlRL": 103.4,
+     "currentRL": 104.4,
+     "twlRL": 105
+    },
+    "features": [
+     "mixer",
+     "pumps",
+     "variable-level"
+    ],
+    "featureParameters": {
+     "pumpCount": 2
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       12,
+       0,
+       100
+      ],
+      "valueM": 12
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       7,
+       100
+      ],
+      "valueM": 7
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       105.5
+      ],
+      "valueM": 5.5
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 3.5,
+      "points": [
+       [
+        0,
+        3.5
+       ],
+       [
+        12,
+        3.5
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 6,
+      "points": [
+       [
+        6,
+        0
+       ],
+       [
+        6,
+        7
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sewage-in",
+      "medium": "wastewater",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       3.5,
+       103.41
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "EQUALISATION_TANK"
+     },
+     {
+      "id": "pumped-out",
+      "medium": "wastewater",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       12,
+       3.5,
+       103.41
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "EQUALISATION_TANK"
+     },
+     {
+      "id": "overflow",
+      "medium": "wastewater",
+      "direction": "out",
+      "surface": "north",
+      "anchorM": [
+       6,
+       7,
+       104.675
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "EQUALISATION_TANK"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       6,
+       3.5,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "mixer",
+      "sourceSymbolId": "mixer",
+      "symbolId": "mixer",
+      "membership": "distinct",
+      "mountM": [
+       6,
+       3.5,
+       103.025
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "variant": "legacy"
+      },
+      "status": "illustrative_placeholder__engineer_to_place",
+      "assetId": "EQUALISATION_TANK/mixer"
+     },
+     {
+      "id": "pump-submersible-1",
+      "sourceSymbolId": "pump-submersible",
+      "symbolId": "pump-submersible",
+      "membership": "distinct",
+      "mountM": [
+       7.8,
+       4.55,
+       100.4
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "variant": "refined"
+      },
+      "status": "illustrative_placeholder__engineer_to_place",
+      "assetId": "EQUALISATION_TANK/pump-submersible-1"
+     },
+     {
+      "id": "pump-submersible-2",
+      "sourceSymbolId": "pump-submersible",
+      "symbolId": "pump-submersible",
+      "membership": "distinct",
+      "mountM": [
+       4.5600000000000005,
+       3.5,
+       100.4
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "variant": "refined"
+      },
+      "status": "candidate-supplemental-pump",
+      "assetId": "EQUALISATION_TANK/pump-submersible-2"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [
+     {
+      "id": "SEW-2013-A:5.6.3",
+      "kind": "design_reference_lead",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.6.3",
+      "verification": "extract_review_only"
+     }
+    ],
+    "criteriaApplied": []
+   },
+   {
+    "id": "sbr-basin",
+    "name": "SBR basin",
+    "assetId": "SBR_BASIN",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        3.5
+       ],
+       "endLocalM": [
+        15,
+        3.5
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        7.5,
+        0
+       ],
+       "endLocalM": [
+        7.5,
+        7
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "rect",
+    "geometry": {
+     "shape": "rect",
+     "lengthM": 15,
+     "widthM": 7,
+     "depthM": 5.5,
+     "floorRL": 100,
+     "wallTopRL": 105.5
+    },
+    "water": {
+     "mode": "variable",
+     "bwlRL": 103.4,
+     "currentRL": 104.4,
+     "twlRL": 105
+    },
+    "features": [
+     "diffusers",
+     "decanter",
+     "variable-level"
+    ],
+    "featureParameters": {
+     "diffuserRows": 3,
+     "diffusersPerRow": 7,
+     "decanterType": "floating",
+     "decanterFractionOfLength": 0.2,
+     "decanterVariants": [
+      "floating",
+      "swing-arm"
+     ],
+     "decanterTypeDefault": "floating"
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       15,
+       0,
+       100
+      ],
+      "valueM": 15
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       7,
+       100
+      ],
+      "valueM": 7
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       105.5
+      ],
+      "valueM": 5.5
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 3.5,
+      "points": [
+       [
+        0,
+        3.5
+       ],
+       [
+        15,
+        3.5
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 7.5,
+      "points": [
+       [
+        7.5,
+        0
+       ],
+       [
+        7.5,
+        7
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "mixed-liquor-in",
+      "medium": "mixed-liquor",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       3.5,
+       103.41
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SBR_BASIN"
+     },
+     {
+      "id": "decant-out",
+      "medium": "treated-effluent",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       15,
+       3.5,
+       103.41
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SBR_BASIN"
+     },
+     {
+      "id": "waste-sludge-out",
+      "medium": "waste-sludge",
+      "direction": "out",
+      "surface": "floor",
+      "anchorM": [
+       7.5,
+       3.5,
+       100
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SBR_BASIN"
+     },
+     {
+      "id": "air-in",
+      "medium": "air",
+      "direction": "in",
+      "surface": "north",
+      "anchorM": [
+       7.5,
+       7,
+       105.5
+      ],
+      "phase": "gas",
+      "attachmentKind": "process-air",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SBR_BASIN"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       7.5,
+       3.5,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "diffuser-grid",
+      "sourceSymbolId": "diffuser-grid",
+      "symbolId": "diffuser-grid",
+      "membership": "integral",
+      "mountM": [
+       7.5,
+       3.5,
+       100.3
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "decanter",
+      "sourceSymbolId": "decanter",
+      "symbolId": "decanter-floating",
+      "membership": "integral",
+      "mountM": [
+       12,
+       3.5,
+       104.32000000000001
+      ],
+      "q": 0,
+      "representation": "preset",
+      "options": {},
+      "status": "resolved-illustrative-preset",
+      "referenceMountM": [
+       12,
+       3.5,
+       104.32
+      ]
+     },
+     {
+      "id": "valve-check",
+      "sourceSymbolId": "valve-check",
+      "symbolId": "valve-check",
+      "membership": "distinct",
+      "mountM": [
+       7.5,
+       3.5,
+       102.75
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place",
+      "assetId": "SBR_BASIN/valve-check"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [
+     {
+      "id": "SEW-2013-A:5.18.12.1",
+      "kind": "design_reference_lead",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.18.12.1",
+      "verification": "extract_review_only"
+     },
+     {
+      "id": "SEW-2013-A:F5.78",
+      "kind": "design_reference_lead",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:F5.78",
+      "verification": "extract_review_only"
+     }
+    ],
+    "criteriaApplied": [],
+    "decanterPresets": {
+     "selectedDefault": "floating",
+     "registry": {
+      "floating": {
+       "id": "decanter-floating",
+       "legacyCompatibleGeometryId": "decanter",
+       "behavior": "decanter intake and floats follow current water surface",
+       "parameters": {
+        "nominalSubmergenceM": 0.08,
+        "intakeXFractionOfLength": 0.8
+       },
+       "exampleResolvedIntakeLocalM": [
+        12,
+        3.5,
+        104.32
+       ],
+       "allowedWaterLevelRL_m": [
+        103.4,
+        105
+       ],
+       "claims": "review rendering kinematics only; validate mechanical capacity, decant hydraulics and geometry externally"
+      },
+      "swing-arm": {
+       "id": "decanter-swing-arm",
+       "legacyCompatibleGeometryId": null,
+       "behavior": "intake follows water level on fixed-length arm pivoting at anchored joint",
+       "parameters": {
+        "pivotLocalM": [
+         14.4,
+         3.5,
+         105.18
+        ],
+        "armLengthM": 2.3,
+        "nominalSubmergenceM": 0.08
+       },
+       "solvedExample": {
+        "levelRL_m": 104.4,
+        "pivotLocalM": [
+         14.4,
+         3.5,
+         105.18
+        ],
+        "intakeLocalM": [
+         12.267,
+         3.5,
+         104.32
+        ],
+        "armAngleDegFromHorizontal": 21.957,
+        "armLengthM": 2.3
+       },
+       "kinematicLimitsExamples": [
+        {
+         "levelRL_m": 103.4,
+         "pivotLocalM": [
+          14.4,
+          3.5,
+          105.18
+         ],
+         "intakeLocalM": [
+          13.047,
+          3.5,
+          103.32
+         ],
+         "armAngleDegFromHorizontal": 53.969,
+         "armLengthM": 2.3
+        },
+        {
+         "levelRL_m": 105,
+         "pivotLocalM": [
+          14.4,
+          3.5,
+          105.18
+         ],
+         "intakeLocalM": [
+          12.115,
+          3.5,
+          104.92
+         ],
+         "armAngleDegFromHorizontal": 6.491,
+         "armLengthM": 2.3
+        }
+       ],
+       "claims": "pure geometry and example kinematics; vendor performance and submergence NOT verified"
+      }
+     },
+     "sharedAssetIdentity": "SBR_BASIN",
+     "selectionIs": "per equipment instance, does not change tank footprint or operating level order",
+     "legacyPolicy": "original decanter ID retains original geometry; presets are additive; do not rewrite legacy drawings"
+    }
+   },
+   {
+    "id": "mbbr-reactor",
+    "name": "MBBR tank",
+    "assetId": "MBBR_REACTOR",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        3
+       ],
+       "endLocalM": [
+        12,
+        3
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        6,
+        0
+       ],
+       "endLocalM": [
+        6,
+        6
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "rect",
+    "geometry": {
+     "shape": "rect",
+     "lengthM": 12,
+     "widthM": 6,
+     "depthM": 5,
+     "floorRL": 100,
+     "wallTopRL": 105
+    },
+    "water": {
+     "mode": "static",
+     "wlRL": 104.15
+    },
+    "features": [
+     "carriers",
+     "retention",
+     "diffusers"
+    ],
+    "featureParameters": {
+     "diffuserRows": 3,
+     "diffusersPerRow": 7,
+     "carrierRows": 3,
+     "carrierColumns": 8,
+     "carrierPlacement": "evenly-spaced texture, not physical count"
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       12,
+       0,
+       100
+      ],
+      "valueM": 12
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       6,
+       100
+      ],
+      "valueM": 6
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       105
+      ],
+      "valueM": 5
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 3,
+      "points": [
+       [
+        0,
+        3
+       ],
+       [
+        12,
+        3
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 6,
+      "points": [
+       [
+        6,
+        0
+       ],
+       [
+        6,
+        6
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sewage-in",
+      "medium": "wastewater",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       3,
+       103.1
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "MBBR_REACTOR"
+     },
+     {
+      "id": "sewage-out",
+      "medium": "wastewater",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       12,
+       3,
+       103.1
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "MBBR_REACTOR"
+     },
+     {
+      "id": "air-in",
+      "medium": "air",
+      "direction": "in",
+      "surface": "north",
+      "anchorM": [
+       6,
+       6,
+       105
+      ],
+      "phase": "gas",
+      "attachmentKind": "process-air",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "MBBR_REACTOR"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       6,
+       3,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "diffuser-grid",
+      "sourceSymbolId": "diffuser-grid",
+      "symbolId": "diffuser-grid",
+      "membership": "integral",
+      "mountM": [
+       6,
+       3,
+       100.3
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [
+     {
+      "id": "SEW-2013-A:5.18.13.2",
+      "kind": "design_reference_lead",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.18.13.2",
+      "verification": "extract_review_only"
+     },
+     {
+      "id": "SEW-2013-A:F5.86",
+      "kind": "design_reference_lead",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:F5.86",
+      "verification": "extract_review_only"
+     }
+    ],
+    "criteriaApplied": []
+   },
+   {
+    "id": "anoxic-tank",
+    "name": "Anoxic tank",
+    "assetId": "ANOXIC_TANK",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        3
+       ],
+       "endLocalM": [
+        10,
+        3
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        5,
+        0
+       ],
+       "endLocalM": [
+        5,
+        6
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "rect",
+    "geometry": {
+     "shape": "rect",
+     "lengthM": 10,
+     "widthM": 6,
+     "depthM": 5,
+     "floorRL": 100,
+     "wallTopRL": 105
+    },
+    "water": {
+     "mode": "static",
+     "wlRL": 104.15
+    },
+    "features": [
+     "mixer",
+     "recycle"
+    ],
+    "featureParameters": {},
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       10,
+       0,
+       100
+      ],
+      "valueM": 10
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       6,
+       100
+      ],
+      "valueM": 6
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       105
+      ],
+      "valueM": 5
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 3,
+      "points": [
+       [
+        0,
+        3
+       ],
+       [
+        10,
+        3
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 5,
+      "points": [
+       [
+        5,
+        0
+       ],
+       [
+        5,
+        6
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "mixed-liquor-in",
+      "medium": "mixed-liquor",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       3,
+       103.1
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "ANOXIC_TANK"
+     },
+     {
+      "id": "mixed-liquor-out",
+      "medium": "mixed-liquor",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       10,
+       3,
+       103.1
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "ANOXIC_TANK"
+     },
+     {
+      "id": "nitrate-recycle",
+      "medium": "nitrate-recycle",
+      "direction": "in",
+      "surface": "north",
+      "anchorM": [
+       5,
+       6,
+       104.25
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "ANOXIC_TANK"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       5,
+       3,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "mixer",
+      "sourceSymbolId": "mixer",
+      "symbolId": "mixer",
+      "membership": "distinct",
+      "mountM": [
+       5,
+       3,
+       102.75
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "variant": "legacy"
+      },
+      "status": "illustrative_placeholder__engineer_to_place",
+      "assetId": "ANOXIC_TANK/mixer"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [],
+    "criteriaApplied": []
+   },
+   {
+    "id": "asp-aeration-tank",
+    "name": "ASP aeration tank",
+    "assetId": "ASP_AERATION_TANK",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        3.1
+       ],
+       "endLocalM": [
+        18,
+        3.1
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        9,
+        0
+       ],
+       "endLocalM": [
+        9,
+        6.2
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "rect",
+    "geometry": {
+     "shape": "rect",
+     "lengthM": 18,
+     "widthM": 6.2,
+     "depthM": 5.2,
+     "floorRL": 100,
+     "wallTopRL": 105.2
+    },
+    "water": {
+     "mode": "static",
+     "wlRL": 104.35
+    },
+    "features": [
+     "diffusers",
+     "weir",
+     "ras"
+    ],
+    "featureParameters": {
+     "diffuserRows": 3,
+     "diffusersPerRow": 7
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       18,
+       0,
+       100
+      ],
+      "valueM": 18
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       6.2,
+       100
+      ],
+      "valueM": 6.2
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       105.2
+      ],
+      "valueM": 5.200000000000003
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 3.1,
+      "points": [
+       [
+        0,
+        3.1
+       ],
+       [
+        18,
+        3.1
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 9,
+      "points": [
+       [
+        9,
+        0
+       ],
+       [
+        9,
+        6.2
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sewage-in",
+      "medium": "wastewater",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       3.1,
+       103.224
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "ASP_AERATION_TANK"
+     },
+     {
+      "id": "mixed-liquor-out",
+      "medium": "mixed-liquor",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       18,
+       3.1,
+       103.224
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "ASP_AERATION_TANK"
+     },
+     {
+      "id": "return-sludge-in",
+      "medium": "return-activated-sludge",
+      "direction": "in",
+      "surface": "north",
+      "anchorM": [
+       9,
+       6.2,
+       104.42
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "ASP_AERATION_TANK"
+     },
+     {
+      "id": "air-in",
+      "medium": "air",
+      "direction": "in",
+      "surface": "north",
+      "anchorM": [
+       9,
+       6.2,
+       105.2
+      ],
+      "phase": "gas",
+      "attachmentKind": "process-air",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "ASP_AERATION_TANK"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       9,
+       3.1,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "diffuser-grid",
+      "sourceSymbolId": "diffuser-grid",
+      "symbolId": "diffuser-grid",
+      "membership": "integral",
+      "mountM": [
+       9,
+       3.1,
+       100.3
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "weir",
+      "sourceSymbolId": "weir",
+      "symbolId": "weir",
+      "membership": "integral",
+      "mountM": [
+       16.74,
+       3.1,
+       104.35
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "convention": "current"
+      },
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [],
+    "criteriaApplied": []
+   },
+   {
+    "id": "tube-settler",
+    "name": "Tube settler",
+    "assetId": "TUBE_SETTLER",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        2.5
+       ],
+       "endLocalM": [
+        9,
+        2.5
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        4.5,
+        0
+       ],
+       "endLocalM": [
+        4.5,
+        5
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "hopper",
+    "geometry": {
+     "shape": "hopper",
+     "lengthM": 9,
+     "widthM": 5,
+     "depthM": 5.5,
+     "floorRL": 100,
+     "wallTopRL": 105.5
+    },
+    "water": {
+     "mode": "static",
+     "wlRL": 104.65
+    },
+    "features": [
+     "tube-pack",
+     "hopper",
+     "weir"
+    ],
+    "featureParameters": {
+     "tubeRows": 9,
+     "tubeInclinationDeg": 60
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       9,
+       0,
+       100
+      ],
+      "valueM": 9
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       5,
+       100
+      ],
+      "valueM": 5
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       105.5
+      ],
+      "valueM": 5.5
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 2.5,
+      "points": [
+       [
+        0,
+        2.5
+       ],
+       [
+        9,
+        2.5
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 4.5,
+      "points": [
+       [
+        4.5,
+        0
+       ],
+       [
+        4.5,
+        5
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sewage-in",
+      "medium": "wastewater",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       2.5,
+       103.41
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "TUBE_SETTLER"
+     },
+     {
+      "id": "clarified-out",
+      "medium": "clarified-effluent",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       9,
+       2.5,
+       103.41
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "TUBE_SETTLER"
+     },
+     {
+      "id": "sludge-out",
+      "medium": "sludge",
+      "direction": "out",
+      "surface": "floor",
+      "anchorM": [
+       4.5,
+       2.5,
+       100
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "TUBE_SETTLER"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       4.5,
+       2.5,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "weir",
+      "sourceSymbolId": "weir",
+      "symbolId": "weir",
+      "membership": "integral",
+      "mountM": [
+       8.37,
+       2.5,
+       104.65
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "convention": "current"
+      },
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [
+     {
+      "id": "WS-2024-A:8.6.8",
+      "kind": "design_reference_lead",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/WS-2024-A:8.6.8",
+      "verification": "extract_review_only"
+     }
+    ],
+    "criteriaApplied": []
+   },
+   {
+    "id": "secondary-clarifier",
+    "name": "Circular secondary clarifier",
+    "assetId": "SECONDARY_CLARIFIER",
+    "viewPolicy": {
+     "preferred": "plan",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        7
+       ],
+       "endLocalM": [
+        14,
+        7
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        7,
+        0
+       ],
+       "endLocalM": [
+        7,
+        14
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "circular",
+    "geometry": {
+     "shape": "circular",
+     "lengthM": 14,
+     "widthM": 14,
+     "depthM": 4.8,
+     "floorRL": 100,
+     "wallTopRL": 104.8
+    },
+    "water": {
+     "mode": "static",
+     "wlRL": 103.95
+    },
+    "features": [
+     "feedwell",
+     "scraper",
+     "weir",
+     "hopper"
+    ],
+    "featureParameters": {
+     "feedwellDiameterFraction": 0.2,
+     "scraperArms": 2
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       14,
+       0,
+       100
+      ],
+      "valueM": 14
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       14,
+       100
+      ],
+      "valueM": 14
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       104.8
+      ],
+      "valueM": 4.799999999999997
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 7,
+      "points": [
+       [
+        0,
+        7
+       ],
+       [
+        14,
+        7
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 7,
+      "points": [
+       [
+        7,
+        0
+       ],
+       [
+        7,
+        14
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "mixed-liquor-in",
+      "medium": "mixed-liquor",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       7,
+       102.976
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SECONDARY_CLARIFIER"
+     },
+     {
+      "id": "clarified-out",
+      "medium": "clarified-effluent",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       14,
+       7,
+       102.976
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SECONDARY_CLARIFIER"
+     },
+     {
+      "id": "return-sludge-out",
+      "medium": "return-activated-sludge",
+      "direction": "out",
+      "surface": "floor",
+      "anchorM": [
+       7,
+       7,
+       100
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SECONDARY_CLARIFIER"
+     },
+     {
+      "id": "waste-sludge-out",
+      "medium": "waste-sludge",
+      "direction": "out",
+      "surface": "floor",
+      "anchorM": [
+       7,
+       7,
+       100
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SECONDARY_CLARIFIER"
+     }
+    ],
+    "portDiagnostics": [
+     {
+      "code": "COINCIDENT_ILLUSTRATIVE_PORT_ANCHORS",
+      "ports": [
+       "return-sludge-out",
+       "waste-sludge-out"
+      ]
+     }
+    ],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       7,
+       7,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "weir",
+      "sourceSymbolId": "weir",
+      "symbolId": "weir",
+      "membership": "integral",
+      "mountM": [
+       13.02,
+       7,
+       103.95
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "convention": "current"
+      },
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "mixer",
+      "sourceSymbolId": "mixer",
+      "symbolId": "mixer",
+      "membership": "reference",
+      "mountM": [
+       7,
+       7,
+       102.64
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "variant": "legacy"
+      },
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [
+     {
+      "id": "SEW-2013-A:5.7.4.2.6.3",
+      "kind": "design_reference_lead",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.7.4.2.6.3",
+      "verification": "extract_review_only"
+     }
+    ],
+    "criteriaApplied": []
+   },
+   {
+    "id": "primary-clarifier",
+    "name": "Rectangular primary clarifier",
+    "assetId": "PRIMARY_CLARIFIER",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        3
+       ],
+       "endLocalM": [
+        18,
+        3
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        9,
+        0
+       ],
+       "endLocalM": [
+        9,
+        6
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "rect",
+    "geometry": {
+     "shape": "rect",
+     "lengthM": 18,
+     "widthM": 6,
+     "depthM": 4.6,
+     "floorRL": 100,
+     "wallTopRL": 104.6
+    },
+    "water": {
+     "mode": "static",
+     "wlRL": 103.75
+    },
+    "features": [
+     "chain-flight",
+     "hopper",
+     "weir",
+     "baffle"
+    ],
+    "featureParameters": {
+     "flightMarkers": 7
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       18,
+       0,
+       100
+      ],
+      "valueM": 18
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       6,
+       100
+      ],
+      "valueM": 6
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       104.6
+      ],
+      "valueM": 4.599999999999994
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 3,
+      "points": [
+       [
+        0,
+        3
+       ],
+       [
+        18,
+        3
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 9,
+      "points": [
+       [
+        9,
+        0
+       ],
+       [
+        9,
+        6
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sewage-in",
+      "medium": "wastewater",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       3,
+       102.852
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "PRIMARY_CLARIFIER"
+     },
+     {
+      "id": "clarified-out",
+      "medium": "clarified-effluent",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       18,
+       3,
+       102.852
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "PRIMARY_CLARIFIER"
+     },
+     {
+      "id": "sludge-out",
+      "medium": "sludge",
+      "direction": "out",
+      "surface": "floor",
+      "anchorM": [
+       9,
+       3,
+       100
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "PRIMARY_CLARIFIER"
+     },
+     {
+      "id": "scum-out",
+      "medium": "scum",
+      "direction": "out",
+      "surface": "north",
+      "anchorM": [
+       9,
+       6,
+       103.91
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "PRIMARY_CLARIFIER"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       9,
+       3,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "weir",
+      "sourceSymbolId": "weir",
+      "symbolId": "weir",
+      "membership": "integral",
+      "mountM": [
+       16.74,
+       3,
+       103.75
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "convention": "current"
+      },
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [],
+    "criteriaApplied": []
+   },
+   {
+    "id": "chlorine-contact-tank",
+    "name": "Chlorine contact tank",
+    "assetId": "CHLORINE_CONTACT_TANK",
+    "viewPolicy": {
+     "preferred": "plan",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        3.5
+       ],
+       "endLocalM": [
+        16,
+        3.5
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        8,
+        0
+       ],
+       "endLocalM": [
+        8,
+        7
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "rect",
+    "geometry": {
+     "shape": "rect",
+     "lengthM": 16,
+     "widthM": 7,
+     "depthM": 3.4,
+     "floorRL": 100,
+     "wallTopRL": 103.4
+    },
+    "water": {
+     "mode": "static",
+     "wlRL": 102.55
+    },
+    "features": [
+     "serpentine",
+     "weir"
+    ],
+    "featureParameters": {
+     "baffleCount": 5,
+     "baffleEndOpeningFraction": 0.24
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       16,
+       0,
+       100
+      ],
+      "valueM": 16
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       7,
+       100
+      ],
+      "valueM": 7
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       103.4
+      ],
+      "valueM": 3.4000000000000057
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 3.5,
+      "points": [
+       [
+        0,
+        3.5
+       ],
+       [
+        16,
+        3.5
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 8,
+      "points": [
+       [
+        8,
+        0
+       ],
+       [
+        8,
+        7
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sewage-in",
+      "medium": "wastewater",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       3.5,
+       102.108
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "CHLORINE_CONTACT_TANK"
+     },
+     {
+      "id": "treated-out",
+      "medium": "treated-effluent",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       16,
+       3.5,
+       102.108
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "CHLORINE_CONTACT_TANK"
+     },
+     {
+      "id": "chemical-in",
+      "medium": "chemical",
+      "direction": "in",
+      "surface": "north",
+      "anchorM": [
+       8,
+       7,
+       103.4
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "CHLORINE_CONTACT_TANK"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       8,
+       3.5,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "weir",
+      "sourceSymbolId": "weir",
+      "symbolId": "weir",
+      "membership": "integral",
+      "mountM": [
+       14.88,
+       3.5,
+       102.55
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "convention": "current"
+      },
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [
+     {
+      "id": "SEW-2013-A:5.18.12.4.1",
+      "kind": "design_reference_lead",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.18.12.4.1",
+      "verification": "extract_review_only"
+     }
+    ],
+    "criteriaApplied": []
+   },
+   {
+    "id": "pressure-sand-filter",
+    "name": "Pressure sand filter",
+    "assetId": "PRESSURE_SAND_FILTER",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        1.6
+       ],
+       "endLocalM": [
+        3.2,
+        1.6
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        1.6,
+        0
+       ],
+       "endLocalM": [
+        1.6,
+        3.2
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "pressure",
+    "geometry": {
+     "shape": "pressure",
+     "lengthM": 3.2,
+     "widthM": 3.2,
+     "depthM": 4.8,
+     "floorRL": 100,
+     "wallTopRL": 104.8
+    },
+    "water": {
+     "mode": "none"
+    },
+    "features": [
+     "sand-bed",
+     "backwash"
+    ],
+    "featureParameters": {
+     "mediaLabel": "sand"
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       3.2,
+       0,
+       100
+      ],
+      "valueM": 3.2
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       3.2,
+       100
+      ],
+      "valueM": 3.2
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       104.8
+      ],
+      "valueM": 4.799999999999997
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 1.6,
+      "points": [
+       [
+        0,
+        1.6
+       ],
+       [
+        3.2,
+        1.6
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 1.6,
+      "points": [
+       [
+        1.6,
+        0
+       ],
+       [
+        1.6,
+        3.2
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "feed-in",
+      "medium": "process-liquid",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       1.6,
+       102.976
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "PRESSURE_SAND_FILTER"
+     },
+     {
+      "id": "filtrate-out",
+      "medium": "filtrate",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       3.2,
+       1.6,
+       102.976
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "PRESSURE_SAND_FILTER"
+     },
+     {
+      "id": "backwash-in",
+      "medium": "backwash-water",
+      "direction": "in",
+      "surface": "north",
+      "anchorM": [
+       1.6,
+       3.2,
+       104.08
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "PRESSURE_SAND_FILTER"
+     },
+     {
+      "id": "waste-out",
+      "medium": "wastewater",
+      "direction": "out",
+      "surface": "north",
+      "anchorM": [
+       1.6,
+       3.2,
+       104.08
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "PRESSURE_SAND_FILTER"
+     }
+    ],
+    "portDiagnostics": [
+     {
+      "code": "PORT_OFF_PRESSURE_SHELL",
+      "ports": [
+       "backwash-in"
+      ]
+     },
+     {
+      "code": "COINCIDENT_ILLUSTRATIVE_PORT_ANCHORS",
+      "ports": [
+       "backwash-in",
+       "waste-out"
+      ]
+     },
+     {
+      "code": "PORT_OFF_PRESSURE_SHELL",
+      "ports": [
+       "waste-out"
+      ]
+     }
+    ],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       1.6,
+       1.6,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [],
+    "criteriaApplied": []
+   },
+   {
+    "id": "activated-carbon-filter",
+    "name": "Activated carbon filter",
+    "assetId": "ACTIVATED_CARBON_FILTER",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        1.6
+       ],
+       "endLocalM": [
+        3.2,
+        1.6
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        1.6,
+        0
+       ],
+       "endLocalM": [
+        1.6,
+        3.2
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "pressure",
+    "geometry": {
+     "shape": "pressure",
+     "lengthM": 3.2,
+     "widthM": 3.2,
+     "depthM": 4.8,
+     "floorRL": 100,
+     "wallTopRL": 104.8
+    },
+    "water": {
+     "mode": "none"
+    },
+    "features": [
+     "carbon-bed",
+     "backwash"
+    ],
+    "featureParameters": {
+     "mediaLabel": "activated-carbon"
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       3.2,
+       0,
+       100
+      ],
+      "valueM": 3.2
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       3.2,
+       100
+      ],
+      "valueM": 3.2
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       104.8
+      ],
+      "valueM": 4.799999999999997
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 1.6,
+      "points": [
+       [
+        0,
+        1.6
+       ],
+       [
+        3.2,
+        1.6
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 1.6,
+      "points": [
+       [
+        1.6,
+        0
+       ],
+       [
+        1.6,
+        3.2
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "feed-in",
+      "medium": "process-liquid",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       1.6,
+       102.976
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "ACTIVATED_CARBON_FILTER"
+     },
+     {
+      "id": "filtrate-out",
+      "medium": "filtrate",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       3.2,
+       1.6,
+       102.976
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "ACTIVATED_CARBON_FILTER"
+     },
+     {
+      "id": "backwash-in",
+      "medium": "backwash-water",
+      "direction": "in",
+      "surface": "north",
+      "anchorM": [
+       1.6,
+       3.2,
+       104.08
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "ACTIVATED_CARBON_FILTER"
+     },
+     {
+      "id": "waste-out",
+      "medium": "wastewater",
+      "direction": "out",
+      "surface": "north",
+      "anchorM": [
+       1.6,
+       3.2,
+       104.08
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "ACTIVATED_CARBON_FILTER"
+     }
+    ],
+    "portDiagnostics": [
+     {
+      "code": "PORT_OFF_PRESSURE_SHELL",
+      "ports": [
+       "backwash-in"
+      ]
+     },
+     {
+      "code": "COINCIDENT_ILLUSTRATIVE_PORT_ANCHORS",
+      "ports": [
+       "backwash-in",
+       "waste-out"
+      ]
+     },
+     {
+      "code": "PORT_OFF_PRESSURE_SHELL",
+      "ports": [
+       "waste-out"
+      ]
+     }
+    ],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       1.6,
+       1.6,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [],
+    "criteriaApplied": []
+   },
+   {
+    "id": "disc-filter",
+    "name": "Disc filter",
+    "assetId": "DISC_FILTER",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        1.75
+       ],
+       "endLocalM": [
+        8,
+        1.75
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        4,
+        0
+       ],
+       "endLocalM": [
+        4,
+        3.5
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "rect",
+    "geometry": {
+     "shape": "rect",
+     "lengthM": 8,
+     "widthM": 3.5,
+     "depthM": 3.8,
+     "floorRL": 100,
+     "wallTopRL": 103.8
+    },
+    "water": {
+     "mode": "static",
+     "wlRL": 102.95
+    },
+    "features": [
+     "discs",
+     "drive"
+    ],
+    "featureParameters": {
+     "discCount": 5
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       8,
+       0,
+       100
+      ],
+      "valueM": 8
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       3.5,
+       100
+      ],
+      "valueM": 3.5
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       103.8
+      ],
+      "valueM": 3.799999999999997
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 1.75,
+      "points": [
+       [
+        0,
+        1.75
+       ],
+       [
+        8,
+        1.75
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 4,
+      "points": [
+       [
+        4,
+        0
+       ],
+       [
+        4,
+        3.5
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "feed-in",
+      "medium": "process-liquid",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       1.75,
+       102.356
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "DISC_FILTER"
+     },
+     {
+      "id": "filtrate-out",
+      "medium": "filtrate",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       8,
+       1.75,
+       102.356
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "DISC_FILTER"
+     },
+     {
+      "id": "backwash-waste",
+      "medium": "backwash-waste",
+      "direction": "out",
+      "surface": "north",
+      "anchorM": [
+       4,
+       3.5,
+       103.23
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "DISC_FILTER"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       4,
+       1.75,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "operator-motor",
+      "sourceSymbolId": "operator-motor",
+      "symbolId": "operator-motor",
+      "membership": "integral",
+      "mountM": [
+       4,
+       1.75,
+       101.9
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [],
+    "criteriaApplied": []
+   },
+   {
+    "id": "ultrafiltration-skid",
+    "name": "Ultrafiltration skid",
+    "assetId": "ULTRAFILTRATION_SKID",
+    "viewPolicy": {
+     "preferred": "elevation",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        1.7
+       ],
+       "endLocalM": [
+        9,
+        1.7
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        4.5,
+        0
+       ],
+       "endLocalM": [
+        4.5,
+        3.4
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "skid",
+    "geometry": {
+     "shape": "skid",
+     "lengthM": 9,
+     "widthM": 3.4,
+     "depthM": 3.1,
+     "floorRL": 100,
+     "wallTopRL": 103.1
+    },
+    "water": {
+     "mode": "none"
+    },
+    "features": [
+     "membranes",
+     "headers"
+    ],
+    "featureParameters": {
+     "membraneModuleCount": 6
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       9,
+       0,
+       100
+      ],
+      "valueM": 9
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       3.4,
+       100
+      ],
+      "valueM": 3.4
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       103.1
+      ],
+      "valueM": 3.0999999999999943
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 1.7,
+      "points": [
+       [
+        0,
+        1.7
+       ],
+       [
+        9,
+        1.7
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 4.5,
+      "points": [
+       [
+        4.5,
+        0
+       ],
+       [
+        4.5,
+        3.4
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "feed-in",
+      "medium": "process-liquid",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       1.7,
+       101.922
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "ULTRAFILTRATION_SKID"
+     },
+     {
+      "id": "permeate-out",
+      "medium": "permeate",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       9,
+       1.7,
+       101.922
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "ULTRAFILTRATION_SKID"
+     },
+     {
+      "id": "reject-out",
+      "medium": "reject",
+      "direction": "out",
+      "surface": "floor",
+      "anchorM": [
+       4.5,
+       1.7,
+       100
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "ULTRAFILTRATION_SKID"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       4.5,
+       1.7,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [],
+    "criteriaApplied": []
+   },
+   {
+    "id": "sludge-holding-tank",
+    "name": "Sludge holding tank",
+    "assetId": "SLUDGE_HOLDING_TANK",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        2.5
+       ],
+       "endLocalM": [
+        8,
+        2.5
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        4,
+        0
+       ],
+       "endLocalM": [
+        4,
+        5
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "rect",
+    "geometry": {
+     "shape": "rect",
+     "lengthM": 8,
+     "widthM": 5,
+     "depthM": 5,
+     "floorRL": 100,
+     "wallTopRL": 105
+    },
+    "water": {
+     "mode": "variable",
+     "bwlRL": 102.9,
+     "currentRL": 103.9,
+     "twlRL": 104.5
+    },
+    "features": [
+     "mixer",
+     "supernatant",
+     "variable-level"
+    ],
+    "featureParameters": {},
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       8,
+       0,
+       100
+      ],
+      "valueM": 8
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       5,
+       100
+      ],
+      "valueM": 5
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       105
+      ],
+      "valueM": 5
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 2.5,
+      "points": [
+       [
+        0,
+        2.5
+       ],
+       [
+        8,
+        2.5
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 4,
+      "points": [
+       [
+        4,
+        0
+       ],
+       [
+        4,
+        5
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sludge-in",
+      "medium": "sludge",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       2.5,
+       103.1
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SLUDGE_HOLDING_TANK"
+     },
+     {
+      "id": "sludge-out",
+      "medium": "sludge",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       8,
+       2.5,
+       103.1
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SLUDGE_HOLDING_TANK"
+     },
+     {
+      "id": "supernatant-out",
+      "medium": "supernatant",
+      "direction": "out",
+      "surface": "north",
+      "anchorM": [
+       4,
+       5,
+       104.25
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "SLUDGE_HOLDING_TANK"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       4,
+       2.5,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "mixer",
+      "sourceSymbolId": "mixer",
+      "symbolId": "mixer",
+      "membership": "distinct",
+      "mountM": [
+       4,
+       2.5,
+       102.75
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "variant": "legacy"
+      },
+      "status": "illustrative_placeholder__engineer_to_place",
+      "assetId": "SLUDGE_HOLDING_TANK/mixer"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [],
+    "criteriaApplied": []
+   },
+   {
+    "id": "gravity-thickener",
+    "name": "Gravity thickener",
+    "assetId": "GRAVITY_THICKENER",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        5.5
+       ],
+       "endLocalM": [
+        11,
+        5.5
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        5.5,
+        0
+       ],
+       "endLocalM": [
+        5.5,
+        11
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "circular",
+    "geometry": {
+     "shape": "circular",
+     "lengthM": 11,
+     "widthM": 11,
+     "depthM": 4.7,
+     "floorRL": 100,
+     "wallTopRL": 104.7
+    },
+    "water": {
+     "mode": "static",
+     "wlRL": 103.85
+    },
+    "features": [
+     "picket",
+     "steep-cone",
+     "weir"
+    ],
+    "featureParameters": {
+     "picketCount": 14
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       11,
+       0,
+       100
+      ],
+      "valueM": 11
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       11,
+       100
+      ],
+      "valueM": 11
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       104.7
+      ],
+      "valueM": 4.700000000000003
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 5.5,
+      "points": [
+       [
+        0,
+        5.5
+       ],
+       [
+        11,
+        5.5
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 5.5,
+      "points": [
+       [
+        5.5,
+        0
+       ],
+       [
+        5.5,
+        11
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sludge-in",
+      "medium": "sludge",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       5.5,
+       102.914
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "GRAVITY_THICKENER"
+     },
+     {
+      "id": "thickened-out",
+      "medium": "thickened-sludge",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       11,
+       5.5,
+       102.914
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "GRAVITY_THICKENER"
+     },
+     {
+      "id": "supernatant-out",
+      "medium": "supernatant",
+      "direction": "out",
+      "surface": "north",
+      "anchorM": [
+       5.5,
+       11,
+       103.995
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "GRAVITY_THICKENER"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       5.5,
+       5.5,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "mixer",
+      "sourceSymbolId": "mixer",
+      "symbolId": "mixer",
+      "membership": "reference",
+      "mountM": [
+       5.5,
+       5.5,
+       102.585
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "variant": "legacy"
+      },
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [
+     {
+      "id": "SEW-2013-A:6.3",
+      "kind": "design_reference_lead",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:6.3",
+      "verification": "extract_review_only"
+     }
+    ],
+    "criteriaApplied": []
+   },
+   {
+    "id": "dewatering-centrifuge",
+    "name": "Centrifuge dewatering assembly",
+    "assetId": "DEWATERING_CENTRIFUGE",
+    "viewPolicy": {
+     "preferred": "elevation",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        1.25
+       ],
+       "endLocalM": [
+        7,
+        1.25
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        3.5,
+        0
+       ],
+       "endLocalM": [
+        3.5,
+        2.5
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "machine",
+    "geometry": {
+     "shape": "machine",
+     "lengthM": 7,
+     "widthM": 2.5,
+     "depthM": 2.7,
+     "floorRL": 100,
+     "wallTopRL": 102.7
+    },
+    "water": {
+     "mode": "none"
+    },
+    "features": [
+     "centrifuge",
+     "cake"
+    ],
+    "featureParameters": {},
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       7,
+       0,
+       100
+      ],
+      "valueM": 7
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       2.5,
+       100
+      ],
+      "valueM": 2.5
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       102.7
+      ],
+      "valueM": 2.700000000000003
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 1.25,
+      "points": [
+       [
+        0,
+        1.25
+       ],
+       [
+        7,
+        1.25
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 3.5,
+      "points": [
+       [
+        3.5,
+        0
+       ],
+       [
+        3.5,
+        2.5
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sludge-in",
+      "medium": "sludge",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       1.25,
+       101.674
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "DEWATERING_CENTRIFUGE"
+     },
+     {
+      "id": "centrate-out",
+      "medium": "centrate",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       7,
+       1.25,
+       101.674
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "DEWATERING_CENTRIFUGE"
+     },
+     {
+      "id": "cake-out",
+      "medium": "sludge-cake",
+      "direction": "out",
+      "surface": "floor",
+      "anchorM": [
+       3.5,
+       1.25,
+       100
+      ],
+      "phase": "solid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "DEWATERING_CENTRIFUGE"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "operator-motor",
+      "sourceSymbolId": "operator-motor",
+      "symbolId": "operator-motor",
+      "membership": "integral",
+      "mountM": [
+       3.5,
+       1.25,
+       101.35
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [
+     {
+      "id": "SEW-2013-A:6.7.7",
+      "kind": "design_reference_lead",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:6.7.7",
+      "verification": "extract_review_only"
+     }
+    ],
+    "criteriaApplied": []
+   },
+   {
+    "id": "filter-press",
+    "name": "Filter press assembly",
+    "assetId": "FILTER_PRESS",
+    "viewPolicy": {
+     "preferred": "elevation",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        1.35
+       ],
+       "endLocalM": [
+        7.5,
+        1.35
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        3.75,
+        0
+       ],
+       "endLocalM": [
+        3.75,
+        2.7
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "machine",
+    "geometry": {
+     "shape": "machine",
+     "lengthM": 7.5,
+     "widthM": 2.7,
+     "depthM": 3,
+     "floorRL": 100,
+     "wallTopRL": 103
+    },
+    "water": {
+     "mode": "none"
+    },
+    "features": [
+     "plate-stack",
+     "cake"
+    ],
+    "featureParameters": {
+     "plateCount": 11
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       7.5,
+       0,
+       100
+      ],
+      "valueM": 7.5
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       2.7,
+       100
+      ],
+      "valueM": 2.7
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       103
+      ],
+      "valueM": 3
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 1.35,
+      "points": [
+       [
+        0,
+        1.35
+       ],
+       [
+        7.5,
+        1.35
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 3.75,
+      "points": [
+       [
+        3.75,
+        0
+       ],
+       [
+        3.75,
+        2.7
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sludge-in",
+      "medium": "sludge",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       1.35,
+       101.86
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "FILTER_PRESS"
+     },
+     {
+      "id": "filtrate-out",
+      "medium": "filtrate",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       7.5,
+       1.35,
+       101.86
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "FILTER_PRESS"
+     },
+     {
+      "id": "cake-out",
+      "medium": "sludge-cake",
+      "direction": "out",
+      "surface": "floor",
+      "anchorM": [
+       3.75,
+       1.35,
+       100
+      ],
+      "phase": "solid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "FILTER_PRESS"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "operator-motor",
+      "sourceSymbolId": "operator-motor",
+      "symbolId": "operator-motor",
+      "membership": "integral",
+      "mountM": [
+       3.75,
+       1.35,
+       101.5
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [
+     {
+      "id": "SEW-2013-A:6.7.7",
+      "kind": "design_reference_lead",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:6.7.7",
+      "verification": "extract_review_only"
+     }
+    ],
+    "criteriaApplied": []
+   },
+   {
+    "id": "belt-press",
+    "name": "Belt press assembly",
+    "assetId": "BELT_PRESS",
+    "viewPolicy": {
+     "preferred": "elevation",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        1.5
+       ],
+       "endLocalM": [
+        8,
+        1.5
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        4,
+        0
+       ],
+       "endLocalM": [
+        4,
+        3
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "machine",
+    "geometry": {
+     "shape": "machine",
+     "lengthM": 8,
+     "widthM": 3,
+     "depthM": 3.2,
+     "floorRL": 100,
+     "wallTopRL": 103.2
+    },
+    "water": {
+     "mode": "none"
+    },
+    "features": [
+     "belt-rollers",
+     "cake"
+    ],
+    "featureParameters": {
+     "rollerCount": 4
+    },
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       8,
+       0,
+       100
+      ],
+      "valueM": 8
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       3,
+       100
+      ],
+      "valueM": 3
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       103.2
+      ],
+      "valueM": 3.200000000000003
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 1.5,
+      "points": [
+       [
+        0,
+        1.5
+       ],
+       [
+        8,
+        1.5
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 4,
+      "points": [
+       [
+        4,
+        0
+       ],
+       [
+        4,
+        3
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "sludge-in",
+      "medium": "sludge",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       1.5,
+       101.984
+      ],
+      "phase": "slurry",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "BELT_PRESS"
+     },
+     {
+      "id": "filtrate-out",
+      "medium": "filtrate",
+      "direction": "out",
+      "surface": "east",
+      "anchorM": [
+       8,
+       1.5,
+       101.984
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "BELT_PRESS"
+     },
+     {
+      "id": "cake-out",
+      "medium": "sludge-cake",
+      "direction": "out",
+      "surface": "floor",
+      "anchorM": [
+       4,
+       1.5,
+       100
+      ],
+      "phase": "solid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "BELT_PRESS"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "operator-motor",
+      "sourceSymbolId": "operator-motor",
+      "symbolId": "operator-motor",
+      "membership": "integral",
+      "mountM": [
+       4,
+       1.5,
+       101.6
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [
+     {
+      "id": "SEW-2013-A:6.7.7",
+      "kind": "design_reference_lead",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:6.7.7",
+      "verification": "extract_review_only"
+     }
+    ],
+    "criteriaApplied": []
+   },
+   {
+    "id": "polymer-preparation-tank",
+    "name": "Polymer preparation / dosing tank",
+    "assetId": "POLYMER_PREPARATION_TANK",
+    "viewPolicy": {
+     "preferred": "section",
+     "available": [
+      "schematic",
+      "plan",
+      "section",
+      "elevation"
+     ],
+     "scalePolicy": {
+      "schematic": "not-to-scale",
+      "plan": "from-model-coordinates",
+      "section": "from-model-coordinates",
+      "elevation": "from-model-coordinates"
+     },
+     "sectionCuts": [
+      {
+       "id": "A-A",
+       "kind": "longitudinal",
+       "startLocalM": [
+        0,
+        2
+       ],
+       "endLocalM": [
+        4.5,
+        2
+       ],
+       "isReviewDefault": true
+      },
+      {
+       "id": "B-B",
+       "kind": "transverse",
+       "startLocalM": [
+        2.25,
+        0
+       ],
+       "endLocalM": [
+        2.25,
+        4
+       ],
+       "isReviewDefault": false
+      }
+     ],
+     "elevationFace": "south",
+     "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+    },
+    "shape": "rect",
+    "geometry": {
+     "shape": "rect",
+     "lengthM": 4.5,
+     "widthM": 4,
+     "depthM": 4.2,
+     "floorRL": 100,
+     "wallTopRL": 104.2
+    },
+    "water": {
+     "mode": "static",
+     "wlRL": 103.35
+    },
+    "features": [
+     "mixer",
+     "dosing"
+    ],
+    "featureParameters": {},
+    "dimensions": [
+     {
+      "id": "length",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       4.5,
+       0,
+       100
+      ],
+      "valueM": 4.5
+     },
+     {
+      "id": "width",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       4,
+       100
+      ],
+      "valueM": 4
+     },
+     {
+      "id": "depth",
+      "fromM": [
+       0,
+       0,
+       100
+      ],
+      "toM": [
+       0,
+       0,
+       104.2
+      ],
+      "valueM": 4.200000000000003
+     }
+    ],
+    "cuts": [
+     {
+      "id": "A-A",
+      "axis": 0,
+      "perpendicular": 2,
+      "points": [
+       [
+        0,
+        2
+       ],
+       [
+        4.5,
+        2
+       ]
+      ]
+     },
+     {
+      "id": "B-B",
+      "axis": 1,
+      "perpendicular": 2.25,
+      "points": [
+       [
+        2.25,
+        0
+       ],
+       [
+        2.25,
+        4
+       ]
+      ]
+     }
+    ],
+    "ports": [
+     {
+      "id": "water-in",
+      "medium": "service-water",
+      "direction": "in",
+      "surface": "west",
+      "anchorM": [
+       0,
+       2,
+       102.604
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "POLYMER_PREPARATION_TANK"
+     },
+     {
+      "id": "polymer-in",
+      "medium": "polymer",
+      "direction": "in",
+      "surface": "east",
+      "anchorM": [
+       4.5,
+       2,
+       102.604
+      ],
+      "phase": "reagent",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "POLYMER_PREPARATION_TANK"
+     },
+     {
+      "id": "solution-out",
+      "medium": "polymer-solution",
+      "direction": "out",
+      "surface": "north",
+      "anchorM": [
+       2.25,
+       4,
+       103.57
+      ],
+      "phase": "liquid",
+      "attachmentKind": "process",
+      "status": "illustrative_placement_needs_design_validation",
+      "assetId": "POLYMER_PREPARATION_TANK"
+     }
+    ],
+    "portDiagnostics": [],
+    "components": [
+     {
+      "id": "tank-open",
+      "sourceSymbolId": "tank-open",
+      "symbolId": "tank-open",
+      "membership": "reference",
+      "mountM": [
+       2.25,
+       2,
+       100
+      ],
+      "q": 0,
+      "representation": "legacy",
+      "options": {},
+      "status": "illustrative_placeholder__engineer_to_place"
+     },
+     {
+      "id": "mixer",
+      "sourceSymbolId": "mixer",
+      "symbolId": "mixer",
+      "membership": "distinct",
+      "mountM": [
+       2.25,
+       2,
+       102.31
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "variant": "legacy"
+      },
+      "status": "illustrative_placeholder__engineer_to_place",
+      "assetId": "POLYMER_PREPARATION_TANK/mixer"
+     },
+     {
+      "id": "pump-dosing",
+      "sourceSymbolId": "pump-dosing",
+      "symbolId": "pump-dosing",
+      "membership": "distinct",
+      "mountM": [
+       2.925,
+       2.6,
+       100.4
+      ],
+      "q": 0,
+      "representation": "library",
+      "options": {
+       "variant": "legacy-assembly"
+      },
+      "status": "illustrative_placeholder__engineer_to_place",
+      "assetId": "POLYMER_PREPARATION_TANK/pump-dosing"
+     }
+    ],
+    "siteTransform": null,
+    "evidenceGaps": [
+     "ILLUSTRATIVE_DIMENSIONS",
+     "VENDOR_FIT_UNVERIFIED",
+     "DESIGN_CRITERIA_UNVERIFIED",
+     "SURVEY_DATUM_MISSING",
+     "SITE_TRANSFORM_MISSING"
+    ],
+    "provenance": [],
+    "criteriaApplied": []
+   }
+  ]
+ },
  "serviceCodes": {
   "RS": "Raw sewage",
   "SCR": "Screenings",

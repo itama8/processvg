@@ -30,6 +30,17 @@ import { placePumpSymbol, composePumpDrawing, migratePumpInstance } from "./pump
 import { SCREENING_ARCHIVE_IDS, SCREENING_CANDIDATES } from "./screening-definitions.mjs";
 import { placeScreeningCandidate, screeningMigration } from "./screening.mjs";
 
+import { drawStructure } from "./structure-drawing.mjs";
+export { createStructureModel, assertStructurePortConnection, structureInventory, structureSitePoint,
+  STRUCTURE_RECORDS, STRUCTURE_VIEWS, STRUCTURE_DATUM, STRUCTURE_SOURCE_LEADS,
+  DECANTER_IDS, solveStructureDecanter } from "./structures.mjs";
+export { projectStructure } from "./structure-projections.mjs";
+
+/** Render one of the four Family 09 views from a validated metric assembly. */
+export function composeStructure(model, options = {}) {
+  return drawStructure(placeSymbol, model, options);
+}
+
 export { SCREENING_ARCHIVE_IDS, SCREENING_CANDIDATES };
 export { composeScreeningDocument, screeningTieIn, screeningNetwork, SCREENING_STREAMS } from "./screening.mjs";
 

@@ -18,6 +18,7 @@ opacity for hierarchy, and per-symbol source and review status.
 | `docs/family-06.md` | Primary elements, analyte layout, typed measurement networks, migration and measuring views. |
 | `docs/family-07.md` | Pump and blower variants, independent drives, typed topology and asset views. |
 | `docs/family-08.md` | Opt-in screening and grit candidates, typed routes, dimensioned views and visual proof. |
+| `docs/family-09.md` | Metric civil assemblies, four views, datum and port contracts, SBR motion, and review fixtures. |
 | `docs/structures.md` | What each treatment structure symbol must show (SBR, MBBR, tube settler, clarifier, grit chambers, …): the test drafts are judged against. |
 | `docs/sources.md` | IS 3232, ISA-5.1, the Brown and Caldwell reference set, CPHEEO, Metcalf & Eddy, and utility standards. |
 | `examples/` | Drafts built from the library: an inlet-works P&ID and an SBR basin section. |

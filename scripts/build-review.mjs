@@ -94,6 +94,7 @@ figcaption p { margin: 4px 0 0; color: var(--muted); max-width: 60ch; }
 <header><h1>Drawing review</h1><span style="color:var(--muted)">${n} drawings, shown at native size</span>
 <div class="paper" role="group" aria-label="Paper"><button data-paper="white">White</button><button data-paper="parchment">Parchment</button></div></header>
 <main>${existsSync(path.join(OUT, "family-08-evidence/comparison.html")) ? '<p><a href="#family-08">Family 08 review sheets</a> · <a href="family-08-evidence/comparison.html">Family 08 source plate comparison</a></p>' : ""}
+${existsSync(path.join(OUT, "family-09/index.html")) ? '<p><a href="family-09/index.html">Family 09 structures · all four views, representative cuts and decanter travel</a></p>' : ""}
 ${sections.join("\n")}</main>
 <script>
 const root = document.documentElement;

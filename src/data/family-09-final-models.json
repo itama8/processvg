@@ -1,0 +1,6157 @@
+{
+  "format": "processvg-family09-approved-model-contract-v2",
+  "status": "DESIGN_APPROVED__IMPLEMENTATION_NOT_VERIFIED",
+  "title": "Family 09 — Structures — final approved model contract",
+  "units": "m",
+  "coordinate_convention": "floor RL=100 m is example datum; SVG positions derived from illustrative dimensions",
+  "projectDefaults": {
+    "primaryInk": "#1C232A",
+    "secondaryInkOpacity": 0.32,
+    "outlineScale": "view-relative, not construction scale",
+    "normalWaterSurface": "0.32",
+    "textures": "secondary, identity marks primary"
+  },
+  "legacy_symbols": [
+    "tank-open",
+    "diffuser-grid",
+    "decanter"
+  ],
+  "rules": {
+    "view_from_model": true,
+    "static_water_surface": "single WL",
+    "variable_water_surface": "TWL/BWL",
+    "schematic_port_default": "west incoming / east outgoing",
+    "plant_units": "no hard-coded CPHEEO dimensions",
+    "dimension_status": "illustrative_not_design",
+    "preferredView": "per structure; all four renderers remain available",
+    "dimensionSource": "local model coordinates in metres + explicit project datum",
+    "datumRequired": "project datum required before design RL can be used",
+    "sbrDecanter": "floating and swing-arm presets, legacy decanter unchanged",
+    "drawingsAre": "illustrative visual design fixtures, NOT construction drawings"
+  },
+  "citations": [
+    {
+      "id": "SEW-2013-A:5.6.1.5",
+      "label": "CPHEEO sewerage manual (2013), §5.6.1.5",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.6.1.5"
+    },
+    {
+      "id": "SEW-2013-A:4.2.4",
+      "label": "CPHEEO sewerage manual (2013), §4.2.4",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:4.2.4"
+    },
+    {
+      "id": "SEW-2013-A:5.6.2",
+      "label": "CPHEEO sewerage manual (2013), §5.6.2",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.6.2"
+    },
+    {
+      "id": "SEW-2013-A:5.6.3",
+      "label": "CPHEEO sewerage manual (2013), §5.6.3",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.6.3"
+    },
+    {
+      "id": "SEW-2013-A:5.18.12.1",
+      "label": "CPHEEO sewerage manual (2013), §5.18.12.1",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.18.12.1"
+    },
+    {
+      "id": "SEW-2013-A:F5.78",
+      "label": "CPHEEO sewerage manual (2013), Fig 5.78",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:F5.78"
+    },
+    {
+      "id": "SEW-2013-A:5.18.13.2",
+      "label": "CPHEEO sewerage manual (2013), §5.18.13.2",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.18.13.2"
+    },
+    {
+      "id": "SEW-2013-A:F5.86",
+      "label": "CPHEEO sewerage manual (2013), Fig 5.86",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:F5.86"
+    },
+    {
+      "id": "WS-2024-A:8.6.8",
+      "label": "CPHEEO water supply manual (2024), §8.6.8",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/WS-2024-A:8.6.8"
+    },
+    {
+      "id": "SEW-2013-A:5.7.4.2.6.3",
+      "label": "CPHEEO sewerage manual (2013), §5.7.4.2.6.3",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.7.4.2.6.3"
+    },
+    {
+      "id": "SEW-2013-A:5.18.12.4.1",
+      "label": "CPHEEO sewerage manual (2013), §5.18.12.4.1",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.18.12.4.1"
+    },
+    {
+      "id": "SEW-2013-A:6.3",
+      "label": "CPHEEO sewerage manual (2013), §6.3",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:6.3"
+    },
+    {
+      "id": "SEW-2013-A:6.7.7",
+      "label": "CPHEEO sewerage manual (2013), §6.7.7",
+      "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:6.7.7"
+    }
+  ],
+  "structures": [
+    {
+      "id": "receiving-chamber",
+      "name": "Receiving chamber",
+      "family": "09-structures",
+      "group": "Preliminary",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "rect",
+      "dimensions": {
+        "length_m": 8,
+        "width_m": 5,
+        "overall_depth_m": 5.0,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 105.0,
+        "wl_rl_m": 104.15
+      },
+      "features": [
+        "low-inlet",
+        "overflow"
+      ],
+      "featureParameters": {},
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 4.0,
+            "y_m": 2.5,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sewage-in",
+          "medium": "wastewater",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 2.5,
+            "z_RL_m": 103.1
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "overflow-out",
+          "medium": "wastewater",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 8,
+            "y_m": 2.5,
+            "z_RL_m": 103.1
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "RECEIVING_CHAMBER",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              2.5
+            ],
+            "endLocalM": [
+              8,
+              2.5
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              4.0,
+              0
+            ],
+            "endLocalM": [
+              4.0,
+              5
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 8,
+          "W": 5
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 105.0,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 8,
+          "minY_m": 0,
+          "maxY_m": 5,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 105.0
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            8,
+            0,
+            100
+          ],
+          "dimensionM": 8,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            5,
+            100
+          ],
+          "dimensionM": 5,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            105.0
+          ],
+          "dimensionM": 5.0,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "WL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "screen-channel-assembly",
+      "name": "Screen channel assembly",
+      "family": "09-structures",
+      "group": "Preliminary",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "channel",
+      "dimensions": {
+        "length_m": 15,
+        "width_m": 2.2,
+        "overall_depth_m": 2.7,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 102.7,
+        "wl_rl_m": 101.85
+      },
+      "features": [
+        "screen",
+        "gates"
+      ],
+      "featureParameters": {
+        "screenBars": 7
+      },
+      "components": [
+        {
+          "symbolId": "screen-bar",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 7.5,
+            "y_m": 1.1,
+            "z_RL_m": 101.35
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "gate-slide",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 7.5,
+            "y_m": 1.1,
+            "z_RL_m": 101.35
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sewage-in",
+          "medium": "wastewater",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 1.1,
+            "z_RL_m": 101.674
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "sewage-out",
+          "medium": "wastewater",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 15,
+            "y_m": 1.1,
+            "z_RL_m": 101.674
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "screenings-out",
+          "medium": "screenings-solids",
+          "direction": "out",
+          "face": "north",
+          "attachment_kind": "process",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 7.5,
+            "y_m": 2.2,
+            "z_RL_m": 102.7
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "SEW-2013-A:5.6.1.5",
+          "kind": "design_reference_lead",
+          "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.6.1.5",
+          "verification": "extract_review_only"
+        }
+      ],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "SCREEN_CHANNEL_ASSEMBLY",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              1.1
+            ],
+            "endLocalM": [
+              15,
+              1.1
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              7.5,
+              0
+            ],
+            "endLocalM": [
+              7.5,
+              2.2
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 15,
+          "W": 2.2
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 102.7,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 15,
+          "minY_m": 0,
+          "maxY_m": 2.2,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 102.7
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            15,
+            0,
+            100
+          ],
+          "dimensionM": 15,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            2.2,
+            100
+          ],
+          "dimensionM": 2.2,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            102.7
+          ],
+          "dimensionM": 2.7,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "WL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "raw-sewage-wet-well",
+      "name": "Raw sewage wet well",
+      "family": "09-structures",
+      "group": "Preliminary",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "rect",
+      "dimensions": {
+        "length_m": 9,
+        "width_m": 6,
+        "overall_depth_m": 6.0,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 106.0,
+        "twl_rl_m": 105.5,
+        "bwl_rl_m": 103.9,
+        "current_rl_m": 104.9
+      },
+      "features": [
+        "depression",
+        "pumps",
+        "variable-level"
+      ],
+      "featureParameters": {
+        "sumpDropM": 0.6,
+        "pumpCount": 2
+      },
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 4.5,
+            "y_m": 3.0,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "pump-submersible",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 5.85,
+            "y_m": 3.9,
+            "z_RL_m": 100.4
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sewage-in",
+          "medium": "wastewater",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 3.0,
+            "z_RL_m": 103.72
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "pumped-out",
+          "medium": "wastewater",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 9,
+            "y_m": 3.0,
+            "z_RL_m": 103.72
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "drain",
+          "medium": "drain",
+          "direction": "out",
+          "face": "south",
+          "attachment_kind": "process",
+          "physicalSurface": "floor",
+          "localAnchorM": {
+            "x_m": 4.5,
+            "y_m": 3.0,
+            "z_RL_m": 100
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "SEW-2013-A:4.2.4",
+          "kind": "design_reference_lead",
+          "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:4.2.4",
+          "verification": "extract_review_only"
+        }
+      ],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "RAW_SEWAGE_WET_WELL",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              3.0
+            ],
+            "endLocalM": [
+              9,
+              3.0
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              4.5,
+              0
+            ],
+            "endLocalM": [
+              4.5,
+              6
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 9,
+          "W": 6
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 106.0,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 9,
+          "minY_m": 0,
+          "maxY_m": 6,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 106.0
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            9,
+            0,
+            100
+          ],
+          "dimensionM": 9,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            6,
+            100
+          ],
+          "dimensionM": 6,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            106.0
+          ],
+          "dimensionM": 6.0,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "TWL/BWL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "stilling-chamber",
+      "name": "Stilling chamber",
+      "family": "09-structures",
+      "group": "Preliminary",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "rect",
+      "dimensions": {
+        "length_m": 4,
+        "width_m": 3.3,
+        "overall_depth_m": 4.5,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 104.5,
+        "wl_rl_m": 103.65
+      },
+      "features": [
+        "low-inlet",
+        "weir"
+      ],
+      "featureParameters": {},
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 2.0,
+            "y_m": 1.65,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "weir",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 3.72,
+            "y_m": 1.65,
+            "z_RL_m": 103.65
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sewage-in",
+          "medium": "wastewater",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 1.65,
+            "z_RL_m": 102.79
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "overflow-out",
+          "medium": "wastewater",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 4,
+            "y_m": 1.65,
+            "z_RL_m": 102.79
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "STILLING_CHAMBER",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              1.65
+            ],
+            "endLocalM": [
+              4,
+              1.65
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              2.0,
+              0
+            ],
+            "endLocalM": [
+              2.0,
+              3.3
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 4,
+          "W": 3.3
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 104.5,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 4,
+          "minY_m": 0,
+          "maxY_m": 3.3,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 104.5
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            4,
+            0,
+            100
+          ],
+          "dimensionM": 4,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            3.3,
+            100
+          ],
+          "dimensionM": 3.3,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            104.5
+          ],
+          "dimensionM": 4.5,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "WL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "square-detritor",
+      "name": "Square detritor",
+      "family": "09-structures",
+      "group": "Preliminary",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "rect",
+      "dimensions": {
+        "length_m": 6,
+        "width_m": 6,
+        "overall_depth_m": 3.4,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 103.4,
+        "wl_rl_m": 102.55
+      },
+      "features": [
+        "scraper",
+        "grit-hopper"
+      ],
+      "featureParameters": {},
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 3.0,
+            "y_m": 3.0,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "grit-classifier",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 4.8,
+            "y_m": 4.8,
+            "z_RL_m": 103.1
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sewage-in",
+          "medium": "wastewater",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 3.0,
+            "z_RL_m": 102.108
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "sewage-out",
+          "medium": "wastewater",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 6,
+            "y_m": 3.0,
+            "z_RL_m": 102.108
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "grit-out",
+          "medium": "grit-slurry",
+          "direction": "out",
+          "face": "south",
+          "attachment_kind": "process",
+          "physicalSurface": "floor",
+          "localAnchorM": {
+            "x_m": 3.0,
+            "y_m": 3.0,
+            "z_RL_m": 100
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "SEW-2013-A:5.6.2",
+          "kind": "design_reference_lead",
+          "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.6.2",
+          "verification": "extract_review_only"
+        }
+      ],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "SQUARE_DETRITOR",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "plan",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "plan",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              3.0
+            ],
+            "endLocalM": [
+              6,
+              3.0
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              3.0,
+              0
+            ],
+            "endLocalM": [
+              3.0,
+              6
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 6,
+          "W": 6
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 103.4,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 6,
+          "minY_m": 0,
+          "maxY_m": 6,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 103.4
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            6,
+            0,
+            100
+          ],
+          "dimensionM": 6,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            6,
+            100
+          ],
+          "dimensionM": 6,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            103.4
+          ],
+          "dimensionM": 3.4,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "WL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "equalisation-tank",
+      "name": "Equalisation tank",
+      "family": "09-structures",
+      "group": "Preliminary",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "rect",
+      "dimensions": {
+        "length_m": 12,
+        "width_m": 7,
+        "overall_depth_m": 5.5,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 105.5,
+        "twl_rl_m": 105.0,
+        "bwl_rl_m": 103.4,
+        "current_rl_m": 104.4
+      },
+      "features": [
+        "mixer",
+        "pumps",
+        "variable-level"
+      ],
+      "featureParameters": {
+        "pumpCount": 2
+      },
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 6.0,
+            "y_m": 3.5,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "mixer",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 6.0,
+            "y_m": 3.5,
+            "z_RL_m": 103.025
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "pump-submersible",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 7.8,
+            "y_m": 4.55,
+            "z_RL_m": 100.4
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sewage-in",
+          "medium": "wastewater",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 3.5,
+            "z_RL_m": 103.41
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "pumped-out",
+          "medium": "wastewater",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 12,
+            "y_m": 3.5,
+            "z_RL_m": 103.41
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "overflow",
+          "medium": "wastewater",
+          "direction": "out",
+          "face": "north",
+          "attachment_kind": "process",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 6.0,
+            "y_m": 7,
+            "z_RL_m": 104.675
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "SEW-2013-A:5.6.3",
+          "kind": "design_reference_lead",
+          "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.6.3",
+          "verification": "extract_review_only"
+        }
+      ],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "EQUALISATION_TANK",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              3.5
+            ],
+            "endLocalM": [
+              12,
+              3.5
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              6.0,
+              0
+            ],
+            "endLocalM": [
+              6.0,
+              7
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 12,
+          "W": 7
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 105.5,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 12,
+          "minY_m": 0,
+          "maxY_m": 7,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 105.5
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            12,
+            0,
+            100
+          ],
+          "dimensionM": 12,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            7,
+            100
+          ],
+          "dimensionM": 7,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            105.5
+          ],
+          "dimensionM": 5.5,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "TWL/BWL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "sbr-basin",
+      "name": "SBR basin",
+      "family": "09-structures",
+      "group": "Biological",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "rect",
+      "dimensions": {
+        "length_m": 15,
+        "width_m": 7,
+        "overall_depth_m": 5.5,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 105.5,
+        "twl_rl_m": 105.0,
+        "bwl_rl_m": 103.4,
+        "current_rl_m": 104.4
+      },
+      "features": [
+        "diffusers",
+        "decanter",
+        "variable-level"
+      ],
+      "featureParameters": {
+        "diffuserRows": 3,
+        "diffusersPerRow": 7,
+        "decanterType": "floating",
+        "decanterFractionOfLength": 0.2,
+        "decanterVariants": [
+          "floating",
+          "swing-arm"
+        ],
+        "decanterTypeDefault": "floating"
+      },
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 7.5,
+            "y_m": 3.5,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "diffuser-grid",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 7.5,
+            "y_m": 3.5,
+            "z_RL_m": 100.3
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "decanter",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 12.0,
+            "y_m": 3.5,
+            "z_RL_m": 104.32
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "valve-check",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 7.5,
+            "y_m": 3.5,
+            "z_RL_m": 102.75
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "mixed-liquor-in",
+          "medium": "mixed-liquor",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 3.5,
+            "z_RL_m": 103.41
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "decant-out",
+          "medium": "treated-effluent",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 15,
+            "y_m": 3.5,
+            "z_RL_m": 103.41
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "waste-sludge-out",
+          "medium": "waste-sludge",
+          "direction": "out",
+          "face": "south",
+          "attachment_kind": "process",
+          "physicalSurface": "floor",
+          "localAnchorM": {
+            "x_m": 7.5,
+            "y_m": 3.5,
+            "z_RL_m": 100
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "air-in",
+          "medium": "air",
+          "direction": "in",
+          "face": "north",
+          "attachment_kind": "process-air",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 7.5,
+            "y_m": 7,
+            "z_RL_m": 105.5
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "SEW-2013-A:5.18.12.1",
+          "kind": "design_reference_lead",
+          "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.18.12.1",
+          "verification": "extract_review_only"
+        },
+        {
+          "id": "SEW-2013-A:F5.78",
+          "kind": "design_reference_lead",
+          "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:F5.78",
+          "verification": "extract_review_only"
+        }
+      ],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "SBR_BASIN",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              3.5
+            ],
+            "endLocalM": [
+              15,
+              3.5
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              7.5,
+              0
+            ],
+            "endLocalM": [
+              7.5,
+              7
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 15,
+          "W": 7
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 105.5,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 15,
+          "minY_m": 0,
+          "maxY_m": 7,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 105.5
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            15,
+            0,
+            100
+          ],
+          "dimensionM": 15,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            7,
+            100
+          ],
+          "dimensionM": 7,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            105.5
+          ],
+          "dimensionM": 5.5,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "TWL/BWL",
+      "dimensionProvenance": "illustrative_not_design",
+      "decanterPresets": {
+        "selectedDefault": "floating",
+        "registry": {
+          "floating": {
+            "id": "decanter-floating",
+            "legacyCompatibleGeometryId": "decanter",
+            "behavior": "decanter intake and floats follow current water surface",
+            "parameters": {
+              "nominalSubmergenceM": 0.08,
+              "intakeXFractionOfLength": 0.8
+            },
+            "exampleResolvedIntakeLocalM": [
+              12.0,
+              3.5,
+              104.32
+            ],
+            "allowedWaterLevelRL_m": [
+              103.4,
+              105.0
+            ],
+            "claims": "review rendering kinematics only; validate mechanical capacity, decant hydraulics and geometry externally"
+          },
+          "swing-arm": {
+            "id": "decanter-swing-arm",
+            "legacyCompatibleGeometryId": null,
+            "behavior": "intake follows water level on fixed-length arm pivoting at anchored joint",
+            "parameters": {
+              "pivotLocalM": [
+                14.4,
+                3.5,
+                105.18
+              ],
+              "armLengthM": 2.3,
+              "nominalSubmergenceM": 0.08
+            },
+            "solvedExample": {
+              "levelRL_m": 104.4,
+              "pivotLocalM": [
+                14.4,
+                3.5,
+                105.18
+              ],
+              "intakeLocalM": [
+                12.267,
+                3.5,
+                104.32
+              ],
+              "armAngleDegFromHorizontal": 21.957,
+              "armLengthM": 2.3
+            },
+            "kinematicLimitsExamples": [
+              {
+                "levelRL_m": 103.4,
+                "pivotLocalM": [
+                  14.4,
+                  3.5,
+                  105.18
+                ],
+                "intakeLocalM": [
+                  13.047,
+                  3.5,
+                  103.32
+                ],
+                "armAngleDegFromHorizontal": 53.969,
+                "armLengthM": 2.3
+              },
+              {
+                "levelRL_m": 105.0,
+                "pivotLocalM": [
+                  14.4,
+                  3.5,
+                  105.18
+                ],
+                "intakeLocalM": [
+                  12.115,
+                  3.5,
+                  104.92
+                ],
+                "armAngleDegFromHorizontal": 6.491,
+                "armLengthM": 2.3
+              }
+            ],
+            "claims": "pure geometry and example kinematics; vendor performance and submergence NOT verified"
+          }
+        },
+        "sharedAssetIdentity": "SBR_BASIN",
+        "selectionIs": "per equipment instance, does not change tank footprint or operating level order",
+        "legacyPolicy": "original decanter ID retains original geometry; presets are additive; do not rewrite legacy drawings"
+      }
+    },
+    {
+      "id": "mbbr-reactor",
+      "name": "MBBR tank",
+      "family": "09-structures",
+      "group": "Biological",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "rect",
+      "dimensions": {
+        "length_m": 12,
+        "width_m": 6,
+        "overall_depth_m": 5.0,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 105.0,
+        "wl_rl_m": 104.15
+      },
+      "features": [
+        "carriers",
+        "retention",
+        "diffusers"
+      ],
+      "featureParameters": {
+        "diffuserRows": 3,
+        "diffusersPerRow": 7,
+        "carrierRows": 3,
+        "carrierColumns": 8,
+        "carrierPlacement": "evenly-spaced texture, not physical count"
+      },
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 6.0,
+            "y_m": 3.0,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "diffuser-grid",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 6.0,
+            "y_m": 3.0,
+            "z_RL_m": 100.3
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sewage-in",
+          "medium": "wastewater",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 3.0,
+            "z_RL_m": 103.1
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "sewage-out",
+          "medium": "wastewater",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 12,
+            "y_m": 3.0,
+            "z_RL_m": 103.1
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "air-in",
+          "medium": "air",
+          "direction": "in",
+          "face": "north",
+          "attachment_kind": "process-air",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 6.0,
+            "y_m": 6,
+            "z_RL_m": 105.0
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "SEW-2013-A:5.18.13.2",
+          "kind": "design_reference_lead",
+          "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.18.13.2",
+          "verification": "extract_review_only"
+        },
+        {
+          "id": "SEW-2013-A:F5.86",
+          "kind": "design_reference_lead",
+          "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:F5.86",
+          "verification": "extract_review_only"
+        }
+      ],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "MBBR_REACTOR",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              3.0
+            ],
+            "endLocalM": [
+              12,
+              3.0
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              6.0,
+              0
+            ],
+            "endLocalM": [
+              6.0,
+              6
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 12,
+          "W": 6
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 105.0,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 12,
+          "minY_m": 0,
+          "maxY_m": 6,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 105.0
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            12,
+            0,
+            100
+          ],
+          "dimensionM": 12,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            6,
+            100
+          ],
+          "dimensionM": 6,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            105.0
+          ],
+          "dimensionM": 5.0,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "WL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "anoxic-tank",
+      "name": "Anoxic tank",
+      "family": "09-structures",
+      "group": "Biological",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "rect",
+      "dimensions": {
+        "length_m": 10,
+        "width_m": 6,
+        "overall_depth_m": 5.0,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 105.0,
+        "wl_rl_m": 104.15
+      },
+      "features": [
+        "mixer",
+        "recycle"
+      ],
+      "featureParameters": {},
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 5.0,
+            "y_m": 3.0,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "mixer",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 5.0,
+            "y_m": 3.0,
+            "z_RL_m": 102.75
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "mixed-liquor-in",
+          "medium": "mixed-liquor",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 3.0,
+            "z_RL_m": 103.1
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "mixed-liquor-out",
+          "medium": "mixed-liquor",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 10,
+            "y_m": 3.0,
+            "z_RL_m": 103.1
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "nitrate-recycle",
+          "medium": "nitrate-recycle",
+          "direction": "in",
+          "face": "north",
+          "attachment_kind": "process",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 5.0,
+            "y_m": 6,
+            "z_RL_m": 104.25
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "ANOXIC_TANK",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              3.0
+            ],
+            "endLocalM": [
+              10,
+              3.0
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              5.0,
+              0
+            ],
+            "endLocalM": [
+              5.0,
+              6
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 10,
+          "W": 6
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 105.0,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 10,
+          "minY_m": 0,
+          "maxY_m": 6,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 105.0
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            10,
+            0,
+            100
+          ],
+          "dimensionM": 10,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            6,
+            100
+          ],
+          "dimensionM": 6,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            105.0
+          ],
+          "dimensionM": 5.0,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "WL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "asp-aeration-tank",
+      "name": "ASP aeration tank",
+      "family": "09-structures",
+      "group": "Biological",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "rect",
+      "dimensions": {
+        "length_m": 18,
+        "width_m": 6.2,
+        "overall_depth_m": 5.2,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 105.2,
+        "wl_rl_m": 104.35
+      },
+      "features": [
+        "diffusers",
+        "weir",
+        "ras"
+      ],
+      "featureParameters": {
+        "diffuserRows": 3,
+        "diffusersPerRow": 7
+      },
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 9.0,
+            "y_m": 3.1,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "diffuser-grid",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 9.0,
+            "y_m": 3.1,
+            "z_RL_m": 100.3
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "weir",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 16.74,
+            "y_m": 3.1,
+            "z_RL_m": 104.35
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sewage-in",
+          "medium": "wastewater",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 3.1,
+            "z_RL_m": 103.224
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "mixed-liquor-out",
+          "medium": "mixed-liquor",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 18,
+            "y_m": 3.1,
+            "z_RL_m": 103.224
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "return-sludge-in",
+          "medium": "return-activated-sludge",
+          "direction": "in",
+          "face": "north",
+          "attachment_kind": "process",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 9.0,
+            "y_m": 6.2,
+            "z_RL_m": 104.42
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "air-in",
+          "medium": "air",
+          "direction": "in",
+          "face": "north",
+          "attachment_kind": "process-air",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 9.0,
+            "y_m": 6.2,
+            "z_RL_m": 105.2
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "ASP_AERATION_TANK",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              3.1
+            ],
+            "endLocalM": [
+              18,
+              3.1
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              9.0,
+              0
+            ],
+            "endLocalM": [
+              9.0,
+              6.2
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 18,
+          "W": 6.2
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 105.2,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 18,
+          "minY_m": 0,
+          "maxY_m": 6.2,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 105.2
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            18,
+            0,
+            100
+          ],
+          "dimensionM": 18,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            6.2,
+            100
+          ],
+          "dimensionM": 6.2,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            105.2
+          ],
+          "dimensionM": 5.2,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "WL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "tube-settler",
+      "name": "Tube settler",
+      "family": "09-structures",
+      "group": "Settling",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "hopper",
+      "dimensions": {
+        "length_m": 9,
+        "width_m": 5,
+        "overall_depth_m": 5.5,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 105.5,
+        "wl_rl_m": 104.65
+      },
+      "features": [
+        "tube-pack",
+        "hopper",
+        "weir"
+      ],
+      "featureParameters": {
+        "tubeRows": 9,
+        "tubeInclinationDeg": 60
+      },
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 4.5,
+            "y_m": 2.5,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "weir",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 8.37,
+            "y_m": 2.5,
+            "z_RL_m": 104.65
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sewage-in",
+          "medium": "wastewater",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 2.5,
+            "z_RL_m": 103.41
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "clarified-out",
+          "medium": "clarified-effluent",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 9,
+            "y_m": 2.5,
+            "z_RL_m": 103.41
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "sludge-out",
+          "medium": "sludge",
+          "direction": "out",
+          "face": "south",
+          "attachment_kind": "process",
+          "physicalSurface": "floor",
+          "localAnchorM": {
+            "x_m": 4.5,
+            "y_m": 2.5,
+            "z_RL_m": 100
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "WS-2024-A:8.6.8",
+          "kind": "design_reference_lead",
+          "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/WS-2024-A:8.6.8",
+          "verification": "extract_review_only"
+        }
+      ],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "TUBE_SETTLER",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              2.5
+            ],
+            "endLocalM": [
+              9,
+              2.5
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              4.5,
+              0
+            ],
+            "endLocalM": [
+              4.5,
+              5
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 9,
+          "W": 5
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 105.5,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 9,
+          "minY_m": 0,
+          "maxY_m": 5,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 105.5
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            9,
+            0,
+            100
+          ],
+          "dimensionM": 9,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            5,
+            100
+          ],
+          "dimensionM": 5,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            105.5
+          ],
+          "dimensionM": 5.5,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "WL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "secondary-clarifier",
+      "name": "Circular secondary clarifier",
+      "family": "09-structures",
+      "group": "Settling",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "circular",
+      "dimensions": {
+        "length_m": 14,
+        "width_m": 14,
+        "overall_depth_m": 4.8,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 104.8,
+        "wl_rl_m": 103.95
+      },
+      "features": [
+        "feedwell",
+        "scraper",
+        "weir",
+        "hopper"
+      ],
+      "featureParameters": {
+        "feedwellDiameterFraction": 0.2,
+        "scraperArms": 2
+      },
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 7.0,
+            "y_m": 7.0,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "weir",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 13.02,
+            "y_m": 7.0,
+            "z_RL_m": 103.95
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "mixer",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 7.0,
+            "y_m": 7.0,
+            "z_RL_m": 102.64
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "mixed-liquor-in",
+          "medium": "mixed-liquor",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 7.0,
+            "z_RL_m": 102.976
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "clarified-out",
+          "medium": "clarified-effluent",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 14,
+            "y_m": 7.0,
+            "z_RL_m": 102.976
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "return-sludge-out",
+          "medium": "return-activated-sludge",
+          "direction": "out",
+          "face": "south",
+          "attachment_kind": "process",
+          "physicalSurface": "floor",
+          "localAnchorM": {
+            "x_m": 7.0,
+            "y_m": 7.0,
+            "z_RL_m": 100
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "waste-sludge-out",
+          "medium": "waste-sludge",
+          "direction": "out",
+          "face": "south",
+          "attachment_kind": "process",
+          "physicalSurface": "floor",
+          "localAnchorM": {
+            "x_m": 7.0,
+            "y_m": 7.0,
+            "z_RL_m": 100
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "SEW-2013-A:5.7.4.2.6.3",
+          "kind": "design_reference_lead",
+          "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.7.4.2.6.3",
+          "verification": "extract_review_only"
+        }
+      ],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "SECONDARY_CLARIFIER",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "plan",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "plan",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              7.0
+            ],
+            "endLocalM": [
+              14,
+              7.0
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              7.0,
+              0
+            ],
+            "endLocalM": [
+              7.0,
+              14
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 14,
+          "W": 14
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 104.8,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 14,
+          "minY_m": 0,
+          "maxY_m": 14,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 104.8
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            14,
+            0,
+            100
+          ],
+          "dimensionM": 14,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            14,
+            100
+          ],
+          "dimensionM": 14,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            104.8
+          ],
+          "dimensionM": 4.8,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "WL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "primary-clarifier",
+      "name": "Rectangular primary clarifier",
+      "family": "09-structures",
+      "group": "Settling",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "rect",
+      "dimensions": {
+        "length_m": 18,
+        "width_m": 6,
+        "overall_depth_m": 4.6,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 104.6,
+        "wl_rl_m": 103.75
+      },
+      "features": [
+        "chain-flight",
+        "hopper",
+        "weir",
+        "baffle"
+      ],
+      "featureParameters": {
+        "flightMarkers": 7
+      },
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 9.0,
+            "y_m": 3.0,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "weir",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 16.74,
+            "y_m": 3.0,
+            "z_RL_m": 103.75
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sewage-in",
+          "medium": "wastewater",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 3.0,
+            "z_RL_m": 102.852
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "clarified-out",
+          "medium": "clarified-effluent",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 18,
+            "y_m": 3.0,
+            "z_RL_m": 102.852
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "sludge-out",
+          "medium": "sludge",
+          "direction": "out",
+          "face": "south",
+          "attachment_kind": "process",
+          "physicalSurface": "floor",
+          "localAnchorM": {
+            "x_m": 9.0,
+            "y_m": 3.0,
+            "z_RL_m": 100
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "scum-out",
+          "medium": "scum",
+          "direction": "out",
+          "face": "north",
+          "attachment_kind": "process",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 9.0,
+            "y_m": 6,
+            "z_RL_m": 103.91
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "PRIMARY_CLARIFIER",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              3.0
+            ],
+            "endLocalM": [
+              18,
+              3.0
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              9.0,
+              0
+            ],
+            "endLocalM": [
+              9.0,
+              6
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 18,
+          "W": 6
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 104.6,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 18,
+          "minY_m": 0,
+          "maxY_m": 6,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 104.6
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            18,
+            0,
+            100
+          ],
+          "dimensionM": 18,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            6,
+            100
+          ],
+          "dimensionM": 6,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            104.6
+          ],
+          "dimensionM": 4.6,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "WL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "chlorine-contact-tank",
+      "name": "Chlorine contact tank",
+      "family": "09-structures",
+      "group": "Disinfection",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "rect",
+      "dimensions": {
+        "length_m": 16,
+        "width_m": 7,
+        "overall_depth_m": 3.4,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 103.4,
+        "wl_rl_m": 102.55
+      },
+      "features": [
+        "serpentine",
+        "weir"
+      ],
+      "featureParameters": {
+        "baffleCount": 5,
+        "baffleEndOpeningFraction": 0.24
+      },
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 8.0,
+            "y_m": 3.5,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "weir",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 14.88,
+            "y_m": 3.5,
+            "z_RL_m": 102.55
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sewage-in",
+          "medium": "wastewater",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 3.5,
+            "z_RL_m": 102.108
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "treated-out",
+          "medium": "treated-effluent",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 16,
+            "y_m": 3.5,
+            "z_RL_m": 102.108
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "chemical-in",
+          "medium": "chemical",
+          "direction": "in",
+          "face": "north",
+          "attachment_kind": "process",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 8.0,
+            "y_m": 7,
+            "z_RL_m": 103.4
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "SEW-2013-A:5.18.12.4.1",
+          "kind": "design_reference_lead",
+          "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:5.18.12.4.1",
+          "verification": "extract_review_only"
+        }
+      ],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "CHLORINE_CONTACT_TANK",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "plan",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "plan",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              3.5
+            ],
+            "endLocalM": [
+              16,
+              3.5
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              8.0,
+              0
+            ],
+            "endLocalM": [
+              8.0,
+              7
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 16,
+          "W": 7
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 103.4,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 16,
+          "minY_m": 0,
+          "maxY_m": 7,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 103.4
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            16,
+            0,
+            100
+          ],
+          "dimensionM": 16,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            7,
+            100
+          ],
+          "dimensionM": 7,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            103.4
+          ],
+          "dimensionM": 3.4,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "WL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "pressure-sand-filter",
+      "name": "Pressure sand filter",
+      "family": "09-structures",
+      "group": "Tertiary",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "pressure",
+      "dimensions": {
+        "length_m": 3.2,
+        "width_m": 3.2,
+        "overall_depth_m": 4.8,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 104.8
+      },
+      "features": [
+        "sand-bed",
+        "backwash"
+      ],
+      "featureParameters": {
+        "mediaLabel": "sand"
+      },
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 1.6,
+            "y_m": 1.6,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "feed-in",
+          "medium": "process-liquid",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 1.6,
+            "z_RL_m": 102.976
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "filtrate-out",
+          "medium": "filtrate",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 3.2,
+            "y_m": 1.6,
+            "z_RL_m": 102.976
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "backwash-in",
+          "medium": "backwash-water",
+          "direction": "in",
+          "face": "north",
+          "attachment_kind": "process",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 1.6,
+            "y_m": 3.2,
+            "z_RL_m": 104.08
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "waste-out",
+          "medium": "wastewater",
+          "direction": "out",
+          "face": "north",
+          "attachment_kind": "process",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 1.6,
+            "y_m": 3.2,
+            "z_RL_m": 104.08
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "PRESSURE_SAND_FILTER",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              1.6
+            ],
+            "endLocalM": [
+              3.2,
+              1.6
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              1.6,
+              0
+            ],
+            "endLocalM": [
+              1.6,
+              3.2
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 3.2,
+          "W": 3.2
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 104.8,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 3.2,
+          "minY_m": 0,
+          "maxY_m": 3.2,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 104.8
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            3.2,
+            0,
+            100
+          ],
+          "dimensionM": 3.2,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            3.2,
+            100
+          ],
+          "dimensionM": 3.2,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            104.8
+          ],
+          "dimensionM": 4.8,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "NONE",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "activated-carbon-filter",
+      "name": "Activated carbon filter",
+      "family": "09-structures",
+      "group": "Tertiary",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "pressure",
+      "dimensions": {
+        "length_m": 3.2,
+        "width_m": 3.2,
+        "overall_depth_m": 4.8,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 104.8
+      },
+      "features": [
+        "carbon-bed",
+        "backwash"
+      ],
+      "featureParameters": {
+        "mediaLabel": "activated-carbon"
+      },
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 1.6,
+            "y_m": 1.6,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "feed-in",
+          "medium": "process-liquid",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 1.6,
+            "z_RL_m": 102.976
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "filtrate-out",
+          "medium": "filtrate",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 3.2,
+            "y_m": 1.6,
+            "z_RL_m": 102.976
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "backwash-in",
+          "medium": "backwash-water",
+          "direction": "in",
+          "face": "north",
+          "attachment_kind": "process",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 1.6,
+            "y_m": 3.2,
+            "z_RL_m": 104.08
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "waste-out",
+          "medium": "wastewater",
+          "direction": "out",
+          "face": "north",
+          "attachment_kind": "process",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 1.6,
+            "y_m": 3.2,
+            "z_RL_m": 104.08
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "ACTIVATED_CARBON_FILTER",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              1.6
+            ],
+            "endLocalM": [
+              3.2,
+              1.6
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              1.6,
+              0
+            ],
+            "endLocalM": [
+              1.6,
+              3.2
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 3.2,
+          "W": 3.2
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 104.8,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 3.2,
+          "minY_m": 0,
+          "maxY_m": 3.2,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 104.8
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            3.2,
+            0,
+            100
+          ],
+          "dimensionM": 3.2,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            3.2,
+            100
+          ],
+          "dimensionM": 3.2,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            104.8
+          ],
+          "dimensionM": 4.8,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "NONE",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "disc-filter",
+      "name": "Disc filter",
+      "family": "09-structures",
+      "group": "Tertiary",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "rect",
+      "dimensions": {
+        "length_m": 8,
+        "width_m": 3.5,
+        "overall_depth_m": 3.8,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 103.8,
+        "wl_rl_m": 102.95
+      },
+      "features": [
+        "discs",
+        "drive"
+      ],
+      "featureParameters": {
+        "discCount": 5
+      },
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 4.0,
+            "y_m": 1.75,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "operator-motor",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 4.0,
+            "y_m": 1.75,
+            "z_RL_m": 101.9
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "feed-in",
+          "medium": "process-liquid",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 1.75,
+            "z_RL_m": 102.356
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "filtrate-out",
+          "medium": "filtrate",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 8,
+            "y_m": 1.75,
+            "z_RL_m": 102.356
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "backwash-waste",
+          "medium": "backwash-waste",
+          "direction": "out",
+          "face": "north",
+          "attachment_kind": "process",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 4.0,
+            "y_m": 3.5,
+            "z_RL_m": 103.23
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "DISC_FILTER",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              1.75
+            ],
+            "endLocalM": [
+              8,
+              1.75
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              4.0,
+              0
+            ],
+            "endLocalM": [
+              4.0,
+              3.5
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 8,
+          "W": 3.5
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 103.8,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 8,
+          "minY_m": 0,
+          "maxY_m": 3.5,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 103.8
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            8,
+            0,
+            100
+          ],
+          "dimensionM": 8,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            3.5,
+            100
+          ],
+          "dimensionM": 3.5,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            103.8
+          ],
+          "dimensionM": 3.8,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "WL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "ultrafiltration-skid",
+      "name": "Ultrafiltration skid",
+      "family": "09-structures",
+      "group": "Tertiary",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "skid",
+      "dimensions": {
+        "length_m": 9,
+        "width_m": 3.4,
+        "overall_depth_m": 3.1,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 103.1
+      },
+      "features": [
+        "membranes",
+        "headers"
+      ],
+      "featureParameters": {
+        "membraneModuleCount": 6
+      },
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 4.5,
+            "y_m": 1.7,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "feed-in",
+          "medium": "process-liquid",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 1.7,
+            "z_RL_m": 101.922
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "permeate-out",
+          "medium": "permeate",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 9,
+            "y_m": 1.7,
+            "z_RL_m": 101.922
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "reject-out",
+          "medium": "reject",
+          "direction": "out",
+          "face": "south",
+          "attachment_kind": "process",
+          "physicalSurface": "floor",
+          "localAnchorM": {
+            "x_m": 4.5,
+            "y_m": 1.7,
+            "z_RL_m": 100
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "ULTRAFILTRATION_SKID",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "elevation",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "elevation",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              1.7
+            ],
+            "endLocalM": [
+              9,
+              1.7
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              4.5,
+              0
+            ],
+            "endLocalM": [
+              4.5,
+              3.4
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 9,
+          "W": 3.4
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 103.1,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 9,
+          "minY_m": 0,
+          "maxY_m": 3.4,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 103.1
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            9,
+            0,
+            100
+          ],
+          "dimensionM": 9,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            3.4,
+            100
+          ],
+          "dimensionM": 3.4,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            103.1
+          ],
+          "dimensionM": 3.1,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "NONE",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "sludge-holding-tank",
+      "name": "Sludge holding tank",
+      "family": "09-structures",
+      "group": "Sludge",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "rect",
+      "dimensions": {
+        "length_m": 8,
+        "width_m": 5,
+        "overall_depth_m": 5.0,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 105.0,
+        "twl_rl_m": 104.5,
+        "bwl_rl_m": 102.9,
+        "current_rl_m": 103.9
+      },
+      "features": [
+        "mixer",
+        "supernatant",
+        "variable-level"
+      ],
+      "featureParameters": {},
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 4.0,
+            "y_m": 2.5,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "mixer",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 4.0,
+            "y_m": 2.5,
+            "z_RL_m": 102.75
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sludge-in",
+          "medium": "sludge",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 2.5,
+            "z_RL_m": 103.1
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "sludge-out",
+          "medium": "sludge",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 8,
+            "y_m": 2.5,
+            "z_RL_m": 103.1
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "supernatant-out",
+          "medium": "supernatant",
+          "direction": "out",
+          "face": "north",
+          "attachment_kind": "process",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 4.0,
+            "y_m": 5,
+            "z_RL_m": 104.25
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "SLUDGE_HOLDING_TANK",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              2.5
+            ],
+            "endLocalM": [
+              8,
+              2.5
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              4.0,
+              0
+            ],
+            "endLocalM": [
+              4.0,
+              5
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 8,
+          "W": 5
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 105.0,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 8,
+          "minY_m": 0,
+          "maxY_m": 5,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 105.0
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            8,
+            0,
+            100
+          ],
+          "dimensionM": 8,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            5,
+            100
+          ],
+          "dimensionM": 5,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            105.0
+          ],
+          "dimensionM": 5.0,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "TWL/BWL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "gravity-thickener",
+      "name": "Gravity thickener",
+      "family": "09-structures",
+      "group": "Sludge",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "circular",
+      "dimensions": {
+        "length_m": 11,
+        "width_m": 11,
+        "overall_depth_m": 4.7,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 104.7,
+        "wl_rl_m": 103.85
+      },
+      "features": [
+        "picket",
+        "steep-cone",
+        "weir"
+      ],
+      "featureParameters": {
+        "picketCount": 14
+      },
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 5.5,
+            "y_m": 5.5,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "mixer",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 5.5,
+            "y_m": 5.5,
+            "z_RL_m": 102.585
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sludge-in",
+          "medium": "sludge",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 5.5,
+            "z_RL_m": 102.914
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "thickened-out",
+          "medium": "thickened-sludge",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 11,
+            "y_m": 5.5,
+            "z_RL_m": 102.914
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "supernatant-out",
+          "medium": "supernatant",
+          "direction": "out",
+          "face": "north",
+          "attachment_kind": "process",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 5.5,
+            "y_m": 11,
+            "z_RL_m": 103.995
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "SEW-2013-A:6.3",
+          "kind": "design_reference_lead",
+          "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:6.3",
+          "verification": "extract_review_only"
+        }
+      ],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "GRAVITY_THICKENER",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              5.5
+            ],
+            "endLocalM": [
+              11,
+              5.5
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              5.5,
+              0
+            ],
+            "endLocalM": [
+              5.5,
+              11
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 11,
+          "W": 11
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 104.7,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 11,
+          "minY_m": 0,
+          "maxY_m": 11,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 104.7
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            11,
+            0,
+            100
+          ],
+          "dimensionM": 11,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            11,
+            100
+          ],
+          "dimensionM": 11,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            104.7
+          ],
+          "dimensionM": 4.7,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "WL",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "dewatering-centrifuge",
+      "name": "Centrifuge dewatering assembly",
+      "family": "09-structures",
+      "group": "Sludge",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "machine",
+      "dimensions": {
+        "length_m": 7,
+        "width_m": 2.5,
+        "overall_depth_m": 2.7,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 102.7
+      },
+      "features": [
+        "centrifuge",
+        "cake"
+      ],
+      "featureParameters": {},
+      "components": [
+        {
+          "symbolId": "operator-motor",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 3.5,
+            "y_m": 1.25,
+            "z_RL_m": 101.35
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sludge-in",
+          "medium": "sludge",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 1.25,
+            "z_RL_m": 101.674
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "centrate-out",
+          "medium": "centrate",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 7,
+            "y_m": 1.25,
+            "z_RL_m": 101.674
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "cake-out",
+          "medium": "sludge-cake",
+          "direction": "out",
+          "face": "south",
+          "attachment_kind": "process",
+          "physicalSurface": "floor",
+          "localAnchorM": {
+            "x_m": 3.5,
+            "y_m": 1.25,
+            "z_RL_m": 100
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "SEW-2013-A:6.7.7",
+          "kind": "design_reference_lead",
+          "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:6.7.7",
+          "verification": "extract_review_only"
+        }
+      ],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "DEWATERING_CENTRIFUGE",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "elevation",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "elevation",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              1.25
+            ],
+            "endLocalM": [
+              7,
+              1.25
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              3.5,
+              0
+            ],
+            "endLocalM": [
+              3.5,
+              2.5
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 7,
+          "W": 2.5
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 102.7,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 7,
+          "minY_m": 0,
+          "maxY_m": 2.5,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 102.7
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            7,
+            0,
+            100
+          ],
+          "dimensionM": 7,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            2.5,
+            100
+          ],
+          "dimensionM": 2.5,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            102.7
+          ],
+          "dimensionM": 2.7,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "NONE",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "filter-press",
+      "name": "Filter press assembly",
+      "family": "09-structures",
+      "group": "Sludge",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "machine",
+      "dimensions": {
+        "length_m": 7.5,
+        "width_m": 2.7,
+        "overall_depth_m": 3.0,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 103.0
+      },
+      "features": [
+        "plate-stack",
+        "cake"
+      ],
+      "featureParameters": {
+        "plateCount": 11
+      },
+      "components": [
+        {
+          "symbolId": "operator-motor",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 3.75,
+            "y_m": 1.35,
+            "z_RL_m": 101.5
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sludge-in",
+          "medium": "sludge",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 1.35,
+            "z_RL_m": 101.86
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "filtrate-out",
+          "medium": "filtrate",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 7.5,
+            "y_m": 1.35,
+            "z_RL_m": 101.86
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "cake-out",
+          "medium": "sludge-cake",
+          "direction": "out",
+          "face": "south",
+          "attachment_kind": "process",
+          "physicalSurface": "floor",
+          "localAnchorM": {
+            "x_m": 3.75,
+            "y_m": 1.35,
+            "z_RL_m": 100
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "SEW-2013-A:6.7.7",
+          "kind": "design_reference_lead",
+          "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:6.7.7",
+          "verification": "extract_review_only"
+        }
+      ],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "FILTER_PRESS",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "elevation",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "elevation",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              1.35
+            ],
+            "endLocalM": [
+              7.5,
+              1.35
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              3.75,
+              0
+            ],
+            "endLocalM": [
+              3.75,
+              2.7
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 7.5,
+          "W": 2.7
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 103.0,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 7.5,
+          "minY_m": 0,
+          "maxY_m": 2.7,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 103.0
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            7.5,
+            0,
+            100
+          ],
+          "dimensionM": 7.5,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            2.7,
+            100
+          ],
+          "dimensionM": 2.7,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            103.0
+          ],
+          "dimensionM": 3.0,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "NONE",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "belt-press",
+      "name": "Belt press assembly",
+      "family": "09-structures",
+      "group": "Sludge",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "machine",
+      "dimensions": {
+        "length_m": 8.0,
+        "width_m": 3,
+        "overall_depth_m": 3.2,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 103.2
+      },
+      "features": [
+        "belt-rollers",
+        "cake"
+      ],
+      "featureParameters": {
+        "rollerCount": 4
+      },
+      "components": [
+        {
+          "symbolId": "operator-motor",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 4.0,
+            "y_m": 1.5,
+            "z_RL_m": 101.6
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "sludge-in",
+          "medium": "sludge",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 1.5,
+            "z_RL_m": 101.984
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "filtrate-out",
+          "medium": "filtrate",
+          "direction": "out",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 8.0,
+            "y_m": 1.5,
+            "z_RL_m": 101.984
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "cake-out",
+          "medium": "sludge-cake",
+          "direction": "out",
+          "face": "south",
+          "attachment_kind": "process",
+          "physicalSurface": "floor",
+          "localAnchorM": {
+            "x_m": 4.0,
+            "y_m": 1.5,
+            "z_RL_m": 100
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "SEW-2013-A:6.7.7",
+          "kind": "design_reference_lead",
+          "url": "https://precision-pursuant-flowers-genetic.trycloudflare.com/c/SEW-2013-A:6.7.7",
+          "verification": "extract_review_only"
+        }
+      ],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "BELT_PRESS",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "elevation",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "elevation",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              1.5
+            ],
+            "endLocalM": [
+              8.0,
+              1.5
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              4.0,
+              0
+            ],
+            "endLocalM": [
+              4.0,
+              3
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 8.0,
+          "W": 3
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 103.2,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 8.0,
+          "minY_m": 0,
+          "maxY_m": 3,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 103.2
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            8.0,
+            0,
+            100
+          ],
+          "dimensionM": 8.0,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            3,
+            100
+          ],
+          "dimensionM": 3,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            103.2
+          ],
+          "dimensionM": 3.2,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "NONE",
+      "dimensionProvenance": "illustrative_not_design"
+    },
+    {
+      "id": "polymer-preparation-tank",
+      "name": "Polymer preparation / dosing tank",
+      "family": "09-structures",
+      "group": "Sludge",
+      "status": "DESIGN_APPROVED__ILLUSTRATIVE_DIMENSIONS",
+      "shape": "rect",
+      "dimensions": {
+        "length_m": 4.5,
+        "width_m": 4,
+        "overall_depth_m": 4.2,
+        "status": "illustrative_not_design"
+      },
+      "levels": {
+        "floor_rl_m": 100,
+        "wall_top_rl_m": 104.2,
+        "wl_rl_m": 103.35
+      },
+      "features": [
+        "mixer",
+        "dosing"
+      ],
+      "featureParameters": {},
+      "components": [
+        {
+          "symbolId": "tank-open",
+          "sourceFamily": "09",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 2.25,
+            "y_m": 2.0,
+            "z_RL_m": 100
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "mixer",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 2.25,
+            "y_m": 2.0,
+            "z_RL_m": 102.31
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        },
+        {
+          "symbolId": "pump-dosing",
+          "sourceFamily": "previous_approved",
+          "role": "part",
+          "mountLocalM": {
+            "x_m": 2.925,
+            "y_m": 2.6,
+            "z_RL_m": 100.4
+          },
+          "mountStatus": "illustrative_placeholder__engineer_to_place",
+          "compositionMethod": "reference_symbol_id_do_not_redraw"
+        }
+      ],
+      "ports": [
+        {
+          "id": "water-in",
+          "medium": "service-water",
+          "direction": "in",
+          "face": "west",
+          "attachment_kind": "process",
+          "physicalSurface": "west",
+          "localAnchorM": {
+            "x_m": 0.0,
+            "y_m": 2.0,
+            "z_RL_m": 102.604
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "polymer-in",
+          "medium": "polymer",
+          "direction": "in",
+          "face": "east",
+          "attachment_kind": "process",
+          "physicalSurface": "east",
+          "localAnchorM": {
+            "x_m": 4.5,
+            "y_m": 2.0,
+            "z_RL_m": 102.604
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        },
+        {
+          "id": "solution-out",
+          "medium": "polymer-solution",
+          "direction": "out",
+          "face": "north",
+          "attachment_kind": "process",
+          "physicalSurface": "north",
+          "localAnchorM": {
+            "x_m": 2.25,
+            "y_m": 4,
+            "z_RL_m": 103.57
+          },
+          "anchorStatus": "illustrative_placement_needs_design_validation",
+          "portTypeSource": "Family09 review manifest medium and direction"
+        }
+      ],
+      "provenance": [],
+      "views": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "assetIdentity": "POLYMER_PREPARATION_TANK",
+      "designReviewRequired": true,
+      "approvalDate": "2026-11-21",
+      "primaryView": "section",
+      "availableViews": [
+        "schematic",
+        "plan",
+        "section",
+        "elevation"
+      ],
+      "viewPolicy": {
+        "preferred": "section",
+        "available": [
+          "schematic",
+          "plan",
+          "section",
+          "elevation"
+        ],
+        "scalePolicy": {
+          "schematic": "not-to-scale",
+          "plan": "from-model-coordinates",
+          "section": "from-model-coordinates",
+          "elevation": "from-model-coordinates"
+        },
+        "sectionCuts": [
+          {
+            "id": "A-A",
+            "kind": "longitudinal",
+            "startLocalM": [
+              0,
+              2.0
+            ],
+            "endLocalM": [
+              4.5,
+              2.0
+            ],
+            "isReviewDefault": true
+          },
+          {
+            "id": "B-B",
+            "kind": "transverse",
+            "startLocalM": [
+              2.25,
+              0
+            ],
+            "endLocalM": [
+              2.25,
+              4
+            ],
+            "isReviewDefault": false
+          }
+        ],
+        "elevationFace": "south",
+        "viewDataValidity": "Four-view atlas is a geometry-vocabulary fixture; not accurate CAD projections"
+      },
+      "coordinates": {
+        "basis": "LOCAL_MODEL_METRES",
+        "originLocalM": [
+          0.0,
+          0.0
+        ],
+        "surveyedPositionProjectM": null,
+        "originStatus": "not_sited_on_survey",
+        "footprintM": {
+          "L": 4.5,
+          "W": 4
+        },
+        "floorRL_m": 100,
+        "wallTopRL_m": 104.2,
+        "exampleVerticalDatumId": "EXAMPLE_RL100_UNVERIFIED",
+        "coordinateBounds": {
+          "minX_m": 0,
+          "maxX_m": 4.5,
+          "minY_m": 0,
+          "maxY_m": 4,
+          "minZ_RL_m": 100,
+          "maxZ_RL_m": 104.2
+        }
+      },
+      "dimensionAnnotations": [
+        {
+          "id": "length",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            4.5,
+            0,
+            100
+          ],
+          "dimensionM": 4.5,
+          "unit": "m",
+          "context": "model length"
+        },
+        {
+          "id": "width",
+          "kind": "linear",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            4,
+            100
+          ],
+          "dimensionM": 4,
+          "unit": "m",
+          "context": "model width"
+        },
+        {
+          "id": "depth",
+          "kind": "vertical",
+          "fromM": [
+            0,
+            0,
+            100
+          ],
+          "toM": [
+            0,
+            0,
+            104.2
+          ],
+          "dimensionM": 4.2,
+          "unit": "m",
+          "context": "overall top-to-floor depth"
+        }
+      ],
+      "levelAnnotationPolicy": "WL",
+      "dimensionProvenance": "illustrative_not_design"
+    }
+  ],
+  "approval": {
+    "date": "2026-11-21",
+    "type": "user-approved-design",
+    "scope": "24 structure concepts; architecture and preferred-view conventions; both SBR decanter presets",
+    "doesNotConfirm": [
+      "engineering design criteria",
+      "project-specific geometries",
+      "vendor correctness",
+      "projection-engine accuracy",
+      "repo implementation",
+      "standards certification"
+    ]
+  },
+  "projectDatum": {
+    "id": "EXAMPLE_RL100_UNVERIFIED",
+    "verticalReference": "illustrative relative level datum only",
+    "floorReferenceRL_m": 100.0,
+    "units": "m",
+    "coordinateSystem": "right-handed x,y,z",
+    "horizontalCRS": null,
+    "surveyBenchmark": null,
+    "engineeringUse": "example only",
+    "requiredForConstruction": "replace with surveyed project datum and horizontal CRS"
+  },
+  "coordinateSystem": {
+    "localAxes": {
+      "x": "inlet to outlet / long axis (metres)",
+      "y": "left to right across width (metres)",
+      "z": "elevation RL (metres)"
+    },
+    "localPlanOriginM": [
+      0.0,
+      0.0
+    ],
+    "sitePlacement": "UNDEFINED — no surveyed plant location or elevation datum provided",
+    "inSvgDrawingUnits": false,
+    "physicalViewPolicy": "plan/section/elevation project local coordinates through explicit scale/camera; schematic is intentionally not to scale",
+    "sectionCuts": "explicit local metres, never inferred from viewport"
+  }
+}

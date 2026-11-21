@@ -7,6 +7,8 @@ import path from "node:path";
 import { SYMBOLS, SERVICE_CODES, GATE_ALIASES, gateArchive, INSTRUMENT_PRESETS, LEGACY_INSTRUMENT_ANCHORS, place, placeSymbol } from "../src/library.mjs";
 import { PRIMARY_ARCHIVE_IDS, composePrimaryElement, migratePrimaryElement } from "../src/library.mjs";
 import { byId, SCREENING_ARCHIVE_IDS, SCREENING_CANDIDATES, SCREENING_STREAMS } from "../src/library.mjs";
+import { createStructureModel, STRUCTURE_RECORDS, STRUCTURE_DATUM, STRUCTURE_SOURCE_LEADS,
+  STRUCTURE_VIEWS, DECANTER_IDS } from "../src/library.mjs";
 import { LOGIC_IDS, placeLogicPrimitive } from "../src/logic.mjs";
 import { render, svgDoc } from "../src/render.mjs";
 
@@ -156,6 +158,29 @@ const catalogue = {
       shapes: undefined,
       interfaces: undefined,
     })),
+  },
+  structures: {
+    docs: "docs/family-09.md",
+    units: "m",
+    approval: "Family 09 Revision 03 concept approval",
+    verification: "Illustrative review only",
+    views: STRUCTURE_VIEWS,
+    datum: STRUCTURE_DATUM,
+    sourceLeads: STRUCTURE_SOURCE_LEADS,
+    decanterIds: DECANTER_IDS,
+    legacyIds: ["tank-open", "diffuser-grid", "decanter"],
+    records: Object.values(STRUCTURE_RECORDS).map((record) => {
+      const model = createStructureModel(record.id);
+      return {
+        id: record.id, name: record.name, assetId: model.assetId, viewPolicy: record.viewPolicy,
+        shape: record.shape, geometry: model.geometry, water: model.water, features: record.features,
+        featureParameters: record.featureParameters, dimensions: model.dimensions, cuts: model.cuts,
+        ports: model.ports, portDiagnostics: model.portDiagnostics, components: model.components,
+        siteTransform: model.siteTransform, evidenceGaps: model.evidenceGaps,
+        provenance: model.sourceLeads, criteriaApplied: model.criteriaApplied,
+        decanterPresets: record.decanterPresets,
+      };
+    }),
   },
   serviceCodes: SERVICE_CODES,
 };
