@@ -176,7 +176,11 @@ export function composeActuator(mount, config, at = {}, display = {}) {
   const headExtent = bbox(leftRight(extent).map((xy) => placePoint(xy, { q: relativeQ })));
   const gap = 1 / (p.s * p.renderScale);
   // Keep the head outside the equipment's reserved region in mounting coordinates.
-  const edgeGap = relativeQ === 2 ? 3 * gap : (clearance || headExtent.bottom ? gap : 0);
+  // A transverse stem jog needs visible paper between the two one-pixel strokes.
+  const jogGap = 2 * gap;
+  const edgeGap = relativeQ === 2 ? 3 * gap
+    : relativeQ !== 0 ? jogGap
+      : (clearance || headExtent.bottom ? gap : 0);
   const reach = Math.max(stemLength, clearance + headExtent.bottom + edgeGap);
   const stem = [[0, 0], [0, -reach]];
   // A separately upright head needs a final approach along its own stem axis.
@@ -186,7 +190,7 @@ export function composeActuator(mount, config, at = {}, display = {}) {
   if (relativeQ === 2) {
     const side = Math.max(0, -headExtent.left) + gap * 3;
     const jog = -reach - gap * 3;
-    stem.splice(1, 0, [0, -clearance - gap], [-side, -clearance - gap], [-side, jog], [0, jog]);
+    stem.splice(1, 0, [0, -clearance - jogGap], [-side, -clearance - jogGap], [-side, jog], [0, jog]);
   }
 
   const frame = { x: mountPoint[0], y: mountPoint[1], s: p.s, q: mountQ };

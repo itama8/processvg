@@ -139,6 +139,25 @@ test("equipment layouts respect head clearance and keep pipe and mechanical coor
   assert.throws(() => composeActuator({ ...mount, normal: [1, 1] }, { headId: "operator-motor" }), /cardinal/);
 });
 
+test("upright stem jogs leave room for the host stroke at nominal and reduced display scales", () => {
+  for (const renderScale of [1, 0.65]) {
+    for (const q of [1, 2, 3]) {
+      for (const headId of ["operator-lever", "operator-float", cylinder("pneumatic")]) {
+        const result = composeActuator({ ...mount, clearance: 2 },
+          { headId, headOrientation: "upright", stemLength: 0 }, { q, s: 0.62 }, { renderScale });
+        const [origin, turn] = result.stem;
+        const [nx, ny] = result.anchors.mount.normal;
+        const reach = (turn[0] - origin[0]) * nx + (turn[1] - origin[1]) * ny;
+        assert.ok((reach - 2 * 0.62) * renderScale >= 1.99, `${headId} at turn ${q}`);
+        assert.deepEqual(result.stem.at(-1), result.anchors.head.point);
+      }
+    }
+  }
+  const sideways = composeActuator(mount,
+    { headId: "operator-lever", headOrientation: "upright", stemLength: 0 }, { q: 1 });
+  assert.deepEqual(sideways.stem.slice(0, 2), [[10, 0], [12, 0]]);
+});
+
 test("spring and command metadata remain independent of valve states and failure events", () => {
   const actuator = { headId: cylinder("pneumatic"), motion: "linear", controlMode: "on-off" };
   const config = { bodyId: "valve-gate", normalPosition: "open", operatingPosition: { position: "closed", openingPercent: 0 }, actuator };
