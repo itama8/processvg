@@ -27,6 +27,12 @@ import { measurementView } from "./measuring-structures.mjs";
 import { pumpDefinitions } from "./pump-definitions.mjs";
 import { placePumpSymbol, composePumpDrawing, migratePumpInstance } from "./pumps.mjs";
 
+import { SCREENING_ARCHIVE_IDS, SCREENING_CANDIDATES } from "./screening-definitions.mjs";
+import { placeScreeningCandidate, screeningMigration } from "./screening.mjs";
+
+export { SCREENING_ARCHIVE_IDS, SCREENING_CANDIDATES };
+export { composeScreeningDocument, screeningTieIn, screeningNetwork, SCREENING_STREAMS } from "./screening.mjs";
+
 export { pumpBoundary, pumpNetwork, PUMP_DOCUMENT_VERSION } from "./pumps.mjs";
 
 export { composeInstrument, instrumentNetwork, INSTRUMENT_VERSION, INSTRUMENT_PRESETS } from "./instruments.mjs";
@@ -345,8 +351,20 @@ export function migratePumpVariant(instance, variant) {
   return migratePumpInstance(byId, instance, variant);
 }
 
+export function migrateScreeningVariant(instance, variant) {
+  return screeningMigration(byId, instance, variant);
+}
+
 /** Place a library symbol and its ports in the same drawing coordinate system. */
 export function placeSymbol(id, at = {}, options = {}) {
+  if (Object.hasOwn(SCREENING_CANDIDATES, id)) {
+    const archived = SCREENING_ARCHIVE_IDS.includes(id);
+    if (options.variant === "candidate") return placeScreeningCandidate(id, at, options);
+    if (!archived || (options.variant !== undefined && options.variant !== "legacy") ||
+        (options.view !== undefined && options.view !== "schematic")) {
+      throw new RangeError(`Screening symbol ${id} requires explicit variant: "candidate"`);
+    }
+  }
   if (isPrimary(id)) {
     const { mode, view, display, ...config } = options;
     if (view !== undefined && view !== "schematic") {

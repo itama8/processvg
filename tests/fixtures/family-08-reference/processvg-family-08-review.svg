@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1968" width="1200" height="1968" role="img" aria-labelledby="tt"><title id="tt">processvg Family 08 review gallery</title>
+<rect width="100%" height="100%" fill="#fafafa"/>
+<style>text{font-family:DejaVu Sans,Arial,sans-serif;fill:#222}.tag{font-size:14px;fill:#777}.num{font-weight:700}.title{font-size:26px;font-weight:700}.sub{font-size:13px;fill:#666}.symbol{stroke:#242424;stroke-width:1.25;fill:none;stroke-linejoin:round;stroke-linecap:round} .second{opacity:.32}</style>
+<text class="title" x="28" y="44">PROCESSVG    /    08 — SCREENING &amp; GRIT</text>
+<text class="sub" x="29" y="71">21 symbol studies  ·  8 existing IDs with legacy snapshots  ·  13 new candidates</text>
+<text class="sub" x="29" y="92">All identity geometry uses primary ink. Orange / blue interface debug markers are omitted from exported symbols.</text>
+<rect x="28" y="125" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="46" y="151">01    EXISTING / REFINED</text>
+<g transform="translate(211,233) scale(3.12)" class="symbol">
+<path d="M-7.2 11.4 L5.2 -10.1 M-2.8 13.9 L9.6 -7.6 M5.2 -10.1 A2.54 2.54 0 0 1 9.6 -7.6 M-2.8 13.9 A2.54 2.54 0 0 1 -7.2 11.4"/>
+<path d="M7.4 -10.05 L7.4 -14"/>
+<path d="M9.6 -7.6 H18"/>
+<circle cx="7.4" cy="-8.85" r="1.2"/>
+<circle cx="7.4" cy="-19" r="6"/>
+<text x="7.4" y="-19" font-family="DejaVu Sans,Arial" text-anchor="middle" dominant-baseline="middle" font-size="6" fill="#222" stroke="none">M</text>
+</g>
+<text x="46" y="318" font-size="19" font-weight="700">Mechanical bar screen</text>
+<text x="46" y="341" font-size="13" fill="#666">screen-bar</text>
+<rect x="418" y="125" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="436" y="151">02    EXISTING / REFINED</text>
+<g transform="translate(601,233) scale(3.12)" class="symbol">
+<path d="M-12 -7 H2 V7 H-12 Z"/>
+<path d="M2 -2 H12 V2 H2 Z"/>
+<path d="M-9 7 L-5 -7 M-5 7 L-1 -7"/>
+<path d="M-2 -7 V-13 H8"/>
+<path d="M-9 -7 L-18 -12"/>
+<circle cx="8" cy="-18" r="6"/>
+<text x="8" y="-18" font-family="DejaVu Sans,Arial" text-anchor="middle" dominant-baseline="middle" font-size="6" fill="#222" stroke="none">M</text>
+</g>
+<text x="436" y="318" font-size="19" font-weight="700">Fine drum screen</text>
+<text x="436" y="341" font-size="13" fill="#666">screen-fine</text>
+<rect x="808" y="125" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="826" y="151">03    EXISTING / REFINED</text>
+<g transform="translate(991,233) scale(3.12)" class="symbol">
+<path d="M-16 6 L14 -10 L16 -6.3 L-14 9.7 Z"/>
+<path d="M-10 3.4 L-6 8.4 M-4 .2 L0 5.2 M2 -3 L6 2 M8 -6.2 L12 -1.2"/>
+</g>
+<text x="826" y="318" font-size="19" font-weight="700">Screw conveyor</text>
+<text x="826" y="341" font-size="13" fill="#666">conveyor-screw</text>
+<rect x="28" y="374" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="46" y="400">04    EXISTING / REFINED</text>
+<g transform="translate(211,482) scale(3.12)" class="symbol">
+<path d="M-16 6 L14 -10 L16 -6.3 L-14 9.7 Z M-16 6 V-2 H-8 V1.7"/>
+<path d="M-10 -2 V-10"/>
+<path d="M-4 -3 V-13"/>
+</g>
+<text x="46" y="567" font-size="19" font-weight="700">Grit classifier</text>
+<text x="46" y="590" font-size="13" fill="#666">grit-classifier</text>
+<rect x="418" y="374" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="436" y="400">05    EXISTING / REFINED</text>
+<g transform="translate(601,482) scale(3.12)" class="symbol">
+<path d="M-8 -12 H8 V0 L2 12 H-2 L-8 0 Z M-14 -8 H-8"/>
+</g>
+<text x="436" y="567" font-size="19" font-weight="700">Hydrocyclone grit separator</text>
+<text x="436" y="590" font-size="13" fill="#666">grit-separator</text>
+<rect x="808" y="374" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="826" y="400">06    EXISTING / REFINED</text>
+<g transform="translate(991,482) scale(3.12)" class="symbol">
+<path d="M-12 -6 H12 L9 6 H-9 Z"/>
+<path d="M-9 -6 H9"/>
+</g>
+<text x="826" y="567" font-size="19" font-weight="700">Screenings bin / skip</text>
+<text x="826" y="590" font-size="13" fill="#666">container</text>
+<rect x="28" y="623" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="46" y="649">07    EXISTING / REFINED</text>
+<g transform="translate(211,731) scale(3.12)" class="symbol">
+<path d="M-5 -18 H5 V-8 H-5 Z M0 -8 V10 M-8 10 H8"/>
+<circle cx="-5" cy="10" r="2.5"/>
+<circle cx="5" cy="10" r="2.5"/>
+<text x="0" y="-13" font-family="DejaVu Sans,Arial" text-anchor="middle" dominant-baseline="middle" font-size="6" fill="#222" stroke="none">M</text>
+</g>
+<text x="46" y="816" font-size="19" font-weight="700">Top-entry mixer</text>
+<text x="46" y="839" font-size="13" fill="#666">mixer</text>
+<rect x="418" y="623" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="436" y="649">08    EXISTING / REFINED</text>
+<g transform="translate(601,731) scale(3.12)" class="symbol">
+<path d="M-16 0 H-12 M12 0 H16 M-12 -5 H12 V5 H-12 Z"/>
+<path d="M-12 -5 L-4 5 M-12 5 L-4 -5 M-4 -5 L4 5 M-4 5 L4 -5 M4 -5 L12 5 M4 5 L12 -5"/>
+</g>
+<text x="436" y="816" font-size="19" font-weight="700">Static inline mixer</text>
+<text x="436" y="839" font-size="13" fill="#666">mixer-static</text>
+<rect x="808" y="623" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="826" y="649">09    NEW CANDIDATE</text>
+<g transform="translate(991,731) scale(3.12)" class="symbol">
+<path d="M-12 12 L2 -10 M-8 12 L6 -10 M-4 12 L10 -10"/>
+<path d="M-1 -13 H8 L11 -16 M8 -13 L10 -10"/>
+<path d="M-17 0 H-12 M12 0 H18"/>
+</g>
+<text x="826" y="816" font-size="19" font-weight="700">Manually cleaned bar screen</text>
+<text x="826" y="839" font-size="13" fill="#666">screen-manual</text>
+<rect x="28" y="872" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="46" y="898">10    NEW CANDIDATE</text>
+<g transform="translate(211,980) scale(3.12)" class="symbol">
+<path d="M-13 12 H-10 V9 H-7 V6 H-4 V3 H-1 V0 H2 V-3 H5 V-6 H8 V-9 H11 V-12"/>
+<path d="M-16 0 H-13 M13 0 H20"/>
+<path d="M9 -12 V-15"/>
+<path d="M11 -12 H22"/>
+<circle cx="14" cy="-19" r="5"/>
+<text x="14" y="-19" font-family="DejaVu Sans,Arial" text-anchor="middle" dominant-baseline="middle" font-size="5.5" fill="#222" stroke="none">M</text>
+</g>
+<text x="46" y="1065" font-size="19" font-weight="700">Step screen</text>
+<text x="46" y="1088" font-size="13" fill="#666">screen-step</text>
+<rect x="418" y="872" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="436" y="898">11    NEW CANDIDATE</text>
+<g transform="translate(601,980) scale(3.12)" class="symbol">
+<path d="M-10 -10 H10 V10 H-10 Z"/>
+<path d="M-16 0 H-10 M10 0 H16 M0 -10 V-15 M-10 -10 L-18 -16"/>
+<circle cx="-6" cy="-6" r="1.1"/>
+<circle cx="-6" cy="-1" r="1.1"/>
+<circle cx="-6" cy="4" r="1.1"/>
+<circle cx="-1" cy="-6" r="1.1"/>
+<circle cx="-1" cy="-1" r="1.1"/>
+<circle cx="-1" cy="4" r="1.1"/>
+<circle cx="4" cy="-6" r="1.1"/>
+<circle cx="4" cy="-1" r="1.1"/>
+<circle cx="4" cy="4" r="1.1"/>
+<circle cx="0" cy="-20" r="5"/>
+<text x="0" y="-20" font-family="DejaVu Sans,Arial" text-anchor="middle" dominant-baseline="middle" font-size="5.5" fill="#222" stroke="none">M</text>
+</g>
+<text x="436" y="1065" font-size="19" font-weight="700">Perforated plate fine screen</text>
+<text x="436" y="1088" font-size="13" fill="#666">screen-perforated</text>
+<rect x="808" y="872" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="826" y="898">12    NEW CANDIDATE</text>
+<g transform="translate(991,980) scale(3.12)" class="symbol">
+<path d="M-23 0 H-12 M12 0 H23 M-12 -9 H12 V9 H-12 Z"/>
+<path d="M-7 -4 V4 M-3 -7 V7 M3 -7 V7 M7 -4 V4"/>
+<path d="M0 -9 V-14 M-12 -9 L-20 -15"/>
+<circle cx="0" cy="0" r="8"/>
+<circle cx="0" cy="-19" r="5"/>
+<text x="0" y="-19" font-family="DejaVu Sans,Arial" text-anchor="middle" dominant-baseline="middle" font-size="5.5" fill="#222" stroke="none">M</text>
+</g>
+<text x="826" y="1065" font-size="19" font-weight="700">Rotary drum screen</text>
+<text x="826" y="1088" font-size="13" fill="#666">screen-drum</text>
+<rect x="28" y="1121" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="46" y="1147">13    NEW CANDIDATE</text>
+<g transform="translate(211,1229) scale(3.12)" class="symbol">
+<path d="M-9 -9 H9 V12 H-9 Z"/>
+<path d="M-9 -9 A9 3 0 0 1 9 -9 M-9 12 A9 3 0 0 0 9 12"/>
+<path d="M-6 -6 V9 M0 -6 V9 M6 -6 V9"/>
+<path d="M-20 0 H-9 M9 0 H20"/>
+<path d="M0 -9 V-15 M-9 -9 L-18 -17"/>
+<circle cx="0" cy="-20" r="5"/>
+<text x="0" y="-20" font-family="DejaVu Sans,Arial" text-anchor="middle" dominant-baseline="middle" font-size="5.5" fill="#222" stroke="none">M</text>
+</g>
+<text x="46" y="1314" font-size="19" font-weight="700">Travelling band screen</text>
+<text x="46" y="1337" font-size="13" fill="#666">screen-band</text>
+<rect x="418" y="1121" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="436" y="1147">14    NEW CANDIDATE</text>
+<g transform="translate(601,1229) scale(3.12)" class="symbol">
+<path d="M-12 -9 H4 L12 -4 V4 L4 9 H-12 Z"/>
+<path d="M-10 -4 L-5 2 L0 -4 L5 2 M-9 5 H8"/>
+<path d="M-20 0 H-12 M12 0 H20"/>
+<path d="M0 -17 V-9 M0 9 V17"/>
+</g>
+<text x="436" y="1314" font-size="19" font-weight="700">Screenings washer-compactor</text>
+<text x="436" y="1337" font-size="13" fill="#666">screen-washer-compactor</text>
+<rect x="808" y="1121" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="826" y="1147">15    NEW CANDIDATE</text>
+<g transform="translate(991,1229) scale(3.12)" class="symbol">
+<path d="M-14 -10 H14 V10 H-14 Z"/>
+<path d="M-20 0 H-14 M14 0 H20"/>
+<path d="M-8 -7 L-3 -2 L-8 3 L-3 8 M0 -7 L5 -2 L0 3 L5 8"/>
+<path d="M0 -10 V-15"/>
+<circle cx="0" cy="-20" r="5"/>
+<text x="0" y="-20" font-family="DejaVu Sans,Arial" text-anchor="middle" dominant-baseline="middle" font-size="5.5" fill="#222" stroke="none">M</text>
+</g>
+<text x="826" y="1314" font-size="19" font-weight="700">Macerator / grinder</text>
+<text x="826" y="1337" font-size="13" fill="#666">screen-grinder</text>
+<rect x="28" y="1370" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="46" y="1396">16    NEW CANDIDATE</text>
+<g transform="translate(211,1478) scale(3.12)" class="symbol">
+<path d="M-25 -6 H-17"/>
+<path d="M17 0 H25"/>
+<path d="M0 17 V25"/>
+<path d="M-8 -6 C1 -16 14 -4 9 5 C5 13 -5 9 -4 2 C-3 -3 3 -4 5 1"/>
+<circle cx="0" cy="0" r="17"/>
+<circle cx="0" cy="0" r="3.5"/>
+</g>
+<text x="46" y="1563" font-size="19" font-weight="700">Vortex grit chamber</text>
+<text x="46" y="1586" font-size="13" fill="#666">grit-vortex</text>
+<rect x="418" y="1370" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="436" y="1396">17    NEW CANDIDATE</text>
+<g transform="translate(601,1478) scale(3.12)" class="symbol">
+<path d="M-20 -10 H20 V12 L8 18 H-8 L-20 12 Z"/>
+<path d="M-27 0 H-20 M20 0 H27 M0 18 V26 M-12 12 H12"/>
+<path d="M-12 12 L-12 7 M0 12 V7 M12 12 V7"/>
+<path d="M-12 -19 V-10"/>
+<circle cx="-12" cy="7" r="1"/>
+<circle cx="0" cy="7" r="1"/>
+<circle cx="12" cy="7" r="1"/>
+</g>
+<text x="436" y="1563" font-size="19" font-weight="700">Aerated grit chamber</text>
+<text x="436" y="1586" font-size="13" fill="#666">grit-aerated</text>
+<rect x="808" y="1370" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="826" y="1396">18    NEW CANDIDATE</text>
+<g transform="translate(991,1478) scale(3.12)" class="symbol">
+<path d="M-22 -10 H22 V10 H11 L6 19 H-6 L-11 10 H-22 Z"/>
+<path d="M-29 0 H-22 M22 0 H29 M0 19 V26"/>
+<path d="M-10 7 H10"/>
+</g>
+<text x="826" y="1563" font-size="19" font-weight="700">Horizontal-flow grit channel</text>
+<text x="826" y="1586" font-size="13" fill="#666">grit-horizontal</text>
+<rect x="28" y="1619" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="46" y="1645">19    NEW CANDIDATE</text>
+<g transform="translate(211,1727) scale(3.12)" class="symbol">
+<path d="M-16 -9 H16 V6 L8 11 H-8 L-16 6 Z"/>
+<path d="M-12 -4 H10 M-12 0 H10 M-12 4 H10"/>
+<path d="M-24 0 H-16 M16 0 H24 M0 -17 V-9 M0 11 V17"/>
+</g>
+<text x="46" y="1812" font-size="19" font-weight="700">Grit washer</text>
+<text x="46" y="1835" font-size="13" fill="#666">grit-washer</text>
+<rect x="418" y="1619" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="436" y="1645">20    NEW CANDIDATE</text>
+<g transform="translate(601,1727) scale(3.12)" class="symbol">
+<path d="M-16 -9 H16 L12 10 H-12 Z"/>
+<path d="M0 -16 V-9"/>
+<path d="M-10 4 H10"/>
+</g>
+<text x="436" y="1812" font-size="19" font-weight="700">Grit storage bin</text>
+<text x="436" y="1835" font-size="13" fill="#666">grit-bin</text>
+<rect x="808" y="1619" width="366" height="234" rx="8" fill="white" stroke="#ddd"/>
+<text class="tag" x="826" y="1645">21    NEW CANDIDATE</text>
+<g transform="translate(991,1727) scale(3.12)" class="symbol">
+<path d="M-12 -16 H12 L6 16 H-6 Z"/>
+<path d="M-5 -9 L0 -3 L5 -9 M0 -3 V10"/>
+<path d="M0 -23 V-16 M0 16 V23"/>
+</g>
+<text x="826" y="1812" font-size="19" font-weight="700">Screenings discharge chute</text>
+<text x="826" y="1835" font-size="13" fill="#666">screenings-chute</text>
+<text x="29" y="1934" class="sub">Design candidates — check proportions, equipment identity and standards before merging. Export is source editable SVG.</text>
+</svg>

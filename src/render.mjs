@@ -77,23 +77,24 @@ export function render(shapes, { profile = "screen" } = {}) {
   return out.join("\n");
 }
 
-export function svgDoc(id, title, desc, body, { profile = "screen", theme = "auto", strokeWidth } = {}) {
+export function svgDoc(id, title, desc, body, { profile = "screen", theme = "auto", strokeWidth, width = 560, height = 440 } = {}) {
   if (!["screen", "print"].includes(profile) || !["auto", "light", "dark"].includes(theme)) {
     throw new RangeError("Invalid SVG profile or theme");
   }
   if (strokeWidth !== undefined && (!Number.isFinite(strokeWidth) || strokeWidth <= 0)) throw new RangeError("Invalid SVG stroke width");
+  if (![width, height].every((size) => Number.isFinite(size) && size > 0)) throw new RangeError("Invalid SVG viewport");
   const print = profile === "print";
   const paper = print ? "#fff" : { dark: "#171717", light: "#fff" }[theme];
   const themeAttrs = theme === "auto" ? "" : ` data-host-ink="" data-theme="${theme}"`;
   id = esc(id);
   return [
-    `<svg xmlns="http://www.w3.org/2000/svg" data-plotter=""${themeAttrs}${print ? ' data-profile="print"' : ""} fill="none" stroke="currentColor" stroke-width="${strokeWidth ?? 1}" viewBox="0 0 560 440" width="560" height="440" role="img" aria-labelledby="${id}-title" aria-describedby="${id}-desc" style="font-family:Cal Sans, sans-serif;font-optical-sizing:auto;font-synthesis:none;font-variation-settings:'GEOM' 25;font-weight:400">`,
+    `<svg xmlns="http://www.w3.org/2000/svg" data-plotter=""${themeAttrs}${print ? ' data-profile="print"' : ""} fill="none" stroke="currentColor" stroke-width="${strokeWidth ?? 1}" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-labelledby="${id}-title" aria-describedby="${id}-desc" style="font-family:Cal Sans, sans-serif;font-optical-sizing:auto;font-synthesis:none;font-variation-settings:'GEOM' 25;font-weight:400">`,
     `<title id="${id}-title">${esc(title)}</title>`,
     `<desc id="${id}-desc">${esc(desc)}</desc>`,
     THEME_STYLE,
     theme === "dark" && !print ? DARK_STYLE : "",
     print ? PRINT_STYLE : "",
-    paper ? `<rect width="560" height="440" fill="${paper}" stroke="none" />` : "",
+    paper ? `<rect width="${width}" height="${height}" fill="${paper}" stroke="none" />` : "",
     body,
     `</svg>`,
   ].filter(Boolean).join("\n") + "\n";

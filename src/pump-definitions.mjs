@@ -1,6 +1,6 @@
 import handoff from "./data/family-07-handoff.mjs";
 import { normalizeEquipmentPath } from "./geometry.mjs";
-import { identityRow, placeIdentity } from "./instrument-ink.mjs";
+import { driveIdentity } from "./drive-ink.mjs";
 
 export const PUMP_APPROVAL = "Family 07 Revision 03";
 export const PUMP_CANDIDATE = "User-approved Processvg proposal; drawing legend and standards verification pending";
@@ -51,9 +51,7 @@ function candidateShapes(id, variant, geometry) {
   return [
     ...paths.map((d) => ({ d: normalizeEquipmentPath(d) })),
     ...geometry.circles.map((c) => ({ c })),
-    ...(geometry.texts ?? []).map(([x, y, label]) => ({
-      ...placeIdentity(identityRow(label, id === "drive-vfd" ? 7 : 9), [x, y - 2.5]), rotateAnchor: true,
-    })),
+    ...(geometry.texts ?? []).map(([x, y, label]) => driveIdentity(label, [x, y - 2.5], id === "drive-vfd" ? 7 : 9)),
   ];
 }
 

@@ -21,6 +21,7 @@ const groups = [
   ["Family 05 instrument and logic candidates", path.join(OUT, "family-05"), svgs],
   ["Family 06 primary elements and measuring views", path.join(OUT, "family-06"), svgs],
   ["Family 07 pumps, blowers, drives and accessories", path.join(OUT, "family-07"), svgs],
+  ["Family 08 provisional screening and grit", path.join(OUT, "family-08"), svgs],
   // Client-derived drawings live in private/, which git ignores; they appear here when present.
   ["Private, not committed", path.join(ROOT, "private"), svgs],
 ].filter(([, dir]) => existsSync(dir) && readdirSync(dir).some(svgs));
@@ -48,13 +49,14 @@ const sections = groups.map(([name, dir, keep]) => {
     const desc = unesc(src.match(/<desc[^>]*>([^<]*)<\/desc>/)?.[1] ?? "");
     const familyMatch = name === "Family 05 instrument and logic candidates" && f.match(/^(02-instruments|03-logic)(-.+)\.svg$/);
     const cardId = familyMatch ? ` id="family-05-${familyMatch[1]}${familyMatch[2]}"` : "";
+    const screeningLink = name === "Family 08 provisional screening and grit" ? `<p><a href="family-08/${f}">Open full-size SVG</a></p>` : "";
     const relatedLink = familyMatch && (familyMatch[1] === "02-instruments"
       ? `<p><a href="#family-05-03-logic${familyMatch[2]}">Open I-101 logic view</a></p>`
       : `<p><a href="#family-05-02-instruments${familyMatch[2]}">Open I-101 P&amp;ID reference</a></p>`);
     return `<figure class="sheet"${cardId}><div class="art">${inline(src, `d${n++}`)}</div>
-<figcaption><span class="title">${esc(title)}</span><span class="file">${esc(path.relative(ROOT, path.join(dir, f)))}</span>${desc ? `<p>${esc(desc)}</p>` : ""}${relatedLink || ""}</figcaption></figure>`;
+<figcaption><span class="title">${esc(title)}</span><span class="file">${esc(path.relative(ROOT, path.join(dir, f)))}</span>${desc ? `<p>${esc(desc)}</p>` : ""}${relatedLink || screeningLink}</figcaption></figure>`;
   });
-  return `<section><h2>${esc(name)}</h2><div class="grid">${cards.join("\n")}</div></section>`;
+  return `<section${name === "Family 08 provisional screening and grit" ? ' id="family-08"' : ""}><h2>${esc(name)}</h2><div class="grid">${cards.join("\n")}</div></section>`;
 });
 
 const html = `<!doctype html>
@@ -91,7 +93,8 @@ figcaption p { margin: 4px 0 0; color: var(--muted); max-width: 60ch; }
 <body>
 <header><h1>Drawing review</h1><span style="color:var(--muted)">${n} drawings, shown at native size</span>
 <div class="paper" role="group" aria-label="Paper"><button data-paper="white">White</button><button data-paper="parchment">Parchment</button></div></header>
-<main>${sections.join("\n")}</main>
+<main>${existsSync(path.join(OUT, "family-08-evidence/comparison.html")) ? '<p><a href="#family-08">Family 08 review sheets</a> · <a href="family-08-evidence/comparison.html">Family 08 source plate comparison</a></p>' : ""}
+${sections.join("\n")}</main>
 <script>
 const root = document.documentElement;
 const set = (p) => { root.dataset.paper = p; document.querySelectorAll(".paper button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.paper === p))); try { localStorage.setItem("paper", p); } catch {} };

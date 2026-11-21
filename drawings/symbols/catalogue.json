@@ -1,5 +1,5 @@
 {
- "about": "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for valves and docs/family-04.md for gates and weirs. See docs/family-05.md for instrument modes, docs/family-06.md for primary elements and measuring views, and docs/family-07.md for pump variants and equipment views.",
+ "about": "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for valves and docs/family-04.md for gates and weirs. See docs/family-05.md for instrument modes, docs/family-06.md for primary elements and measuring views, and docs/family-07.md for pump variants and equipment views. See docs/family-08.md for provisional screening and grit.",
  "sources": {
   "IS 3232": "IS 3232:1999 Recommendations on graphical symbols for process flow diagrams, piping and instrumentation diagrams (BIS), by symbol number",
   "ISA-5.1": "ANSI/ISA-5.1-2009 Instrumentation symbols and identification",
@@ -14706,6 +14706,1661 @@
    ]
   }
  ],
+ "screeningReview": {
+  "optIn": {
+   "variant": "candidate"
+  },
+  "physicalViews": [
+   "plan",
+   "section",
+   "elevation"
+  ],
+  "streams": {
+   "wastewater": "liquid-process",
+   "wash-water": "liquid-process",
+   "return-liquor": "liquid-process",
+   "grit-slurry": "slurry-process",
+   "gas-process": "gas-process",
+   "liquid-process": "liquid-process",
+   "screenings-solids": "bulk-handling",
+   "solids-bulk": "bulk-handling",
+   "washed-grit": "bulk-handling",
+   "dewatered-grit": "bulk-handling"
+  },
+  "symbols": [
+   {
+    "id": "screen-bar",
+    "group": "screening",
+    "label": "Mechanical bar screen",
+    "notes": "Single complete mechanical screen with drive depicted. Legacy ID had no process ports: new typed ports are schematic interfaces, not physical pipe flanges. Mechanical bar bank remains original. Drive has shared geometry internally but is one complete rendered symbol.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "legacyId": "screen-bar",
+    "drive": "integral-motor",
+    "defaultVariant": "legacy",
+    "variants": {
+     "legacy": {
+      "shapes": [
+       {
+        "d": "M-7.2 11.4 L5.2 -10.1 M-2.8 13.9 L9.6 -7.6 M5.2 -10.1 A2.54 2.54 0 0 1 9.6 -7.6 M-2.8 13.9 A2.54 2.54 0 0 1 -7.2 11.4"
+       },
+       {
+        "c": [
+         7.4,
+         -8.85,
+         1.2
+        ],
+        "role": "secondary"
+       }
+      ],
+      "ports": []
+     },
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-7.2 11.4 L5.2 -10.1 M-2.8 13.9 L9.6 -7.6 M5.2 -10.1 A2.54 2.54 0 0 1 9.6 -7.6 M-2.8 13.9 A2.54 2.54 0 0 1 -7.2 11.4"
+       },
+       {
+        "d": "M7.4 -10.05 L7.4 -13"
+       },
+       {
+        "d": "M9.6 -7.6 L18 -7.6"
+       },
+       {
+        "d": "M-14 0 L-0.63 0 M5.22 0 L14 0"
+       },
+       {
+        "c": [
+         7.4,
+         -8.85,
+         1.2
+        ]
+       },
+       {
+        "c": [
+         7.4,
+         -19,
+         6
+        ]
+       },
+       {
+        "identityInk": "M",
+        "at": [
+         4.532,
+         -16.84
+        ],
+        "scale": 0.003,
+        "glyphs": [
+         {
+          "x": 0,
+          "d": "M173 0V-1440H423L803 -642Q838 -567 865.5 -507.5Q893 -448 912.5 -402.0Q932 -356 944.0 -321.5Q956 -287 962 -259H964Q971 -287 982.5 -321.0Q994 -355 1012.0 -401.0Q1030 -447 1056.5 -506.5Q1083 -566 1120 -642L1503 -1440H1739V0H1561V-760Q1561 -846 1562.0 -915.5Q1563 -985 1565.0 -1039.0Q1567 -1093 1570.5 -1136.0Q1574 -1179 1578 -1212H1575L1002 -1H913L336 -1212H333Q338 -1175 341.5 -1131.5Q345 -1088 347.5 -1034.0Q350 -980 351.5 -912.5Q353 -845 353 -760V0Z"
+         }
+        ],
+        "bounds": [
+         5.051,
+         -21.16,
+         9.749,
+         -16.84
+        ],
+        "rotateAnchor": true
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "influent",
+        "anchor": [
+         -14,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "screened_out",
+        "anchor": [
+         14,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "out",
+        "schematicVisible": true
+       },
+       {
+        "id": "screenings_discharge",
+        "anchor": [
+         18,
+         -7.6
+        ],
+        "kind": "screenings-solids",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "screen-fine",
+    "group": "screening",
+    "label": "Fine drum screen",
+    "notes": "Preserve source drum/rectangular body geometry and elevate identity marks. Drive integrated in complete schematic. Real drum style may vary.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "legacyId": "screen-fine",
+    "drive": "integral-motor",
+    "defaultVariant": "legacy",
+    "variants": {
+     "legacy": {
+      "shapes": [
+       {
+        "d": "M-12 -7 L2 -7 L2 7 L-12 7 Z"
+       },
+       {
+        "d": "M-9 7 L-5 -7 M-5 7 L-1 -7",
+        "role": "secondary"
+       },
+       {
+        "d": "M2 -2 L12 -2 L12 2 L2 2 Z"
+       }
+      ],
+      "ports": [
+       [
+        -12,
+        0
+       ],
+       [
+        12,
+        0
+       ]
+      ]
+     },
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-12 -7 L2 -7 L2 7 L-12 7 Z"
+       },
+       {
+        "d": "M2 -2 L12 -2 L12 2 L2 2 Z"
+       },
+       {
+        "d": "M-9 7 L-5 -7 M-5 7 L-1 -7"
+       },
+       {
+        "d": "M-2 -7 L-2 -12 L8 -12"
+       },
+       {
+        "d": "M-9 -7 L-18 -12"
+       },
+       {
+        "c": [
+         8,
+         -18,
+         6
+        ]
+       },
+       {
+        "identityInk": "M",
+        "at": [
+         5.132,
+         -15.84
+        ],
+        "scale": 0.003,
+        "glyphs": [
+         {
+          "x": 0,
+          "d": "M173 0V-1440H423L803 -642Q838 -567 865.5 -507.5Q893 -448 912.5 -402.0Q932 -356 944.0 -321.5Q956 -287 962 -259H964Q971 -287 982.5 -321.0Q994 -355 1012.0 -401.0Q1030 -447 1056.5 -506.5Q1083 -566 1120 -642L1503 -1440H1739V0H1561V-760Q1561 -846 1562.0 -915.5Q1563 -985 1565.0 -1039.0Q1567 -1093 1570.5 -1136.0Q1574 -1179 1578 -1212H1575L1002 -1H913L336 -1212H333Q338 -1175 341.5 -1131.5Q345 -1088 347.5 -1034.0Q350 -980 351.5 -912.5Q353 -845 353 -760V0Z"
+         }
+        ],
+        "bounds": [
+         5.651,
+         -20.16,
+         10.349,
+         -15.84
+        ],
+        "rotateAnchor": true
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "influent",
+        "anchor": [
+         -12,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "screened_out",
+        "anchor": [
+         12,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "out",
+        "schematicVisible": true
+       },
+       {
+        "id": "screenings_discharge",
+        "anchor": [
+         -18,
+         -12
+        ],
+        "kind": "screenings-solids",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "conveyor-screw",
+    "group": "solids-handling",
+    "label": "Screw conveyor",
+    "notes": "Promote screw flights to primary ink. Geometry and external ports unchanged; actual transport direction is instance-defined.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "legacyId": "conveyor-screw",
+    "defaultVariant": "legacy",
+    "variants": {
+     "legacy": {
+      "shapes": [
+       {
+        "d": "M-16 6 L14 -10 L16 -6.3 L-14 9.7 Z"
+       },
+       {
+        "d": "M-10 3.4 L-6 8.4 M-4 0.2 L0 5.2 M2 -3 L6 2 M8 -6.2 L12 -1.2",
+        "role": "secondary"
+       }
+      ],
+      "ports": [
+       [
+        -15,
+        8
+       ],
+       [
+        15,
+        -8
+       ]
+      ]
+     },
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-16 6 L14 -10 L16 -6.3 L-14 9.7 Z"
+       },
+       {
+        "d": "M-10 3.4 L-6 8.4 M-4 0.2 L0 5.2 M2 -3 L6 2 M8 -6.2 L12 -1.2"
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "solids_in",
+        "anchor": [
+         -15,
+         8
+        ],
+        "kind": "solids-bulk",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "solids_out",
+        "anchor": [
+         15,
+         -8
+        ],
+        "kind": "solids-bulk",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "grit-classifier",
+    "group": "grit-handling",
+    "label": "Grit classifier",
+    "notes": "Third outlet proposed for classifier overflow/return liquor. Port positions illustrative; validate equipment-specific connection locations.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "legacyId": "grit-classifier",
+    "defaultVariant": "legacy",
+    "variants": {
+     "legacy": {
+      "shapes": [
+       {
+        "d": "M-16 6 L14 -10 L16 -6.3 L-14 9.7 Z"
+       },
+       {
+        "d": "M-16 6 L-16 -2 L-8 -2 L-8 1.7"
+       }
+      ],
+      "ports": [
+       [
+        -12,
+        -2
+       ],
+       [
+        15,
+        -8
+       ]
+      ]
+     },
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-16 6 L14 -10 L16 -6.3 L-14 9.7 Z M-16 6 L-16 -2 L-8 -2 L-8 1.7"
+       },
+       {
+        "d": "M-12 -2 L-12 -10"
+       },
+       {
+        "d": "M-16 1 L-21 1 L-21 -13"
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "grit_slurry_in",
+        "anchor": [
+         -12,
+         -10
+        ],
+        "kind": "grit-slurry",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "dewatered_grit_out",
+        "anchor": [
+         15,
+         -8
+        ],
+        "kind": "dewatered-grit",
+        "direction": "out",
+        "schematicVisible": true
+       },
+       {
+        "id": "return_liquor",
+        "anchor": [
+         -21,
+         -13
+        ],
+        "kind": "return-liquor",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "grit-separator",
+    "group": "grit-separation",
+    "label": "Hydrocyclone grit separator",
+    "notes": "This existing conical symbol is hydrocyclone-like, not the same as open circular vortex grit chamber.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "legacyId": "grit-separator",
+    "mechanism": "hydrocyclone",
+    "defaultVariant": "legacy",
+    "variants": {
+     "legacy": {
+      "shapes": [
+       {
+        "d": "M-8 -12 L8 -12 L8 0 L2 12 L-2 12 L-8 0 L-8 -12"
+       },
+       {
+        "d": "M-14 -8 L-8 -8"
+       }
+      ],
+      "ports": [
+       [
+        -14,
+        -8
+       ],
+       [
+        0,
+        12
+       ],
+       [
+        0,
+        -12
+       ]
+      ]
+     },
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-8 -12 L8 -12 L8 0 L2 12 L-2 12 L-8 0 Z M-14 -8 L-8 -8"
+       },
+       {
+        "d": "M0 -12 L0 -18 M0 12 L0 17"
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "slurry_in",
+        "anchor": [
+         -14,
+         -8
+        ],
+        "kind": "grit-slurry",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "underflow_grit",
+        "anchor": [
+         0,
+         17
+        ],
+        "kind": "grit-slurry",
+        "direction": "out",
+        "schematicVisible": true
+       },
+       {
+        "id": "overflow_liquid",
+        "anchor": [
+         0,
+         -18
+        ],
+        "kind": "return-liquor",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "container",
+    "group": "solids-handling",
+    "label": "Screenings bin / skip",
+    "notes": "Receiving asset; the receiving connection is bulk solids handling, not water process.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "legacyId": "container",
+    "defaultVariant": "legacy",
+    "variants": {
+     "legacy": {
+      "shapes": [
+       {
+        "d": "M-12 -6 L12 -6 L9 6 L-9 6 Z"
+       }
+      ],
+      "ports": [
+       [
+        0,
+        -6
+       ]
+      ]
+     },
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-12 -6 L12 -6 L9 6 L-9 6 Z"
+       },
+       {
+        "d": "M0 -13 L0 -6"
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "screenings_in",
+        "anchor": [
+         0,
+         -13
+        ],
+        "kind": "screenings-solids",
+        "direction": "in",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "mixer",
+    "group": "mixing",
+    "label": "Top-entry mixer",
+    "notes": "Preserve ID under screening family; completed mixer glyph includes drive, shaft and impeller. Mixer has no generic inline liquid-process port.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "legacyId": "mixer",
+    "drive": "integral-motor",
+    "defaultVariant": "legacy",
+    "variants": {
+     "legacy": {
+      "shapes": [
+       {
+        "d": "M-5 -18 L5 -18 L5 -8 L-5 -8 Z"
+       },
+       {
+        "d": "M0 -8 L0 10"
+       },
+       {
+        "d": "M-8 10 L8 10"
+       },
+       {
+        "c": [
+         -5,
+         10,
+         2.5
+        ]
+       },
+       {
+        "c": [
+         5,
+         10,
+         2.5
+        ]
+       }
+      ],
+      "ports": []
+     },
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-5 -18 L5 -18 L5 -8 L-5 -8 Z M0 -8 L0 10 M-8 10 L8 10"
+       },
+       {
+        "c": [
+         -5,
+         10,
+         2.5
+        ]
+       },
+       {
+        "c": [
+         5,
+         10,
+         2.5
+        ]
+       },
+       {
+        "identityInk": "M",
+        "at": [
+         -2.8680000000000003,
+         -10.84
+        ],
+        "scale": 0.003,
+        "glyphs": [
+         {
+          "x": 0,
+          "d": "M173 0V-1440H423L803 -642Q838 -567 865.5 -507.5Q893 -448 912.5 -402.0Q932 -356 944.0 -321.5Q956 -287 962 -259H964Q971 -287 982.5 -321.0Q994 -355 1012.0 -401.0Q1030 -447 1056.5 -506.5Q1083 -566 1120 -642L1503 -1440H1739V0H1561V-760Q1561 -846 1562.0 -915.5Q1563 -985 1565.0 -1039.0Q1567 -1093 1570.5 -1136.0Q1574 -1179 1578 -1212H1575L1002 -1H913L336 -1212H333Q338 -1175 341.5 -1131.5Q345 -1088 347.5 -1034.0Q350 -980 351.5 -912.5Q353 -845 353 -760V0Z"
+         }
+        ],
+        "bounds": [
+         -2.349,
+         -15.16,
+         2.349,
+         -10.84
+        ],
+        "rotateAnchor": true
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "mechanical_mount",
+        "anchor": [
+         0,
+         -18
+        ],
+        "kind": "mechanical-drive",
+        "direction": "in",
+        "schematicVisible": false
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "mixer-static",
+    "group": "mixing",
+    "label": "Static inline mixer",
+    "notes": "Internal mixing elements full primary ink. No mechanical drive.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "legacyId": "mixer-static",
+    "defaultVariant": "legacy",
+    "variants": {
+     "legacy": {
+      "shapes": [
+       {
+        "d": "M-16 0 L-12 0 M12 0 L16 0"
+       },
+       {
+        "d": "M-12 -5 L12 -5 L12 5 L-12 5 Z"
+       },
+       {
+        "d": "M-12 -5 L-4 5 M-12 5 L-4 -5 M-4 -5 L4 5 M-4 5 L4 -5 M4 -5 L12 5 M4 5 L12 -5",
+        "role": "secondary"
+       }
+      ],
+      "ports": [
+       [
+        -16,
+        0
+       ],
+       [
+        16,
+        0
+       ]
+      ]
+     },
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-16 0 L-12 0 M12 0 L16 0 M-12 -5 L12 -5 L12 5 L-12 5 Z"
+       },
+       {
+        "d": "M-12 -5 L-4 5 M-12 5 L-4 -5 M-4 -5 L4 5 M-4 5 L4 -5 M4 -5 L12 5 M4 5 L12 -5"
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "liquid_in",
+        "anchor": [
+         -16,
+         0
+        ],
+        "kind": "liquid-process",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "liquid_out",
+        "anchor": [
+         16,
+         0
+        ],
+        "kind": "liquid-process",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "screen-manual",
+    "group": "screening",
+    "label": "Manually cleaned bar screen",
+    "notes": "Manual rake not powered; one complete symbol with manual rake mark. Bulk screenings output represents handled solids, not a physical pipe.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "drive": "manual-rake",
+    "defaultVariant": null,
+    "variants": {
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-12 12 L2 -10 M-8 12 L6 -10 M-4 12 L10 -10"
+       },
+       {
+        "d": "M-1 -13 L8 -13 L11 -16 M8 -13 L10 -10"
+       },
+       {
+        "d": "M-17 0 L-12 0 M12 0 L18 0"
+       },
+       {
+        "d": "M4 -13 L4 -15.8 M1 -13 L1 -15.8"
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "influent",
+        "anchor": [
+         -17,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "screened_out",
+        "anchor": [
+         18,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "out",
+        "schematicVisible": true
+       },
+       {
+        "id": "removed_screenings",
+        "anchor": [
+         11,
+         -16
+        ],
+        "kind": "screenings-solids",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "screen-step",
+    "group": "screening",
+    "label": "Step screen",
+    "notes": "Stepped elements identify step screen; motor integrated. Do not imply bar gaps or step clearance.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "drive": "integral-motor",
+    "defaultVariant": null,
+    "variants": {
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-13 12 L-10 12 L-10 9 L-7 9 L-7 6 L-4 6 L-4 3 L-1 3 L-1 0 L2 0 L2 -3 L5 -3 L5 -6 L8 -6 L8 -9 L11 -9 L11 -12"
+       },
+       {
+        "d": "M-16 0 L-13 0 M13 0 L20 0"
+       },
+       {
+        "d": "M11 -12 L11 -15"
+       },
+       {
+        "d": "M11 -12 L22 -12"
+       },
+       {
+        "c": [
+         14,
+         -19,
+         5
+        ]
+       },
+       {
+        "identityInk": "M",
+        "at": [
+         11.371,
+         -17.02
+        ],
+        "scale": 0.00275,
+        "glyphs": [
+         {
+          "x": 0,
+          "d": "M173 0V-1440H423L803 -642Q838 -567 865.5 -507.5Q893 -448 912.5 -402.0Q932 -356 944.0 -321.5Q956 -287 962 -259H964Q971 -287 982.5 -321.0Q994 -355 1012.0 -401.0Q1030 -447 1056.5 -506.5Q1083 -566 1120 -642L1503 -1440H1739V0H1561V-760Q1561 -846 1562.0 -915.5Q1563 -985 1565.0 -1039.0Q1567 -1093 1570.5 -1136.0Q1574 -1179 1578 -1212H1575L1002 -1H913L336 -1212H333Q338 -1175 341.5 -1131.5Q345 -1088 347.5 -1034.0Q350 -980 351.5 -912.5Q353 -845 353 -760V0Z"
+         }
+        ],
+        "bounds": [
+         11.84675,
+         -20.98,
+         16.15325,
+         -17.02
+        ],
+        "rotateAnchor": true
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "influent",
+        "anchor": [
+         -16,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "screened_out",
+        "anchor": [
+         20,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "out",
+        "schematicVisible": true
+       },
+       {
+        "id": "screenings_out",
+        "anchor": [
+         22,
+         -12
+        ],
+        "kind": "screenings-solids",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "screen-perforated",
+    "group": "screening",
+    "label": "Perforated plate fine screen",
+    "notes": "Perforations are full-ink repeated hole boundaries; complete motorized symbol. No claimed aperture dimension.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "drive": "integral-motor",
+    "defaultVariant": null,
+    "variants": {
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-10 -10 L10 -10 L10 10 L-10 10 Z"
+       },
+       {
+        "d": "M-16 0 L-10 0 M10 0 L16 0 M0 -10 L0 -15 M-10 -10 L-18 -16"
+       },
+       {
+        "c": [
+         -6,
+         -6,
+         1.1
+        ]
+       },
+       {
+        "c": [
+         -6,
+         -1,
+         1.1
+        ]
+       },
+       {
+        "c": [
+         -6,
+         4,
+         1.1
+        ]
+       },
+       {
+        "c": [
+         -1,
+         -6,
+         1.1
+        ]
+       },
+       {
+        "c": [
+         -1,
+         -1,
+         1.1
+        ]
+       },
+       {
+        "c": [
+         -1,
+         4,
+         1.1
+        ]
+       },
+       {
+        "c": [
+         4,
+         -6,
+         1.1
+        ]
+       },
+       {
+        "c": [
+         4,
+         -1,
+         1.1
+        ]
+       },
+       {
+        "c": [
+         4,
+         4,
+         1.1
+        ]
+       },
+       {
+        "c": [
+         0,
+         -20,
+         5
+        ]
+       },
+       {
+        "identityInk": "M",
+        "at": [
+         -2.6289999999999996,
+         -18.02
+        ],
+        "scale": 0.00275,
+        "glyphs": [
+         {
+          "x": 0,
+          "d": "M173 0V-1440H423L803 -642Q838 -567 865.5 -507.5Q893 -448 912.5 -402.0Q932 -356 944.0 -321.5Q956 -287 962 -259H964Q971 -287 982.5 -321.0Q994 -355 1012.0 -401.0Q1030 -447 1056.5 -506.5Q1083 -566 1120 -642L1503 -1440H1739V0H1561V-760Q1561 -846 1562.0 -915.5Q1563 -985 1565.0 -1039.0Q1567 -1093 1570.5 -1136.0Q1574 -1179 1578 -1212H1575L1002 -1H913L336 -1212H333Q338 -1175 341.5 -1131.5Q345 -1088 347.5 -1034.0Q350 -980 351.5 -912.5Q353 -845 353 -760V0Z"
+         }
+        ],
+        "bounds": [
+         -2.15325,
+         -21.98,
+         2.15325,
+         -18.02
+        ],
+        "rotateAnchor": true
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "influent",
+        "anchor": [
+         -16,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "screened_out",
+        "anchor": [
+         16,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "out",
+        "schematicVisible": true
+       },
+       {
+        "id": "screenings_out",
+        "anchor": [
+         -18,
+         -16
+        ],
+        "kind": "screenings-solids",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "screen-drum",
+    "group": "screening",
+    "label": "Rotary drum screen",
+    "notes": "Rotating drum identity clearly distinct from source screen-fine rectangular motif. Real configurations include internally/externally fed screens.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "drive": "integral-motor",
+    "defaultVariant": null,
+    "variants": {
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-23 0 L-12 0 M12 0 L23 0 M-12 -9 L12 -9 L12 9 L-12 9 Z"
+       },
+       {
+        "d": "M-6 -4.5 L-6 4.5 M-2 -6 L-2 6 M2 -6 L2 6 M6 -4.5 L6 4.5"
+       },
+       {
+        "d": "M0 -9 L0 -14 M-12 -9 L-20 -15"
+       },
+       {
+        "c": [
+         0,
+         0,
+         8
+        ]
+       },
+       {
+        "c": [
+         0,
+         -19,
+         5
+        ]
+       },
+       {
+        "identityInk": "M",
+        "at": [
+         -2.6289999999999996,
+         -17.02
+        ],
+        "scale": 0.00275,
+        "glyphs": [
+         {
+          "x": 0,
+          "d": "M173 0V-1440H423L803 -642Q838 -567 865.5 -507.5Q893 -448 912.5 -402.0Q932 -356 944.0 -321.5Q956 -287 962 -259H964Q971 -287 982.5 -321.0Q994 -355 1012.0 -401.0Q1030 -447 1056.5 -506.5Q1083 -566 1120 -642L1503 -1440H1739V0H1561V-760Q1561 -846 1562.0 -915.5Q1563 -985 1565.0 -1039.0Q1567 -1093 1570.5 -1136.0Q1574 -1179 1578 -1212H1575L1002 -1H913L336 -1212H333Q338 -1175 341.5 -1131.5Q345 -1088 347.5 -1034.0Q350 -980 351.5 -912.5Q353 -845 353 -760V0Z"
+         }
+        ],
+        "bounds": [
+         -2.15325,
+         -20.98,
+         2.15325,
+         -17.02
+        ],
+        "rotateAnchor": true
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "influent",
+        "anchor": [
+         -23,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "screened_out",
+        "anchor": [
+         23,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "out",
+        "schematicVisible": true
+       },
+       {
+        "id": "screenings_out",
+        "anchor": [
+         -20,
+         -15
+        ],
+        "kind": "screenings-solids",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "screen-band",
+    "group": "screening",
+    "label": "Travelling band screen",
+    "notes": "Complete motorized travelling band screen, stylized belt with repeated band elements.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "drive": "integral-motor",
+    "defaultVariant": null,
+    "variants": {
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-9 -9 L9 -9 L9 12 L-9 12 Z"
+       },
+       {
+        "d": "M-9 -9 A9 3 0 0 1 9 -9 M-9 12 A9 3 0 0 0 9 12"
+       },
+       {
+        "d": "M-6 -6 L-6 9 M0 -6 L0 9 M6 -6 L6 9"
+       },
+       {
+        "d": "M-20 0 L-9 0 M9 0 L20 0"
+       },
+       {
+        "d": "M0 -9 L0 -15 M-9 -9 L-18 -17"
+       },
+       {
+        "c": [
+         0,
+         -20,
+         5
+        ]
+       },
+       {
+        "identityInk": "M",
+        "at": [
+         -2.6289999999999996,
+         -18.02
+        ],
+        "scale": 0.00275,
+        "glyphs": [
+         {
+          "x": 0,
+          "d": "M173 0V-1440H423L803 -642Q838 -567 865.5 -507.5Q893 -448 912.5 -402.0Q932 -356 944.0 -321.5Q956 -287 962 -259H964Q971 -287 982.5 -321.0Q994 -355 1012.0 -401.0Q1030 -447 1056.5 -506.5Q1083 -566 1120 -642L1503 -1440H1739V0H1561V-760Q1561 -846 1562.0 -915.5Q1563 -985 1565.0 -1039.0Q1567 -1093 1570.5 -1136.0Q1574 -1179 1578 -1212H1575L1002 -1H913L336 -1212H333Q338 -1175 341.5 -1131.5Q345 -1088 347.5 -1034.0Q350 -980 351.5 -912.5Q353 -845 353 -760V0Z"
+         }
+        ],
+        "bounds": [
+         -2.15325,
+         -21.98,
+         2.15325,
+         -18.02
+        ],
+        "rotateAnchor": true
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "influent",
+        "anchor": [
+         -20,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "screened_out",
+        "anchor": [
+         20,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "out",
+        "schematicVisible": true
+       },
+       {
+        "id": "screenings_out",
+        "anchor": [
+         -18,
+         -17
+        ],
+        "kind": "screenings-solids",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "screen-washer-compactor",
+    "group": "solids-handling",
+    "label": "Screenings washer-compactor",
+    "notes": "Combined washing, conveyance and compaction preset. Four visible media-specific terminals; actual design may contain bypass and spray sections.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "defaultVariant": null,
+    "variants": {
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-12 -9 L4 -9 L12 -4 L12 4 L4 9 L-12 9 Z"
+       },
+       {
+        "d": "M-10 -4 L-5 2 L0 -4 L5 2 M-9 5 L8 5"
+       },
+       {
+        "d": "M-20 0 L-12 0 M12 0 L20 0"
+       },
+       {
+        "d": "M0 -17 L0 -9 M0 9 L0 17"
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "screenings_in",
+        "anchor": [
+         -20,
+         0
+        ],
+        "kind": "screenings-solids",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "compacted_screenings",
+        "anchor": [
+         20,
+         0
+        ],
+        "kind": "screenings-solids",
+        "direction": "out",
+        "schematicVisible": true
+       },
+       {
+        "id": "wash_water",
+        "anchor": [
+         0,
+         -17
+        ],
+        "kind": "wash-water",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "return_liquor",
+        "anchor": [
+         0,
+         17
+        ],
+        "kind": "return-liquor",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "screen-grinder",
+    "group": "screening",
+    "label": "Macerator / grinder",
+    "notes": "Comminuting/grinding changes solids size and retains slurry in outgoing wastewater, not a screenings removal stream unless explicitly configured.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "drive": "integral-motor",
+    "defaultVariant": null,
+    "variants": {
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-14 -10 L14 -10 L14 10 L-14 10 Z"
+       },
+       {
+        "d": "M-20 0 L-14 0 M14 0 L20 0"
+       },
+       {
+        "d": "M-8 -7 L-3 -2 L-8 3 L-3 8 M0 -7 L5 -2 L0 3 L5 8"
+       },
+       {
+        "d": "M0 -10 L0 -15"
+       },
+       {
+        "c": [
+         0,
+         -20,
+         5
+        ]
+       },
+       {
+        "identityInk": "M",
+        "at": [
+         -2.6289999999999996,
+         -18.02
+        ],
+        "scale": 0.00275,
+        "glyphs": [
+         {
+          "x": 0,
+          "d": "M173 0V-1440H423L803 -642Q838 -567 865.5 -507.5Q893 -448 912.5 -402.0Q932 -356 944.0 -321.5Q956 -287 962 -259H964Q971 -287 982.5 -321.0Q994 -355 1012.0 -401.0Q1030 -447 1056.5 -506.5Q1083 -566 1120 -642L1503 -1440H1739V0H1561V-760Q1561 -846 1562.0 -915.5Q1563 -985 1565.0 -1039.0Q1567 -1093 1570.5 -1136.0Q1574 -1179 1578 -1212H1575L1002 -1H913L336 -1212H333Q338 -1175 341.5 -1131.5Q345 -1088 347.5 -1034.0Q350 -980 351.5 -912.5Q353 -845 353 -760V0Z"
+         }
+        ],
+        "bounds": [
+         -2.15325,
+         -21.98,
+         2.15325,
+         -18.02
+        ],
+        "rotateAnchor": true
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "sewage_in",
+        "anchor": [
+         -20,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "comminuted_out",
+        "anchor": [
+         20,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "grit-vortex",
+    "group": "grit-separation",
+    "label": "Vortex grit chamber",
+    "notes": "Plan schematic circular chamber; tangential inflow. Does not reuse conical hydrocyclone symbol.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "mechanism": "open-vortex",
+    "defaultVariant": null,
+    "variants": {
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-25 -17 L0 -17"
+       },
+       {
+        "d": "M17 0 L25 0"
+       },
+       {
+        "d": "M0 17 L0 25"
+       },
+       {
+        "d": "M-8 -6 C1 -16 14 -4 9 5 C5 13 -7 10 -6 2"
+       },
+       {
+        "c": [
+         0,
+         0,
+         17
+        ]
+       },
+       {
+        "c": [
+         0,
+         0,
+         3.5
+        ]
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "influent",
+        "anchor": [
+         -25,
+         -17
+        ],
+        "kind": "wastewater",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "effluent",
+        "anchor": [
+         25,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "out",
+        "schematicVisible": true
+       },
+       {
+        "id": "grit_slurry",
+        "anchor": [
+         0,
+         25
+        ],
+        "kind": "grit-slurry",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "grit-aerated",
+    "group": "grit-separation",
+    "label": "Aerated grit chamber",
+    "notes": "Schematic section with aeration diffuser and bottom grit hopper. Air injection is not a wastewater outlet.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "mechanism": "aerated-chamber",
+    "defaultVariant": null,
+    "variants": {
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-20 -10 L20 -10 L20 12 L8 18 L-8 18 L-20 12 Z"
+       },
+       {
+        "d": "M-27 0 L-20 0 M20 0 L27 0 M0 18 L0 26 M-12 12 L12 12"
+       },
+       {
+        "d": "M-12 12 L-12 7 M0 12 L0 7 M12 12 L12 7"
+       },
+       {
+        "d": "M-12 -19 L-12 -10 M-12 -10 L-16 -10 L-16 12 L-12 12"
+       },
+       {
+        "c": [
+         -12,
+         7,
+         1
+        ]
+       },
+       {
+        "c": [
+         0,
+         7,
+         1
+        ]
+       },
+       {
+        "c": [
+         12,
+         7,
+         1
+        ]
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "influent",
+        "anchor": [
+         -27,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "effluent",
+        "anchor": [
+         27,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "out",
+        "schematicVisible": true
+       },
+       {
+        "id": "air_supply",
+        "anchor": [
+         -12,
+         -19
+        ],
+        "kind": "gas-process",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "grit_withdrawal",
+        "anchor": [
+         0,
+         26
+        ],
+        "kind": "grit-slurry",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "grit-horizontal",
+    "group": "grit-separation",
+    "label": "Horizontal-flow grit channel",
+    "notes": "Schematic longitudinal section; no air port; grit collection sump indicated. Geometry not dimensioned.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "mechanism": "horizontal-flow",
+    "defaultVariant": null,
+    "variants": {
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-22 -10 L22 -10 L22 10 L11 10 L6 19 L-6 19 L-11 10 L-22 10 Z"
+       },
+       {
+        "d": "M-29 0 L-22 0 M22 0 L29 0 M0 19 L0 26"
+       },
+       {
+        "d": "M-10 7 L10 7"
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "influent",
+        "anchor": [
+         -29,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "effluent",
+        "anchor": [
+         29,
+         0
+        ],
+        "kind": "wastewater",
+        "direction": "out",
+        "schematicVisible": true
+       },
+       {
+        "id": "grit_withdrawal",
+        "anchor": [
+         0,
+         26
+        ],
+        "kind": "grit-slurry",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "grit-washer",
+    "group": "grit-handling",
+    "label": "Grit washer",
+    "notes": "Washing + conveying combined equipment; washwater input and return liquor output separately typed.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "defaultVariant": null,
+    "variants": {
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-16 -9 L16 -9 L16 6 L8 11 L-8 11 L-16 6 Z"
+       },
+       {
+        "d": "M-12 -4 L10 -4 M-12 0 L10 0 M-12 4 L10 4"
+       },
+       {
+        "d": "M-24 0 L-16 0 M16 0 L24 0 M0 -17 L0 -9 M0 11 L0 17"
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "raw_grit_in",
+        "anchor": [
+         -24,
+         0
+        ],
+        "kind": "grit-slurry",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "washed_grit_out",
+        "anchor": [
+         24,
+         0
+        ],
+        "kind": "washed-grit",
+        "direction": "out",
+        "schematicVisible": true
+       },
+       {
+        "id": "wash_water",
+        "anchor": [
+         0,
+         -17
+        ],
+        "kind": "wash-water",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "return_liquor",
+        "anchor": [
+         0,
+         17
+        ],
+        "kind": "return-liquor",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "grit-bin",
+    "group": "solids-handling",
+    "label": "Grit storage bin",
+    "notes": "One bulk washed-grit receiving interface; optional drain is separate asset feature rather than an assumed pipe.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "defaultVariant": null,
+    "variants": {
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-16 -9 L16 -9 L12 10 L-12 10 Z"
+       },
+       {
+        "d": "M0 -16 L0 -9"
+       },
+       {
+        "d": "M-10 4 L10 4"
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "grit_in",
+        "anchor": [
+         0,
+         -16
+        ],
+        "kind": "washed-grit",
+        "direction": "in",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   },
+   {
+    "id": "screenings-chute",
+    "group": "solids-handling",
+    "label": "Screenings discharge chute",
+    "notes": "Gravity screenings chute; two solids ports. It does not imply a continuous liquid-process flow.",
+    "verification": "Provisional Processvg geometry. Visual and standards approval pending.",
+    "defaultVariant": null,
+    "variants": {
+     "candidate": {
+      "shapes": [
+       {
+        "d": "M-12 -16 L12 -16 L6 16 L-6 16 Z"
+       },
+       {
+        "d": "M-5 -9 L0 -3 L5 -9 M0 -3 L0 10"
+       },
+       {
+        "d": "M0 -23 L0 -16 M0 16 L0 23"
+       }
+      ],
+      "interfaces": [
+       {
+        "id": "screenings_in",
+        "anchor": [
+         0,
+         -23
+        ],
+        "kind": "screenings-solids",
+        "direction": "in",
+        "schematicVisible": true
+       },
+       {
+        "id": "screenings_out",
+        "anchor": [
+         0,
+         23
+        ],
+        "kind": "screenings-solids",
+        "direction": "out",
+        "schematicVisible": true
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
  "serviceCodes": {
   "RS": "Raw sewage",
   "SCR": "Screenings",

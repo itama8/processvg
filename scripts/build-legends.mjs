@@ -6,6 +6,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { SYMBOLS, SERVICE_CODES, GATE_ALIASES, gateArchive, INSTRUMENT_PRESETS, LEGACY_INSTRUMENT_ANCHORS, place, placeSymbol } from "../src/library.mjs";
 import { PRIMARY_ARCHIVE_IDS, composePrimaryElement, migratePrimaryElement } from "../src/library.mjs";
+import { byId, SCREENING_ARCHIVE_IDS, SCREENING_CANDIDATES, SCREENING_STREAMS } from "../src/library.mjs";
 import { LOGIC_IDS, placeLogicPrimitive } from "../src/logic.mjs";
 import { render, svgDoc } from "../src/render.mjs";
 
@@ -81,7 +82,7 @@ for (const cat of cats) {
 
 // Catalogue: geometry at scale 1, for other tools to place and connect.
 const catalogue = {
-  about: "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for valves and docs/family-04.md for gates and weirs. See docs/family-05.md for instrument modes, docs/family-06.md for primary elements and measuring views, and docs/family-07.md for pump variants and equipment views.",
+  about: "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for valves and docs/family-04.md for gates and weirs. See docs/family-05.md for instrument modes, docs/family-06.md for primary elements and measuring views, and docs/family-07.md for pump variants and equipment views. See docs/family-08.md for provisional screening and grit.",
   sources: {
     "IS 3232": "IS 3232:1999 Recommendations on graphical symbols for process flow diagrams, piping and instrumentation diagrams (BIS), by symbol number",
     "ISA-5.1": "ANSI/ISA-5.1-2009 Instrumentation symbols and identification",
@@ -139,6 +140,23 @@ const catalogue = {
     })),
     shapes: s.states ? { open: s.draw({ closed: false }), closed: s.draw({ closed: true }) } : s.draw({}),
   })),
+  screeningReview: {
+    optIn: { variant: "candidate" },
+    physicalViews: ["plan", "section", "elevation"],
+    streams: SCREENING_STREAMS,
+    symbols: Object.values(SCREENING_CANDIDATES).map((candidate) => ({
+      ...candidate,
+      defaultVariant: candidate.legacyId ? "legacy" : null,
+      variants: {
+        ...(SCREENING_ARCHIVE_IDS.includes(candidate.id) && {
+          legacy: { shapes: byId[candidate.id].draw({}), ports: byId[candidate.id].ports },
+        }),
+        candidate: { shapes: candidate.shapes, interfaces: candidate.interfaces },
+      },
+      shapes: undefined,
+      interfaces: undefined,
+    })),
+  },
   serviceCodes: SERVICE_CODES,
 };
 writeFileSync(path.join(OUT, "catalogue.json"), JSON.stringify(catalogue, null, 1));

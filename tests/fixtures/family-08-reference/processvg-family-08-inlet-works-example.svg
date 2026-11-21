@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 480" width="840" height="480" role="img" aria-labelledby="t">
+<title id="t">Processvg family 08 inlet works topology example</title>
+<rect width="840" height="480" fill="#fff"/>
+<style>text{font-family:DejaVu Sans,Arial,sans-serif;fill:#232323}.primary{stroke:#232323;stroke-width:1.7;fill:none;stroke-linejoin:round;stroke-linecap:round}.secondary{stroke:#777;stroke-width:1.2;stroke-dasharray:6 4;fill:none}.pill{fill:#fafafa;stroke:#ddd}.txt{font-size:14px}.small{font-size:12px;fill:#666}.id{font-size:17px;font-weight:700}</style>
+<text x="36" y="41" font-size="25" font-weight="700">INLET WORKS — PROCESS &amp; MATERIAL ROUTING</text>
+<text x="37" y="64" class="small">Design test fixture  ·  schematic, not a verified plant P&amp;ID  ·  Family 08 + shared Family 02/05 symbols</text>
+<path class="primary" d="M32 198 H146 M216 198 H363 M433 198 H790"/>
+<path class="primary" d="M109 194 L115 198 L109 202"/>
+<path class="primary" d="M327 194 L333 198 L327 202"/>
+<path class="primary" d="M779 194 L785 198 L779 202"/>
+<g transform="translate(181 198) scale(2.75)" class="primary">
+<path class="primary" d="M-7.2 11.4 L5.2 -10.1 M-2.8 13.9 L9.6 -7.6 M5.2 -10.1 A2.54 2.54 0 0 1 9.6 -7.6 M-2.8 13.9 A2.54 2.54 0 0 1 -7.2 11.4"/>
+<path class="primary" d="M7.4 -10.05 V-14"/>
+<circle cx="7.4" cy="-19" r="6"/>
+<text x="7.4" y="-19" text-anchor="middle" dominant-baseline="central" font-size="6" fill="#222" stroke="none">M</text></g>
+<text x="181" y="271" class="id" text-anchor="middle">SCR-101</text>
+<text x="181" y="289" class="small" text-anchor="middle">Motorised coarse bar screen</text>
+<g transform="translate(398 198) scale(2.0)" class="primary">
+<circle r="17"/>
+<path class="primary" d="M-8 -6 C1 -16 14 -4 9 5 C5 13 -5 9 -4 2 C-3 -3 3 -4 5 1"/>
+<circle r="3.5"/>
+</g>
+<text x="314" y="253" class="id" text-anchor="middle">GR-101</text>
+<text x="314" y="271" class="small" text-anchor="middle">Vortex grit chamber</text>
+<text x="78" y="186" class="small" text-anchor="middle">Raw sewage</text>
+<text x="285" y="186" class="small" text-anchor="middle">Screened flow</text>
+<text x="647" y="186" class="small" text-anchor="middle">Degritted wastewater</text>
+<path class="primary" d="M201 160 V100 H322"/>
+<path class="primary" d="M296 96 L302 100 L296 104"/>
+<rect class="primary" x="322" y="80" width="82" height="40"/>
+<path class="primary" d="M331 91 L342 107 L351 91 L362 107 L373 91 L384 107 L395 91"/>
+<path class="primary" d="M363 80 V68"/>
+<path class="primary" d="M363 120 V146"/>
+<text x="464" y="77" class="small" text-anchor="middle">Wash water IN</text>
+<text x="363" y="160" class="small" text-anchor="middle">Return liquor OUT</text>
+<path class="primary" d="M404 100 H559"/>
+<path class="primary" d="M536 96 L542 100 L536 104"/>
+<path class="primary" d="M559 83 H630 L622 119 H567 Z"/>
+<text x="595" y="138" class="small" text-anchor="middle">Screenings skip</text>
+<text x="595" y="75" class="id" text-anchor="middle">SCR-102</text>
+<text x="292" y="141" class="small" text-anchor="middle">Washer/compactor</text>
+<text x="252" y="88" class="small" text-anchor="middle">Screenings solids</text>
+<path class="primary" d="M398 232 V329 H476"/>
+<path class="primary" d="M460 325 L466 329 L460 333"/>
+<rect class="primary" x="476" y="310" width="82" height="38"/>
+<path class="primary" d="M483 319 L496 341 L509 319 L522 341 L535 319 L548 341"/>
+<path class="primary" d="M517 310 V284"/>
+<path class="primary" d="M517 348 V370"/>
+<text x="517" y="275" class="small" text-anchor="middle">Wash water IN</text>
+<text x="517" y="385" class="small" text-anchor="middle">Return liquor OUT</text>
+<path class="primary" d="M558 329 H678"/>
+<path class="primary" d="M656 325 L662 329 L656 333"/>
+<path class="primary" d="M678 310 H746 L739 348 H685 Z"/>
+<text x="712" y="368" class="small" text-anchor="middle">Grit bin</text>
+<text x="712" y="300" class="id" text-anchor="middle">GT-103</text>
+<text x="585" y="299" class="small" text-anchor="middle">Grit washer</text>
+<text x="432" y="314" class="small" text-anchor="middle">Grit slurry</text>
+<text x="615" y="316" class="small" text-anchor="middle">Washed grit</text>
+<rect class="pill" x="36" y="413" width="768" height="45" rx="6"/>
+<text x="53" y="432" class="small" text-anchor="start">Material handling: separated screenings and grit are NOT liquid wastewater connections.</text>
+<text x="53" y="450" class="small" text-anchor="start">Equipment outlets, washes and return drains are illustrative; site-specific piping and hydraulics are not shown.</text>
+</svg>
