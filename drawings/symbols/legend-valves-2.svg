@@ -2,11 +2,11 @@
 <title id="legend-valves-2-title">Valves symbols</title>
 <desc id="legend-valves-2-desc">P&amp;ID symbols: Needle valve, Pinch valve, Foot valve with strainer, Pressure-reducing valve, Combination air valve, Float-operated valve.</desc>
 <style>svg[data-plotter]{color:var(--plotter-ink,#171717)}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:var(--plotter-ink,#ededed)}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
-<defs><mask id="processvg-knockout-7" maskUnits="objectBoundingBox" maskContentUnits="userSpaceOnUse" mask-type="luminance"><path d="M66 50.5 L78 58 L66 65.5 Z M90 50.5 L90 65.5 L78 58 Z" fill="#fff" stroke="#fff" /><path d="M78 44.5 L78 59.5 M73.5 50.5 L78 56.5 L82.5 50.5" fill="none" stroke="#000" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" style="vector-effect:none" /></mask><mask id="processvg-knockout-8" maskUnits="objectBoundingBox" maskContentUnits="userSpaceOnUse" mask-type="luminance"><path d="M118 50.5 L130 58 L118 65.5 Z M142 50.5 L142 65.5 L130 58 Z" fill="#fff" stroke="#fff" /><path d="M130 44.5 L130 59.5 M125.5 50.5 L130 56.5 L134.5 50.5" fill="none" stroke="#000" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" style="vector-effect:none" /></mask></defs>
+<defs><mask id="legend-valves-2-knockout-1" maskUnits="objectBoundingBox" maskContentUnits="userSpaceOnUse" mask-type="luminance"><path d="M66 50.5 L78 58 L66 65.5 Z M90 50.5 L90 65.5 L78 58 Z" fill="#fff" stroke="#fff" /><path d="M78 44.5 L78 59.5 M73.5 50.5 L78 56.5 L82.5 50.5" fill="none" stroke="#000" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" style="vector-effect:none" /></mask><mask id="legend-valves-2-knockout-2" maskUnits="objectBoundingBox" maskContentUnits="userSpaceOnUse" mask-type="luminance"><path d="M118 50.5 L130 58 L118 65.5 Z M142 50.5 L142 65.5 L130 58 Z" fill="#fff" stroke="#fff" /><path d="M130 44.5 L130 59.5 M125.5 50.5 L130 56.5 L134.5 50.5" fill="none" stroke="#000" stroke-width="5.1" stroke-linecap="round" stroke-linejoin="round" style="vector-effect:none" /></mask></defs>
 <g data-plotter-role="primary" opacity="1" stroke-dasharray="none">
-<path d="M66 50.5 L78 58 L66 65.5 Z M90 50.5 L90 65.5 L78 58 Z" mask="url(#processvg-knockout-7)" />
+<path d="M66 50.5 L78 58 L66 65.5 Z M90 50.5 L90 65.5 L78 58 Z" mask="url(#legend-valves-2-knockout-1)" />
 <path d="M78 44.5 L78 59.5 M73.5 50.5 L78 56.5 L82.5 50.5" />
-<path d="M118 50.5 L130 58 L118 65.5 Z M142 50.5 L142 65.5 L130 58 Z" fill="currentColor" mask="url(#processvg-knockout-8)" />
+<path d="M118 50.5 L130 58 L118 65.5 Z M142 50.5 L142 65.5 L130 58 Z" fill="currentColor" mask="url(#legend-valves-2-knockout-2)" />
 <path d="M130 44.5 L130 59.5 M125.5 50.5 L130 56.5 L134.5 50.5" />
 <path d="M242 49 L251 55 L257 55 L266 49 L266 67 L257 61 L251 61 L242 67 Z" />
 <path d="M254 40 L254 53.5 M254 62.5 L254 76" />

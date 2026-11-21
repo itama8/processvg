@@ -1,5 +1,6 @@
 import { place, placePoint, round } from "./geometry.mjs";
 import { stableId } from "./primary-elements.mjs";
+import { dimension as plotterDimension } from "../vendor/plotter/assets/foundation/index.mjs";
 
 const point3 = (point) => Array.isArray(point) && point.length === 3 && point.every(Number.isFinite);
 const positive = (value) => Number.isFinite(value) && value > 0;
@@ -8,14 +9,29 @@ const box = ([x, y], w, h, role = "primary") => ({
 });
 const segment = ([x, y], [u, v]) => ({ d: `M${x} ${y} L${u} ${v}`, role: "secondary" });
 const label = (x, y, value) => ({ t: [x, y, value], rotateAnchor: true, verticalCenter: true });
+// Sheet-space spacing for envelope dimensions; Plotter's helper owns the slash geometry.
+const DIMENSION = { offset: 14, gap: 3, overshoot: 3, label: 8 };
 
-function dimension([x, y], [u, v], text, padding, q) {
-  const away = y === v ? [0, 1] : [-1, 0];
-  const [side] = placePoint(away, { q });
-  const tick = ([a, b]) => segment([a - 1.5 * padding, b - 1.5 * padding], [a + 1.5 * padding, b + 1.5 * padding]);
-  return [segment([x, y], [u, v]), tick([x, y]), tick([u, v]),
-    { ...label((x + u) / 2 + away[0] * 8 * padding, (y + v) / 2 + away[1] * 8 * padding, text),
-      align: side < 0 ? "end" : side > 0 ? "start" : "middle" }];
+/**
+ * An envelope dimension through Plotter's `dimension()` helper, built in drawing space so the slash
+ * extent stays Plotter's at any placement scale. `a`, `b` are local witnesses; `away` is the local
+ * unit vector pointing out of the envelope.
+ */
+function dimension(a, b, away, text, at) {
+  const [pa, pb] = [a, b].map((point) => placePoint(point, at));
+  const out = placePoint(away, { q: at.q });
+  const axis = Math.abs(pa[0] - pb[0]) > Math.abs(pa[1] - pb[1]) ? "x" : "y";
+  const along = axis === "x" ? 0 : 1, across = 1 - along;
+  const position = pa[across] + out[across] * DIMENSION.offset;
+  const middle = (pa[along] + pb[along]) / 2, beside = position + out[across] * DIMENSION.label;
+  const anchor = axis === "x" ? [middle, beside] : [beside, middle];
+  const { witnessD, lineD, slashD } = plotterDimension({
+    axis, witnesses: [pa, pb].sort((p, q) => p[along] - q[along]), position,
+    extensions: { gap: DIMENSION.gap, overshoot: DIMENSION.overshoot }, label: { text, anchor },
+  });
+  const align = axis === "x" ? "middle" : out[0] < 0 ? "end" : "start";
+  return [witnessD, lineD, slashD].map((d) => ({ d, role: "dimension" }))
+    .concat({ t: [...anchor.map(round), text], verticalCenter: true, align });
 }
 
 /** Project an explicitly supplied envelope, installation features and interfaces. */
@@ -61,12 +77,11 @@ export function pumpPhysical(view, input, ports, at, { unitsPerDrawingUnit = 1, 
     available.push({ ...port, location: [...point], point: placePoint(anchor, at).map(round), visible: true });
   }
   const padding = 1 / (at.s ?? 1);
-  const offset = 14 * padding;
-  shapes.push(...dimension([0, h + offset], [w, h + offset], `${length} ${unit}`, padding, at.q),
-    ...dimension([-offset, 0], [-offset, h], `${plan ? width : height} ${unit}`, padding, at.q));
-  if (basis === "illustrative") shapes.push(label(w / 2, h + 42 * padding, "Illustrative dimensions"));
+  const dimensions = [...dimension([0, h], [w, h], [0, 1], `${length} ${unit}`, at),
+    ...dimension([0, 0], [0, h], [-1, 0], `${plan ? width : height} ${unit}`, at)];
+  const notes = basis === "illustrative" ? [label(w / 2, h + 42 * padding, "Illustrative dimensions")] : [];
   return {
     status: basis, source, unit, ...(plan ? {} : { sectionY: cut }),
-    shapes: place(shapes, at), interfaces: available,
+    shapes: [...place(shapes, at), ...dimensions, ...place(notes, at)], interfaces: available,
   };
 }

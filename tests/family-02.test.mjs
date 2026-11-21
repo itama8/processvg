@@ -72,8 +72,10 @@ test("closed body masks stay on each body and round-trip as transparent paint", 
     build(bodyId, { normalPosition: "closed" }, { x: 50 + index * 50, y: 100, s: 1.5, q: index }).shapes);
   assert.equal(closed.filter(({ knockout }) => knockout).length, 4);
   assert.equal(closed.find(({ knockout }) => knockout?.[0]?.cutWidth).knockout[0].cutWidth, 5.1);
-  const light = render(closed);
-  const dark = render(closed);
+  // Mask ids are per drawing, not per process: callers scope them with idPrefix or svgDoc's id.
+  const light = render(closed, { idPrefix: "light" });
+  const dark = render(closed, { idPrefix: "dark" });
+  assert.equal(render(closed), render(closed));
   const ids = (markup) => Array.from(markup.matchAll(/<mask id="([^"]+)"/g), ([, id]) => id);
   assert.equal(new Set([...ids(light), ...ids(dark)]).size, 8);
   for (const id of ids(light)) assert.equal(light.split(`url(#${id})`).length, 2);
