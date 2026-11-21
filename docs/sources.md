@@ -32,3 +32,14 @@ The symbols are redrawn in the Plotter style from these conventions; no drawing 
 These project legends informed the visual review. The Family 01 candidates retain the `Proposed` status pending engineering review and acceptance against the governing project legend. The catalogue retains the existing IS 3232, ISA-5.1 and Pahala citations as originally declared.
 
 See [Family 02 verification and provenance](family-02.md#verification-and-provenance) for the audit of valve references and the BIS bulletin on the 2024 edition.
+
+## Follow-up audit of Families 01 and 02
+
+| Reference and location | What it supports | Processvg decision |
+|---|---|---|
+| Ford, Bacon & Davis, *Art of the P&ID*, slides 56–58 and 90 | Layout should communicate meaningful gravity-flow relationships. Stream arrows need cross-checking between drawings. | Audit explicit reciprocal sheet links. Gravity feasibility still requires elevations and service context. |
+| Stockton Terminal, Dock 10–11, `STOT-02-002` rev. 2, PDF p. 1 | Continuation flags carry a drawing reference and line number. The legend distinguishes hydraulic, pneumatic and electrical lines, a specification break, and FO, FC and FL failure tags. | Full flags can carry the line ID. Keep the existing omitted-length pipe break meaning. Add a named hydraulic line using the existing PRV pattern. Processvg legends spell out its FLP label. |
+| ProjectMaterials, *P&ID Symbols Reference Guide*, pp. 5–10 | The check-valve triangle and stop bar agree with the Processvg concept. Other pages show alternative pinch, butterfly, diverter and signal marks. | Keep the approved check and foot geometry. Treat the catalogue as a comparative reference. |
+| Edraw, *Standard P&ID Symbols Legend*, valve section | The catalogue shows a diagonal check variant and a filled closed gate. | Keep the documented local state and signal conventions. Use a project legend when applying them to a drawing set. |
+
+A specification break changes the piping class or specification at a location. The Family 01 pipe break stands for omitted drawing length on a through connection. Treat a future specification-break symbol as a separate catalogue addition. The attached references provide comparison and project examples. Exact standards verification of the Family 02 glyphs remains pending.

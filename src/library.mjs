@@ -53,6 +53,7 @@ export { measurementBoundary, primaryInstrument, primaryNetwork } from "./primar
 
 export { GATE_ALIASES, composeEquipment, gateArchive } from "./gates.mjs";
 export { composeActuator, placeOperator } from "./actuators.mjs";
+import { routeLine } from "./lines.mjs";
 
 export { place, placePoint };
 
@@ -183,6 +184,9 @@ export const SYMBOLS = [
     "M-16 0 L-8 0 M8 0 L16 0 M-8 -5 L8 -5 L8 5 L-8 5 Z M-4 -5 L-4 5 M4 -5 L4 5", [[-16, 0], [16, 0]]),
   fitting("line-break", "Pipe break",
     "M-20 0 L-4 0 M4 0 L20 0 M-7 5 L-3 -5 M3 5 L7 -5", [[-20, 0], [20, 0]]),
+  { id: "line-hydraulic", name: "Hydraulic impulse line", cat: "Lines", src: [PROPOSED], w: 40,
+    draw: () => routeLine("line-hydraulic", [[-20, 0], [20, 0]]).shapes,
+    ports: [[-20, 0], [20, 0]], portNames: ENDS, connectivity: THROUGH, verification: "Proposed" },
 
   ...VALVES,
   legacyActuator("valve-control", "Control valve, modulating", [IS("0414"), BC("P-002")], "diaphragm",

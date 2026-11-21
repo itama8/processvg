@@ -2,7 +2,7 @@
 // Reproducible review sheets for Family 01.
 import { mkdirSync, writeFileSync } from "node:fs";
 import { SYMBOLS, placeSymbol } from "../src/library.mjs";
-import { levelAnnotation, offSheet, routeLine } from "../src/lines.mjs";
+import { checkSheetContinuations, levelAnnotation, offSheet, routeLine } from "../src/lines.mjs";
 import { render, svgDoc } from "../src/render.mjs";
 
 const output = new URL("../review/family-01/", import.meta.url);
@@ -34,8 +34,8 @@ function connections() {
     shapes.push(...placeSymbol("crossover", at).shapes);
     shapes.push(...placeSymbol("junction-cross", { ...at, x: at.x + 24 }).shapes);
   }
-  for (const [index, id] of ["line-process", "line-flow", "line-electric", "line-data", "line-pneumatic"].entries()) {
-    const y = 151 + index * 38;
+  for (const [index, id] of ["line-process", "line-flow", "line-electric", "line-data", "line-pneumatic", "line-hydraulic"].entries()) {
+    const y = 148 + index * 32;
     shapes.push(start(20, y + 3, family.find((symbol) => symbol.id === id).name));
     shapes.push(...routeLine(id, [[145, y], [217, y], [242, y - 12], [310, y - 12], [310, y + 11], [532, y + 11]]).shapes);
   }
@@ -57,12 +57,14 @@ function connections() {
 }
 
 const streamId = "RS-104 · Raw sewage transfer";
+const lineId = "150-RS-104-01";
 const service = "Raw sewage to the treatment train";
 const inlet = "PID-101 · Inlet works and screening";
 const discharge = "PID-102 · Wet well and discharge";
 // Actual centered Chromium canvas ink boxes at 10 px sans-serif, rounded up.
 const measured = {
   [streamId]: [69, 70, 8, 2],
+  [lineId]: [34, 34, 8, 1],
   [`TO ${discharge}`]: [83, 84, 8, 2],
   [`FROM ${inlet}`]: [96, 96, 8, 2],
   [service]: [77, 76, 8, 2],
@@ -74,8 +76,12 @@ function measureText(label) {
 
 function components() {
   const shapes = [start(20, 32, inlet), start(20, 137, discharge), start(20, 251, "Wet well levels")];
-  const outgoing = offSheet({ direction: "out", streamId, sheetRef: discharge, service, detail: "full", x: 403, y: 72, measureText });
-  const incoming = offSheet({ direction: "in", streamId, sheetRef: inlet, service, detail: "full", x: 143, y: 178, measureText });
+  const outgoing = offSheet({ direction: "out", streamId, lineId, sheetRef: discharge, service, detail: "full", x: 403, y: 72, measureText });
+  const incoming = offSheet({ direction: "in", streamId, lineId, sheetRef: inlet, service, detail: "full", x: 143, y: 178, measureText });
+  const issues = checkSheetContinuations([
+    { sheetId: inlet, ...outgoing.metadata }, { sheetId: discharge, ...incoming.metadata },
+  ]);
+  if (issues.length) throw new Error(`Invalid continuation fixture: ${JSON.stringify(issues)}`);
   shapes.push(...outgoing.shapes, ...incoming.shapes,
     ...routeLine("line-flow", [[20, 72], outgoing.ports[0]]).shapes,
     ...routeLine("line-flow", [incoming.ports[0], [540, 178]]).shapes,

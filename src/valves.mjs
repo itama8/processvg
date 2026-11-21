@@ -1,6 +1,7 @@
 // Family 02 valve bodies and assembly semantics. Coordinates are schematic drawing units.
 import { place, placePoint, round } from "./geometry.mjs";
 import { composeActuator, drawPresetHead } from "./actuators.mjs";
+import { routeLine } from "./lines.mjs";
 
 const path = (...points) => "M" + points.map((point) => point.join(" ")).join(" L");
 const shape = (d, props = {}) => ({ d, ...props });
@@ -61,7 +62,7 @@ function regulatorGeometry({ representation = "compact" } = {}) {
   if (representation !== "downstream-sensing") throw new RangeError("Unknown pressure-reducing representation");
   return [
     shape(bowtie), ...regulator, shape("M8 0 L18 0"),
-    shape("M18 0 L18 -18 L0 -18 L0 -15", { role: "secondary", dash: "2 2" }),
+    ...routeLine("line-hydraulic", [[18, 0], [18, -18], [0, -18], [0, -15]]).shapes,
     circle(18, 0, 1.5, { ...solid, role: "dot" }),
   ];
 }

@@ -1,18 +1,23 @@
 // Family 01 components with drawing-space geometry and metadata.
-import { placePoint } from "./library.mjs";
+import { placePoint } from "./geometry.mjs";
 
 const path = (...points) => "M" + points.map((point) => point.join(" ")).join(" L");
 const finitePoint = (point) => Array.isArray(point) && point.length === 2 && point.every(Number.isFinite);
+const hydraulicStyle = { role: "secondary", dash: "2 2" };
 const twoPorts = { portNames: ["in", "out"], connectivity: [[0, 1]] };
 
 /** Route a Family 01 line through drawing-space vertices ordered downstream. */
 export function routeLine(id, points) {
-  if (!["line-process", "line-flow", "line-electric", "line-data", "line-pneumatic"].includes(id)) {
+  if (!["line-process", "line-flow", "line-electric", "line-data", "line-pneumatic", "line-hydraulic"].includes(id)) {
     throw new RangeError(`Unsupported route: ${id}`);
   }
   if (!Array.isArray(points) || !points.every(finitePoint)) throw new TypeError("Expected finite route vertices");
   const vertices = points.filter(([x, y], i) => i === 0 || x !== points[i - 1][0] || y !== points[i - 1][1]);
   if (vertices.length < 2) throw new RangeError("A route needs two distinct consecutive vertices");
+
+  if (id === "line-hydraulic") {
+    return { shapes: [{ d: path(...vertices), ...hydraulicStyle }], ports: [vertices[0], vertices.at(-1)], ...twoPorts };
+  }
 
   const role = { "line-electric": "signal", "line-data": "secondary", "line-pneumatic": "secondary" }[id] ?? "primary";
   const shapes = [];
@@ -67,12 +72,12 @@ const FONT = Object.freeze({ family: "sans-serif", size: 10, weight: 400 });
  * { left, right, ascent, descent }, in drawing units.
  */
 export function offSheet({
-  direction, streamId, sheetRef = "", service = "", detail = "compact",
+  direction, streamId, sheetRef = "", lineId = "", service = "", detail = "compact",
   orientation = 0, x = 0, y = 0, measureText,
 }) {
   if (!["in", "out"].includes(direction) || !["compact", "full"].includes(detail) ||
       ![0, 90, 180, 270].includes(orientation) || ![x, y].every(Number.isFinite) ||
-      ![streamId, sheetRef, service].every((text) => typeof text === "string" && !/[\t\r\n]/.test(text)) ||
+      ![streamId, sheetRef, lineId, service].every((text) => typeof text === "string" && !/[\t\r\n]/.test(text)) ||
       !streamId.trim() || (detail === "full" && !sheetRef.trim())) {
     throw new RangeError("Invalid off-sheet direction, labels, detail, orientation or position");
   }
@@ -85,7 +90,10 @@ export function offSheet({
     return { width: 2 * Math.max(left, right), ascent, descent };
   };
   const labels = [streamId];
-  if (detail === "full") labels.push(`${direction === "in" ? "FROM" : "TO"} ${sheetRef}`);
+  if (detail === "full") {
+    labels.push(`${direction === "in" ? "FROM" : "TO"} ${sheetRef}`);
+    if (lineId.trim() && lineId !== streamId) labels.push(lineId);
+  }
   const metrics = labels.map(measure);
   const textWidth = Math.max(...metrics.map(({ width }) => width));
   const lineGap = 4;
@@ -125,8 +133,38 @@ export function offSheet({
   return {
     shapes, ports: [placePoint([direction === "in" ? right : left, 0], at)],
     portNames: [direction === "in" ? "out" : "in"], connectivity: [], bounds,
-    metadata: { direction, streamId, sheetRef, service, detail, orientation, verification: "Proposed" },
+    metadata: { direction, streamId, sheetRef, ...(lineId.trim() && { lineId }), service, detail, orientation, verification: "Proposed" },
   };
+}
+
+/**
+ * Audit a closed set of sheet continuations. Each record supplies its local sheetId
+ * alongside the metadata returned by offSheet(). Identifiers are matched as written.
+ */
+export function checkSheetContinuations(continuations) {
+  const links = new Map();
+  for (const { sheetId, streamId, sheetRef, direction, lineId } of continuations) {
+    if (![sheetId, sheetRef, streamId].every((id) => typeof id === "string" && id.trim()) ||
+        (lineId !== undefined && (typeof lineId !== "string" || !lineId.trim())) ||
+        sheetId === sheetRef || !["in", "out"].includes(direction)) {
+      throw new RangeError("A continuation needs distinct local and remote sheets, a stream ID and a direction");
+    }
+    const [from, to] = direction === "out" ? [sheetId, sheetRef] : [sheetRef, sheetId];
+    const key = JSON.stringify([from, to, streamId]);
+    if (!links.has(key)) links.set(key, { from, to, streamId, in: [], out: [] });
+    links.get(key)[direction].push(lineId);
+  }
+  const issues = [];
+  for (const { from, to, streamId, in: incoming, out: outgoing } of links.values()) {
+    const link = { from, to, streamId };
+    for (const [direction, ends] of [["in", incoming], ["out", outgoing]]) {
+      if (ends.length !== 1) issues.push({ ...link, direction, code: ends.length ? "duplicate" : "missing" });
+    }
+    if (incoming.length === 1 && outgoing.length === 1 && incoming[0] !== outgoing[0]) {
+      issues.push({ ...link, code: "line-id-mismatch", fromLineId: outgoing[0] ?? null, toLineId: incoming[0] ?? null });
+    }
+  }
+  return issues;
 }
 
 const LEVEL_STYLES = { solid: undefined, dashed: "6 4", dotted: "1 3" };

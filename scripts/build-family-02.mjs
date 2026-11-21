@@ -101,8 +101,8 @@ for (const [representation, x] of [["compact", 141], ["downstream-sensing", 417]
   processOne.push(...v.shapes, ...v.processPorts.map((port) => pipeFrom(port, 55)));
 }
 processOne.push(text(141, 324, "Compact"), text(417, 324, "Downstream sensing"),
-  text(417, 425, "Dashed line = hydraulic impulse"));
-save("04-process", "Valve applications, sheet 1", "Conceptual sludge withdrawal, foot valve on pump suction, and both pressure-reducing representations. Dashed route = hydraulic impulse.", processOne);
+  text(417, 425, "Short dashes = hydraulic impulse"));
+save("04-process", "Valve applications, sheet 1", "Conceptual sludge withdrawal, foot valve on pump suction, and both pressure-reducing representations. Short dashes indicate hydraulic impulse.", processOne);
 
 const processTwo = [header(27, "Rising-main high point"), header(162, "Makeup tank float control"), header(329, "Instrument sample line")];
 const air = valve("air-combination", 278, 71);
