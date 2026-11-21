@@ -18,6 +18,7 @@ const groups = [
   ["Family 02 valve review", path.join(OUT, "family-02"), svgs],
   ["Family 03 actuator review", path.join(OUT, "family-03"), svgs],
   ["Family 04 gate and weir review", path.join(OUT, "family-04"), svgs],
+  ["Family 05 instrument and logic candidates", path.join(OUT, "family-05"), svgs],
   // Client-derived drawings live in private/, which git ignores; they appear here when present.
   ["Private, not committed", path.join(ROOT, "private"), svgs],
 ].filter(([, dir]) => existsSync(dir) && readdirSync(dir).some(svgs));
@@ -43,8 +44,13 @@ const sections = groups.map(([name, dir, keep]) => {
     const src = readFileSync(path.join(dir, f), "utf8");
     const title = unesc(src.match(/<title[^>]*>([^<]*)<\/title>/)?.[1] ?? f);
     const desc = unesc(src.match(/<desc[^>]*>([^<]*)<\/desc>/)?.[1] ?? "");
-    return `<figure class="sheet"><div class="art">${inline(src, `d${n++}`)}</div>
-<figcaption><span class="title">${esc(title)}</span><span class="file">${esc(path.relative(ROOT, path.join(dir, f)))}</span>${desc ? `<p>${esc(desc)}</p>` : ""}</figcaption></figure>`;
+    const familyMatch = name === "Family 05 instrument and logic candidates" && f.match(/^(02-instruments|03-logic)(-.+)\.svg$/);
+    const cardId = familyMatch ? ` id="family-05-${familyMatch[1]}${familyMatch[2]}"` : "";
+    const relatedLink = familyMatch && (familyMatch[1] === "02-instruments"
+      ? `<p><a href="#family-05-03-logic${familyMatch[2]}">Open I-101 logic view</a></p>`
+      : `<p><a href="#family-05-02-instruments${familyMatch[2]}">Open I-101 P&amp;ID reference</a></p>`);
+    return `<figure class="sheet"${cardId}><div class="art">${inline(src, `d${n++}`)}</div>
+<figcaption><span class="title">${esc(title)}</span><span class="file">${esc(path.relative(ROOT, path.join(dir, f)))}</span>${desc ? `<p>${esc(desc)}</p>` : ""}${relatedLink || ""}</figcaption></figure>`;
   });
   return `<section><h2>${esc(name)}</h2><div class="grid">${cards.join("\n")}</div></section>`;
 });

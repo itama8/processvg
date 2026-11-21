@@ -18,6 +18,12 @@ import { assembleValve, VALVES } from "./valves.mjs";
 import { GATES, GATE_ALIASES, composeEquipment } from "./gates.mjs";
 import { OPERATORS, drawPresetHead, placeOperator } from "./actuators.mjs";
 
+import { composeInstrument, INSTRUMENT_PRESETS } from "./instruments.mjs";
+import { LOGIC_IDS, placeLogicPrimitive } from "./logic.mjs";
+
+export { composeInstrument, instrumentNetwork, INSTRUMENT_VERSION, INSTRUMENT_PRESETS } from "./instruments.mjs";
+export { composeLogicDiagram, logicTruth, placeLogicPrimitive, resolveInterlockReference } from "./logic.mjs";
+
 export { GATE_ALIASES, composeEquipment, gateArchive } from "./gates.mjs";
 export { composeActuator, placeOperator } from "./actuators.mjs";
 
@@ -71,6 +77,16 @@ function fitting(id, name, d, ports, flatSide) {
   return { id, name, cat: "Lines", src: [PROPOSED], draw: () => [S(d)], ports,
     portNames: ENDS, connectivity: THROUGH, verification: "Proposed", flatSide };
 }
+
+const candidateInstruments = [
+  ["inst-computer", "Computer function"],
+  ["inst-panel-inaccessible", "Main panel, inaccessible"],
+  ["inst-local-inaccessible", "Local panel, inaccessible"],
+  ["inst-shared-field", "Field shared display"],
+].map(([id, name]) => ({
+  id, name, cat: "Instrument candidates", src: [PROPOSED], ports: [],
+  draw: () => composeInstrument({ id, preset: id }).shapes,
+}));
 
 export const SYMBOLS = [
   // Lines and connectors -----------------------------------------------------------------
@@ -146,6 +162,8 @@ export const SYMBOLS = [
     draw: () => [S(poly([0, -10], [10, 0], [0, 10], [-10, 0])), T(0, 3.6, "I")], ports: [[-10, 0], [10, 0]] },
   { id: "inst-transmitter-is", name: "Transmitter, locally mounted (IS form)", cat: "Instruments", src: [IS("0610")],
     draw: () => [C(0, 0, 10), S(line([-7.07, -7.07], [7.07, 7.07]) + " " + line([-7.07, 7.07], [7.07, -7.07]))], ports: [[0, 10]] },
+
+  ...candidateInstruments,
 
   // Primary elements -------------------------------------------------------------------------
   { id: "fe-mag", name: "Magnetic flowmeter", cat: "Primary elements", src: [BC("P-002")],
@@ -231,8 +249,55 @@ export function placeOperatingValve(config, at = {}, display = {}) {
   return composeValve(config, at, { ...display, view: "operating" });
 }
 
+export const LEGACY_INSTRUMENT_ANCHORS = Object.freeze({
+  "inst-field": Object.freeze(["S", "N"]),
+  "inst-panel": Object.freeze(["S", "N"]),
+  "inst-local": Object.freeze(["S", "N"]),
+  "inst-scada": Object.freeze(["S", "N"]),
+  "inst-plc": Object.freeze(["S", "N"]),
+  "inst-interlock": Object.freeze(["W", "E"]),
+  "inst-transmitter-is": Object.freeze(["S"]),
+});
+
+function authoredInstrument(id, options) {
+  const { mode, display, tag, ...config } = options;
+  const authoredTag = Array.isArray(tag) ? { letters: tag[0], ...(tag[1] === undefined ? {} : { loop: tag[1] }) } : tag;
+  const hasTag = Object.hasOwn(options, "tag");
+  const kind = config.kind ?? (hasTag && INSTRUMENT_PRESETS[id].kind === "control-panel" ? "control-function" : undefined);
+  return { ...config, id: config.id ?? id, preset: id, kind, ...(hasTag && { tag: authoredTag }) };
+}
+
+/** Migrate a saved archive instance against the versioned candidate contract and report edge moves. */
+export function migrateInstrument({ version = 0, symbolId, at = {}, id, options = {} } = {}, display = {}) {
+  if (version !== 0 || !Object.hasOwn(LEGACY_INSTRUMENT_ANCHORS, symbolId) || typeof id !== "string" || !id.trim()) {
+    throw new RangeError("Expected a version 0 instrument with an archived symbol and a stable ID");
+  }
+  const legacy = placeSymbol(symbolId, at, { ...(Array.isArray(options.tag) && { tag: options.tag }) });
+  const missingIdentity = Boolean(byId[symbolId].tag && options.tag == null && options.panel == null);
+  const needsClassification = missingIdentity && INSTRUMENT_PRESETS[symbolId].kind === "control-panel" && options.kind === undefined;
+  const config = authoredInstrument(symbolId, {
+    ...options, id,
+    ...(missingIdentity && (options.kind === "control-panel" ? { tag: undefined, panel: null } : { tag: null, panel: undefined })),
+    ...(needsClassification && { kind: "unclassified" }),
+  });
+  const candidate = composeInstrument(config, at, display);
+  const portMap = LEGACY_INSTRUMENT_ANCHORS[symbolId].map((anchor, index) => {
+    const before = legacy.ports[index], after = candidate.anchors[anchor];
+    return { index, anchor, before, after, reroute: before.some((v, i) => v !== after[i]) };
+  });
+  return { config: { ...config, version: candidate.metadata.version }, at, candidate,
+    report: { fromVersion: 0, toVersion: candidate.metadata.version, missingIdentity: Boolean(missingIdentity), needsClassification: Boolean(needsClassification), portMap } };
+}
+
 /** Place a library symbol and its ports in the same drawing coordinate system. */
 export function placeSymbol(id, at = {}, options = {}) {
+  if (LOGIC_IDS.includes(id)) return placeLogicPrimitive(id, at, options);
+  if (Object.hasOwn(INSTRUMENT_PRESETS, id)) {
+    const archive = Object.hasOwn(LEGACY_INSTRUMENT_ANCHORS, id);
+    const mode = options.mode ?? (archive ? "legacy" : "candidate");
+    if (mode === "candidate") return composeInstrument(authoredInstrument(id, options), at, options.display);
+    if (mode !== "legacy" || !archive) throw new RangeError(`Unavailable instrument mode ${mode} for ${id}`);
+  }
   const symbol = byId[id];
   if (!Object.hasOwn(byId, id)) throw new RangeError(`Unknown symbol: ${id}`);
   if (symbol.gate) {

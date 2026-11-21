@@ -14,6 +14,7 @@ opacity for hierarchy, and per-symbol source and review status.
 | `docs/family-01.md` | Family 01 ports, routed line patterns, off-sheet connectors, elevation annotations, and the review gallery. |
 | `docs/family-02.md` | Valve body composition, normal and operating states, typed interfaces and review fixtures. |
 | `docs/family-03.md` | Actuator heads and legacy presets, shared equipment mounting, and layout/export review. |
+| `docs/family-05.md` | Instrument modes, identity and ports, archived compatibility, and referenced logic diagrams. |
 | `docs/structures.md` | What each treatment structure symbol must show (SBR, MBBR, tube settler, clarifier, grit chambers, …): the test drafts are judged against. |
 | `docs/sources.md` | IS 3232, ISA-5.1, the Brown and Caldwell reference set, CPHEEO, Metcalf & Eddy, and utility standards. |
 | `examples/` | Drafts built from the library: an inlet-works P&ID and an SBR basin section. |
@@ -37,8 +38,8 @@ opacity for hierarchy, and per-symbol source and review status.
 
 ```sh
 npm run build    # regenerate drawings/ from src/ and examples/
-npm run check    # Plotter checks and Family 01–03 geometry and semantics
-npm run review   # review/index.html: drawings and the Family 01–03 galleries
+npm run check    # Plotter checks and family geometry and semantics
+npm run review   # review/index.html: drawings and family galleries
 ```
 
 Needs Node 20+ and Python 3. Rendering PNGs uses `python3 vendor/plotter/scripts/render.py`

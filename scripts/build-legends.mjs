@@ -4,8 +4,9 @@
 
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
-import { SYMBOLS, SERVICE_CODES, GATE_ALIASES, gateArchive, place, placeSymbol } from "../src/library.mjs";
-import { esc, render, svgDoc } from "../src/render.mjs";
+import { SYMBOLS, SERVICE_CODES, GATE_ALIASES, gateArchive, INSTRUMENT_PRESETS, LEGACY_INSTRUMENT_ANCHORS, place, placeSymbol } from "../src/library.mjs";
+import { LOGIC_IDS, placeLogicPrimitive } from "../src/logic.mjs";
+import { render, svgDoc } from "../src/render.mjs";
 
 const OUT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "../drawings/symbols");
 const srcLine = (sym) => sym.designApproval ? "Approved · verify standard" : sym.src.map((s) => (s.std === "Proposed" ? "proposed" : s.ref ? `${s.std} ${s.ref}` : s.std)).join(" · ");
@@ -15,9 +16,16 @@ const COLS = 3, ROWS = 4, CW = 176, CH = 100, X0 = 16, Y0 = 20, SCALE = 1.5;
 mkdirSync(OUT, { recursive: true });
 const sheets = [];
 const legendCategory = (s) => s.operator || s.modifier ? "Operator heads and modifiers" : s.cat;
+const candidateNames = {
+  "inst-scada": "Main shared display",
+  "inst-plc": "Alternate shared control",
+  "inst-transmitter-is": "Crossed IS transmitter",
+};
 const cats = [...new Set(SYMBOLS.map(legendCategory))];
 for (const cat of cats) {
-  const list = SYMBOLS.filter((s) => legendCategory(s) === cat);
+  const isCandidate = cat === "Instrument candidates";
+  const list = isCandidate ? SYMBOLS.filter((s) => Object.hasOwn(INSTRUMENT_PRESETS, s.id)) :
+    SYMBOLS.filter((s) => legendCategory(s) === cat);
   for (let page = 0; page * COLS * ROWS < list.length; page++) {
     const chunk = list.slice(page * COLS * ROWS, (page + 1) * COLS * ROWS);
     const shapes = [];
@@ -29,22 +37,27 @@ for (const cat of cats) {
         shapes.push(...place(sym.draw({ closed: true }), { x: cx + 26, y: cy, s: SCALE }));
         const [open, closed] = sym.stateLabels ?? ["Open", "Closed"];
         shapes.push({ t: [cx - 26, cy + 30, open], value: true }, { t: [cx + 26, cy + 30, closed], value: true });
+      } else if (isCandidate) {
+        shapes.push(...placeSymbol(sym.id, { x: cx, y: cy, s: SCALE }, { mode: "candidate" }).shapes);
       } else if (sym.operator || sym.modifier || sym.assemblyPreset) {
         shapes.push(...placeSymbol(sym.id, { x: cx, y: cy, s: SCALE }).shapes);
       } else {
         shapes.push(...place(sym.draw({}), { x: cx, y: cy, s: SCALE }));
       }
-      shapes.push({ t: [cx, cy + 46, sym.name] }, { t: [cx, cy + 59, srcLine(sym)], value: true });
+      const name = isCandidate ? candidateNames[sym.id] ?? sym.name : sym.name;
+      shapes.push({ t: [cx, cy + 46, name] }, { t: [cx, cy + 59, isCandidate ? "Processvg candidate" : srcLine(sym)], value: true });
     });
     const slug = `legend-${cat.toLowerCase().replace(/[^a-z]+/g, "-").replace(/-$/, "")}${page ? `-${page + 1}` : ""}`;
-    writeFileSync(path.join(OUT, `${slug}.svg`), svgDoc(slug, `${cat} symbols`, `P&ID symbols: ${chunk.map((s) => s.name).join(", ")}.`, render(shapes)));
+    const description = isCandidate ? "Candidate P&ID enclosures and panel identities. Original symbols remain in the instrument archive." :
+      `P&ID symbols: ${chunk.map((s) => s.name).join(", ")}.`;
+    writeFileSync(path.join(OUT, `${slug}.svg`), svgDoc(slug, `${cat} symbols`, description, render(shapes)));
     sheets.push({ slug, cat });
   }
 }
 
 // Catalogue: geometry at scale 1, for other tools to place and connect.
 const catalogue = {
-  about: "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for valves and docs/family-04.md for gates and weirs.",
+  about: "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for valves and docs/family-04.md for gates and weirs. See docs/family-05.md for instrument modes and the dedicated logic view.",
   sources: {
     "IS 3232": "IS 3232:1999 Recommendations on graphical symbols for process flow diagrams, piping and instrumentation diagrams (BIS), by symbol number",
     "ISA-5.1": "ANSI/ISA-5.1-2009 Instrumentation symbols and identification",
@@ -54,6 +67,10 @@ const catalogue = {
   },
   aliases: GATE_ALIASES,
   gateArchive,
+  logicView: {
+    mode: "logic", verification: "Processvg candidate conventions, diagram only",
+    primitives: Object.fromEntries(LOGIC_IDS.map((id) => [id, placeLogicPrimitive(id, {}, { mode: "logic" })])),
+  },
   symbols: SYMBOLS.map((s) => ({
     id: s.id, name: s.name, category: s.cat, sources: s.src, states: s.states ? ["open", "closed"] : undefined, tagged: s.tag || undefined,
     ports: s.ports,
@@ -64,6 +81,16 @@ const catalogue = {
     designApproval: s.designApproval,
     historicalSources: s.historicalSources,
     gate: s.gate,
+    instrument: Object.hasOwn(INSTRUMENT_PRESETS, s.id) ? (() => {
+      const { metadata, shapes, anchors, ports, bars, radius } = placeSymbol(s.id, {}, { mode: "candidate" });
+      const legacyPortAnchors = LEGACY_INSTRUMENT_ANCHORS[s.id];
+      return {
+        defaultMode: legacyPortAnchors ? "legacy" : "candidate",
+        legacyPortAnchors,
+        verification: "Processvg candidate geometry; exact standards verification pending",
+        candidate: { metadata, shapes, anchors, ports, bars, radius },
+      };
+    })() : undefined,
     glyphRef: s.glyphRef,
     stateLabels: s.stateLabels,
     valve: s.valve,
