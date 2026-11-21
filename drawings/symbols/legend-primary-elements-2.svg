@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-plotter="" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 560 440" width="560" height="440" role="img" aria-labelledby="legend-primary-elements-2-title" aria-describedby="legend-primary-elements-2-desc" style="font-family:Cal Sans, sans-serif;font-optical-sizing:auto;font-synthesis:none;font-variation-settings:'GEOM' 25;font-weight:400">
+<title id="legend-primary-elements-2-title">Primary elements symbols</title>
+<desc id="legend-primary-elements-2-desc">P&amp;ID symbols: Ultrasonic level, Radar level, Guided-wave radar, Conductivity level switch, Immersion probe, Insertion probe, Flow-through cell, Sample-based analyser, Pressure tap, Diaphragm seal, Thermowell, Sampling point.</desc>
+<style>svg[data-plotter]{color:#171717}@media (prefers-color-scheme:dark){svg[data-plotter]:not([data-host-ink]){color:#ededed}}svg[data-plotter] :is(path,circle,rect,line,polyline,polygon,ellipse){vector-effect:non-scaling-stroke}</style>
+<g data-plotter-role="primary" opacity="1" stroke-dasharray="none">
+<path d="M98 46 L110 46 L110 61 L98 61 Z" />
+<path d="M274 46 L286 46 L286 55 L290.5 62.5 L269.5 62.5 L274 55 Z" />
+<path d="M447 43 L465 43 L465 53.5 L447 53.5 Z M456 53.5 L456 80.5" />
+<path d="M95 143 L113 143 L113 153.5 L95 153.5 Z M99.5 153.5 L99.5 177.5 M108.5 153.5 L108.5 170" />
+<path d="M280 135.5 L280 146 M274 146 L286 146 L286 176 L274 176 Z M274 170 L286 170" />
+<path d="M456 135.5 L456 141.5 M445.5 141.5 L466.5 141.5 L466.5 147.5 L445.5 147.5 Z M450 147.5 L462 147.5 L462 176 L450 176 Z M450 170 L462 170" />
+<path d="M77 258 L86 258 M122 258 L131 258 M86 244.5 L122 244.5 L122 271.5 L86 271.5 Z M104 235.5 L104 244.5 M104 244.5 L104 264 M99.5 264 L108.5 264" />
+<path d="M253 258 L260.5 258 M299.5 258 L307 258 M260.5 241.5 L299.5 241.5 L299.5 274.5 L260.5 274.5 Z M266.5 247.5 L293.5 247.5 L293.5 253.5 L266.5 253.5 Z M268 264 L292 264" />
+<path d="M456 258 L456 240" />
+<path d="M104 358 L104 349 M93.5 349 L114.5 349 L114.5 340 L93.5 340 Z M104 340 L104 328 M93.5 344.5 Q98.75 340 104 344.5 Q109.25 349 114.5 344.5" />
+<path d="M272.5 358 L272.5 373 Q280 380.5 287.5 373 L287.5 358 M269.5 358 L290.5 358 M280 335.5 L280 371.5" />
+<path d="M456 358 L456 350.5 M456 338.5 L456 329.5" />
+<path d="M459.75 338.5 L456 344.5 L452.25 338.5 Z M459.75 350.5 L452.25 350.5 L456 344.5 Z" />
+</g>
+<g data-plotter-role="secondary" opacity="0.32" stroke-dasharray="none">
+<path d="M96.5 65.5 Q104 71.5 111.5 65.5 M92 71.5 Q104 82 116 71.5" />
+<path d="M272.5 67 Q280 71.5 287.5 67 M266.5 73 Q280 82 293.5 73" />
+<path d="M451.5 62.5 L460.5 62.5 M451.5 73 L460.5 73" />
+</g>
+<g fill="currentColor">
+<circle cx="456" cy="258" r="1.88" fill="currentColor" stroke="none" />
+<circle cx="456" cy="358" r="1.88" fill="currentColor" stroke="none" />
+</g>
+<g fill="currentColor" stroke="none" font-size="10" opacity="0.72">
+<text x="104" y="104" text-anchor="middle">Ultrasonic level</text>
+<text x="280" y="104" text-anchor="middle">Radar level</text>
+<text x="456" y="104" text-anchor="middle">Guided-wave radar</text>
+<text x="104" y="204" text-anchor="middle">Conductivity level switch</text>
+<text x="280" y="204" text-anchor="middle">Immersion probe</text>
+<text x="456" y="204" text-anchor="middle">Insertion probe</text>
+<text x="104" y="304" text-anchor="middle">Flow-through cell</text>
+<text x="280" y="304" text-anchor="middle">Sample-based analyser</text>
+<text x="456" y="304" text-anchor="middle">Pressure tap</text>
+<text x="104" y="404" text-anchor="middle">Diaphragm seal</text>
+<text x="280" y="404" text-anchor="middle">Thermowell</text>
+<text x="456" y="404" text-anchor="middle">Sampling point</text>
+</g>
+<g fill="currentColor" stroke="none" font-size="10" opacity="0.5">
+<text x="104" y="117" text-anchor="middle">Approved · verify standard</text>
+<text x="280" y="117" text-anchor="middle">Approved · verify standard</text>
+<text x="456" y="117" text-anchor="middle">Approved · verify standard</text>
+<text x="104" y="217" text-anchor="middle">Approved · verify standard</text>
+<text x="280" y="217" text-anchor="middle">Approved · verify standard</text>
+<text x="456" y="217" text-anchor="middle">Approved · verify standard</text>
+<text x="104" y="317" text-anchor="middle">Approved · verify standard</text>
+<text x="280" y="317" text-anchor="middle">Approved · verify standard</text>
+<text x="456" y="317" text-anchor="middle">Approved · verify standard</text>
+<text x="104" y="417" text-anchor="middle">Approved · verify standard</text>
+<text x="280" y="417" text-anchor="middle">Approved · verify standard</text>
+<text x="456" y="417" text-anchor="middle">Approved · verify standard</text>
+</g>
+</svg>

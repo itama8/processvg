@@ -27,7 +27,11 @@ export function render(shapes, { profile = "screen" } = {}) {
       const style = sh.annotationInk
         ? `data-processvg-annotation="${esc(sh.annotationRole)}" opacity="${print ? 1 : sh.annotationRole === "service" ? 0.72 : 0.5}"`
         : 'data-processvg-identity=""';
-      identities.push(`<g ${style} role="img" aria-label="${label}"${description}${ref} transform="${transform}"><title>${label}</title>${glyphs.join("")}</g>`);
+      const analyte = sh.analyteIdentity;
+      const owner = analyte ? ` data-primary-owner="${esc(analyte.id)}" data-primary-asset="${esc(analyte.assetId)}"${analyte.conflicts.length
+        ? ` data-layout-conflict="${esc(analyte.conflicts.join(" "))}"` : ""}` : "";
+      const title = analyte?.conflicts.length ? `${label} (layout conflict: ${esc(analyte.conflicts.join(", "))})` : label;
+      identities.push(`<g ${style}${owner} role="img" aria-label="${label}"${description}${ref} transform="${transform}"><title>${title}</title>${glyphs.join("")}</g>`);
       continue;
     }
     if (sh.t) {

@@ -5,6 +5,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { SYMBOLS, SERVICE_CODES, GATE_ALIASES, gateArchive, INSTRUMENT_PRESETS, LEGACY_INSTRUMENT_ANCHORS, place, placeSymbol } from "../src/library.mjs";
+import { PRIMARY_ARCHIVE_IDS, composePrimaryElement, migratePrimaryElement } from "../src/library.mjs";
 import { LOGIC_IDS, placeLogicPrimitive } from "../src/logic.mjs";
 import { render, svgDoc } from "../src/render.mjs";
 
@@ -39,13 +40,25 @@ for (const cat of cats) {
         shapes.push({ t: [cx - 26, cy + 30, open], value: true }, { t: [cx + 26, cy + 30, closed], value: true });
       } else if (isCandidate) {
         shapes.push(...placeSymbol(sym.id, { x: cx, y: cy, s: SCALE }, { mode: "candidate" }).shapes);
+      } else if (sym.cat === "Primary elements") {
+        shapes.push(...placeSymbol(sym.id, { x: cx, y: cy, s: SCALE }, { mode: "current" }).shapes);
       } else if (sym.operator || sym.modifier || sym.assemblyPreset) {
         shapes.push(...placeSymbol(sym.id, { x: cx, y: cy, s: SCALE }).shapes);
       } else {
         shapes.push(...place(sym.draw({}), { x: cx, y: cy, s: SCALE }));
       }
-      const name = isCandidate ? candidateNames[sym.id] ?? sym.name : sym.name;
-      shapes.push({ t: [cx, cy + 46, name] }, { t: [cx, cy + 59, isCandidate ? "Processvg candidate" : srcLine(sym)], value: true });
+      const name = isCandidate ? candidateNames[sym.id] ?? sym.name : ({
+        "fe-ultrasonic": "Generic non-contact level",
+        "fe-hydrostatic": "Hydrostatic probe",
+        "fe-analysis-chlorine": "Residual chlorine",
+        "fe-analysis-ammonium": "Ammonium",
+        "fe-analysis-nitrate": "Nitrate",
+        "fe-analysis-phosphate": "Phosphate",
+        "fe-analysis-mlss": "Mixed liquor suspended solids",
+        "fe-analysis-orp": "Oxidation-reduction potential",
+      })[sym.id] ?? sym.name;
+      const source = ["fe-float", "fe-hydrostatic"].includes(sym.id) ? "Approved · verify standard" : srcLine(sym);
+      shapes.push({ t: [cx, cy + 46, name] }, { t: [cx, cy + 59, isCandidate ? "Processvg candidate" : source], value: true });
     });
     const slug = `legend-${cat.toLowerCase().replace(/[^a-z]+/g, "-").replace(/-$/, "")}${page ? `-${page + 1}` : ""}`;
     const description = isCandidate ? "Candidate P&ID enclosures and panel identities. Original symbols remain in the instrument archive." :
@@ -57,7 +70,7 @@ for (const cat of cats) {
 
 // Catalogue: geometry at scale 1, for other tools to place and connect.
 const catalogue = {
-  about: "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for valves and docs/family-04.md for gates and weirs. See docs/family-05.md for instrument modes and the dedicated logic view.",
+  about: "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for valves and docs/family-04.md for gates and weirs. See docs/family-05.md for instrument modes and docs/family-06.md for primary elements and measuring views.",
   sources: {
     "IS 3232": "IS 3232:1999 Recommendations on graphical symbols for process flow diagrams, piping and instrumentation diagrams (BIS), by symbol number",
     "ISA-5.1": "ANSI/ISA-5.1-2009 Instrumentation symbols and identification",
@@ -92,6 +105,17 @@ const catalogue = {
       };
     })() : undefined,
     glyphRef: s.glyphRef,
+    primaryElement: s.cat === "Primary elements" ? (() => {
+      const archived = PRIMARY_ARCHIVE_IDS.includes(s.id);
+      const config = { symbolId: s.id };
+      const { shapes, metadata, interfaces, sensing, stations, transfers, identityLayout } = composePrimaryElement({ ...config, mode: "current" });
+      return { defaultMode: archived ? "legacy" : "current",
+        current: { shapes, metadata, interfaces, sensing, stations, transfers, identityLayout },
+        ...(identityLayout && { identityStyles: ["outlined", "unboxed"],
+          installations: ["immersion", "insertion", "cell", "cabinet"] }),
+        ...(s.id === "fe-flume" && { views: { schematic: "archive", plan: "conceptual", section: "conceptual" } }),
+        ...(archived && { migration: migratePrimaryElement(config).portMap }) };
+    })() : undefined,
     stateLabels: s.stateLabels,
     valve: s.valve,
     operator: s.operator,

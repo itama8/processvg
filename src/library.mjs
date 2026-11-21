@@ -2,7 +2,7 @@
 //
 // Each symbol is drawn in local units around (0, 0), typically inline left to right, sized for a
 // 560 × 440 Plotter canvas (a valve body is 16 × 10). Geometry uses absolute M, L, A, Z
-// path commands only, so it can be moved, scaled and turned in quarter turns exactly.
+// path commands, plus Q for primary elements, so it can be moved, scaled and quarter-turned.
 //
 // Sources, cited per symbol:
 //   IS 3232:1999  Recommendations on graphical symbols for PFDs and P&IDs (BIS), by symbol no.
@@ -20,9 +20,14 @@ import { OPERATORS, drawPresetHead, placeOperator } from "./actuators.mjs";
 
 import { composeInstrument, INSTRUMENT_PRESETS } from "./instruments.mjs";
 import { LOGIC_IDS, placeLogicPrimitive } from "./logic.mjs";
+import { ANALYTE_PRESETS, PRIMARY_ARCHIVE_IDS, PRIMARY_DEFINITIONS, layoutPrimaryElements, primaryBody,
+  primaryMigration, primaryMode } from "./primary-elements.mjs";
+import { measurementView } from "./measuring-structures.mjs";
 
 export { composeInstrument, instrumentNetwork, INSTRUMENT_VERSION, INSTRUMENT_PRESETS } from "./instruments.mjs";
 export { composeLogicDiagram, logicTruth, placeLogicPrimitive, resolveInterlockReference } from "./logic.mjs";
+export { ANALYTE_PRESETS, PRIMARY_ARCHIVE_IDS, PRIMARY_VERSION } from "./primary-elements.mjs";
+export { measurementBoundary, primaryInstrument, primaryNetwork } from "./primary-network.mjs";
 
 export { GATE_ALIASES, composeEquipment, gateArchive } from "./gates.mjs";
 export { composeActuator, placeOperator } from "./actuators.mjs";
@@ -33,6 +38,14 @@ const IS = (no) => ({ std: "IS 3232", ref: no });
 const ISA = (ref) => ({ std: "ISA-5.1", ref });
 const BC = (sheet) => ({ std: "B&C", ref: sheet });
 const PROPOSED = { std: "Proposed", ref: "to agree" };
+const primaryApproval = { designApproval: "Family 06 Revision 03", verification: "Workshop convention; standards verification pending" };
+const primaryCatalogueSymbols = Object.entries({ ...PRIMARY_DEFINITIONS, ...ANALYTE_PRESETS })
+  .filter(([id]) => !PRIMARY_ARCHIVE_IDS.includes(id))
+  .map(([id, { name, interfaces, base }]) => ({
+    id, name, cat: "Primary elements", src: [{ std: "Processvg design", ref: "Family 06 Revision 03" }],
+    ...primaryApproval, ports: (interfaces ?? PRIMARY_DEFINITIONS[base].interfaces).map(({ anchor }) => anchor),
+    draw: () => composePrimaryElement({ symbolId: id }).shapes,
+  }));
 
 // Path helpers -------------------------------------------------------------------------
 const pt = (x, y) => `${x} ${y}`;
@@ -178,6 +191,7 @@ export const SYMBOLS = [
     draw: () => [S(line([-14, -8], [-4, -3], [4, -3], [14, -8]) + " " + line([-14, 8], [-4, 3], [4, 3], [14, 8]))], ports: [[-14, 0], [14, 0]] },
   { id: "fe-orifice", name: "Orifice plate", cat: "Primary elements", src: [BC("P-002")],
     draw: () => [S(line([-12, 0], [-2, 0]) + " " + line([2, 0], [12, 0])), S(line([-2, -7], [-2, 7]) + " " + line([2, -7], [2, 7]))], ports: [[-12, 0], [12, 0]] },
+  ...primaryCatalogueSymbols,
 
   // Pumps and blowers ------------------------------------------------------------------------
   { id: "pump-centrifugal", name: "Centrifugal pump", cat: "Pumps and blowers", src: [IS("0701"), BC("P-003")],
@@ -249,6 +263,30 @@ export function placeOperatingValve(config, at = {}, display = {}) {
   return composeValve(config, at, { ...display, view: "operating" });
 }
 
+const isPrimary = (id) => Object.hasOwn(PRIMARY_DEFINITIONS, id) || Object.hasOwn(ANALYTE_PRESETS, id);
+const primaryLibrary = Object.assign({ composeValve }, byId);
+
+/** Compose a typed primary element in the same coordinate space as the drawing. */
+export function composePrimaryElement(config, at = {}, display = {}) {
+  return composePrimaryElements([{ config, at }], display)[0];
+}
+
+/** Place bodies together before placing each analyte identity in authored drawing order. */
+export function composePrimaryElements(instances, display = {}) {
+  return layoutPrimaryElements(instances.map(({ config, at }) => primaryBody(primaryLibrary, config, at, display)), display);
+}
+
+export function migratePrimaryElement(config, at = {}, display = {}) {
+  return primaryMigration(primaryLibrary, config, at, display);
+}
+
+export function composeMeasuringStructure(config, at = {}, display = {}) {
+  if (config.type === "fe-flume" && (display.view ?? "schematic") === "schematic") {
+    return composePrimaryElement({ ...config, symbolId: config.type }, at, display);
+  }
+  return measurementView(config, at, display);
+}
+
 export const LEGACY_INSTRUMENT_ANCHORS = Object.freeze({
   "inst-field": Object.freeze(["S", "N"]),
   "inst-panel": Object.freeze(["S", "N"]),
@@ -291,6 +329,15 @@ export function migrateInstrument({ version = 0, symbolId, at = {}, id, options 
 
 /** Place a library symbol and its ports in the same drawing coordinate system. */
 export function placeSymbol(id, at = {}, options = {}) {
+  if (isPrimary(id)) {
+    const { mode, view, display, ...config } = options;
+    if (view !== undefined && view !== "schematic") {
+      if (id !== "fe-flume") throw new RangeError("Only the flume supports measuring structure views");
+      return composeMeasuringStructure({ ...config, type: id }, at, { ...display, view });
+    }
+    const selected = primaryMode(id, mode);
+    if (selected === "current") return composePrimaryElement({ ...config, symbolId: id, mode: selected }, at, display);
+  }
   if (LOGIC_IDS.includes(id)) return placeLogicPrimitive(id, at, options);
   if (Object.hasOwn(INSTRUMENT_PRESETS, id)) {
     const archive = Object.hasOwn(LEGACY_INSTRUMENT_ANCHORS, id);

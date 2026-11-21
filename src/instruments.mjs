@@ -5,6 +5,7 @@ export const INSTRUMENT_VERSION = 1;
 export const ENCLOSURES = Object.freeze(["discrete", "shared-primary", "shared-alternate", "computer"]);
 export const CONNECTION_KINDS = Object.freeze([
   "process-sensing", "electrical", "pneumatic", "hydraulic", "digital-data", "logical-dependency", "mechanical",
+  "filled-system", "thermal",
 ]);
 const KINDS = ["physical-instrument", "computed-function", "control-function", "shared-display", "control-panel", "interlock-reference", "unclassified"];
 const NORMALS = Object.freeze({ N: [0, -1], E: [1, 0], S: [0, 1], W: [-1, 0] });
@@ -91,7 +92,7 @@ function checkedPorts(ports, anchors, kind) {
     if (!CONNECTION_KINDS.includes(port.kind) || !directions.includes(port.direction)) {
       throw new RangeError(`Invalid connection kind or direction for port ${port.id}`);
     }
-    if (port.kind === "process-sensing" && kind !== "physical-instrument") {
+    if (["process-sensing", "filled-system", "thermal"].includes(port.kind) && kind !== "physical-instrument") {
       throw new RangeError("Process sensing requires a physical instrument");
     }
     if (usedAnchors.has(port.anchor)) throw new RangeError(`Multiple interfaces at ${port.anchor} require distinct exits`);

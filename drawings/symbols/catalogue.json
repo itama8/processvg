@@ -1,5 +1,5 @@
 {
- "about": "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for valves and docs/family-04.md for gates and weirs. See docs/family-05.md for instrument modes and the dedicated logic view.",
+ "about": "P&ID symbols for water and wastewater treatment drafts. Units: Plotter canvas units, symbol local origin (0, 0); use port and flow metadata for direction. Valve variants depict normal state; see docs/family-02.md for valves and docs/family-04.md for gates and weirs. See docs/family-05.md for instrument modes and docs/family-06.md for primary elements and measuring views.",
  "sources": {
   "IS 3232": "IS 3232:1999 Recommendations on graphical symbols for process flow diagrams, piping and instrumentation diagrams (BIS), by symbol number",
   "ISA-5.1": "ANSI/ISA-5.1-2009 Instrumentation symbols and identification",
@@ -6672,6 +6672,112 @@
      -7
     ]
    ],
+   "primaryElement": {
+    "defaultMode": "legacy",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-14 0 L-7 0 M7 0 L14 0"
+      },
+      {
+       "d": "M-7 -7 L7 -7 L7 7 L-7 7 Z"
+      },
+      {
+       "t": [
+        0,
+        3.6,
+        "M"
+       ]
+      }
+     ],
+     "metadata": {
+      "id": "fe-mag",
+      "assetId": "fe-mag",
+      "kind": "primary-element",
+      "symbolId": "fe-mag",
+      "bodyId": "fe-mag",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Archived B&C provenance"
+     },
+     "interfaces": [
+      {
+       "id": "in",
+       "point": [
+        -14,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "in"
+      },
+      {
+       "id": "out",
+       "point": [
+        14,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "out"
+      },
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -7
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "stations": [],
+     "transfers": [
+      {
+       "from": "in",
+       "to": "out",
+       "transfer": "process-flow"
+      }
+     ]
+    },
+    "migration": [
+     {
+      "id": "in",
+      "before": [
+       -14,
+       0
+      ],
+      "after": [
+       -14,
+       0
+      ],
+      "reroute": false
+     },
+     {
+      "id": "out",
+      "before": [
+       14,
+       0
+      ],
+      "after": [
+       14,
+       0
+      ],
+      "reroute": false
+     },
+     {
+      "id": "instrument",
+      "before": [
+       0,
+       -7
+      ],
+      "after": [
+       0,
+       -7
+      ],
+      "reroute": false
+     }
+    ]
+   },
    "shapes": [
     {
      "d": "M-14 0 L-7 0 M7 0 L14 0"
@@ -6704,6 +6810,68 @@
      -8
     ]
    ],
+   "primaryElement": {
+    "defaultMode": "legacy",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-4 -8 L4 -8 L4 2 L-4 2 Z"
+      },
+      {
+       "d": "M-5 6 A7 7 0 0 0 5 6 M-7 10 A10 10 0 0 0 7 10",
+       "role": "secondary"
+      }
+     ],
+     "metadata": {
+      "id": "fe-ultrasonic",
+      "assetId": "fe-ultrasonic",
+      "kind": "primary-element",
+      "symbolId": "fe-ultrasonic",
+      "bodyId": "fe-ultrasonic",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Archived B&C provenance"
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -8
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       2
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": []
+    },
+    "migration": [
+     {
+      "id": "instrument",
+      "before": [
+       0,
+       -8
+      ],
+      "after": [
+       0,
+       -8
+      ],
+      "reroute": false
+     }
+    ]
+   },
    "shapes": [
     {
      "d": "M-4 -8 L4 -8 L4 2 L-4 2 Z"
@@ -6730,6 +6898,68 @@
      -10
     ]
    ],
+   "primaryElement": {
+    "defaultMode": "legacy",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 -13 L0 -2 L6 5"
+      },
+      {
+       "c": [
+        9,
+        8,
+        4
+       ]
+      }
+     ],
+     "metadata": {
+      "id": "fe-float",
+      "assetId": "fe-float",
+      "kind": "primary-element",
+      "symbolId": "fe-float",
+      "bodyId": "fe-float",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -13
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       9,
+       8
+      ],
+      "direction": null
+     },
+     "stations": [],
+     "transfers": []
+    },
+    "migration": [
+     {
+      "id": "instrument",
+      "before": [
+       0,
+       -10
+      ],
+      "after": [
+       0,
+       -13
+      ],
+      "reroute": true
+     }
+    ]
+   },
    "shapes": [
     {
      "d": "M0 -10 L0 4"
@@ -6755,6 +6985,64 @@
      -12
     ]
    ],
+   "primaryElement": {
+    "defaultMode": "legacy",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 -13 L0 -7 M-4 -7 L4 -7 L4 8 L-4 8 Z M-3 5 L3 5"
+      }
+     ],
+     "metadata": {
+      "id": "fe-hydrostatic",
+      "assetId": "fe-hydrostatic",
+      "kind": "primary-element",
+      "symbolId": "fe-hydrostatic",
+      "bodyId": "fe-hydrostatic",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -13
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       8
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": []
+    },
+    "migration": [
+     {
+      "id": "instrument",
+      "before": [
+       0,
+       -12
+      ],
+      "after": [
+       0,
+       -13
+      ],
+      "reroute": true
+     }
+    ]
+   },
    "shapes": [
     {
      "d": "M0 -12 L0 -6"
@@ -6784,6 +7072,86 @@
      0
     ]
    ],
+   "primaryElement": {
+    "defaultMode": "legacy",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-14 -8 L-4 -3 L4 -3 L14 -8 M-14 8 L-4 3 L4 3 L14 8"
+      }
+     ],
+     "metadata": {
+      "id": "fe-flume",
+      "assetId": "fe-flume",
+      "kind": "primary-element",
+      "symbolId": "fe-flume",
+      "bodyId": "fe-flume",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Archived B&C provenance"
+     },
+     "interfaces": [
+      {
+       "id": "in",
+       "point": [
+        -14,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "in"
+      },
+      {
+       "id": "out",
+       "point": [
+        14,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "out"
+      }
+     ],
+     "stations": [],
+     "transfers": [
+      {
+       "from": "in",
+       "to": "out",
+       "transfer": "process-flow"
+      }
+     ]
+    },
+    "views": {
+     "schematic": "archive",
+     "plan": "conceptual",
+     "section": "conceptual"
+    },
+    "migration": [
+     {
+      "id": "in",
+      "before": [
+       -14,
+       0
+      ],
+      "after": [
+       -14,
+       0
+      ],
+      "reroute": false
+     },
+     {
+      "id": "out",
+      "before": [
+       14,
+       0
+      ],
+      "after": [
+       14,
+       0
+      ],
+      "reroute": false
+     }
+    ]
+   },
    "shapes": [
     {
      "d": "M-14 -8 L-4 -3 L4 -3 L14 -8 M-14 8 L-4 3 L4 3 L14 8"
@@ -6810,12 +7178,3736 @@
      0
     ]
    ],
+   "primaryElement": {
+    "defaultMode": "legacy",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-12 0 L-2 0 M2 0 L12 0"
+      },
+      {
+       "d": "M-2 -7 L-2 7 M2 -7 L2 7"
+      }
+     ],
+     "metadata": {
+      "id": "fe-orifice",
+      "assetId": "fe-orifice",
+      "kind": "primary-element",
+      "symbolId": "fe-orifice",
+      "bodyId": "fe-orifice",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Archived B&C provenance"
+     },
+     "interfaces": [
+      {
+       "id": "in",
+       "point": [
+        -12,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "in"
+      },
+      {
+       "id": "out",
+       "point": [
+        12,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "out"
+      }
+     ],
+     "stations": [],
+     "transfers": [
+      {
+       "from": "in",
+       "to": "out",
+       "transfer": "process-flow"
+      }
+     ]
+    },
+    "migration": [
+     {
+      "id": "in",
+      "before": [
+       -12,
+       0
+      ],
+      "after": [
+       -12,
+       0
+      ],
+      "reroute": false
+     },
+     {
+      "id": "out",
+      "before": [
+       12,
+       0
+      ],
+      "after": [
+       12,
+       0
+      ],
+      "reroute": false
+     }
+    ]
+   },
    "shapes": [
     {
      "d": "M-12 0 L-2 0 M2 0 L12 0"
     },
     {
      "d": "M-2 -7 L-2 7 M2 -7 L2 7"
+    }
+   ]
+  },
+  {
+   "id": "fe-flow-ultrasonic",
+   "name": "Ultrasonic flowmeter",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     -14,
+     0
+    ],
+    [
+     14,
+     0
+    ],
+    [
+     0,
+     -7
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-14 0 L-9 0 M9 0 L14 0 M-9 -7 L9 -7 L9 7 L-9 7 Z"
+      },
+      {
+       "d": "M-6 -4 L6 4 M-6 4 L6 -4"
+      }
+     ],
+     "metadata": {
+      "id": "fe-flow-ultrasonic",
+      "assetId": "fe-flow-ultrasonic",
+      "kind": "primary-element",
+      "symbolId": "fe-flow-ultrasonic",
+      "bodyId": "fe-flow-ultrasonic",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "in",
+       "point": [
+        -14,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "in"
+      },
+      {
+       "id": "out",
+       "point": [
+        14,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "out"
+      },
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -7
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "stations": [],
+     "transfers": [
+      {
+       "from": "in",
+       "to": "out",
+       "transfer": "process-flow"
+      }
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-14 0 L-9 0 M9 0 L14 0 M-9 -7 L9 -7 L9 7 L-9 7 Z"
+    },
+    {
+     "d": "M-6 -4 L6 4 M-6 4 L6 -4"
+    }
+   ]
+  },
+  {
+   "id": "fe-flow-turbine",
+   "name": "Turbine flowmeter",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     -14,
+     0
+    ],
+    [
+     14,
+     0
+    ],
+    [
+     0,
+     -7
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-14 0 L-9 0 M9 0 L14 0 M-9 -7 L9 -7 L9 7 L-9 7 Z"
+      },
+      {
+       "d": "M0 -5 L0 5 M-4 -2.5 L4 2.5 M-4 2.5 L4 -2.5"
+      },
+      {
+       "c": [
+        0,
+        0,
+        1
+       ],
+       "fill": "solid",
+       "role": "dot"
+      }
+     ],
+     "metadata": {
+      "id": "fe-flow-turbine",
+      "assetId": "fe-flow-turbine",
+      "kind": "primary-element",
+      "symbolId": "fe-flow-turbine",
+      "bodyId": "fe-flow-turbine",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "in",
+       "point": [
+        -14,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "in"
+      },
+      {
+       "id": "out",
+       "point": [
+        14,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "out"
+      },
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -7
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "stations": [],
+     "transfers": [
+      {
+       "from": "in",
+       "to": "out",
+       "transfer": "process-flow"
+      }
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-14 0 L-9 0 M9 0 L14 0 M-9 -7 L9 -7 L9 7 L-9 7 Z"
+    },
+    {
+     "d": "M0 -5 L0 5 M-4 -2.5 L4 2.5 M-4 2.5 L4 -2.5"
+    },
+    {
+     "c": [
+      0,
+      0,
+      1
+     ],
+     "fill": "solid",
+     "role": "dot"
+    }
+   ]
+  },
+  {
+   "id": "fe-flow-thermal",
+   "name": "Thermal mass flowmeter",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     -14,
+     0
+    ],
+    [
+     14,
+     0
+    ],
+    [
+     0,
+     -7
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-14 0 L-7 0 M7 0 L14 0 M-7 -7 L7 -7 L7 7 L-7 7 Z"
+      },
+      {
+       "identityInk": "T",
+       "at": [
+        -3.065,
+        3.6
+       ],
+       "scale": 0.005,
+       "glyphs": [
+        {
+         "x": 0,
+         "d": "M524 0V-1357H702V0ZM100 -1276V-1440H1126V-1276Z"
+        }
+       ],
+       "bounds": [
+        -2.565,
+        -3.6,
+        2.565,
+        3.6
+       ]
+      }
+     ],
+     "metadata": {
+      "id": "fe-flow-thermal",
+      "assetId": "fe-flow-thermal",
+      "kind": "primary-element",
+      "symbolId": "fe-flow-thermal",
+      "bodyId": "fe-flow-thermal",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "in",
+       "point": [
+        -14,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "in"
+      },
+      {
+       "id": "out",
+       "point": [
+        14,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "out"
+      },
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -7
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "stations": [],
+     "transfers": [
+      {
+       "from": "in",
+       "to": "out",
+       "transfer": "process-flow"
+      }
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-14 0 L-7 0 M7 0 L14 0 M-7 -7 L7 -7 L7 7 L-7 7 Z"
+    },
+    {
+     "identityInk": "T",
+     "at": [
+      -3.065,
+      3.6
+     ],
+     "scale": 0.005,
+     "glyphs": [
+      {
+       "x": 0,
+       "d": "M524 0V-1357H702V0ZM100 -1276V-1440H1126V-1276Z"
+      }
+     ],
+     "bounds": [
+      -2.565,
+      -3.6,
+      2.565,
+      3.6
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fe-flow-coriolis",
+   "name": "Coriolis flowmeter",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     -14,
+     0
+    ],
+    [
+     14,
+     0
+    ],
+    [
+     0,
+     -8
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-14 0 L-10 0 M10 0 L14 0 M-10 -8 L10 -8 L10 8 L-10 8 Z"
+      },
+      {
+       "d": "M-7 -5 L-7 1 Q-7 6 -3.5 6 Q0 6 0 1 L0 -5 M0 -5 L0 1 Q0 6 3.5 6 Q7 6 7 1 L7 -5"
+      }
+     ],
+     "metadata": {
+      "id": "fe-flow-coriolis",
+      "assetId": "fe-flow-coriolis",
+      "kind": "primary-element",
+      "symbolId": "fe-flow-coriolis",
+      "bodyId": "fe-flow-coriolis",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "in",
+       "point": [
+        -14,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "in"
+      },
+      {
+       "id": "out",
+       "point": [
+        14,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "out"
+      },
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -8
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "stations": [],
+     "transfers": [
+      {
+       "from": "in",
+       "to": "out",
+       "transfer": "process-flow"
+      }
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-14 0 L-10 0 M10 0 L14 0 M-10 -8 L10 -8 L10 8 L-10 8 Z"
+    },
+    {
+     "d": "M-7 -5 L-7 1 Q-7 6 -3.5 6 Q0 6 0 1 L0 -5 M0 -5 L0 1 Q0 6 3.5 6 Q7 6 7 1 L7 -5"
+    }
+   ]
+  },
+  {
+   "id": "fe-flow-variable-area",
+   "name": "Rotameter (variable area)",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     18
+    ],
+    [
+     0,
+     -18
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-7 -13 L7 -13 L3 13 L-3 13 Z M0 -18 L0 -13 M0 13 L0 18"
+      },
+      {
+       "d": "M-3 -1 L3 -1 L2 2 L-2 2 Z"
+      }
+     ],
+     "metadata": {
+      "id": "fe-flow-variable-area",
+      "assetId": "fe-flow-variable-area",
+      "kind": "primary-element",
+      "symbolId": "fe-flow-variable-area",
+      "bodyId": "fe-flow-variable-area",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending",
+      "defaultFlow": "bottom-to-top",
+      "orientationPolicy": "vertical-default"
+     },
+     "interfaces": [
+      {
+       "id": "in",
+       "point": [
+        0,
+        18
+       ],
+       "kind": "process-flow",
+       "direction": "in"
+      },
+      {
+       "id": "out",
+       "point": [
+        0,
+        -18
+       ],
+       "kind": "process-flow",
+       "direction": "out"
+      }
+     ],
+     "stations": [],
+     "transfers": [
+      {
+       "from": "in",
+       "to": "out",
+       "transfer": "process-flow"
+      }
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-7 -13 L7 -13 L3 13 L-3 13 Z M0 -18 L0 -13 M0 13 L0 18"
+    },
+    {
+     "d": "M-3 -1 L3 -1 L2 2 L-2 2 Z"
+    }
+   ]
+  },
+  {
+   "id": "fe-flow-venturi",
+   "name": "Venturi meter",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     -20,
+     0
+    ],
+    [
+     20,
+     0
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-14 -7 L-5 -3 L3 -3 L14 -7 M-14 7 L-5 3 L3 3 L14 7"
+      },
+      {
+       "d": "M-20 0 L-14 0 M14 0 L20 0"
+      },
+      {
+       "d": "M-12 -8.1 L-12 -11.1",
+       "role": "secondary"
+      },
+      {
+       "identityInk": "H",
+       "at": [
+        -13.68075,
+        -12.48
+       ],
+       "scale": 0.00225,
+       "glyphs": [
+        {
+         "x": 0,
+         "d": "M173 0V-1440H351V-830H1143V-1440H1321V0H1143V-666H351V0Z"
+        }
+       ],
+       "bounds": [
+        -13.2915,
+        -15.719999999999999,
+        -10.7085,
+        -12.48
+       ]
+      },
+      {
+       "d": "M0 -5 L0 -8",
+       "role": "secondary"
+      },
+      {
+       "identityInk": "L",
+       "at": [
+        -1.2735,
+        -9.38
+       ],
+       "scale": 0.00225,
+       "glyphs": [
+        {
+         "x": 0,
+         "d": "M173 0V-1440H351V-164H959V0Z"
+        }
+       ],
+       "bounds": [
+        -0.88425,
+        -12.62,
+        0.88425,
+        -9.38
+       ]
+      }
+     ],
+     "metadata": {
+      "id": "fe-flow-venturi",
+      "assetId": "fe-flow-venturi",
+      "kind": "primary-element",
+      "symbolId": "fe-flow-venturi",
+      "bodyId": "fe-flow-venturi",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending",
+      "defaultFlow": "left-to-right"
+     },
+     "interfaces": [
+      {
+       "id": "in",
+       "point": [
+        -20,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "in"
+      },
+      {
+       "id": "out",
+       "point": [
+        20,
+        0
+       ],
+       "kind": "process-flow",
+       "direction": "out"
+      }
+     ],
+     "stations": [
+      {
+       "id": "H",
+       "point": [
+        -12,
+        -6.1
+       ],
+       "status": "schematic-marker"
+      },
+      {
+       "id": "L",
+       "point": [
+        0,
+        -3
+       ],
+       "status": "schematic-marker"
+      }
+     ],
+     "transfers": [
+      {
+       "from": "in",
+       "to": "out",
+       "transfer": "process-flow"
+      }
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-14 -7 L-5 -3 L3 -3 L14 -7 M-14 7 L-5 3 L3 3 L14 7"
+    },
+    {
+     "d": "M-20 0 L-14 0 M14 0 L20 0"
+    },
+    {
+     "d": "M-12 -8.1 L-12 -11.1",
+     "role": "secondary"
+    },
+    {
+     "identityInk": "H",
+     "at": [
+      -13.68075,
+      -12.48
+     ],
+     "scale": 0.00225,
+     "glyphs": [
+      {
+       "x": 0,
+       "d": "M173 0V-1440H351V-830H1143V-1440H1321V0H1143V-666H351V0Z"
+      }
+     ],
+     "bounds": [
+      -13.2915,
+      -15.719999999999999,
+      -10.7085,
+      -12.48
+     ]
+    },
+    {
+     "d": "M0 -5 L0 -8",
+     "role": "secondary"
+    },
+    {
+     "identityInk": "L",
+     "at": [
+      -1.2735,
+      -9.38
+     ],
+     "scale": 0.00225,
+     "glyphs": [
+      {
+       "x": 0,
+       "d": "M173 0V-1440H351V-164H959V0Z"
+      }
+     ],
+     "bounds": [
+      -0.88425,
+      -12.62,
+      0.88425,
+      -9.38
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fe-level-ultrasonic",
+   "name": "Ultrasonic level",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -8
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-4 -8 L4 -8 L4 2 L-4 2 Z"
+      },
+      {
+       "d": "M-5 5 Q0 9 5 5 M-8 9 Q0 16 8 9",
+       "role": "secondary"
+      }
+     ],
+     "metadata": {
+      "id": "fe-level-ultrasonic",
+      "assetId": "fe-level-ultrasonic",
+      "kind": "primary-element",
+      "symbolId": "fe-level-ultrasonic",
+      "bodyId": "fe-level-ultrasonic",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -8
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       2
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": []
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-4 -8 L4 -8 L4 2 L-4 2 Z"
+    },
+    {
+     "d": "M-5 5 Q0 9 5 5 M-8 9 Q0 16 8 9",
+     "role": "secondary"
+    }
+   ]
+  },
+  {
+   "id": "fe-level-radar",
+   "name": "Radar level",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -8
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-4 -8 L4 -8 L4 -2 L7 3 L-7 3 L-4 -2 Z"
+      },
+      {
+       "d": "M-5 6 Q0 9 5 6 M-9 10 Q0 16 9 10",
+       "role": "secondary"
+      }
+     ],
+     "metadata": {
+      "id": "fe-level-radar",
+      "assetId": "fe-level-radar",
+      "kind": "primary-element",
+      "symbolId": "fe-level-radar",
+      "bodyId": "fe-level-radar",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -8
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       3
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": []
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-4 -8 L4 -8 L4 -2 L7 3 L-7 3 L-4 -2 Z"
+    },
+    {
+     "d": "M-5 6 Q0 9 5 6 M-9 10 Q0 16 9 10",
+     "role": "secondary"
+    }
+   ]
+  },
+  {
+   "id": "fe-level-guided-radar",
+   "name": "Guided-wave radar",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -10
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-6 -10 L6 -10 L6 -3 L-6 -3 Z M0 -3 L0 15"
+      },
+      {
+       "d": "M-3 3 L3 3 M-3 10 L3 10",
+       "role": "secondary"
+      }
+     ],
+     "metadata": {
+      "id": "fe-level-guided-radar",
+      "assetId": "fe-level-guided-radar",
+      "kind": "primary-element",
+      "symbolId": "fe-level-guided-radar",
+      "bodyId": "fe-level-guided-radar",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -10
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       -3
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": []
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-6 -10 L6 -10 L6 -3 L-6 -3 Z M0 -3 L0 15"
+    },
+    {
+     "d": "M-3 3 L3 3 M-3 10 L3 10",
+     "role": "secondary"
+    }
+   ]
+  },
+  {
+   "id": "fe-level-conductivity",
+   "name": "Conductivity level switch",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -10
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-6 -10 L6 -10 L6 -3 L-6 -3 Z M-3 -3 L-3 13 M3 -3 L3 8"
+      }
+     ],
+     "metadata": {
+      "id": "fe-level-conductivity",
+      "assetId": "fe-level-conductivity",
+      "kind": "primary-element",
+      "symbolId": "fe-level-conductivity",
+      "bodyId": "fe-level-conductivity",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -10
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       8
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": []
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-6 -10 L6 -10 L6 -3 L-6 -3 Z M-3 -3 L-3 13 M3 -3 L3 8"
+    }
+   ]
+  },
+  {
+   "id": "fe-analysis-immersion",
+   "name": "Immersion probe",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -15
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+      }
+     ],
+     "metadata": {
+      "id": "fe-analysis-immersion",
+      "assetId": "fe-analysis-immersion",
+      "kind": "primary-element",
+      "symbolId": "fe-analysis-immersion",
+      "bodyId": "fe-analysis-immersion",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -15
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       12
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": []
+    }
+   },
+   "shapes": [
+    {
+     "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+    }
+   ]
+  },
+  {
+   "id": "fe-analysis-insertion",
+   "name": "Insertion probe",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -15
+    ],
+    [
+     0,
+     -7
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 -15 L0 -11 M-7 -11 L7 -11 L7 -7 L-7 -7 Z M-4 -7 L4 -7 L4 12 L-4 12 Z M-4 8 L4 8"
+      }
+     ],
+     "metadata": {
+      "id": "fe-analysis-insertion",
+      "assetId": "fe-analysis-insertion",
+      "kind": "primary-element",
+      "symbolId": "fe-analysis-insertion",
+      "bodyId": "fe-analysis-insertion",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -15
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      },
+      {
+       "id": "mount",
+       "point": [
+        0,
+        -7
+       ],
+       "kind": "mechanical-mount",
+       "direction": "bidirectional"
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       12
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": []
+    }
+   },
+   "shapes": [
+    {
+     "d": "M0 -15 L0 -11 M-7 -11 L7 -11 L7 -7 L-7 -7 Z M-4 -7 L4 -7 L4 12 L-4 12 Z M-4 8 L4 8"
+    }
+   ]
+  },
+  {
+   "id": "fe-analysis-cell",
+   "name": "Flow-through cell",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     -18,
+     0
+    ],
+    [
+     18,
+     0
+    ],
+    [
+     0,
+     -15
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-18 0 L-12 0 M12 0 L18 0 M-12 -9 L12 -9 L12 9 L-12 9 Z M0 -15 L0 -9 M0 -9 L0 4 M-3 4 L3 4"
+      }
+     ],
+     "metadata": {
+      "id": "fe-analysis-cell",
+      "assetId": "fe-analysis-cell",
+      "kind": "primary-element",
+      "symbolId": "fe-analysis-cell",
+      "bodyId": "fe-analysis-cell",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "in",
+       "point": [
+        -18,
+        0
+       ],
+       "kind": "sample-flow",
+       "direction": "in"
+      },
+      {
+       "id": "out",
+       "point": [
+        18,
+        0
+       ],
+       "kind": "sample-flow",
+       "direction": "out"
+      },
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -15
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "stations": [],
+     "transfers": [
+      {
+       "from": "in",
+       "to": "out",
+       "transfer": "sample-flow"
+      }
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-18 0 L-12 0 M12 0 L18 0 M-12 -9 L12 -9 L12 9 L-12 9 Z M0 -15 L0 -9 M0 -9 L0 4 M-3 4 L3 4"
+    }
+   ]
+  },
+  {
+   "id": "fe-analysis-cabinet",
+   "name": "Sample-based analyser",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     -18,
+     0
+    ],
+    [
+     18,
+     0
+    ],
+    [
+     0,
+     -11
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-18 0 L-13 0 M13 0 L18 0 M-13 -11 L13 -11 L13 11 L-13 11 Z M-9 -7 L9 -7 L9 -3 L-9 -3 Z M-8 4 L8 4"
+      }
+     ],
+     "metadata": {
+      "id": "fe-analysis-cabinet",
+      "assetId": "fe-analysis-cabinet",
+      "kind": "primary-element",
+      "symbolId": "fe-analysis-cabinet",
+      "bodyId": "fe-analysis-cabinet",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "sample-in",
+       "point": [
+        -18,
+        0
+       ],
+       "kind": "sample-flow",
+       "direction": "in"
+      },
+      {
+       "id": "sample-out",
+       "point": [
+        18,
+        0
+       ],
+       "kind": "sample-flow",
+       "direction": "out"
+      },
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -11
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "stations": [],
+     "transfers": [
+      {
+       "from": "sample-in",
+       "to": "sample-out",
+       "transfer": "sample-flow"
+      }
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-18 0 L-13 0 M13 0 L18 0 M-13 -11 L13 -11 L13 11 L-13 11 Z M-9 -7 L9 -7 L9 -3 L-9 -3 Z M-8 4 L8 4"
+    }
+   ]
+  },
+  {
+   "id": "fe-pressure-tap",
+   "name": "Pressure tap",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     -12
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 0 L0 -12"
+      },
+      {
+       "c": [
+        0,
+        0,
+        1.25
+       ],
+       "fill": "solid",
+       "role": "dot"
+      }
+     ],
+     "metadata": {
+      "id": "fe-pressure-tap",
+      "assetId": "fe-pressure-tap",
+      "kind": "primary-element",
+      "symbolId": "fe-pressure-tap",
+      "bodyId": "fe-pressure-tap",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "process",
+       "point": [
+        0,
+        0
+       ],
+       "kind": "process-boundary",
+       "direction": "in"
+      },
+      {
+       "id": "impulse",
+       "point": [
+        0,
+        -12
+       ],
+       "kind": "process-sensing",
+       "direction": "out"
+      }
+     ],
+     "stations": [],
+     "transfers": [
+      {
+       "from": "process",
+       "to": "impulse",
+       "transfer": "process-pressure-branch"
+      }
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M0 0 L0 -12"
+    },
+    {
+     "c": [
+      0,
+      0,
+      1.25
+     ],
+     "fill": "solid",
+     "role": "dot"
+    }
+   ]
+  },
+  {
+   "id": "fe-diaphragm-seal",
+   "name": "Diaphragm seal",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     -20
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 0 L0 -6 M-7 -6 L7 -6 L7 -12 L-7 -12 Z M0 -12 L0 -20 M-7 -9 Q-3.5 -12 0 -9 Q3.5 -6 7 -9"
+      }
+     ],
+     "metadata": {
+      "id": "fe-diaphragm-seal",
+      "assetId": "fe-diaphragm-seal",
+      "kind": "primary-element",
+      "symbolId": "fe-diaphragm-seal",
+      "bodyId": "fe-diaphragm-seal",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "process",
+       "point": [
+        0,
+        0
+       ],
+       "kind": "process-sensing",
+       "direction": "in"
+      },
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -20
+       ],
+       "kind": "filled-system",
+       "direction": "out"
+      }
+     ],
+     "stations": [],
+     "transfers": [
+      {
+       "from": "process",
+       "to": "instrument",
+       "transfer": "pressure-only",
+       "mediumContinuity": false
+      }
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M0 0 L0 -6 M-7 -6 L7 -6 L7 -12 L-7 -12 Z M0 -12 L0 -20 M-7 -9 Q-3.5 -12 0 -9 Q3.5 -6 7 -9"
+    }
+   ]
+  },
+  {
+   "id": "fe-thermowell",
+   "name": "Thermowell",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     -15
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M-5 0 L-5 10 Q0 15 5 10 L5 0 M-7 0 L7 0 M0 -15 L0 9"
+      }
+     ],
+     "metadata": {
+      "id": "fe-thermowell",
+      "assetId": "fe-thermowell",
+      "kind": "primary-element",
+      "symbolId": "fe-thermowell",
+      "bodyId": "fe-thermowell",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending"
+     },
+     "interfaces": [
+      {
+       "id": "mount",
+       "point": [
+        0,
+        0
+       ],
+       "kind": "mechanical-mount",
+       "direction": "bidirectional"
+      },
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -15
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       10
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": [
+      {
+       "from": "mount",
+       "to": "instrument",
+       "transfer": "heat-only",
+       "mediumContinuity": false
+      }
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M-5 0 L-5 10 Q0 15 5 10 L5 0 M-7 0 L7 0 M0 -15 L0 9"
+    }
+   ]
+  },
+  {
+   "id": "fe-sample-point",
+   "name": "Sampling point",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     -19
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 0 L0 -5 M0 -13 L0 -19"
+      },
+      {
+       "c": [
+        0,
+        0,
+        1.25
+       ],
+       "fill": "solid",
+       "role": "dot"
+      },
+      {
+       "d": "M2.5 -13 L0 -9 L-2.5 -13 Z M2.5 -5 L-2.5 -5 L0 -9 Z"
+      }
+     ],
+     "metadata": {
+      "id": "fe-sample-point",
+      "assetId": "fe-sample-point",
+      "kind": "primary-element",
+      "symbolId": "fe-sample-point",
+      "bodyId": "fe-sample-point",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending",
+      "samplingValve": {
+       "id": "valve-gate",
+       "bodyId": "valve-gate",
+       "tag": null,
+       "mode": "isolation",
+       "view": "design",
+       "normalPosition": null,
+       "operatingPosition": null,
+       "failPosition": null,
+       "failEvent": null,
+       "activePortPairs": null,
+       "representation": null,
+       "actuator": null,
+       "endConnections": {
+        "in": {
+         "type": "plain"
+        },
+        "out": {
+         "type": "plain"
+        }
+       },
+       "setpoint": null,
+       "closedDisplay": null,
+       "orientation": 90
+      }
+     },
+     "interfaces": [
+      {
+       "id": "process",
+       "point": [
+        0,
+        0
+       ],
+       "kind": "process-boundary",
+       "direction": "in"
+      },
+      {
+       "id": "sample-out",
+       "point": [
+        0,
+        -19
+       ],
+       "kind": "sample-flow",
+       "direction": "out"
+      }
+     ],
+     "stations": [],
+     "transfers": [
+      {
+       "from": "process",
+       "to": "sample-out",
+       "transfer": "sample-extraction",
+       "joinsNetworks": false,
+       "valvePosition": null
+      }
+     ]
+    }
+   },
+   "shapes": [
+    {
+     "d": "M0 0 L0 -5 M0 -13 L0 -19"
+    },
+    {
+     "c": [
+      0,
+      0,
+      1.25
+     ],
+     "fill": "solid",
+     "role": "dot"
+    },
+    {
+     "d": "M2.5 -13 L0 -9 L-2.5 -13 Z M2.5 -5 L-2.5 -5 L0 -9 Z"
+    }
+   ]
+  },
+  {
+   "id": "fe-analysis-do",
+   "name": "Dissolved oxygen",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -15
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+      },
+      {
+       "d": "M4 2 L7.010000000000001 2"
+      },
+      {
+       "d": "M7.010000000000001 -2.1245000000000003 L19.653 -2.1245000000000003 L19.653 6.1245 L7.010000000000001 6.1245 Z"
+      },
+      {
+       "identityInk": "DO",
+       "at": [
+        8.14775,
+        4.34
+       ],
+       "scale": 0.00325,
+       "glyphs": [
+        {
+         "x": 0,
+         "d": "M173 0V-1440H609Q835 -1440 1010.5 -1353.5Q1186 -1267 1286.5 -1105.5Q1387 -944 1387 -718Q1387 -494 1286.5 -333.0Q1186 -172 1010.5 -86.0Q835 0 609 0ZM351 -164H613Q788 -164 921.5 -228.5Q1055 -293 1130.0 -416.5Q1205 -540 1205 -718Q1205 -897 1130.0 -1021.5Q1055 -1146 921.5 -1211.0Q788 -1276 613 -1276H351Z"
+        },
+        {
+         "x": 1478,
+         "d": "M815 26Q655 26 522.0 -31.5Q389 -89 292.5 -191.5Q196 -294 143.5 -429.0Q91 -564 91 -718Q91 -872 143.5 -1007.5Q196 -1143 292.5 -1246.5Q389 -1350 522.0 -1408.0Q655 -1466 815 -1466Q975 -1466 1108.0 -1408.5Q1241 -1351 1337.5 -1248.5Q1434 -1146 1486.5 -1011.0Q1539 -876 1539 -722Q1539 -568 1486.5 -432.5Q1434 -297 1337.5 -193.5Q1241 -90 1108.5 -32.0Q976 26 815 26ZM815 -141Q976 -141 1098.0 -214.5Q1220 -288 1288.5 -419.0Q1357 -550 1357 -722Q1357 -851 1317.5 -956.5Q1278 -1062 1206.5 -1139.0Q1135 -1216 1035.5 -1257.5Q936 -1299 815 -1299Q695 -1299 595.0 -1257.0Q495 -1215 423.5 -1137.0Q352 -1059 312.5 -953.0Q273 -847 273 -718Q273 -590 312.5 -484.0Q352 -378 423.5 -301.0Q495 -224 595.0 -182.5Q695 -141 815 -141Z"
+        }
+       ],
+       "bounds": [
+        8.71,
+        -0.4245000000000001,
+        17.953,
+        4.4245
+       ],
+       "analyteIdentity": {
+        "id": "fe-analysis-do",
+        "assetId": "fe-analysis-do",
+        "conflicts": []
+       }
+      }
+     ],
+     "metadata": {
+      "id": "fe-analysis-do",
+      "assetId": "fe-analysis-do",
+      "kind": "primary-element",
+      "symbolId": "fe-analysis-do",
+      "bodyId": "fe-analysis-immersion",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending",
+      "installation": "immersion",
+      "analyte": "do",
+      "identityGlyph": "DO",
+      "specificationRequired": false,
+      "specificationComplete": true
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -15
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       12
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": [],
+     "identityLayout": {
+      "id": "fe-analysis-do",
+      "assetId": "fe-analysis-do",
+      "style": "outlined",
+      "side": "right",
+      "offset": 0,
+      "box": [
+       7.010000000000001,
+       -2.1245000000000003,
+       19.653,
+       6.1245
+      ],
+      "inkBounds": [
+       8.71,
+       -0.4245000000000001,
+       17.953,
+       4.4245
+      ],
+      "inkSize": 6.5,
+      "leader": [
+       [
+        4,
+        2
+       ],
+       [
+        7.010000000000001,
+        2
+       ]
+      ],
+      "conflicts": [],
+      "status": "placed"
+     }
+    },
+    "identityStyles": [
+     "outlined",
+     "unboxed"
+    ],
+    "installations": [
+     "immersion",
+     "insertion",
+     "cell",
+     "cabinet"
+    ]
+   },
+   "shapes": [
+    {
+     "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+    },
+    {
+     "d": "M4 2 L7.010000000000001 2"
+    },
+    {
+     "d": "M7.010000000000001 -2.1245000000000003 L19.653 -2.1245000000000003 L19.653 6.1245 L7.010000000000001 6.1245 Z"
+    },
+    {
+     "identityInk": "DO",
+     "at": [
+      8.14775,
+      4.34
+     ],
+     "scale": 0.00325,
+     "glyphs": [
+      {
+       "x": 0,
+       "d": "M173 0V-1440H609Q835 -1440 1010.5 -1353.5Q1186 -1267 1286.5 -1105.5Q1387 -944 1387 -718Q1387 -494 1286.5 -333.0Q1186 -172 1010.5 -86.0Q835 0 609 0ZM351 -164H613Q788 -164 921.5 -228.5Q1055 -293 1130.0 -416.5Q1205 -540 1205 -718Q1205 -897 1130.0 -1021.5Q1055 -1146 921.5 -1211.0Q788 -1276 613 -1276H351Z"
+      },
+      {
+       "x": 1478,
+       "d": "M815 26Q655 26 522.0 -31.5Q389 -89 292.5 -191.5Q196 -294 143.5 -429.0Q91 -564 91 -718Q91 -872 143.5 -1007.5Q196 -1143 292.5 -1246.5Q389 -1350 522.0 -1408.0Q655 -1466 815 -1466Q975 -1466 1108.0 -1408.5Q1241 -1351 1337.5 -1248.5Q1434 -1146 1486.5 -1011.0Q1539 -876 1539 -722Q1539 -568 1486.5 -432.5Q1434 -297 1337.5 -193.5Q1241 -90 1108.5 -32.0Q976 26 815 26ZM815 -141Q976 -141 1098.0 -214.5Q1220 -288 1288.5 -419.0Q1357 -550 1357 -722Q1357 -851 1317.5 -956.5Q1278 -1062 1206.5 -1139.0Q1135 -1216 1035.5 -1257.5Q936 -1299 815 -1299Q695 -1299 595.0 -1257.0Q495 -1215 423.5 -1137.0Q352 -1059 312.5 -953.0Q273 -847 273 -718Q273 -590 312.5 -484.0Q352 -378 423.5 -301.0Q495 -224 595.0 -182.5Q695 -141 815 -141Z"
+      }
+     ],
+     "bounds": [
+      8.71,
+      -0.4245000000000001,
+      17.953,
+      4.4245
+     ],
+     "analyteIdentity": {
+      "id": "fe-analysis-do",
+      "assetId": "fe-analysis-do",
+      "conflicts": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "fe-analysis-ph",
+   "name": "pH",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -15
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+      },
+      {
+       "d": "M4 2 L7.01 2"
+      },
+      {
+       "d": "M7.01 -2.7874999999999996 L18.411499999999997 -2.7874999999999996 L18.411499999999997 6.7875 L7.01 6.7875 Z"
+      },
+      {
+       "identityInk": "pH",
+       "at": [
+        8.1965,
+        3.5925
+       ],
+       "scale": 0.00325,
+       "glyphs": [
+        {
+         "x": 0,
+         "d": "M158 460V-1029H325V-842H337Q381 -932 476.0 -993.5Q571 -1055 705 -1055Q816 -1055 910.0 -1015.5Q1004 -976 1072.5 -904.0Q1141 -832 1179.5 -733.0Q1218 -634 1218 -514Q1218 -354 1151.5 -232.5Q1085 -111 969.0 -41.5Q853 28 705 28Q573 28 482.0 -36.0Q391 -100 345 -196H335V460ZM685 -136Q799 -136 879.0 -186.0Q959 -236 1001.0 -321.5Q1043 -407 1043 -515Q1043 -625 1001.0 -710.0Q959 -795 879.0 -843.0Q799 -891 685 -891Q576 -891 496.0 -842.0Q416 -793 373.0 -707.0Q330 -621 330 -513Q330 -408 373.0 -322.5Q416 -237 496.0 -186.5Q576 -136 685 -136Z"
+        },
+        {
+         "x": 1299,
+         "d": "M173 0V-1440H351V-830H1143V-1440H1321V0H1143V-666H351V0Z"
+        }
+       ],
+       "bounds": [
+        8.71,
+        -1.0875,
+        16.711499999999997,
+        5.0875
+       ],
+       "analyteIdentity": {
+        "id": "fe-analysis-ph",
+        "assetId": "fe-analysis-ph",
+        "conflicts": []
+       }
+      }
+     ],
+     "metadata": {
+      "id": "fe-analysis-ph",
+      "assetId": "fe-analysis-ph",
+      "kind": "primary-element",
+      "symbolId": "fe-analysis-ph",
+      "bodyId": "fe-analysis-immersion",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending",
+      "installation": "immersion",
+      "analyte": "ph",
+      "identityGlyph": "pH",
+      "specificationRequired": false,
+      "specificationComplete": true
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -15
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       12
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": [],
+     "identityLayout": {
+      "id": "fe-analysis-ph",
+      "assetId": "fe-analysis-ph",
+      "style": "outlined",
+      "side": "right",
+      "offset": 0,
+      "box": [
+       7.01,
+       -2.7874999999999996,
+       18.411499999999997,
+       6.7875
+      ],
+      "inkBounds": [
+       8.71,
+       -1.0875,
+       16.711499999999997,
+       5.0875
+      ],
+      "inkSize": 6.5,
+      "leader": [
+       [
+        4,
+        2
+       ],
+       [
+        7.01,
+        2
+       ]
+      ],
+      "conflicts": [],
+      "status": "placed"
+     }
+    },
+    "identityStyles": [
+     "outlined",
+     "unboxed"
+    ],
+    "installations": [
+     "immersion",
+     "insertion",
+     "cell",
+     "cabinet"
+    ]
+   },
+   "shapes": [
+    {
+     "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+    },
+    {
+     "d": "M4 2 L7.01 2"
+    },
+    {
+     "d": "M7.01 -2.7874999999999996 L18.411499999999997 -2.7874999999999996 L18.411499999999997 6.7875 L7.01 6.7875 Z"
+    },
+    {
+     "identityInk": "pH",
+     "at": [
+      8.1965,
+      3.5925
+     ],
+     "scale": 0.00325,
+     "glyphs": [
+      {
+       "x": 0,
+       "d": "M158 460V-1029H325V-842H337Q381 -932 476.0 -993.5Q571 -1055 705 -1055Q816 -1055 910.0 -1015.5Q1004 -976 1072.5 -904.0Q1141 -832 1179.5 -733.0Q1218 -634 1218 -514Q1218 -354 1151.5 -232.5Q1085 -111 969.0 -41.5Q853 28 705 28Q573 28 482.0 -36.0Q391 -100 345 -196H335V460ZM685 -136Q799 -136 879.0 -186.0Q959 -236 1001.0 -321.5Q1043 -407 1043 -515Q1043 -625 1001.0 -710.0Q959 -795 879.0 -843.0Q799 -891 685 -891Q576 -891 496.0 -842.0Q416 -793 373.0 -707.0Q330 -621 330 -513Q330 -408 373.0 -322.5Q416 -237 496.0 -186.5Q576 -136 685 -136Z"
+      },
+      {
+       "x": 1299,
+       "d": "M173 0V-1440H351V-830H1143V-1440H1321V0H1143V-666H351V0Z"
+      }
+     ],
+     "bounds": [
+      8.71,
+      -1.0875,
+      16.711499999999997,
+      5.0875
+     ],
+     "analyteIdentity": {
+      "id": "fe-analysis-ph",
+      "assetId": "fe-analysis-ph",
+      "conflicts": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "fe-analysis-orp",
+   "name": "Oxidation-reduction potential",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -15
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+      },
+      {
+       "d": "M4 2 L7.01 2"
+      },
+      {
+       "d": "M7.01 -2.1245000000000003 L23.04925 -2.1245000000000003 L23.04925 6.1245 L7.01 6.1245 Z"
+      },
+      {
+       "identityInk": "ORP",
+       "at": [
+        8.41425,
+        4.34
+       ],
+       "scale": 0.00325,
+       "glyphs": [
+        {
+         "x": 0,
+         "d": "M815 26Q655 26 522.0 -31.5Q389 -89 292.5 -191.5Q196 -294 143.5 -429.0Q91 -564 91 -718Q91 -872 143.5 -1007.5Q196 -1143 292.5 -1246.5Q389 -1350 522.0 -1408.0Q655 -1466 815 -1466Q975 -1466 1108.0 -1408.5Q1241 -1351 1337.5 -1248.5Q1434 -1146 1486.5 -1011.0Q1539 -876 1539 -722Q1539 -568 1486.5 -432.5Q1434 -297 1337.5 -193.5Q1241 -90 1108.5 -32.0Q976 26 815 26ZM815 -141Q976 -141 1098.0 -214.5Q1220 -288 1288.5 -419.0Q1357 -550 1357 -722Q1357 -851 1317.5 -956.5Q1278 -1062 1206.5 -1139.0Q1135 -1216 1035.5 -1257.5Q936 -1299 815 -1299Q695 -1299 595.0 -1257.0Q495 -1215 423.5 -1137.0Q352 -1059 312.5 -953.0Q273 -847 273 -718Q273 -590 312.5 -484.0Q352 -378 423.5 -301.0Q495 -224 595.0 -182.5Q695 -141 815 -141Z"
+        },
+        {
+         "x": 1630,
+         "d": "M173 0V-1440H697Q835 -1440 936.0 -1388.0Q1037 -1336 1092.0 -1245.5Q1147 -1155 1147 -1040Q1147 -919 1092.5 -824.5Q1038 -730 937.0 -675.0Q836 -620 697 -620L743 -686L1187 0H979L541 -686L636 -620H351V0ZM351 -784H681Q810 -784 886.5 -852.0Q963 -920 963 -1032Q963 -1143 886.5 -1209.5Q810 -1276 681 -1276H351Z"
+        },
+        {
+         "x": 2871,
+         "d": "M173 1V-1439H617Q768 -1439 878.5 -1382.5Q989 -1326 1049.0 -1227.5Q1109 -1129 1109 -1003Q1109 -876 1049.0 -776.5Q989 -677 878.5 -620.0Q768 -563 617 -563H351V1ZM351 -727H601Q700 -727 773.5 -760.0Q847 -793 887.0 -855.0Q927 -917 927 -1003Q927 -1088 887.0 -1149.0Q847 -1210 773.5 -1242.5Q700 -1275 601 -1275H351Z"
+        }
+       ],
+       "bounds": [
+        8.71,
+        -0.4245000000000001,
+        21.349249999999998,
+        4.4245
+       ],
+       "analyteIdentity": {
+        "id": "fe-analysis-orp",
+        "assetId": "fe-analysis-orp",
+        "conflicts": []
+       }
+      }
+     ],
+     "metadata": {
+      "id": "fe-analysis-orp",
+      "assetId": "fe-analysis-orp",
+      "kind": "primary-element",
+      "symbolId": "fe-analysis-orp",
+      "bodyId": "fe-analysis-immersion",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending",
+      "installation": "immersion",
+      "analyte": "orp",
+      "identityGlyph": "ORP",
+      "specificationRequired": false,
+      "specificationComplete": true
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -15
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       12
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": [],
+     "identityLayout": {
+      "id": "fe-analysis-orp",
+      "assetId": "fe-analysis-orp",
+      "style": "outlined",
+      "side": "right",
+      "offset": 0,
+      "box": [
+       7.01,
+       -2.1245000000000003,
+       23.04925,
+       6.1245
+      ],
+      "inkBounds": [
+       8.71,
+       -0.4245000000000001,
+       21.349249999999998,
+       4.4245
+      ],
+      "inkSize": 6.5,
+      "leader": [
+       [
+        4,
+        2
+       ],
+       [
+        7.01,
+        2
+       ]
+      ],
+      "conflicts": [],
+      "status": "placed"
+     }
+    },
+    "identityStyles": [
+     "outlined",
+     "unboxed"
+    ],
+    "installations": [
+     "immersion",
+     "insertion",
+     "cell",
+     "cabinet"
+    ]
+   },
+   "shapes": [
+    {
+     "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+    },
+    {
+     "d": "M4 2 L7.01 2"
+    },
+    {
+     "d": "M7.01 -2.1245000000000003 L23.04925 -2.1245000000000003 L23.04925 6.1245 L7.01 6.1245 Z"
+    },
+    {
+     "identityInk": "ORP",
+     "at": [
+      8.41425,
+      4.34
+     ],
+     "scale": 0.00325,
+     "glyphs": [
+      {
+       "x": 0,
+       "d": "M815 26Q655 26 522.0 -31.5Q389 -89 292.5 -191.5Q196 -294 143.5 -429.0Q91 -564 91 -718Q91 -872 143.5 -1007.5Q196 -1143 292.5 -1246.5Q389 -1350 522.0 -1408.0Q655 -1466 815 -1466Q975 -1466 1108.0 -1408.5Q1241 -1351 1337.5 -1248.5Q1434 -1146 1486.5 -1011.0Q1539 -876 1539 -722Q1539 -568 1486.5 -432.5Q1434 -297 1337.5 -193.5Q1241 -90 1108.5 -32.0Q976 26 815 26ZM815 -141Q976 -141 1098.0 -214.5Q1220 -288 1288.5 -419.0Q1357 -550 1357 -722Q1357 -851 1317.5 -956.5Q1278 -1062 1206.5 -1139.0Q1135 -1216 1035.5 -1257.5Q936 -1299 815 -1299Q695 -1299 595.0 -1257.0Q495 -1215 423.5 -1137.0Q352 -1059 312.5 -953.0Q273 -847 273 -718Q273 -590 312.5 -484.0Q352 -378 423.5 -301.0Q495 -224 595.0 -182.5Q695 -141 815 -141Z"
+      },
+      {
+       "x": 1630,
+       "d": "M173 0V-1440H697Q835 -1440 936.0 -1388.0Q1037 -1336 1092.0 -1245.5Q1147 -1155 1147 -1040Q1147 -919 1092.5 -824.5Q1038 -730 937.0 -675.0Q836 -620 697 -620L743 -686L1187 0H979L541 -686L636 -620H351V0ZM351 -784H681Q810 -784 886.5 -852.0Q963 -920 963 -1032Q963 -1143 886.5 -1209.5Q810 -1276 681 -1276H351Z"
+      },
+      {
+       "x": 2871,
+       "d": "M173 1V-1439H617Q768 -1439 878.5 -1382.5Q989 -1326 1049.0 -1227.5Q1109 -1129 1109 -1003Q1109 -876 1049.0 -776.5Q989 -677 878.5 -620.0Q768 -563 617 -563H351V1ZM351 -727H601Q700 -727 773.5 -760.0Q847 -793 887.0 -855.0Q927 -917 927 -1003Q927 -1088 887.0 -1149.0Q847 -1210 773.5 -1242.5Q700 -1275 601 -1275H351Z"
+      }
+     ],
+     "bounds": [
+      8.71,
+      -0.4245000000000001,
+      21.349249999999998,
+      4.4245
+     ],
+     "analyteIdentity": {
+      "id": "fe-analysis-orp",
+      "assetId": "fe-analysis-orp",
+      "conflicts": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "fe-analysis-conductivity",
+   "name": "Conductivity",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -15
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+      },
+      {
+       "d": "M4 2 L7.010000000000001 2"
+      },
+      {
+       "d": "M7.010000000000001 -2.1245000000000003 L18.002 -2.1245000000000003 L18.002 6.1245 L7.010000000000001 6.1245 Z"
+      },
+      {
+       "identityInk": "EC",
+       "at": [
+        8.14775,
+        4.34
+       ],
+       "scale": 0.00325,
+       "glyphs": [
+        {
+         "x": 0,
+         "d": "M173 0V-1440H989V-1276H351V-816H979V-652H351V-164H993V0Z"
+        },
+        {
+         "x": 1141,
+         "d": "M840 26Q680 26 543.5 -30.5Q407 -87 305.5 -188.5Q204 -290 147.5 -426.0Q91 -562 91 -720Q91 -878 147.0 -1013.5Q203 -1149 304.5 -1250.5Q406 -1352 544.0 -1409.0Q682 -1466 845 -1466Q997 -1466 1126.5 -1411.5Q1256 -1357 1358 -1240L1229 -1130Q1147 -1226 1049.0 -1263.5Q951 -1301 843 -1301Q718 -1301 614.0 -1257.5Q510 -1214 435.0 -1135.5Q360 -1057 319.5 -952.0Q279 -847 279 -723Q279 -596 322.0 -488.5Q365 -381 442.5 -303.5Q520 -226 624.5 -182.5Q729 -139 849 -139Q972 -139 1070.0 -182.5Q1168 -226 1243 -314L1368 -210Q1275 -98 1141.0 -36.0Q1007 26 840 26Z"
+        }
+       ],
+       "bounds": [
+        8.71,
+        -0.4245000000000001,
+        16.302,
+        4.4245
+       ],
+       "analyteIdentity": {
+        "id": "fe-analysis-conductivity",
+        "assetId": "fe-analysis-conductivity",
+        "conflicts": []
+       }
+      }
+     ],
+     "metadata": {
+      "id": "fe-analysis-conductivity",
+      "assetId": "fe-analysis-conductivity",
+      "kind": "primary-element",
+      "symbolId": "fe-analysis-conductivity",
+      "bodyId": "fe-analysis-immersion",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending",
+      "installation": "immersion",
+      "analyte": "conductivity",
+      "identityGlyph": "EC",
+      "specificationRequired": false,
+      "specificationComplete": true
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -15
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       12
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": [],
+     "identityLayout": {
+      "id": "fe-analysis-conductivity",
+      "assetId": "fe-analysis-conductivity",
+      "style": "outlined",
+      "side": "right",
+      "offset": 0,
+      "box": [
+       7.010000000000001,
+       -2.1245000000000003,
+       18.002,
+       6.1245
+      ],
+      "inkBounds": [
+       8.71,
+       -0.4245000000000001,
+       16.302,
+       4.4245
+      ],
+      "inkSize": 6.5,
+      "leader": [
+       [
+        4,
+        2
+       ],
+       [
+        7.010000000000001,
+        2
+       ]
+      ],
+      "conflicts": [],
+      "status": "placed"
+     }
+    },
+    "identityStyles": [
+     "outlined",
+     "unboxed"
+    ],
+    "installations": [
+     "immersion",
+     "insertion",
+     "cell",
+     "cabinet"
+    ]
+   },
+   "shapes": [
+    {
+     "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+    },
+    {
+     "d": "M4 2 L7.010000000000001 2"
+    },
+    {
+     "d": "M7.010000000000001 -2.1245000000000003 L18.002 -2.1245000000000003 L18.002 6.1245 L7.010000000000001 6.1245 Z"
+    },
+    {
+     "identityInk": "EC",
+     "at": [
+      8.14775,
+      4.34
+     ],
+     "scale": 0.00325,
+     "glyphs": [
+      {
+       "x": 0,
+       "d": "M173 0V-1440H989V-1276H351V-816H979V-652H351V-164H993V0Z"
+      },
+      {
+       "x": 1141,
+       "d": "M840 26Q680 26 543.5 -30.5Q407 -87 305.5 -188.5Q204 -290 147.5 -426.0Q91 -562 91 -720Q91 -878 147.0 -1013.5Q203 -1149 304.5 -1250.5Q406 -1352 544.0 -1409.0Q682 -1466 845 -1466Q997 -1466 1126.5 -1411.5Q1256 -1357 1358 -1240L1229 -1130Q1147 -1226 1049.0 -1263.5Q951 -1301 843 -1301Q718 -1301 614.0 -1257.5Q510 -1214 435.0 -1135.5Q360 -1057 319.5 -952.0Q279 -847 279 -723Q279 -596 322.0 -488.5Q365 -381 442.5 -303.5Q520 -226 624.5 -182.5Q729 -139 849 -139Q972 -139 1070.0 -182.5Q1168 -226 1243 -314L1368 -210Q1275 -98 1141.0 -36.0Q1007 26 840 26Z"
+      }
+     ],
+     "bounds": [
+      8.71,
+      -0.4245000000000001,
+      16.302,
+      4.4245
+     ],
+     "analyteIdentity": {
+      "id": "fe-analysis-conductivity",
+      "assetId": "fe-analysis-conductivity",
+      "conflicts": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "fe-analysis-mlss",
+   "name": "Mixed liquor suspended solids",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -15
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+      },
+      {
+       "d": "M4 2 L7.009999999999998 2"
+      },
+      {
+       "d": "M7.009999999999998 -2.1245000000000003 L27.014249999999997 -2.1245000000000003 L27.014249999999997 6.1245 L7.009999999999998 6.1245 Z"
+      },
+      {
+       "identityInk": "MLSS",
+       "at": [
+        8.147749999999998,
+        4.34
+       ],
+       "scale": 0.00325,
+       "glyphs": [
+        {
+         "x": 0,
+         "d": "M173 0V-1440H423L803 -642Q838 -567 865.5 -507.5Q893 -448 912.5 -402.0Q932 -356 944.0 -321.5Q956 -287 962 -259H964Q971 -287 982.5 -321.0Q994 -355 1012.0 -401.0Q1030 -447 1056.5 -506.5Q1083 -566 1120 -642L1503 -1440H1739V0H1561V-760Q1561 -846 1562.0 -915.5Q1563 -985 1565.0 -1039.0Q1567 -1093 1570.5 -1136.0Q1574 -1179 1578 -1212H1575L1002 -1H913L336 -1212H333Q338 -1175 341.5 -1131.5Q345 -1088 347.5 -1034.0Q350 -980 351.5 -912.5Q353 -845 353 -760V0Z"
+        },
+        {
+         "x": 1912,
+         "d": "M173 0V-1440H351V-164H959V0Z"
+        },
+        {
+         "x": 2991,
+         "d": "M608 26Q446 26 315.0 -46.5Q184 -119 98 -254L252 -356Q320 -247 410.0 -192.5Q500 -138 620 -138Q694 -138 758.5 -167.0Q823 -196 862.5 -252.0Q902 -308 902 -390Q902 -462 863.0 -509.5Q824 -557 759.0 -589.5Q694 -622 617.0 -649.0Q540 -676 463.0 -707.0Q386 -738 321.0 -782.5Q256 -827 217.0 -895.0Q178 -963 178 -1064Q178 -1164 230.5 -1256.0Q283 -1348 383.5 -1407.0Q484 -1466 628 -1466Q786 -1466 896.0 -1398.0Q1006 -1330 1076 -1220L930 -1122Q873 -1212 795.5 -1258.0Q718 -1304 626 -1304Q496 -1304 428.0 -1236.5Q360 -1169 360 -1074Q360 -1004 399.5 -959.0Q439 -914 503.5 -883.0Q568 -852 645.5 -826.5Q723 -801 800.5 -770.0Q878 -739 942.5 -693.0Q1007 -647 1046.5 -576.5Q1086 -506 1086 -400Q1086 -270 1023.5 -174.5Q961 -79 853.0 -26.5Q745 26 608 26Z"
+        },
+        {
+         "x": 4196,
+         "d": "M608 26Q446 26 315.0 -46.5Q184 -119 98 -254L252 -356Q320 -247 410.0 -192.5Q500 -138 620 -138Q694 -138 758.5 -167.0Q823 -196 862.5 -252.0Q902 -308 902 -390Q902 -462 863.0 -509.5Q824 -557 759.0 -589.5Q694 -622 617.0 -649.0Q540 -676 463.0 -707.0Q386 -738 321.0 -782.5Q256 -827 217.0 -895.0Q178 -963 178 -1064Q178 -1164 230.5 -1256.0Q283 -1348 383.5 -1407.0Q484 -1466 628 -1466Q786 -1466 896.0 -1398.0Q1006 -1330 1076 -1220L930 -1122Q873 -1212 795.5 -1258.0Q718 -1304 626 -1304Q496 -1304 428.0 -1236.5Q360 -1169 360 -1074Q360 -1004 399.5 -959.0Q439 -914 503.5 -883.0Q568 -852 645.5 -826.5Q723 -801 800.5 -770.0Q878 -739 942.5 -693.0Q1007 -647 1046.5 -576.5Q1086 -506 1086 -400Q1086 -270 1023.5 -174.5Q961 -79 853.0 -26.5Q745 26 608 26Z"
+        }
+       ],
+       "bounds": [
+        8.709999999999997,
+        -0.4245000000000001,
+        25.314249999999998,
+        4.4245
+       ],
+       "analyteIdentity": {
+        "id": "fe-analysis-mlss",
+        "assetId": "fe-analysis-mlss",
+        "conflicts": []
+       }
+      }
+     ],
+     "metadata": {
+      "id": "fe-analysis-mlss",
+      "assetId": "fe-analysis-mlss",
+      "kind": "primary-element",
+      "symbolId": "fe-analysis-mlss",
+      "bodyId": "fe-analysis-immersion",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending",
+      "installation": "immersion",
+      "analyte": "mlss",
+      "identityGlyph": "MLSS",
+      "specificationRequired": false,
+      "specificationComplete": true
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -15
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       12
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": [],
+     "identityLayout": {
+      "id": "fe-analysis-mlss",
+      "assetId": "fe-analysis-mlss",
+      "style": "outlined",
+      "side": "right",
+      "offset": 0,
+      "box": [
+       7.009999999999998,
+       -2.1245000000000003,
+       27.014249999999997,
+       6.1245
+      ],
+      "inkBounds": [
+       8.709999999999997,
+       -0.4245000000000001,
+       25.314249999999998,
+       4.4245
+      ],
+      "inkSize": 6.5,
+      "leader": [
+       [
+        4,
+        2
+       ],
+       [
+        7.009999999999998,
+        2
+       ]
+      ],
+      "conflicts": [],
+      "status": "placed"
+     }
+    },
+    "identityStyles": [
+     "outlined",
+     "unboxed"
+    ],
+    "installations": [
+     "immersion",
+     "insertion",
+     "cell",
+     "cabinet"
+    ]
+   },
+   "shapes": [
+    {
+     "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+    },
+    {
+     "d": "M4 2 L7.009999999999998 2"
+    },
+    {
+     "d": "M7.009999999999998 -2.1245000000000003 L27.014249999999997 -2.1245000000000003 L27.014249999999997 6.1245 L7.009999999999998 6.1245 Z"
+    },
+    {
+     "identityInk": "MLSS",
+     "at": [
+      8.147749999999998,
+      4.34
+     ],
+     "scale": 0.00325,
+     "glyphs": [
+      {
+       "x": 0,
+       "d": "M173 0V-1440H423L803 -642Q838 -567 865.5 -507.5Q893 -448 912.5 -402.0Q932 -356 944.0 -321.5Q956 -287 962 -259H964Q971 -287 982.5 -321.0Q994 -355 1012.0 -401.0Q1030 -447 1056.5 -506.5Q1083 -566 1120 -642L1503 -1440H1739V0H1561V-760Q1561 -846 1562.0 -915.5Q1563 -985 1565.0 -1039.0Q1567 -1093 1570.5 -1136.0Q1574 -1179 1578 -1212H1575L1002 -1H913L336 -1212H333Q338 -1175 341.5 -1131.5Q345 -1088 347.5 -1034.0Q350 -980 351.5 -912.5Q353 -845 353 -760V0Z"
+      },
+      {
+       "x": 1912,
+       "d": "M173 0V-1440H351V-164H959V0Z"
+      },
+      {
+       "x": 2991,
+       "d": "M608 26Q446 26 315.0 -46.5Q184 -119 98 -254L252 -356Q320 -247 410.0 -192.5Q500 -138 620 -138Q694 -138 758.5 -167.0Q823 -196 862.5 -252.0Q902 -308 902 -390Q902 -462 863.0 -509.5Q824 -557 759.0 -589.5Q694 -622 617.0 -649.0Q540 -676 463.0 -707.0Q386 -738 321.0 -782.5Q256 -827 217.0 -895.0Q178 -963 178 -1064Q178 -1164 230.5 -1256.0Q283 -1348 383.5 -1407.0Q484 -1466 628 -1466Q786 -1466 896.0 -1398.0Q1006 -1330 1076 -1220L930 -1122Q873 -1212 795.5 -1258.0Q718 -1304 626 -1304Q496 -1304 428.0 -1236.5Q360 -1169 360 -1074Q360 -1004 399.5 -959.0Q439 -914 503.5 -883.0Q568 -852 645.5 -826.5Q723 -801 800.5 -770.0Q878 -739 942.5 -693.0Q1007 -647 1046.5 -576.5Q1086 -506 1086 -400Q1086 -270 1023.5 -174.5Q961 -79 853.0 -26.5Q745 26 608 26Z"
+      },
+      {
+       "x": 4196,
+       "d": "M608 26Q446 26 315.0 -46.5Q184 -119 98 -254L252 -356Q320 -247 410.0 -192.5Q500 -138 620 -138Q694 -138 758.5 -167.0Q823 -196 862.5 -252.0Q902 -308 902 -390Q902 -462 863.0 -509.5Q824 -557 759.0 -589.5Q694 -622 617.0 -649.0Q540 -676 463.0 -707.0Q386 -738 321.0 -782.5Q256 -827 217.0 -895.0Q178 -963 178 -1064Q178 -1164 230.5 -1256.0Q283 -1348 383.5 -1407.0Q484 -1466 628 -1466Q786 -1466 896.0 -1398.0Q1006 -1330 1076 -1220L930 -1122Q873 -1212 795.5 -1258.0Q718 -1304 626 -1304Q496 -1304 428.0 -1236.5Q360 -1169 360 -1074Q360 -1004 399.5 -959.0Q439 -914 503.5 -883.0Q568 -852 645.5 -826.5Q723 -801 800.5 -770.0Q878 -739 942.5 -693.0Q1007 -647 1046.5 -576.5Q1086 -506 1086 -400Q1086 -270 1023.5 -174.5Q961 -79 853.0 -26.5Q745 26 608 26Z"
+      }
+     ],
+     "bounds": [
+      8.709999999999997,
+      -0.4245000000000001,
+      25.314249999999998,
+      4.4245
+     ],
+     "analyteIdentity": {
+      "id": "fe-analysis-mlss",
+      "assetId": "fe-analysis-mlss",
+      "conflicts": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "fe-analysis-turbidity",
+   "name": "Turbidity",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -15
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+      },
+      {
+       "d": "M4 2 L7.009999999999999 2"
+      },
+      {
+       "d": "M7.009999999999999 -2.08225 L22.617 -2.08225 L22.617 6.08225 L7.009999999999999 6.08225 Z"
+      },
+      {
+       "identityInk": "TUR",
+       "at": [
+        8.385,
+        4.29775
+       ],
+       "scale": 0.00325,
+       "glyphs": [
+        {
+         "x": 0,
+         "d": "M524 0V-1357H702V0ZM100 -1276V-1440H1126V-1276Z"
+        },
+        {
+         "x": 1226,
+         "d": "M719 26Q543 26 416.0 -45.5Q289 -117 220.5 -243.5Q152 -370 152 -534V-1440H334V-558Q334 -357 434.5 -248.5Q535 -140 719 -140Q907 -140 1008.0 -245.5Q1109 -351 1109 -546V-1440H1292V-548Q1292 -377 1222.0 -247.5Q1152 -118 1023.5 -46.0Q895 26 719 26Z"
+        },
+        {
+         "x": 2669,
+         "d": "M173 0V-1440H697Q835 -1440 936.0 -1388.0Q1037 -1336 1092.0 -1245.5Q1147 -1155 1147 -1040Q1147 -919 1092.5 -824.5Q1038 -730 937.0 -675.0Q836 -620 697 -620L743 -686L1187 0H979L541 -686L636 -620H351V0ZM351 -784H681Q810 -784 886.5 -852.0Q963 -920 963 -1032Q963 -1143 886.5 -1209.5Q810 -1276 681 -1276H351Z"
+        }
+       ],
+       "bounds": [
+        8.709999999999999,
+        -0.38225,
+        20.917,
+        4.38225
+       ],
+       "analyteIdentity": {
+        "id": "fe-analysis-turbidity",
+        "assetId": "fe-analysis-turbidity",
+        "conflicts": []
+       }
+      }
+     ],
+     "metadata": {
+      "id": "fe-analysis-turbidity",
+      "assetId": "fe-analysis-turbidity",
+      "kind": "primary-element",
+      "symbolId": "fe-analysis-turbidity",
+      "bodyId": "fe-analysis-immersion",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending",
+      "installation": "immersion",
+      "analyte": "turbidity",
+      "identityGlyph": "TUR",
+      "specificationRequired": false,
+      "specificationComplete": true
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -15
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       12
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": [],
+     "identityLayout": {
+      "id": "fe-analysis-turbidity",
+      "assetId": "fe-analysis-turbidity",
+      "style": "outlined",
+      "side": "right",
+      "offset": 0,
+      "box": [
+       7.009999999999999,
+       -2.08225,
+       22.617,
+       6.08225
+      ],
+      "inkBounds": [
+       8.709999999999999,
+       -0.38225,
+       20.917,
+       4.38225
+      ],
+      "inkSize": 6.5,
+      "leader": [
+       [
+        4,
+        2
+       ],
+       [
+        7.009999999999999,
+        2
+       ]
+      ],
+      "conflicts": [],
+      "status": "placed"
+     }
+    },
+    "identityStyles": [
+     "outlined",
+     "unboxed"
+    ],
+    "installations": [
+     "immersion",
+     "insertion",
+     "cell",
+     "cabinet"
+    ]
+   },
+   "shapes": [
+    {
+     "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+    },
+    {
+     "d": "M4 2 L7.009999999999999 2"
+    },
+    {
+     "d": "M7.009999999999999 -2.08225 L22.617 -2.08225 L22.617 6.08225 L7.009999999999999 6.08225 Z"
+    },
+    {
+     "identityInk": "TUR",
+     "at": [
+      8.385,
+      4.29775
+     ],
+     "scale": 0.00325,
+     "glyphs": [
+      {
+       "x": 0,
+       "d": "M524 0V-1357H702V0ZM100 -1276V-1440H1126V-1276Z"
+      },
+      {
+       "x": 1226,
+       "d": "M719 26Q543 26 416.0 -45.5Q289 -117 220.5 -243.5Q152 -370 152 -534V-1440H334V-558Q334 -357 434.5 -248.5Q535 -140 719 -140Q907 -140 1008.0 -245.5Q1109 -351 1109 -546V-1440H1292V-548Q1292 -377 1222.0 -247.5Q1152 -118 1023.5 -46.0Q895 26 719 26Z"
+      },
+      {
+       "x": 2669,
+       "d": "M173 0V-1440H697Q835 -1440 936.0 -1388.0Q1037 -1336 1092.0 -1245.5Q1147 -1155 1147 -1040Q1147 -919 1092.5 -824.5Q1038 -730 937.0 -675.0Q836 -620 697 -620L743 -686L1187 0H979L541 -686L636 -620H351V0ZM351 -784H681Q810 -784 886.5 -852.0Q963 -920 963 -1032Q963 -1143 886.5 -1209.5Q810 -1276 681 -1276H351Z"
+      }
+     ],
+     "bounds": [
+      8.709999999999999,
+      -0.38225,
+      20.917,
+      4.38225
+     ],
+     "analyteIdentity": {
+      "id": "fe-analysis-turbidity",
+      "assetId": "fe-analysis-turbidity",
+      "conflicts": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "fe-analysis-chlorine",
+   "name": "Residual chlorine (specify species)",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -15
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+      },
+      {
+       "d": "M4 2 L7.01 2"
+      },
+      {
+       "d": "M7.01 -2.2772499999999996 L18.847 -2.2772499999999996 L18.847 6.2772499999999996 L7.01 6.2772499999999996 Z"
+      },
+      {
+       "identityInk": "Cl₂",
+       "at": [
+        8.41425,
+        4.187250000000001
+       ],
+       "scale": 0.00325,
+       "glyphs": [
+        {
+         "x": 0,
+         "d": "M840 26Q680 26 543.5 -30.5Q407 -87 305.5 -188.5Q204 -290 147.5 -426.0Q91 -562 91 -720Q91 -878 147.0 -1013.5Q203 -1149 304.5 -1250.5Q406 -1352 544.0 -1409.0Q682 -1466 845 -1466Q997 -1466 1126.5 -1411.5Q1256 -1357 1358 -1240L1229 -1130Q1147 -1226 1049.0 -1263.5Q951 -1301 843 -1301Q718 -1301 614.0 -1257.5Q510 -1214 435.0 -1135.5Q360 -1057 319.5 -952.0Q279 -847 279 -723Q279 -596 322.0 -488.5Q365 -381 442.5 -303.5Q520 -226 624.5 -182.5Q729 -139 849 -139Q972 -139 1070.0 -182.5Q1168 -226 1243 -314L1368 -210Q1275 -98 1141.0 -36.0Q1007 26 840 26Z"
+        },
+        {
+         "x": 1419,
+         "d": "M158 -150Q158 -196 158.0 -227.5Q158 -259 158.0 -298.5Q158 -338 158 -408V-1440H335V-408Q335 -384 335.0 -337.5Q335 -291 335.0 -239.5Q335 -188 335 -150Q335 -111 335.0 -75.0Q335 -39 335 0H158Q158 -39 158.0 -75.0Q158 -111 158 -150Z"
+        },
+        {
+         "x": 1912,
+         "d": "M99 120V-40L481 -390Q541 -443 569.0 -491.5Q597 -540 597 -582Q597 -656 553.0 -702.0Q509 -748 435 -748Q362 -748 315.5 -699.0Q269 -650 269 -558H99Q99 -661 142.5 -739.5Q186 -818 262.0 -862.0Q338 -906 437 -906Q537 -906 611.0 -862.5Q685 -819 726.0 -748.0Q767 -677 767 -594Q767 -525 737.5 -455.5Q708 -386 638 -318L439 -130Q414 -106 385.0 -82.5Q356 -59 330 -44V-40L775 -42V120Z"
+        }
+       ],
+       "bounds": [
+        8.71,
+        -0.5772499999999998,
+        17.147,
+        4.577249999999999
+       ],
+       "analyteIdentity": {
+        "id": "fe-analysis-chlorine",
+        "assetId": "fe-analysis-chlorine",
+        "conflicts": []
+       }
+      }
+     ],
+     "metadata": {
+      "id": "fe-analysis-chlorine",
+      "assetId": "fe-analysis-chlorine",
+      "kind": "primary-element",
+      "symbolId": "fe-analysis-chlorine",
+      "bodyId": "fe-analysis-immersion",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending",
+      "installation": "immersion",
+      "analyte": "chlorine",
+      "identityGlyph": "Cl₂",
+      "specificationRequired": true,
+      "specificationComplete": false
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -15
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       12
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": [],
+     "identityLayout": {
+      "id": "fe-analysis-chlorine",
+      "assetId": "fe-analysis-chlorine",
+      "style": "outlined",
+      "side": "right",
+      "offset": 0,
+      "box": [
+       7.01,
+       -2.2772499999999996,
+       18.847,
+       6.2772499999999996
+      ],
+      "inkBounds": [
+       8.71,
+       -0.5772499999999998,
+       17.147,
+       4.577249999999999
+      ],
+      "inkSize": 6.5,
+      "leader": [
+       [
+        4,
+        2
+       ],
+       [
+        7.01,
+        2
+       ]
+      ],
+      "conflicts": [],
+      "status": "placed"
+     }
+    },
+    "identityStyles": [
+     "outlined",
+     "unboxed"
+    ],
+    "installations": [
+     "immersion",
+     "insertion",
+     "cell",
+     "cabinet"
+    ]
+   },
+   "shapes": [
+    {
+     "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+    },
+    {
+     "d": "M4 2 L7.01 2"
+    },
+    {
+     "d": "M7.01 -2.2772499999999996 L18.847 -2.2772499999999996 L18.847 6.2772499999999996 L7.01 6.2772499999999996 Z"
+    },
+    {
+     "identityInk": "Cl₂",
+     "at": [
+      8.41425,
+      4.187250000000001
+     ],
+     "scale": 0.00325,
+     "glyphs": [
+      {
+       "x": 0,
+       "d": "M840 26Q680 26 543.5 -30.5Q407 -87 305.5 -188.5Q204 -290 147.5 -426.0Q91 -562 91 -720Q91 -878 147.0 -1013.5Q203 -1149 304.5 -1250.5Q406 -1352 544.0 -1409.0Q682 -1466 845 -1466Q997 -1466 1126.5 -1411.5Q1256 -1357 1358 -1240L1229 -1130Q1147 -1226 1049.0 -1263.5Q951 -1301 843 -1301Q718 -1301 614.0 -1257.5Q510 -1214 435.0 -1135.5Q360 -1057 319.5 -952.0Q279 -847 279 -723Q279 -596 322.0 -488.5Q365 -381 442.5 -303.5Q520 -226 624.5 -182.5Q729 -139 849 -139Q972 -139 1070.0 -182.5Q1168 -226 1243 -314L1368 -210Q1275 -98 1141.0 -36.0Q1007 26 840 26Z"
+      },
+      {
+       "x": 1419,
+       "d": "M158 -150Q158 -196 158.0 -227.5Q158 -259 158.0 -298.5Q158 -338 158 -408V-1440H335V-408Q335 -384 335.0 -337.5Q335 -291 335.0 -239.5Q335 -188 335 -150Q335 -111 335.0 -75.0Q335 -39 335 0H158Q158 -39 158.0 -75.0Q158 -111 158 -150Z"
+      },
+      {
+       "x": 1912,
+       "d": "M99 120V-40L481 -390Q541 -443 569.0 -491.5Q597 -540 597 -582Q597 -656 553.0 -702.0Q509 -748 435 -748Q362 -748 315.5 -699.0Q269 -650 269 -558H99Q99 -661 142.5 -739.5Q186 -818 262.0 -862.0Q338 -906 437 -906Q537 -906 611.0 -862.5Q685 -819 726.0 -748.0Q767 -677 767 -594Q767 -525 737.5 -455.5Q708 -386 638 -318L439 -130Q414 -106 385.0 -82.5Q356 -59 330 -44V-40L775 -42V120Z"
+      }
+     ],
+     "bounds": [
+      8.71,
+      -0.5772499999999998,
+      17.147,
+      4.577249999999999
+     ],
+     "analyteIdentity": {
+      "id": "fe-analysis-chlorine",
+      "assetId": "fe-analysis-chlorine",
+      "conflicts": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "fe-analysis-ammonium",
+   "name": "Ammonium (specify reporting basis)",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -15
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+      },
+      {
+       "d": "M4 2 L7.01 2"
+      },
+      {
+       "d": "M7.01 -2.2349999999999994 L22.438249999999996 -2.2349999999999994 L22.438249999999996 6.234999999999999 L7.01 6.234999999999999 Z"
+      },
+      {
+       "identityInk": "NH₄",
+       "at": [
+        8.147749999999998,
+        4.145
+       ],
+       "scale": 0.00325,
+       "glyphs": [
+        {
+         "x": 0,
+         "d": "M173 0V-1440H329L1133 -423Q1163 -386 1191.5 -343.0Q1220 -300 1227 -281H1232Q1228 -305 1225.0 -336.5Q1222 -368 1221.0 -416.5Q1220 -465 1220 -539V-1440H1393V0H1247L427 -1038Q394 -1077 370.5 -1112.5Q347 -1148 338 -1168H337Q342 -1133 344.5 -1071.0Q347 -1009 347 -922V0Z"
+        },
+        {
+         "x": 1567,
+         "d": "M173 0V-1440H351V-830H1143V-1440H1321V0H1143V-666H351V0Z"
+        },
+        {
+         "x": 3061,
+         "d": "M539 118V-586Q539 -598 539.0 -613.5Q539 -629 539.0 -643.5Q539 -658 540 -666H539Q532 -654 518.5 -633.0Q505 -612 487 -586L236 -248Q229 -239 220.5 -229.5Q212 -220 204 -214V-212H813V-68H61V-252L543 -888H701V120Z"
+        }
+       ],
+       "bounds": [
+        8.71,
+        -0.5349999999999997,
+        20.738249999999997,
+        4.535
+       ],
+       "analyteIdentity": {
+        "id": "fe-analysis-ammonium",
+        "assetId": "fe-analysis-ammonium",
+        "conflicts": []
+       }
+      }
+     ],
+     "metadata": {
+      "id": "fe-analysis-ammonium",
+      "assetId": "fe-analysis-ammonium",
+      "kind": "primary-element",
+      "symbolId": "fe-analysis-ammonium",
+      "bodyId": "fe-analysis-immersion",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending",
+      "installation": "immersion",
+      "analyte": "ammonium",
+      "identityGlyph": "NH₄",
+      "specificationRequired": true,
+      "specificationComplete": false
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -15
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       12
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": [],
+     "identityLayout": {
+      "id": "fe-analysis-ammonium",
+      "assetId": "fe-analysis-ammonium",
+      "style": "outlined",
+      "side": "right",
+      "offset": 0,
+      "box": [
+       7.01,
+       -2.2349999999999994,
+       22.438249999999996,
+       6.234999999999999
+      ],
+      "inkBounds": [
+       8.71,
+       -0.5349999999999997,
+       20.738249999999997,
+       4.535
+      ],
+      "inkSize": 6.5,
+      "leader": [
+       [
+        4,
+        2
+       ],
+       [
+        7.01,
+        2
+       ]
+      ],
+      "conflicts": [],
+      "status": "placed"
+     }
+    },
+    "identityStyles": [
+     "outlined",
+     "unboxed"
+    ],
+    "installations": [
+     "immersion",
+     "insertion",
+     "cell",
+     "cabinet"
+    ]
+   },
+   "shapes": [
+    {
+     "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+    },
+    {
+     "d": "M4 2 L7.01 2"
+    },
+    {
+     "d": "M7.01 -2.2349999999999994 L22.438249999999996 -2.2349999999999994 L22.438249999999996 6.234999999999999 L7.01 6.234999999999999 Z"
+    },
+    {
+     "identityInk": "NH₄",
+     "at": [
+      8.147749999999998,
+      4.145
+     ],
+     "scale": 0.00325,
+     "glyphs": [
+      {
+       "x": 0,
+       "d": "M173 0V-1440H329L1133 -423Q1163 -386 1191.5 -343.0Q1220 -300 1227 -281H1232Q1228 -305 1225.0 -336.5Q1222 -368 1221.0 -416.5Q1220 -465 1220 -539V-1440H1393V0H1247L427 -1038Q394 -1077 370.5 -1112.5Q347 -1148 338 -1168H337Q342 -1133 344.5 -1071.0Q347 -1009 347 -922V0Z"
+      },
+      {
+       "x": 1567,
+       "d": "M173 0V-1440H351V-830H1143V-1440H1321V0H1143V-666H351V0Z"
+      },
+      {
+       "x": 3061,
+       "d": "M539 118V-586Q539 -598 539.0 -613.5Q539 -629 539.0 -643.5Q539 -658 540 -666H539Q532 -654 518.5 -633.0Q505 -612 487 -586L236 -248Q229 -239 220.5 -229.5Q212 -220 204 -214V-212H813V-68H61V-252L543 -888H701V120Z"
+      }
+     ],
+     "bounds": [
+      8.71,
+      -0.5349999999999997,
+      20.738249999999997,
+      4.535
+     ],
+     "analyteIdentity": {
+      "id": "fe-analysis-ammonium",
+      "assetId": "fe-analysis-ammonium",
+      "conflicts": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "fe-analysis-nitrate",
+   "name": "Nitrate (specify reporting basis)",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -15
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+      },
+      {
+       "d": "M4 2 L7.009999999999999 2"
+      },
+      {
+       "d": "M7.009999999999999 -2.3064999999999998 L22.61375 -2.3064999999999998 L22.61375 6.3065 L7.009999999999999 6.3065 Z"
+      },
+      {
+       "identityInk": "NO₃",
+       "at": [
+        8.147749999999998,
+        4.1579999999999995
+       ],
+       "scale": 0.00325,
+       "glyphs": [
+        {
+         "x": 0,
+         "d": "M173 0V-1440H329L1133 -423Q1163 -386 1191.5 -343.0Q1220 -300 1227 -281H1232Q1228 -305 1225.0 -336.5Q1222 -368 1221.0 -416.5Q1220 -465 1220 -539V-1440H1393V0H1247L427 -1038Q394 -1077 370.5 -1112.5Q347 -1148 338 -1168H337Q342 -1133 344.5 -1071.0Q347 -1009 347 -922V0Z"
+        },
+        {
+         "x": 1567,
+         "d": "M815 26Q655 26 522.0 -31.5Q389 -89 292.5 -191.5Q196 -294 143.5 -429.0Q91 -564 91 -718Q91 -872 143.5 -1007.5Q196 -1143 292.5 -1246.5Q389 -1350 522.0 -1408.0Q655 -1466 815 -1466Q975 -1466 1108.0 -1408.5Q1241 -1351 1337.5 -1248.5Q1434 -1146 1486.5 -1011.0Q1539 -876 1539 -722Q1539 -568 1486.5 -432.5Q1434 -297 1337.5 -193.5Q1241 -90 1108.5 -32.0Q976 26 815 26ZM815 -141Q976 -141 1098.0 -214.5Q1220 -288 1288.5 -419.0Q1357 -550 1357 -722Q1357 -851 1317.5 -956.5Q1278 -1062 1206.5 -1139.0Q1135 -1216 1035.5 -1257.5Q936 -1299 815 -1299Q695 -1299 595.0 -1257.0Q495 -1215 423.5 -1137.0Q352 -1059 312.5 -953.0Q273 -847 273 -718Q273 -590 312.5 -484.0Q352 -378 423.5 -301.0Q495 -224 595.0 -182.5Q695 -141 815 -141Z"
+        },
+        {
+         "x": 3197,
+         "d": "M397 138Q245 138 154.5 49.0Q64 -40 64 -190H230Q229 -115 277.0 -66.5Q325 -18 403 -18Q477 -18 520.0 -59.5Q563 -101 563 -168Q563 -235 516.0 -276.0Q469 -317 381 -314L326 -312V-473H383Q460 -473 502.5 -510.0Q545 -547 545 -610Q545 -673 504.5 -711.5Q464 -750 394 -750Q323 -750 278.5 -709.0Q234 -668 234 -600H73Q73 -699 115.5 -767.0Q158 -835 231.0 -870.5Q304 -906 393 -906Q487 -906 557.0 -870.0Q627 -834 666.0 -772.5Q705 -711 705 -634Q705 -559 666.5 -496.5Q628 -434 559 -417V-412Q632 -393 681.5 -325.0Q731 -257 731 -158Q731 -28 639.0 55.0Q547 138 397 138Z"
+        }
+       ],
+       "bounds": [
+        8.709999999999999,
+        -0.6065,
+        20.91375,
+        4.6065000000000005
+       ],
+       "analyteIdentity": {
+        "id": "fe-analysis-nitrate",
+        "assetId": "fe-analysis-nitrate",
+        "conflicts": []
+       }
+      }
+     ],
+     "metadata": {
+      "id": "fe-analysis-nitrate",
+      "assetId": "fe-analysis-nitrate",
+      "kind": "primary-element",
+      "symbolId": "fe-analysis-nitrate",
+      "bodyId": "fe-analysis-immersion",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending",
+      "installation": "immersion",
+      "analyte": "nitrate",
+      "identityGlyph": "NO₃",
+      "specificationRequired": true,
+      "specificationComplete": false
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -15
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       12
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": [],
+     "identityLayout": {
+      "id": "fe-analysis-nitrate",
+      "assetId": "fe-analysis-nitrate",
+      "style": "outlined",
+      "side": "right",
+      "offset": 0,
+      "box": [
+       7.009999999999999,
+       -2.3064999999999998,
+       22.61375,
+       6.3065
+      ],
+      "inkBounds": [
+       8.709999999999999,
+       -0.6065,
+       20.91375,
+       4.6065000000000005
+      ],
+      "inkSize": 6.5,
+      "leader": [
+       [
+        4,
+        2
+       ],
+       [
+        7.009999999999999,
+        2
+       ]
+      ],
+      "conflicts": [],
+      "status": "placed"
+     }
+    },
+    "identityStyles": [
+     "outlined",
+     "unboxed"
+    ],
+    "installations": [
+     "immersion",
+     "insertion",
+     "cell",
+     "cabinet"
+    ]
+   },
+   "shapes": [
+    {
+     "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+    },
+    {
+     "d": "M4 2 L7.009999999999999 2"
+    },
+    {
+     "d": "M7.009999999999999 -2.3064999999999998 L22.61375 -2.3064999999999998 L22.61375 6.3065 L7.009999999999999 6.3065 Z"
+    },
+    {
+     "identityInk": "NO₃",
+     "at": [
+      8.147749999999998,
+      4.1579999999999995
+     ],
+     "scale": 0.00325,
+     "glyphs": [
+      {
+       "x": 0,
+       "d": "M173 0V-1440H329L1133 -423Q1163 -386 1191.5 -343.0Q1220 -300 1227 -281H1232Q1228 -305 1225.0 -336.5Q1222 -368 1221.0 -416.5Q1220 -465 1220 -539V-1440H1393V0H1247L427 -1038Q394 -1077 370.5 -1112.5Q347 -1148 338 -1168H337Q342 -1133 344.5 -1071.0Q347 -1009 347 -922V0Z"
+      },
+      {
+       "x": 1567,
+       "d": "M815 26Q655 26 522.0 -31.5Q389 -89 292.5 -191.5Q196 -294 143.5 -429.0Q91 -564 91 -718Q91 -872 143.5 -1007.5Q196 -1143 292.5 -1246.5Q389 -1350 522.0 -1408.0Q655 -1466 815 -1466Q975 -1466 1108.0 -1408.5Q1241 -1351 1337.5 -1248.5Q1434 -1146 1486.5 -1011.0Q1539 -876 1539 -722Q1539 -568 1486.5 -432.5Q1434 -297 1337.5 -193.5Q1241 -90 1108.5 -32.0Q976 26 815 26ZM815 -141Q976 -141 1098.0 -214.5Q1220 -288 1288.5 -419.0Q1357 -550 1357 -722Q1357 -851 1317.5 -956.5Q1278 -1062 1206.5 -1139.0Q1135 -1216 1035.5 -1257.5Q936 -1299 815 -1299Q695 -1299 595.0 -1257.0Q495 -1215 423.5 -1137.0Q352 -1059 312.5 -953.0Q273 -847 273 -718Q273 -590 312.5 -484.0Q352 -378 423.5 -301.0Q495 -224 595.0 -182.5Q695 -141 815 -141Z"
+      },
+      {
+       "x": 3197,
+       "d": "M397 138Q245 138 154.5 49.0Q64 -40 64 -190H230Q229 -115 277.0 -66.5Q325 -18 403 -18Q477 -18 520.0 -59.5Q563 -101 563 -168Q563 -235 516.0 -276.0Q469 -317 381 -314L326 -312V-473H383Q460 -473 502.5 -510.0Q545 -547 545 -610Q545 -673 504.5 -711.5Q464 -750 394 -750Q323 -750 278.5 -709.0Q234 -668 234 -600H73Q73 -699 115.5 -767.0Q158 -835 231.0 -870.5Q304 -906 393 -906Q487 -906 557.0 -870.0Q627 -834 666.0 -772.5Q705 -711 705 -634Q705 -559 666.5 -496.5Q628 -434 559 -417V-412Q632 -393 681.5 -325.0Q731 -257 731 -158Q731 -28 639.0 55.0Q547 138 397 138Z"
+      }
+     ],
+     "bounds": [
+      8.709999999999999,
+      -0.6065,
+      20.91375,
+      4.6065000000000005
+     ],
+     "analyteIdentity": {
+      "id": "fe-analysis-nitrate",
+      "assetId": "fe-analysis-nitrate",
+      "conflicts": []
+     }
+    }
+   ]
+  },
+  {
+   "id": "fe-analysis-phosphate",
+   "name": "Phosphate (specify reporting basis)",
+   "category": "Primary elements",
+   "sources": [
+    {
+     "std": "Processvg design",
+     "ref": "Family 06 Revision 03"
+    }
+   ],
+   "ports": [
+    [
+     0,
+     -15
+    ]
+   ],
+   "verification": "Workshop convention; standards verification pending",
+   "designApproval": "Family 06 Revision 03",
+   "primaryElement": {
+    "defaultMode": "current",
+    "current": {
+     "shapes": [
+      {
+       "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+      },
+      {
+       "d": "M4 2 L7.009999999999999 2"
+      },
+      {
+       "d": "M7.009999999999999 -2.2772499999999996 L21.67775 -2.2772499999999996 L21.67775 6.2772499999999996 L7.009999999999999 6.2772499999999996 Z"
+      },
+      {
+       "identityInk": "PO₄",
+       "at": [
+        8.147749999999998,
+        4.187250000000001
+       ],
+       "scale": 0.00325,
+       "glyphs": [
+        {
+         "x": 0,
+         "d": "M173 1V-1439H617Q768 -1439 878.5 -1382.5Q989 -1326 1049.0 -1227.5Q1109 -1129 1109 -1003Q1109 -876 1049.0 -776.5Q989 -677 878.5 -620.0Q768 -563 617 -563H351V1ZM351 -727H601Q700 -727 773.5 -760.0Q847 -793 887.0 -855.0Q927 -917 927 -1003Q927 -1088 887.0 -1149.0Q847 -1210 773.5 -1242.5Q700 -1275 601 -1275H351Z"
+        },
+        {
+         "x": 1197,
+         "d": "M815 26Q655 26 522.0 -31.5Q389 -89 292.5 -191.5Q196 -294 143.5 -429.0Q91 -564 91 -718Q91 -872 143.5 -1007.5Q196 -1143 292.5 -1246.5Q389 -1350 522.0 -1408.0Q655 -1466 815 -1466Q975 -1466 1108.0 -1408.5Q1241 -1351 1337.5 -1248.5Q1434 -1146 1486.5 -1011.0Q1539 -876 1539 -722Q1539 -568 1486.5 -432.5Q1434 -297 1337.5 -193.5Q1241 -90 1108.5 -32.0Q976 26 815 26ZM815 -141Q976 -141 1098.0 -214.5Q1220 -288 1288.5 -419.0Q1357 -550 1357 -722Q1357 -851 1317.5 -956.5Q1278 -1062 1206.5 -1139.0Q1135 -1216 1035.5 -1257.5Q936 -1299 815 -1299Q695 -1299 595.0 -1257.0Q495 -1215 423.5 -1137.0Q352 -1059 312.5 -953.0Q273 -847 273 -718Q273 -590 312.5 -484.0Q352 -378 423.5 -301.0Q495 -224 595.0 -182.5Q695 -141 815 -141Z"
+        },
+        {
+         "x": 2827,
+         "d": "M539 118V-586Q539 -598 539.0 -613.5Q539 -629 539.0 -643.5Q539 -658 540 -666H539Q532 -654 518.5 -633.0Q505 -612 487 -586L236 -248Q229 -239 220.5 -229.5Q212 -220 204 -214V-212H813V-68H61V-252L543 -888H701V120Z"
+        }
+       ],
+       "bounds": [
+        8.709999999999999,
+        -0.5772499999999998,
+        19.97775,
+        4.577249999999999
+       ],
+       "analyteIdentity": {
+        "id": "fe-analysis-phosphate",
+        "assetId": "fe-analysis-phosphate",
+        "conflicts": []
+       }
+      }
+     ],
+     "metadata": {
+      "id": "fe-analysis-phosphate",
+      "assetId": "fe-analysis-phosphate",
+      "kind": "primary-element",
+      "symbolId": "fe-analysis-phosphate",
+      "bodyId": "fe-analysis-immersion",
+      "mode": "current",
+      "version": 1,
+      "orientation": 0,
+      "verification": "Design-approved workshop convention; standards verification pending",
+      "installation": "immersion",
+      "analyte": "phosphate",
+      "identityGlyph": "PO₄",
+      "specificationRequired": true,
+      "specificationComplete": false
+     },
+     "interfaces": [
+      {
+       "id": "instrument",
+       "point": [
+        0,
+        -15
+       ],
+       "kind": "instrument-interface",
+       "direction": null
+      }
+     ],
+     "sensing": {
+      "origin": [
+       0,
+       12
+      ],
+      "direction": [
+       0,
+       1
+      ]
+     },
+     "stations": [],
+     "transfers": [],
+     "identityLayout": {
+      "id": "fe-analysis-phosphate",
+      "assetId": "fe-analysis-phosphate",
+      "style": "outlined",
+      "side": "right",
+      "offset": 0,
+      "box": [
+       7.009999999999999,
+       -2.2772499999999996,
+       21.67775,
+       6.2772499999999996
+      ],
+      "inkBounds": [
+       8.709999999999999,
+       -0.5772499999999998,
+       19.97775,
+       4.577249999999999
+      ],
+      "inkSize": 6.5,
+      "leader": [
+       [
+        4,
+        2
+       ],
+       [
+        7.009999999999999,
+        2
+       ]
+      ],
+      "conflicts": [],
+      "status": "placed"
+     }
+    },
+    "identityStyles": [
+     "outlined",
+     "unboxed"
+    ],
+    "installations": [
+     "immersion",
+     "insertion",
+     "cell",
+     "cabinet"
+    ]
+   },
+   "shapes": [
+    {
+     "d": "M0 -15 L0 -8 M-4 -8 L4 -8 L4 12 L-4 12 Z M-4 8 L4 8"
+    },
+    {
+     "d": "M4 2 L7.009999999999999 2"
+    },
+    {
+     "d": "M7.009999999999999 -2.2772499999999996 L21.67775 -2.2772499999999996 L21.67775 6.2772499999999996 L7.009999999999999 6.2772499999999996 Z"
+    },
+    {
+     "identityInk": "PO₄",
+     "at": [
+      8.147749999999998,
+      4.187250000000001
+     ],
+     "scale": 0.00325,
+     "glyphs": [
+      {
+       "x": 0,
+       "d": "M173 1V-1439H617Q768 -1439 878.5 -1382.5Q989 -1326 1049.0 -1227.5Q1109 -1129 1109 -1003Q1109 -876 1049.0 -776.5Q989 -677 878.5 -620.0Q768 -563 617 -563H351V1ZM351 -727H601Q700 -727 773.5 -760.0Q847 -793 887.0 -855.0Q927 -917 927 -1003Q927 -1088 887.0 -1149.0Q847 -1210 773.5 -1242.5Q700 -1275 601 -1275H351Z"
+      },
+      {
+       "x": 1197,
+       "d": "M815 26Q655 26 522.0 -31.5Q389 -89 292.5 -191.5Q196 -294 143.5 -429.0Q91 -564 91 -718Q91 -872 143.5 -1007.5Q196 -1143 292.5 -1246.5Q389 -1350 522.0 -1408.0Q655 -1466 815 -1466Q975 -1466 1108.0 -1408.5Q1241 -1351 1337.5 -1248.5Q1434 -1146 1486.5 -1011.0Q1539 -876 1539 -722Q1539 -568 1486.5 -432.5Q1434 -297 1337.5 -193.5Q1241 -90 1108.5 -32.0Q976 26 815 26ZM815 -141Q976 -141 1098.0 -214.5Q1220 -288 1288.5 -419.0Q1357 -550 1357 -722Q1357 -851 1317.5 -956.5Q1278 -1062 1206.5 -1139.0Q1135 -1216 1035.5 -1257.5Q936 -1299 815 -1299Q695 -1299 595.0 -1257.0Q495 -1215 423.5 -1137.0Q352 -1059 312.5 -953.0Q273 -847 273 -718Q273 -590 312.5 -484.0Q352 -378 423.5 -301.0Q495 -224 595.0 -182.5Q695 -141 815 -141Z"
+      },
+      {
+       "x": 2827,
+       "d": "M539 118V-586Q539 -598 539.0 -613.5Q539 -629 539.0 -643.5Q539 -658 540 -666H539Q532 -654 518.5 -633.0Q505 -612 487 -586L236 -248Q229 -239 220.5 -229.5Q212 -220 204 -214V-212H813V-68H61V-252L543 -888H701V120Z"
+      }
+     ],
+     "bounds": [
+      8.709999999999999,
+      -0.5772499999999998,
+      19.97775,
+      4.577249999999999
+     ],
+     "analyteIdentity": {
+      "id": "fe-analysis-phosphate",
+      "assetId": "fe-analysis-phosphate",
+      "conflicts": []
+     }
     }
    ]
   },

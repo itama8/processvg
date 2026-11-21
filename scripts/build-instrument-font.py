@@ -23,7 +23,7 @@ glyphs = font.getGlyphSet()
 chars = {}
 for code, name in sorted(font.getBestCmap().items()):
     # Printable ASCII, Latin with precomposed accents, plus project punctuation.
-    if not (32 <= code <= 126 or 160 <= code <= 383 or code in (0x3A9, 0x394, 0x2013, 0x2014, 0x2212)):
+    if not (32 <= code <= 126 or 160 <= code <= 383 or 0x2080 <= code <= 0x2089 or code in (0x3A9, 0x394, 0x2013, 0x2014, 0x2212)):
         continue
     glyph = glyphs[name]
     bounds = BoundsPen(glyphs)
