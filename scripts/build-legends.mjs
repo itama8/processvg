@@ -101,7 +101,7 @@ const catalogue = {
     Proposed: "Drafted here; agree with the firm before use",
     "processvg design": "User-approved library geometry; exact standards verification pending",
     ProjectMaterials: "P&ID Symbols Reference, Lines & Signals, user-supplied PDF",
-    "Dock 10–11": "Dock 10–11 terminal P&ID legend, user-supplied PDF",
+    "Terminal legend": "Terminal P&ID legend, user-supplied PDF",
   },
   aliases: GATE_ALIASES,
   gateArchive,

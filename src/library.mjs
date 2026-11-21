@@ -187,7 +187,7 @@ export const SYMBOLS = [
   { id: "line-hydraulic", name: "Hydraulic impulse line", cat: "Lines", src: [{ std: "ProjectMaterials", ref: "p. 10" }], w: 40,
     draw: ({ renderScale } = {}) => routeLine("line-hydraulic", [[-20, 0], [20, 0]], { renderScale }).shapes,
     ports: [[-20, 0], [20, 0]], portNames: ENDS, connectivity: THROUGH, verification: "Proposed" },
-  { id: "line-spec-break", name: "Specification break", cat: "Lines", src: [{ std: "Dock 10–11", ref: "p. 1" }], w: 32,
+  { id: "line-spec-break", name: "Specification break", cat: "Lines", src: [{ std: "Terminal legend", ref: "p. 1" }], w: 32,
     draw: (options) => specificationBreak({}, options).shapes,
     ports: SPEC_BREAK_PORTS, portNames: ENDS, connectivity: THROUGH, verification: "Proposed" },
 
