@@ -1,9 +1,13 @@
 # processvg
 
-Beautiful drawings for process engineers. P&IDs, process flow diagrams, sections and
-layouts of water and wastewater treatment plants, drawn as clean, editable SVG in the
-[Plotter](https://github.com/pasqualevitiello/plotter) style: one ink, one-unit strokes,
-opacity for hierarchy, and per-symbol source and review status.
+Beautiful drawings for process engineers.
+
+ProcessVG draws P&IDs, process flow diagrams, sections and layouts of water and
+wastewater treatment plants as editable SVG using the style and tooling of
+Pasquale Vitiello’s [Plotter project](https://plotter.pasqualevitiello.com)
+([source repository](https://github.com/pasqualevitiello/plotter)). Drawings use
+one ink, one-unit strokes and opacity for hierarchy. Each symbol records its
+sources and review status.
 
 ## What is here
 
